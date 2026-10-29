@@ -13,7 +13,7 @@ step_seconds: 60
 label_rule: homogeneous
 
 # null: tu tim tat ca file S*/S*.pkl. Thu nhanh: subjects: [S2]
-subjects: null
+subjects: [S17]
 
 feature_version: raw_stats_v1
-output_dir: "data/features/chest_60s_step60_raw_stats_v1/S3"
+output_dir: "data/features/chest_60s_step60_raw_stats_v1/S17"
