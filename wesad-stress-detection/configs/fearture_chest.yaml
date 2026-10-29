@@ -1,0 +1,19 @@
+# Chay lenh tu thu muc goc du an.
+# Thu muc nay phai chua truc tiep S2/, S3/, ...
+# Co the thay bang duong dan tuyet doi tren Windows, dung dau /.
+data_root: "data/raw/WESAD/WESAD"
+
+device: chest
+sensors: [ECG, EDA, Resp]
+sampling_rate_hz: 700
+labels: [1, 2, 3]
+
+window_seconds: 60
+step_seconds: 60
+label_rule: homogeneous
+
+# null: tu tim tat ca file S*/S*.pkl. Thu nhanh: subjects: [S2]
+subjects: null
+
+feature_version: raw_stats_v1
+output_dir: "data/features/chest_60s_step60_raw_stats_v1/S3"
