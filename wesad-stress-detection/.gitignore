@@ -1,8 +1,13 @@
+# Dữ liệu gốc, đặc trưng và kết quả sinh ra
 /data/raw/
 /data/features/
 /outputs/
+WESAD.zip
 
+# Môi trường, cache và cấu hình riêng
 .venv/
+venv/
 __pycache__/
+*.pyc
 .ipynb_checkpoints/
 .env
