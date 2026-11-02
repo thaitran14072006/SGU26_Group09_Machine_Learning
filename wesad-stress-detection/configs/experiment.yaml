@@ -1,0 +1,34 @@
+# Cấu hình chạy thử trên bảng thống kê raw.
+features: data/features/chest_raw_stats_majority_v1/all_subjects.csv
+output_dir: outputs/experiments/raw_stats_defaults
+expected_subjects: [S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S13, S14, S15, S16, S17]
+models: [dummy, lr, knn, svm, rf, mlp]
+tasks: [multiclass, binary]
+seed: 42
+sensor_set: chest_raw_statistics
+normalization: global_train
+balance: false
+nested: false
+inner_splits: 3
+# Mỗi mô hình có bốn tổ hợp tham số, đánh giá trong inner CV.
+search_spaces:
+  knn:
+    - {model__n_neighbors: [3], model__metric: [euclidean], model__weights: [uniform]}
+    - {model__n_neighbors: [5], model__metric: [manhattan], model__weights: [distance]}
+    - {model__n_neighbors: [9], model__metric: [euclidean], model__weights: [distance]}
+    - {model__n_neighbors: [5], model__metric: [euclidean], model__weights: [uniform]}
+  svm:
+    - {model__C: [0.1], model__gamma: [scale]}
+    - {model__C: [1.0], model__gamma: [scale]}
+    - {model__C: [10.0], model__gamma: [0.01]}
+    - {model__C: [10.0], model__gamma: [0.1]}
+  rf:
+    - {model__n_estimators: [100], model__max_depth: [10], model__max_features: [sqrt]}
+    - {model__n_estimators: [200], model__max_depth: [null], model__max_features: [sqrt]}
+    - {model__n_estimators: [100], model__max_depth: [null], model__max_features: [0.5]}
+    - {model__n_estimators: [200], model__max_depth: [10], model__max_features: [0.5]}
+  mlp:
+    - {model__hidden_layer_sizes: [[32]], model__alpha: [0.0001], model__learning_rate_init: [0.001]}
+    - {model__hidden_layer_sizes: [[64, 32]], model__alpha: [0.001], model__learning_rate_init: [0.001]}
+    - {model__hidden_layer_sizes: [[32]], model__alpha: [0.001], model__learning_rate_init: [0.01]}
+    - {model__hidden_layer_sizes: [[64, 32]], model__alpha: [0.0001], model__learning_rate_init: [0.01]}

@@ -14,6 +14,7 @@ class Window:
     end_s: float
     label: int
     signals: dict[str, np.ndarray]
+    label_fraction: float = 1.0
 
 
 def iter_windows(
@@ -23,14 +24,15 @@ def iter_windows(
     window_seconds: float = 60,
     step_seconds: float = 60,
     allowed_labels: Sequence[int] = (1, 2, 3),
+    label_rule: str = "homogeneous",
+    min_label_fraction: float = 0.90,
 ) -> Iterator[Window]:
-    """Yield cua so day du, dong nhat nhan va co tin hieu huu han.
+    """Trả về cửa sổ đủ độ dài, đạt quy tắc nhãn và có tín hiệu hữu hạn.
 
-    Chi dung cho tin hieu da can chinh, cung tan so voi labels.
-    Luoi cua so bat dau tai 0, giu nguyen truc thoi gian goc.
-    Khong noi cac doan sau khi loai nhan; bo phan du cuoi ban ghi.
-    Cua so chua NaN/Inf bi loai, nhung tin hieu phang van can QA rieng.
-    Mang cua so la view neu co the; khong sao chep toan bo ban ghi.
+    Tín hiệu đầu vào đã căn chỉnh và có cùng tần số với labels.
+    Lưới bắt đầu tại 0; phần dư cuối bản ghi và cửa sổ có NaN/Inf bị loại.
+    Hỗ trợ nhãn đồng nhất hoặc nhãn đa số theo min_label_fraction.
+    Kiểm tra này chưa phát hiện tín hiệu phẳng hoặc nhiễu sinh lý.
     """
     parameters = (sampling_rate_hz, window_seconds, step_seconds)
     if any(not np.isfinite(x) or x <= 0 for x in parameters):
@@ -52,13 +54,24 @@ def iter_windows(
         if value.ndim not in (1, 2) or len(value) != len(labels):
             raise ValueError(f"Tin hieu {name} khong khop chieu/dai voi labels.")
     allowed = set(allowed_labels)
+    if label_rule not in {"homogeneous", "majority"}:
+        raise ValueError("label_rule must be homogeneous or majority.")
+    if not np.isfinite(min_label_fraction) or not 0.5 < min_label_fraction <= 1:
+        raise ValueError("min_label_fraction must be in (0.5, 1].")
 
     for start in range(0, len(labels) - window_size + 1, step_size):
         end = start + window_size
         segment_labels = labels[start:end]
-        label = segment_labels[0]
-        if label not in allowed or not np.all(segment_labels == label):
-            continue
+        if label_rule == "homogeneous":
+            label, fraction = segment_labels[0], 1.0
+            if label not in allowed or not np.all(segment_labels == label):
+                continue
+        else:
+            values, counts = np.unique(segment_labels, return_counts=True)
+            position = int(counts.argmax())
+            label, fraction = values[position], float(counts[position] / window_size)
+            if label not in allowed or fraction < min_label_fraction:
+                continue
         chunks = {name: value[start:end] for name, value in arrays.items()}
         if not all(np.isfinite(value).all() for value in chunks.values()):
             continue
@@ -69,4 +82,5 @@ def iter_windows(
             end_s=end / sampling_rate_hz,
             label=int(label),
             signals=chunks,
+            label_fraction=fraction,
         )

@@ -1,0 +1,2 @@
+# Sao chép thành local.yaml và sửa đường dẫn dữ liệu trên máy.
+data_root: C:/path/to/WESAD
