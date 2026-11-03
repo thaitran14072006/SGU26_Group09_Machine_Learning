@@ -2,6 +2,8 @@
 
 Ngày 03/11/2026. Đối chiếu bản nháp G1 của Mai tại commit `e12c577` và schema `g1_mai_draft_v1` gồm 8 metadata, 68 feature dự kiến. Phần Như triển khai ở đây là lọc, đồng bộ cửa sổ và các phép tính ACC/EMG để Mai gọi trong extractor. Chưa có raw S2 trên máy; chưa nghiệm thu tín hiệu, đơn vị hoặc bộ đặc trưng cuối.
 
+Cập nhật sau khi nhận dữ liệu: đã chạy S2 thật, giữ 395 cửa sổ và đối chiếu khóa/nhãn/mốc thời gian giữa raw và sau lọc. Xem [biên bản kiểm tra S2](G2_NHU_KIEM_TRA_S2_2026-11-03.md). Các trạng thái chờ raw bên dưới mô tả thời điểm bàn giao ban đầu; đơn vị, QA sinh lý và nghiệm thu nhóm vẫn chưa hoàn tất.
+
 ## Phần đã thực hiện
 
 | File | Giao diện bàn giao |
