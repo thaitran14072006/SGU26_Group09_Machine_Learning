@@ -60,10 +60,12 @@ Năng lượng dải tần được định nghĩa là tích phân PSD theo tầ
 
 | Người | Mai gửi | Mai cần nhận trước khi khóa G2 |
 | --- | --- | --- |
-| Thái | Schema, tên/thứ tự cột, quy ước NaN/nhãn, giao diện processor | Cấu trúc PKL đã kiểm tra, loader/CLI, đường dẫn schema và hợp đồng kiểm tra bảng |
+| Thái | Schema, tên/thứ tự cột, quy ước NaN/nhãn, giao diện processor | Đã đối chiếu loader/CLI, metadata, nhãn và schema; dùng lại hạ tầng, bổ sung kiểm tra chặt hơn trong nghiệm thu G2 |
 | Như | Danh mục feature, đơn vị mục tiêu, yêu cầu nhịp/SCR/ACC/EMG | Đồng bộ, scale, bộ lọc, detector, dải tần, xử lý biên và QA đã thống nhất |
 | Nam | Nhãn và nhóm cột để EDA/mô hình dùng chung | Các bất thường nhãn/tín hiệu/giá trị thiếu đã khảo sát |
 
 Mai làm danh mục/schema song song, không cần chờ Như hoàn tất code. Chỉ khóa phiên bản và nghiệm thu bảng S2 sau khi các điểm pending đã được thống nhất. Không coi một người đã đồng ý chỉ vì file đề xuất đã được tạo.
+
+Đối chiếu hạ tầng Thái đã thực hiện, 5/5 kiểm tra tương thích đạt; xem [G1_DOI_CHIEU_HA_TANG.md](G1_DOI_CHIEU_HA_TANG.md). Schema G1 yêu cầu đủ 8 metadata, purity, lưới thời gian và thứ tự cột; validator chung chưa thực thi toàn bộ các điều kiện này. Các cờ draft trong JSON chưa được loader sử dụng để chặn huấn luyện. G2 cần kiểm tra hợp đồng đã khóa trước khi xuất/nhận bảng.
 
 Nghiệm thu S2 trên bốn máy: cùng khóa cửa sổ, nhãn, start/end, cột/thứ tự, đơn vị và config; so sánh feature bằng dung sai theo từng nhóm được nhóm thống nhất. Không áp số cửa sổ của quy tắc homogeneous cho majority. Chưa có đối chiếu bốn máy ở thời điểm lập G1 này.
