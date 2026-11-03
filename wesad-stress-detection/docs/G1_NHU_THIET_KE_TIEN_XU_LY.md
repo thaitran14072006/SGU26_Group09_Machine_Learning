@@ -2,9 +2,7 @@
 
 Ngày lập: 03/11/2026. Người phụ trách: Phạm Quỳnh Như.
 
-Cập nhật tiếp nối G2 ngày 03/11: đã có các hàm lọc, cửa sổ đa tần số và helper ACC/EMG; xem [bản bàn giao G2](G2_NHU_BAN_GIAO_TIEN_XU_LY.md). Các trạng thái dưới đây ghi thời điểm lập G1; chưa nghiệm thu raw S2 hoặc ghi nhận Mai đã chốt thông số.
-
-Mục tiêu G1 là chuẩn bị môi trường, kiểm tra quy tắc cửa sổ và xác định hợp đồng tiền xử lý để nối với extractor của Mai. File này là bản thiết kế để nhóm đối chiếu; chưa chứng minh bộ lọc đã được triển khai hoặc dữ liệu S2 đã đạt nghiệm thu. Triển khai lọc và đồng bộ đầy đủ thuộc G2.
+Mục tiêu G1 là chuẩn bị môi trường, kiểm tra quy tắc cửa sổ và xác định hợp đồng tiền xử lý để đối chiếu với Mai. Phạm vi bàn giao của Như trên main chỉ gồm thiết kế và cấu hình chạy thử G1. Chưa triển khai bộ lọc, cửa sổ đa tần số hoặc helper ACC/EMG của G2.
 
 ## 1. Quy tắc cửa sổ đã có trong code
 
@@ -17,7 +15,7 @@ Mục tiêu G1 là chuẩn bị môi trường, kiểm tra quy tắc cửa sổ 
 
 `preprocessing.iter_windows` hiện yêu cầu tín hiệu đã cùng độ dài và tần số với nhãn. Giữ hàm này cho smoke test ngực. G2 cần thêm cách cắt theo mốc thời gian cho các kênh khác tần số, không truyền trực tiếp tín hiệu cổ tay vào hàm hiện tại.
 
-## 2. Hợp đồng đồng bộ cho G2
+## 2. Thiết kế đồng bộ cần chốt trong G1
 
 | Thiết bị | Kênh | Tần số theo proposal |
 | --- | --- | ---: |
@@ -75,9 +73,9 @@ $env:TMP = $env:TEMP
 
 Test hiện có dùng dữ liệu giả, bao gồm đúng ngưỡng 90%, dưới ngưỡng, nhãn không dùng, không nối đoạn và bỏ phần dư cuối. Kết quả test không thay cho nghiệm thu raw S2.
 
-## 6. Khi nhận được S2.pkl
+## 6. Chạy mẫu S2 để kiểm tra G1
 
-1. Nhận raw S2 từ Mai/Thái hoặc nguồn tác giả. CSV đặc trưng không thay thế raw để kiểm tra lọc.
+1. Đã có raw S2 từ bộ WESAD tải từ nguồn tác giả. CSV đặc trưng không thay thế raw để kiểm tra tín hiệu. Giữ raw ngoài repository.
 2. Sao chép `configs/local.example.yaml` thành `configs/local.yaml`; thay `data_root` bằng thư mục thật chứa trực tiếp `S2/`. File local chỉ chứa `data_root` và được Git bỏ qua.
 3. Chạy config riêng của Như:
 
@@ -85,11 +83,11 @@ Test hiện có dùng dữ liệu giả, bao gồm đúng ngưỡng 90%, dưới
 .\.venv\Scripts\python.exe scripts/extract_features.py --config configs/features_nhu_smoke.yaml --local configs/local.yaml --subjects S2 --resume
 ```
 
-Đây là lượt thống kê raw để kiểm tra môi trường và cửa sổ, chưa chạy bộ lọc trong bản thiết kế này. Đầu ra: `data/features/nhu_s2_chest_raw_stats_majority_v1/`.
+Đây là lượt thống kê raw để kiểm tra môi trường và cửa sổ G1, chưa chạy bộ lọc trong bản thiết kế này. Đầu ra: `data/features/nhu_g1_S2_chest_raw_stats_majority_v1/`. Dùng thư mục mới sau khi đổi source để không trộn mã băm với các lượt chạy trước.
 
 4. Kiểm tra `run_status.json` complete cho S2, số cửa sổ theo nhãn, 60 giây/cửa sổ, khóa không trùng và checksum. Complete ở đây chỉ áp dụng subject đã chọn, không chứng minh đủ 15 người.
 5. Đối chiếu với Mai/Thái: cùng source, cấu hình xử lý, thứ tự feature, khóa, nhãn và mốc thời gian; thống nhất dung sai cho giá trị float. Máy này dùng Python 3.13.9; bản bàn giao Thái dùng 3.12.14 nên không mong manifest môi trường giống nhau và cần thống nhất Python trước lượt chính.
-6. Sau khi thống nhất processor G2, chạy lại S2 với feature phiên bản mới, vẽ tín hiệu trước/sau lọc, rồi mới chạy lô `S4 S9 S11 S17`.
+6. G1 dừng ở thiết kế và chạy mẫu. Việc triển khai lọc, cửa sổ đa tần số, helper ACC/EMG và chạy lô `S4 S9 S11 S17` chỉ bắt đầu khi người dùng yêu cầu G2.
 
 ## 7. Điều kiện hoàn tất G1 của Như
 
@@ -100,18 +98,18 @@ Kết quả kiểm tra thực tế trên máy Như ngày 03/11/2026:
 | Môi trường `.venv` | Python 3.13.9, tạo từ Python Anaconda trên máy |
 | Thư viện | Cài đúng `requirements.lock.txt`, cài package editable thành công |
 | `pip check` | `No broken requirements found.` |
-| Bộ kiểm tra hiện có | 14/14 đạt; thời gian chạy test được unittest báo 3,741 giây |
+| Bộ kiểm tra hiện có | 14/14 đạt; dùng dữ liệu giả, gồm kiểm tra biên nhãn |
 | Config `features_nhu_smoke.yaml` | Đọc bằng `read_config` thành công; xác minh S2, 60/5 giây và ngưỡng 0,90 |
-| Dữ liệu S2 thật | Chưa có, chưa chạy extractor trên raw |
-| Bộ lọc và đồng bộ G2 | Bản thiết kế, chưa triển khai và chưa được Mai xác nhận |
+| Dữ liệu S2 thật | Đã có; chỉ chạy extractor thống kê raw để kiểm tra G1 |
+| Bộ lọc và đồng bộ đa tần số | Chỉ ở mức thiết kế G1, chưa có triển khai trong phần bàn giao của Như trên main |
 
-Không thay đổi source, phiên bản khóa thư viện hoặc kết quả của Thái. Các phiên chạy dùng dữ liệu giả của bộ test không phải kết quả thực nghiệm WESAD.
+Giữ nguyên source hạ tầng gốc, phiên bản khóa thư viện và kết quả của Thái. Các phiên chạy dùng dữ liệu giả của bộ test không phải kết quả thực nghiệm WESAD. Kết quả mẫu S2 trên máy Như được ghi riêng trong [biên bản G1](G1_NHU_KIEM_TRA_S2_2026-11-03.md).
 
 - Có môi trường chạy và kết quả bộ kiểm tra hiện có.
 - Như/Mai xác nhận thiết kế đồng bộ, tham số lọc và chính sách QA còn mở ở mục 3.
 - Có raw S2 và bằng chứng đối chiếu mẫu giữa các máy.
 
-Chưa đánh dấu G1 hoàn tất khi chưa có S2 và xác nhận của nhóm. File này không gửi thông điệp hay tạo PR thay nhóm.
+Mẫu S2 trên máy Như không thay thế việc xác nhận thiết kế với Mai và nghiệm thu bốn máy. Chưa đánh dấu nghiệm thu chung G1 khi thiếu các xác nhận này. File này không gửi thông điệp hay ghi nhận review thay nhóm.
 
 ## Nguồn đối chiếu
 

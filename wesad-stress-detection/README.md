@@ -281,6 +281,8 @@ Hạ tầng dùng chung để đọc từng subject, trích feature tuần tự,
 
 **Bàn giao hôm nay:** [Công việc Thái đã hoàn thành và đầu việc nối tiếp](docs/BAN_GIAO_CONG_VIEC_THAI_2026-11-02.md).
 
+**Phần G1 của Như:** [thiết kế tiền xử lý](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md) và [kiểm tra mẫu S2](docs/G1_NHU_KIEM_TRA_S2_2026-11-03.md). Phần bàn giao này chỉ gồm thiết kế, môi trường và chạy mẫu bằng hạ tầng có sẵn; chưa triển khai G2.
+
 ### Phạm vi bổ sung
 
 - Đọc và xác minh một PKL mỗi lần; cấu hình riêng theo máy, CLI chọn subject.
@@ -425,15 +427,3 @@ Kiểm tra bao gồm threshold nhãn, schema/metadata, resume, đầy đủ oute
 Git root là `DOAN/SGU26_Group09_Machine_Learning`, chứa cả weeks/ và Challenge/. Không git init trong dự án con. Add từng đường dẫn cần thiết, không commit raw, feature, outputs, local config hoặc môi trường. File mẫu `local.example.yaml` vẫn được quản lý bằng Git.
 
 Các kết quả thật trên bốn người chỉ là bằng chứng chạy hạ tầng; xem file bàn giao để biết phần nào đã làm và phần nào còn chờ nhóm. Dữ liệu và output cần chia sẻ riêng, không nằm trong repository.
-
-## 19. Tiền xử lý G2 của Như
-
-Đã bổ sung lọc SOS theo từng đoạn hữu hạn, cửa sổ ngực/cổ tay theo tần số gốc và helper ACC/EMG tính feature từng đoạn 5 giây rồi lấy trung bình trong 60 giây. Xem [bàn giao G2 của Như](docs/G2_NHU_BAN_GIAO_TIEN_XU_LY.md) để Mai tích hợp. Bộ lọc mới chưa nối vào extractor raw cũ; schema của Mai vẫn là bản nháp.
-
-Khi có raw S2 và đã cấu hình `local.yaml`, kiểm tra bằng:
-
-```powershell
-.\.venv\Scripts\python.exe scripts/check_preprocessing.py --config configs/preprocessing_nhu_draft.yaml --local configs/local.yaml --subjects S2 --output outputs/preprocessing/nhu_S2_draft_01
-```
-
-Lệnh tạo metadata và báo cáo chẩn đoán trong thư mục mới, chưa tạo bảng feature để huấn luyện. Thông số vùng biên, EDA cổ tay, đơn vị và QA sinh lý còn chờ kiểm tra raw/thống nhất với Mai. Bộ test hiện tại có 28 kiểm tra dùng dữ liệu giả; chưa thay nghiệm thu S2 trên bốn máy.
