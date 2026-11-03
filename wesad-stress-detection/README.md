@@ -1,5 +1,7 @@
 # WESAD – Chia cửa sổ và trích xuất đặc trưng
 
+**Phần Mai đang thực hiện G1 theo phân công:** xem [bàn giao Mai G1](docs/BAN_GIAO.md), [hợp đồng feature G1](docs/G1_HOP_DONG_FEATURE.md) và [schema nháp](configs/feature_schema.json). Schema cần thống nhất tiền xử lý với Như trước khi khóa G2.
+
 Chương trình đọc dữ liệu WESAD lần lượt theo từng người, chia tín hiệu ngực thành các cửa sổ 60 giây với bước 60 giây, tính đặc trưng thống kê và lưu kết quả trong `data/features/`.
 
 ## 1. Phạm vi xử lý
