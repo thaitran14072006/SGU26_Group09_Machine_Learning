@@ -2,6 +2,8 @@
 
 Ngày lập: 03/11/2026. Người phụ trách: Phạm Quỳnh Như.
 
+Cập nhật tiếp nối G2 ngày 03/11: đã có các hàm lọc, cửa sổ đa tần số và helper ACC/EMG; xem [bản bàn giao G2](G2_NHU_BAN_GIAO_TIEN_XU_LY.md). Các trạng thái dưới đây ghi thời điểm lập G1; chưa nghiệm thu raw S2 hoặc ghi nhận Mai đã chốt thông số.
+
 Mục tiêu G1 là chuẩn bị môi trường, kiểm tra quy tắc cửa sổ và xác định hợp đồng tiền xử lý để nối với extractor của Mai. File này là bản thiết kế để nhóm đối chiếu; chưa chứng minh bộ lọc đã được triển khai hoặc dữ liệu S2 đã đạt nghiệm thu. Triển khai lọc và đồng bộ đầy đủ thuộc G2.
 
 ## 1. Quy tắc cửa sổ đã có trong code
