@@ -1,0 +1,68 @@
+# Cấu hình kiểm tra G2 của Như; chưa được nghiệm thu trên raw S2.
+# Không truyền config này vào extract_features.py hoặc run_experiment.py.
+status: draft_pending_raw_validation_and_mai_review
+data_root: data/raw/WESAD/WESAD
+subjects: [S2]
+units_status: raw_unverified_no_conversion
+acc_gravity: retained
+window:
+  label_sampling_rate_hz: 700
+  window_seconds: 60
+  step_seconds: 5
+  allowed_labels: [1, 2, 3]
+  min_label_fraction: 0.90
+channels:
+  chest_ecg:
+    device: chest
+    sensor: ECG
+    sampling_rate_hz: 700
+    axes: 1
+  chest_eda:
+    device: chest
+    sensor: EDA
+    sampling_rate_hz: 700
+    axes: 1
+    filter: {kind: lowpass, cutoff_hz: 5, order: 4, edge_seconds: 10}
+  chest_resp:
+    device: chest
+    sensor: Resp
+    sampling_rate_hz: 700
+    axes: 1
+    filter: {kind: bandpass, cutoff_hz: [0.1, 0.35], order: 4, edge_seconds: 30}
+  chest_temp:
+    device: chest
+    sensor: Temp
+    sampling_rate_hz: 700
+    axes: 1
+  chest_acc:
+    device: chest
+    sensor: ACC
+    sampling_rate_hz: 700
+    axes: 3
+  chest_emg:
+    device: chest
+    sensor: EMG
+    sampling_rate_hz: 700
+    axes: 1
+  wrist_bvp:
+    device: wrist
+    sensor: BVP
+    sampling_rate_hz: 64
+    axes: 1
+  wrist_eda:
+    device: wrist
+    sensor: EDA
+    sampling_rate_hz: 4
+    axes: 1
+    # 1 Hz và vùng bỏ biên là đề xuất, không phải thông số bài báo.
+    filter: {kind: lowpass, cutoff_hz: 1, order: 4, edge_seconds: 10}
+  wrist_temp:
+    device: wrist
+    sensor: TEMP
+    sampling_rate_hz: 4
+    axes: 1
+  wrist_acc:
+    device: wrist
+    sensor: ACC
+    sampling_rate_hz: 32
+    axes: 3
