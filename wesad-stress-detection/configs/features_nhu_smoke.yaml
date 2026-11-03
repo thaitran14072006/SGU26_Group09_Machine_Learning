@@ -11,4 +11,4 @@ label_rule: majority
 min_label_fraction: 0.90
 feature_version: chest_raw_stats_majority_v1
 subjects: [S2]
-output_dir: data/features/nhu_g1_S2_chest_raw_stats_majority_v1
+output_dir: data/features/nhu_g1_S2_py312_raw_stats_majority_v1

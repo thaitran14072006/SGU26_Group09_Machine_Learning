@@ -6,6 +6,7 @@ WESAD.zip
 
 # Môi trường, cache và cấu hình riêng
 .venv/
+.venv-g1/
 venv/
 __pycache__/
 *.pyc

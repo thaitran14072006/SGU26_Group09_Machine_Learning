@@ -4,6 +4,8 @@ Ngày lập: 03/11/2026. Người phụ trách: Phạm Quỳnh Như.
 
 Mục tiêu G1 là chuẩn bị môi trường, kiểm tra quy tắc cửa sổ và xác định hợp đồng tiền xử lý để đối chiếu với Mai. Phạm vi bàn giao của Như trên main chỉ gồm thiết kế và cấu hình chạy thử G1. Chưa triển khai bộ lọc, cửa sổ đa tần số hoặc helper ACC/EMG của G2.
 
+Cập nhật theo commit Mai `b5a0cb8`: Mai đã chọn thiết kế này làm cơ sở cho schema G1. Bản hợp đồng có cấu trúc nằm ở `configs/preprocessing_g1_design.yaml`, chỉ dùng để bàn giao thiết kế (`runtime_ready: false`), không truyền cho extractor. Phần bổ sung về biên/QA dưới đây là quyết định thiết kế Như gửi tiếp; chưa ghi nhận Mai đã review bổ sung hoặc nghiệm thu tín hiệu.
+
 ## 1. Quy tắc cửa sổ đã có trong code
 
 - Giữ trục thời gian gốc, bắt đầu từ 0 giây.
@@ -30,21 +32,23 @@ Tạo danh sách cửa sổ và nhãn một lần từ nhãn gốc. Với mỗi 
 
 Không cần nâng tất cả kênh lên 700 Hz. Mỗi kênh giữ tần số gốc; chỉ thời gian bắt đầu/kết thúc và khóa cửa sổ cần thống nhất. Đối chiếu thời lượng thực tế giữa các kênh; nếu lệch thì ghi báo cáo và xử lý rõ trước khi ghép.
 
-## 3. Thiết kế bộ lọc cần nhóm xác nhận
+## 3. Lựa chọn bộ lọc G1 và trạng thái xác nhận
 
 | Kênh | Cấu hình thiết kế | Căn cứ và trạng thái |
 | --- | --- | --- |
 | EDA ngực 700 Hz | Low-pass 5 Hz | Bài báo gốc, mục 4.1, trang PDF 4 |
 | Resp ngực 700 Hz | Band-pass 0,1–0,35 Hz | Bài báo gốc, mục 4.1, trang PDF 4 |
-| EDA cổ tay 4 Hz | Đề xuất low-pass 1 Hz | Lựa chọn của nhóm cần Mai/Như xác nhận; không phải thông số được xác minh từ bài báo |
+| EDA cổ tay 4 Hz | Low-pass 1 Hz | Mai đã nhận làm lựa chọn G1 ở `b5a0cb8`; chưa nghiệm thu tín hiệu, không phải cutoff được xác minh từ bài báo |
 | ECG/BVP, EMG | Chốt cùng thuật toán feature của Mai | Chưa đủ căn cứ để khóa tham số trong G1 |
-| ACC/TEMP | Giữ tín hiệu gốc cho thống kê ban đầu | Đề xuất G2, cần kiểm tra tín hiệu thực tế |
+| ACC/TEMP | Giữ tín hiệu gốc cho thống kê ban đầu | Mai đã nhận làm lựa chọn G1; ACC giữ trọng lực, chưa tự đổi scale |
 
 EDA cổ tay có Nyquist 2 Hz; không áp dụng trực tiếp cutoff 5 Hz lên kênh 4 Hz và không coi nội suy là cách khôi phục thông tin đã mất.
 
-Đề xuất triển khai G2: Butterworth bậc thiết kế 4, dạng SOS, lọc hai chiều cho phân tích offline. Đây là lựa chọn triển khai đề xuất, không khẳng định là bậc lọc của bài báo. Ghi rõ bậc thiết kế, số section, cách xử lý biên và lọc hai chiều trong config của phiên bản feature mới. Kiểm tra đáp ứng tần số và ảnh trước/sau lọc trên S2 trước khi khóa cấu hình.
+Lựa chọn thiết kế G1 đã được Mai đưa vào schema: Butterworth bậc thiết kế 4, dạng SOS, lọc hai chiều cho phân tích offline. Không khẳng định đây là bậc lọc của bài báo. Chưa triển khai bộ lọc; kiểm tra đáp ứng tần số và tín hiệu thật thuộc bước triển khai sau G1.
 
-Lọc liên tục từng kênh trước khi cắt cửa sổ; không ghép các đoạn rời nhau theo nhãn. Với NaN/Inf, không lọc xuyên qua khoảng thiếu: đánh dấu các đoạn thiếu/đoạn quá ngắn và vùng biên bị ảnh hưởng theo quy tắc QA đã công bố. Không thay giá trị lỗi bằng 0 hoặc nội suy âm thầm. Nhóm phải chốt độ dài vùng biên và quy tắc QA trước khi trích lô chính; không chọn theo điểm outer test.
+Thiết kế biên/QA bổ sung của Như: lọc liên tục từng kênh trước khi cắt cửa sổ, odd padding; không nối các đoạn rời nhau theo nhãn hoặc lọc xuyên NaN/Inf. Bỏ 10 giây mỗi đầu đoạn hữu hạn với EDA ngực/cổ tay, 30 giây với Resp. Đoạn quá ngắn để padding hoặc bỏ biên được đánh dấu không dùng được. Đây là giá trị thiết kế để bàn giao, chưa chứng minh hết quá độ; phải kiểm tra trong G2 trước khi áp dụng lượt chính.
+
+Một cửa sổ thiếu mẫu, có NaN/Inf hoặc giao vùng biên ở bất cứ kênh được yêu cầu nào sẽ bị loại và ghi lý do; dùng chung tập khóa cho so sánh cảm biến. Không tự điền 0 hoặc nội suy. Tín hiệu phẳng/tiếp xúc nghi ngờ được gắn cờ để xem xét, không tự chứng nhận chất lượng sinh lý chỉ vì hữu hạn. Giữ ghi chú nhiệt độ ngực S2 có vấn đề tiếp xúc. Ngưỡng QA sinh lý và kiểm chứng đơn vị tiếp tục phối hợp với Mai trước khi triển khai feature; G1 chưa thực hiện các thuật toán đó.
 
 ## 4. Điểm bàn giao với Mai
 
@@ -67,11 +71,19 @@ New-Item -ItemType Directory -Force .venv/task-temp | Out-Null
 $env:TEMP = (Resolve-Path .venv/task-temp).Path
 $env:TMP = $env:TEMP
 
-.\.venv\Scripts\python.exe -m pip check
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv-g1\Scripts\python.exe -m pip check
+.\.venv-g1\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-Test hiện có dùng dữ liệu giả, bao gồm đúng ngưỡng 90%, dưới ngưỡng, nhãn không dùng, không nối đoạn và bỏ phần dư cuối. Kết quả test không thay cho nghiệm thu raw S2.
+Môi trường G1 riêng `.venv-g1` dùng Python 3.12.14, khớp phiên bản trong bàn giao Thái; giữ nguyên `.venv` cũ 3.13.9. File `.python-version` ghi phiên bản mục tiêu cho G1. Cách tạo lại môi trường bằng Python 3.12.14 đã cài trên máy:
+
+```powershell
+python -m venv .venv-g1
+.\.venv-g1\Scripts\python.exe -m pip install -r requirements.lock.txt
+.\.venv-g1\Scripts\python.exe -m pip install --no-deps --no-build-isolation -e .
+```
+
+Lệnh `python` trong bước tạo phải là Python 3.12.14; kiểm tra `python --version` trước. Trên máy Như đã tạo sẵn, không cần chạy lại. Test hiện có dùng dữ liệu giả: đúng ngưỡng 90%, dưới ngưỡng, nhãn không dùng, không nối đoạn, bỏ phần dư cuối; thêm kiểm tra công cụ đối chiếu G1. Kết quả test không thay cho nghiệm thu raw S2 trên bốn máy.
 
 ## 6. Chạy mẫu S2 để kiểm tra G1
 
@@ -80,13 +92,13 @@ Test hiện có dùng dữ liệu giả, bao gồm đúng ngưỡng 90%, dưới
 3. Chạy config riêng của Như:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/extract_features.py --config configs/features_nhu_smoke.yaml --local configs/local.yaml --subjects S2 --resume
+.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_nhu_smoke.yaml --local configs/local.yaml --subjects S2 --resume
 ```
 
-Đây là lượt thống kê raw để kiểm tra môi trường và cửa sổ G1, chưa chạy bộ lọc trong bản thiết kế này. Đầu ra: `data/features/nhu_g1_S2_chest_raw_stats_majority_v1/`. Dùng thư mục mới sau khi đổi source để không trộn mã băm với các lượt chạy trước.
+Đây là lượt thống kê raw để kiểm tra môi trường và cửa sổ G1, chưa chạy bộ lọc trong bản thiết kế này. Đầu ra: `data/features/nhu_g1_S2_py312_raw_stats_majority_v1/`. Dùng thư mục mới sau khi đổi source để không trộn mã băm với các lượt chạy trước.
 
 4. Kiểm tra `run_status.json` complete cho S2, số cửa sổ theo nhãn, 60 giây/cửa sổ, khóa không trùng và checksum. Complete ở đây chỉ áp dụng subject đã chọn, không chứng minh đủ 15 người.
-5. Đối chiếu với Mai/Thái: cùng source, cấu hình xử lý, thứ tự feature, khóa, nhãn và mốc thời gian; thống nhất dung sai cho giá trị float. Máy này dùng Python 3.13.9; bản bàn giao Thái dùng 3.12.14 nên không mong manifest môi trường giống nhau và cần thống nhất Python trước lượt chính.
+5. Đối chiếu với Mai/Thái: cùng raw/source, cấu hình xử lý, phiên bản Python 3.12.14 và thư viện đã khóa; tên/thứ tự cột, khóa, nhãn, thời gian phải khớp. Với 21 thống kê raw G1, Như bàn giao dung sai `rtol=1e-7`, `atol=1e-9`; không tự áp dụng dung sai này cho 68 feature sinh lý. Công cụ và cách nhận gói đối chiếu ghi trong [bàn giao G1](G1_NHU_BAN_GIAO.md).
 6. G1 dừng ở thiết kế và chạy mẫu. Việc triển khai lọc, cửa sổ đa tần số, helper ACC/EMG và chạy lô `S4 S9 S11 S17` chỉ bắt đầu khi người dùng yêu cầu G2.
 
 ## 7. Điều kiện hoàn tất G1 của Như
@@ -95,10 +107,10 @@ Kết quả kiểm tra thực tế trên máy Như ngày 03/11/2026:
 
 | Hạng mục | Kết quả |
 | --- | --- |
-| Môi trường `.venv` | Python 3.13.9, tạo từ Python Anaconda trên máy |
+| Môi trường G1 `.venv-g1` | Python 3.12.14; `.venv` 3.13.9 cũ vẫn giữ nguyên |
 | Thư viện | Cài đúng `requirements.lock.txt`, cài package editable thành công |
 | `pip check` | `No broken requirements found.` |
-| Bộ kiểm tra hiện có | 14/14 đạt; dùng dữ liệu giả, gồm kiểm tra biên nhãn |
+| Bộ kiểm tra hiện có | 19/19 đạt: 14 hạ tầng gốc và 5 kiểm tra nghiệm thu G1 |
 | Config `features_nhu_smoke.yaml` | Đọc bằng `read_config` thành công; xác minh S2, 60/5 giây và ngưỡng 0,90 |
 | Dữ liệu S2 thật | Đã có; chỉ chạy extractor thống kê raw để kiểm tra G1 |
 | Bộ lọc và đồng bộ đa tần số | Chỉ ở mức thiết kế G1, chưa có triển khai trong phần bàn giao của Như trên main |
@@ -106,10 +118,10 @@ Kết quả kiểm tra thực tế trên máy Như ngày 03/11/2026:
 Giữ nguyên source hạ tầng gốc, phiên bản khóa thư viện và kết quả của Thái. Các phiên chạy dùng dữ liệu giả của bộ test không phải kết quả thực nghiệm WESAD. Kết quả mẫu S2 trên máy Như được ghi riêng trong [biên bản G1](G1_NHU_KIEM_TRA_S2_2026-11-03.md).
 
 - Có môi trường chạy và kết quả bộ kiểm tra hiện có.
-- Như/Mai xác nhận thiết kế đồng bộ, tham số lọc và chính sách QA còn mở ở mục 3.
+- Mai đã chọn thiết kế đồng bộ/bộ lọc ban đầu tại `b5a0cb8`; phần biên/QA bổ sung của Như có trong config thiết kế để đối chiếu tiếp.
 - Có raw S2 và bằng chứng đối chiếu mẫu giữa các máy.
 
-Mẫu S2 trên máy Như không thay thế việc xác nhận thiết kế với Mai và nghiệm thu bốn máy. Chưa đánh dấu nghiệm thu chung G1 khi thiếu các xác nhận này. File này không gửi thông điệp hay ghi nhận review thay nhóm.
+Phần thiết kế, môi trường và chạy mẫu G1 trên máy Như đã có đầu ra. Mẫu S2 trên một máy không thay thế nghiệm thu bốn máy. Chưa đánh dấu nghiệm thu chung khi chưa nhận gói từ các máy khác. File này không gửi thông điệp hay ghi nhận review thay nhóm.
 
 ## Nguồn đối chiếu
 

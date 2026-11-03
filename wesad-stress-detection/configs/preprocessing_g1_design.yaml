@@ -1,0 +1,72 @@
+# Hợp đồng thiết kế G1; KHÔNG phải config cho extractor hay runner.
+stage: G1
+status: design_handoff_only
+runtime_ready: false
+mai_design_basis_commit: b5a0cb8181a12df637d035bbcb517a78741540f1
+design_revision: nhu_g1_design_v2
+window:
+  seconds: 60
+  step_seconds: 5
+  label_grid_hz: 700
+  rule: majority
+  min_label_fraction: 0.90
+  labels: [1, 2, 3]
+  interval: half_open
+  origin: synchronized_pkl
+  resample_all_to_700hz: false
+native_rates_hz:
+  chest: 700
+  wrist_bvp: 64
+  wrist_eda: 4
+  wrist_temp: 4
+  wrist_acc: 32
+filters:
+  chest_eda: {kind: lowpass, cutoff_hz: 5, edge_seconds: 10}
+  chest_resp: {kind: bandpass, cutoff_hz: [0.1, 0.35], edge_seconds: 30}
+  wrist_eda: {kind: lowpass, cutoff_hz: 1, edge_seconds: 10}
+filter_design:
+  family: Butterworth
+  design_order: 4
+  representation: SOS
+  direction: forward_backward_offline
+  scope: continuous_finite_segments_within_subject
+  padding: odd
+  short_segments: mark_unusable_if_padding_or_edge_removal_leaves_no_interior
+  no_bridge_over_nonfinite: true
+  edge_lengths_status: nhu_design_addition_not_runtime_validated
+acc:
+  gravity: retained
+  magnitude: sqrt_x2_plus_y2_plus_z2
+  scale_conversion: pending_raw_evidence
+acc_emg_aggregation:
+  block_seconds: 5
+  blocks_per_window: 12
+  aggregation: mean_of_per_block_features
+quality_design:
+  signal_comparison_windows: common_keys_across_requested_channels
+  missing_samples_or_nonfinite_in_required_channel: exclude_window_and_record_reason
+  incomplete_window: exclude
+  filter_edge_overlap: exclude_window_and_record_reason
+  do_not_impute_during_extraction: true
+  flat_or_suspect_contact: flag_for_review_no_automatic_physiological_acceptance
+  s2_chest_temperature_note: suspect_contact_from_subject_readme
+  source_units: unverified_until_checked_against_raw_documentation
+  physiological_validity: not_established_by_finiteness
+g1_sample_acceptance:
+  python: 3.12.14
+  feature_scope: chest_raw_stats_majority_v1_only
+  metadata_and_feature_order: exact
+  row_order: match_by_window_id
+  feature_rtol: 1.0e-7
+  feature_atol: 1.0e-9
+  observed_window_count_is_not_a_hardcoded_requirement: true
+  four_machines: pending_external_packages
+feature_specific_details:
+  status: to_be_agreed_with_mai_before_g2_implementation
+  items:
+    - ECG_BVP_and_EMG_filters_and_detectors
+    - beat_artifact_rules_and_minimum_reliability
+    - EDA_decomposition_and_SCR_rules
+    - PSD_bands_and_method
+    - verified_unit_conversions
+    - physiological_QA_thresholds_and_final_feature_tolerances

@@ -1315,7 +1315,7 @@
   "target_units_status": "Output targets only; raw units and conversion factors must be verified before G2",
   "pending_decisions": [
     "Raw physical units and scale factors with evidence",
-    "Filter edge lengths and physiological QA not specified by Nhu G1 design",
+    "Validate Nhu G1 edge-length and common-window QA design on signals; physiological thresholds remain pending",
     "Như/Mai: beat detector, artifact handling and minimum reliability",
     "Như/Mai: EDA decomposition, SCR onset, thresholds and no-event amplitude policy",
     "Như/Mai: PSD method and three band boundaries for ECG/BVP",
@@ -1372,7 +1372,7 @@
       "representation": "SOS",
       "direction": "forward-backward offline",
       "application": "continuous finite segments within each subject before window slicing",
-      "edge_policy": "not yet specified in Nhu G1 design"
+      "edge_policy": "Nhu G1 supplement: discard 10 s per finite-segment end for EDA, 30 s for RESP; see configs/preprocessing_g1_design.yaml; design only, not runtime validated"
     },
     "acc_temp": "Keep original signals for initial statistics as proposed by Nhu; verify units and scale before physical-unit output",
     "acc_emg_aggregation": "12 nonoverlapping 5 s blocks inside 60 s; calculate per block then average",
@@ -1381,11 +1381,23 @@
       "ECG/BVP and EMG filters tied to feature algorithms",
       "EDA decomposition and SCR detector",
       "PSD method and band boundaries",
-      "Filter edge length and physiological QA",
+      "Physiological QA thresholds and validation of G1 edge-length design",
       "Raw-to-output unit conversions"
     ],
     "status": "adopted_for_g1_from_nhu_design",
     "runtime_validated": false,
-    "acceptance_scope": "User selected Nhu written G1 design as the preprocessing basis; no claim of additional personal confirmation from Nhu or final signal validation"
+    "acceptance_scope": "User selected Nhu written G1 design as the preprocessing basis; no claim of additional personal confirmation from Nhu or final signal validation",
+    "nhu_g1_supplement": {
+      "source": "configs/preprocessing_g1_design.yaml",
+      "handoff": "docs/G1_NHU_BAN_GIAO.md",
+      "scope": "G1 design and raw-stat sample acceptance only",
+      "runtime_ready": false,
+      "mai_review_of_supplement": "not recorded; do not infer personal confirmation",
+      "acc_gravity": "retained; unit conversion still requires evidence",
+      "g1_sample_python": "3.12.14",
+      "g1_raw_stats_rtol": 1e-7,
+      "g1_raw_stats_atol": 1e-9,
+      "four_machine_acceptance": false
+    }
   }
 }

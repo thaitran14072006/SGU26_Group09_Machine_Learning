@@ -287,6 +287,8 @@ Hạ tầng dùng chung để đọc từng subject, trích feature tuần tự,
 
 **Phần G1 của Như:** [thiết kế tiền xử lý](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md) và [kiểm tra mẫu S2](docs/G1_NHU_KIEM_TRA_S2_2026-11-03.md). Phần bàn giao này chỉ gồm thiết kế, môi trường và chạy mẫu bằng hạ tầng có sẵn; chưa triển khai G2.
 
+[Bàn giao G1 sau cập nhật Mai](docs/G1_NHU_BAN_GIAO.md) có cách dùng môi trường `.venv-g1` Python 3.12.14 và công cụ `scripts/check_g1_sample.py` để nghiệm thu gói raw S2, so sánh với gói nhận từ máy khác. `configs/preprocessing_g1_design.yaml` chỉ là hợp đồng thiết kế, không dùng chạy lọc hay trích feature. Trên máy Như đã đạt 19 kiểm tra và kiểm tra gói S2; nghiệm thu bốn máy vẫn chờ gói đối chiếu thực tế.
+
 ### Phạm vi bổ sung
 
 - Đọc và xác minh một PKL mỗi lần; cấu hình riêng theo máy, CLI chọn subject.
