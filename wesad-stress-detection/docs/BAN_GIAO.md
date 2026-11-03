@@ -24,8 +24,6 @@ Module phụ trách theo phân công: `features.py` (G2), `baselines.py` và `me
 
 ## Bàn giao tiếp
 
-Đã đối chiếu với hạ tầng Thái: metadata, window_id, nhãn binary, NaN, feature_columns và giao diện processor khớp; **5/5 kiểm tra tương thích đạt**. Chi tiết và giới hạn trong [G1_DOI_CHIEU_HA_TANG.md](G1_DOI_CHIEU_HA_TANG.md); mã kiểm tra ở `tests/test_g1_contract.py`.
-
-Không còn chờ Thái xây loader/CLI. Còn phải thống nhất tiền xử lý với Như và nhận bất thường khảo sát từ Nam. Hạ tầng hiện chỉ bắt buộc 6 metadata và chưa thực thi tất cả ràng buộc của schema G1; processor/kiểm tra G2 phải đảm bảo đủ 8 metadata, purity, lưới thời gian và thứ tự cột. Bộ raw 21 feature không được dùng thay bộ 68 feature dự kiến.
+Schema sử dụng metadata, khóa cửa sổ, nhãn và giao diện processor của hạ tầng Thái đã có. Tiếp theo thống nhất tiền xử lý với Như và bổ sung các bất thường từ khảo sát của Nam trước khi khóa G2.
 
 Chưa gửi tin nhắn, chưa tạo PR hay ghi nhận review thay thành viên.
