@@ -1,6 +1,10 @@
 # WESAD – Chia cửa sổ và trích xuất đặc trưng
 
-**Phần Mai đang thực hiện G1 theo phân công:** xem [bàn giao Mai G1](docs/BAN_GIAO.md), [hợp đồng feature G1](docs/G1_HOP_DONG_FEATURE.md) và [schema nháp](configs/feature_schema.json). Schema cần thống nhất tiền xử lý với Như trước khi khóa G2.
+**Cập nhật G1 phần Mai ngày 03/11/2026:** đã có danh mục 68 feature dự kiến, quy ước đơn vị/giá trị thiếu và schema nháp gồm 8 metadata. Xem [bàn giao G1](docs/BAN_GIAO.md), [danh mục feature](docs/G1_DANH_MUC_FEATURE.csv), [hợp đồng feature](docs/G1_HOP_DONG_FEATURE.md) và [schema nháp](configs/feature_schema.json).
+
+Phần feature dùng theo [thiết kế G1 của Như](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md): cửa sổ 60 giây, bước 5 giây, majority ≥90%, giữ tần số gốc từng kênh và các thông số lọc đã ghi trong thiết kế. Bộ 68 feature là danh mục dự kiến, chưa phải bảng feature đã trích xuất.
+
+Các thông số detector/dải tần, scale/đơn vị và QA chưa được quy định vẫn để mở. G1 chung chưa nghiệm thu mẫu S2 giữa các máy; chưa triển khai lượt chính G2 theo schema này. Các mục dưới đây tiếp tục mô tả bộ thống kê raw và hạ tầng hiện có của dự án.
 
 Chương trình đọc dữ liệu WESAD lần lượt theo từng người, chia tín hiệu ngực thành các cửa sổ 60 giây với bước 60 giây, tính đặc trưng thống kê và lưu kết quả trong `data/features/`.
 

@@ -1,6 +1,6 @@
 {
   "schema_version": "g1_mai_draft_v1",
-  "status": "draft_pending_preprocessing_agreement",
+  "status": "draft_pending_feature_details_and_s2_acceptance",
   "stage": "G1",
   "owner": "Nguyen Thi Truc Mai",
   "date": "2026-11-03",
@@ -1315,11 +1315,11 @@
   "target_units_status": "Output targets only; raw units and conversion factors must be verified before G2",
   "pending_decisions": [
     "Raw physical units and scale factors with evidence",
-    "Như: synchronization, filters and boundary handling",
+    "Filter edge lengths and physiological QA not specified by Nhu G1 design",
     "Như/Mai: beat detector, artifact handling and minimum reliability",
     "Như/Mai: EDA decomposition, SCR onset, thresholds and no-event amplitude policy",
     "Như/Mai: PSD method and three band boundaries for ECG/BVP",
-    "Như/Mai: ACC gravity handling and EMG preprocessing",
+    "Verify ACC input/output units; specify EMG preprocessing not defined by Nhu G1",
     "Common eligible windows and quality exclusions for sensor comparisons",
     "Per-feature comparison tolerance and S2 acceptance on four machines"
   ],
@@ -1330,5 +1330,62 @@
     "g2_processor": "src/wesad/features.py",
     "g3_baselines": "src/wesad/baselines.py",
     "g3_metrics": "src/wesad/metrics.py"
+  },
+  "preprocessing_design": {
+    "source": "docs/G1_NHU_THIET_KE_TIEN_XU_LY.md",
+    "integration_direction": "Feature extraction follows Nhu G1 design; no separate preprocessing design by Mai",
+    "scope": "G1 design only; implementation and signal validation belong to G2",
+    "synchronization": {
+      "origin": "synchronized PKL time origin",
+      "window_interval": "[start_s, end_s)",
+      "native_rates_hz": {
+        "chest": 700,
+        "wrist_bvp": 64,
+        "wrist_eda": 4,
+        "wrist_temp": 4,
+        "wrist_acc": 32
+      },
+      "upsample_all_to_700hz": false,
+      "label_grid_hz": 700
+    },
+    "filters": {
+      "chest_eda": {
+        "kind": "lowpass",
+        "cutoff_hz": 5
+      },
+      "chest_resp": {
+        "kind": "bandpass",
+        "cutoff_hz": [
+          0.1,
+          0.35
+        ]
+      },
+      "wrist_eda": {
+        "kind": "lowpass",
+        "cutoff_hz": 1,
+        "status": "adopted_for_g1_pending_g2_signal_validation"
+      }
+    },
+    "filter_implementation": {
+      "family": "Butterworth",
+      "design_order": 4,
+      "representation": "SOS",
+      "direction": "forward-backward offline",
+      "application": "continuous finite segments within each subject before window slicing",
+      "edge_policy": "not yet specified in Nhu G1 design"
+    },
+    "acc_temp": "Keep original signals for initial statistics as proposed by Nhu; verify units and scale before physical-unit output",
+    "acc_emg_aggregation": "12 nonoverlapping 5 s blocks inside 60 s; calculate per block then average",
+    "invalid_samples": "Do not filter across NaN/Inf or silently replace with zero; edge/quality exclusion policy still to be specified",
+    "not_yet_specified": [
+      "ECG/BVP and EMG filters tied to feature algorithms",
+      "EDA decomposition and SCR detector",
+      "PSD method and band boundaries",
+      "Filter edge length and physiological QA",
+      "Raw-to-output unit conversions"
+    ],
+    "status": "adopted_for_g1_from_nhu_design",
+    "runtime_validated": false,
+    "acceptance_scope": "User selected Nhu written G1 design as the preprocessing basis; no claim of additional personal confirmation from Nhu or final signal validation"
   }
 }
