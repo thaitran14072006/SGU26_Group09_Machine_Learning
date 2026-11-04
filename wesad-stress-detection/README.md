@@ -1,5 +1,11 @@
 # WESAD – Chia cửa sổ và trích xuất đặc trưng
 
+**Cập nhật G1 phần Mai ngày 03/11/2026:** đã có danh mục 68 feature dự kiến, quy ước đơn vị/giá trị thiếu và schema nháp gồm 8 metadata. Xem [bàn giao G1](docs/BAN_GIAO.md), [danh mục feature](docs/G1_DANH_MUC_FEATURE.csv), [hợp đồng feature](docs/G1_HOP_DONG_FEATURE.md) và [schema nháp](configs/feature_schema.json).
+
+Phần feature dùng theo [thiết kế G1 của Như](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md): cửa sổ 60 giây, bước 5 giây, majority ≥90%, giữ tần số gốc từng kênh và cấu hình `nhu_g1_design_v2` trong [hợp đồng thiết kế](configs/preprocessing_g1_design.yaml): biên EDA 10 giây, RESP 30 giây, ACC giữ trọng lực và QA cửa sổ chung. Bộ 68 feature là danh mục dự kiến, chưa phải bảng feature đã trích xuất.
+
+Các thông số detector/dải tần, scale/đơn vị và ngưỡng QA sinh lý chưa được quy định vẫn để mở. G1 chung chưa nghiệm thu mẫu S2 giữa các máy; chưa triển khai lượt chính G2 theo schema này. Các mục dưới đây tiếp tục mô tả bộ thống kê raw và hạ tầng hiện có của dự án.
+
 Chương trình đọc dữ liệu WESAD lần lượt theo từng người, chia tín hiệu ngực thành các cửa sổ 60 giây với bước 60 giây, tính đặc trưng thống kê và lưu kết quả trong `data/features/`.
 
 ## 1. Phạm vi xử lý
@@ -278,6 +284,10 @@ Tệp dữ liệu cũ vẫn được mô tả ở các mục gốc; không trộ
 Hạ tầng dùng chung để đọc từng subject, trích feature tuần tự, chạy LOSO và nested CV theo người. Python từ 3.10; môi trường đã kiểm tra trên Windows dùng Python 3.12.14.
 
 **Bàn giao hôm nay:** [Công việc Thái đã hoàn thành và đầu việc nối tiếp](docs/BAN_GIAO_CONG_VIEC_THAI_2026-11-02.md).
+
+**Phần G1 của Như:** [thiết kế tiền xử lý](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md) và [kiểm tra mẫu S2](docs/G1_NHU_KIEM_TRA_S2_2026-11-03.md). Phần bàn giao này chỉ gồm thiết kế, môi trường và chạy mẫu bằng hạ tầng có sẵn; chưa triển khai G2.
+
+[Bàn giao G1 sau cập nhật Mai](docs/G1_NHU_BAN_GIAO.md) có cách dùng môi trường `.venv-g1` Python 3.12.14 và công cụ `scripts/check_g1_sample.py` để nghiệm thu gói raw S2, so sánh với gói nhận từ máy khác. `configs/preprocessing_g1_design.yaml` chỉ là hợp đồng thiết kế, không dùng chạy lọc hay trích feature. Trên máy Như đã đạt 19 kiểm tra và kiểm tra gói S2; nghiệm thu bốn máy vẫn chờ gói đối chiếu thực tế.
 
 ### Phạm vi bổ sung
 

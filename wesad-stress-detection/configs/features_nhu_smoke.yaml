@@ -1,0 +1,14 @@
+# Chạy thử hạ tầng trên S2 của Như; chưa áp dụng bộ lọc sinh lý.
+# Dùng --local configs/local.yaml sau khi biết đường dẫn raw thật.
+data_root: data/raw/WESAD/WESAD
+device: chest
+sensors: [ECG, EDA, Resp]
+sampling_rate_hz: 700
+labels: [1, 2, 3]
+window_seconds: 60
+step_seconds: 5
+label_rule: majority
+min_label_fraction: 0.90
+feature_version: chest_raw_stats_majority_v1
+subjects: [S2]
+output_dir: data/features/nhu_g1_S2_py312_raw_stats_majority_v1
