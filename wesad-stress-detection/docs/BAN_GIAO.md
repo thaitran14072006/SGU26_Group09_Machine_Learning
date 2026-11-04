@@ -10,7 +10,7 @@ Phạm vi theo G1 của PHAN_CONG_MAY_HOC.docx, người phụ trách Nguyễn T
 
 Schema nháp gồm **8 metadata + 68 feature dự kiến** (37 ngực, 31 cổ tay). Nhóm kết hợp giữ thứ tự ngực rồi cổ tay. Đây là danh mục G1 cần đối chiếu trước khi triển khai, không phải 175 cột của bộ thử trước đó.
 
-Đã chuẩn bị phần G1 của Mai. Trạng thái schema là **draft_pending_feature_details_and_s2_acceptance**: đã chốt dùng thiết kế tiền xử lý G1 của Như làm đầu vào theo yêu cầu người dùng; còn xác minh scale/đơn vị raw, dải tần/detector, vùng biên/QA và dung sai so sánh S2 chưa được quy định đầy đủ. Không đánh dấu nghiệm thu chung G1 hoặc S2 bốn máy khi chưa có bằng chứng.
+Đã chuẩn bị phần G1 của Mai. Trạng thái schema là **draft_pending_feature_details_and_s2_acceptance**: đã chốt dùng thiết kế tiền xử lý G1 của Như làm đầu vào theo yêu cầu người dùng; còn xác minh scale/đơn vị raw, dải tần/detector và ngưỡng QA sinh lý chưa được quy định đầy đủ; vùng biên, QA cửa sổ và dung sai raw G1 đã lấy theo bản Như mới nhất. Không đánh dấu nghiệm thu chung G1 hoặc S2 bốn máy khi chưa có bằng chứng.
 
 ## Đúng tên file theo phân công
 
@@ -33,6 +33,8 @@ Chưa gửi tin nhắn, chưa tạo PR hay ghi nhận review thay thành viên.
 - Cửa sổ 60 giây, bước 5 giây, majority ≥90%; giữ tần số gốc từng kênh và cùng mốc PKL.
 - EDA ngực low-pass 5 Hz; RESP ngực band-pass 0,1–0,35 Hz; EDA cổ tay low-pass 1 Hz.
 - Butterworth bậc thiết kế 4, SOS, lọc hai chiều offline trên đoạn hữu hạn liên tục trước khi cắt cửa sổ.
-- ACC/TEMP giữ tín hiệu gốc cho thống kê ban đầu; ACC/EMG chia 12 đoạn 5 giây rồi lấy trung bình feature.
+- ACC giữ trọng lực, TEMP giữ tín hiệu gốc; không chuyển scale khi chưa có bằng chứng. ACC/EMG chia 12 đoạn 5 giây rồi lấy trung bình feature.
+- Nhận revision `nhu_g1_design_v2` trong `configs/preprocessing_g1_design.yaml`: biên EDA 10 giây, RESP 30 giây, odd padding; loại cửa sổ thiếu mẫu/NaN/Inf ở kênh yêu cầu hoặc chồng biên, ghi lý do và giữ chung khóa cho các so sánh cảm biến.
+- Gói raw G1 dùng Python 3.12.14, thư viện khóa, rtol=1e-7 và atol=1e-9. Chưa chạy nghiệm thu gói S2 máy Mai cùng source/môi trường; không áp dung sai raw cho 68 feature sinh lý.
 
-Đây là chốt lựa chọn thiết kế G1 theo bản Như đã đưa vào repo, chưa phải nghiệm thu bộ lọc trên tín hiệu thật. Các thông số chưa có trong bản Như (detector, PSD, scale, vùng biên/QA) vẫn được ghi rõ còn mở để hoàn thiện trước lượt chính. Chưa chạy G2.
+Đây là chốt lựa chọn thiết kế G1 theo bản Như đã đưa vào repo, chưa phải nghiệm thu bộ lọc trên tín hiệu thật. Các thông số chưa có trong bản Như (detector, PSD, scale, ngưỡng QA sinh lý) vẫn được ghi rõ còn mở để hoàn thiện trước lượt chính. Chưa chạy G2.

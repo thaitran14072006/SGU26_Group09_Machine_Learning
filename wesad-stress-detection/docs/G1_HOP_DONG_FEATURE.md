@@ -40,11 +40,23 @@ Danh sách cụ thể và đơn vị nằm trong schema và CSV. Đây là danh 
 | ACC ngực/cổ tay | Mean, std, tích phân tuyệt đối cho x/y/z và magnitude; tính từng đoạn 5 giây, lấy trung bình qua 12 đoạn |
 | EMG ngực | RMS, MAV, waveform length per second, tích phân tuyệt đối; tính từng đoạn 5 giây, lấy trung bình qua 12 đoạn |
 
-Mean/std đều dùng ddof=0 cho thống kê tín hiệu/rate; SDNN/SD IBI dùng ddof=1. pNN50 là tỷ lệ 0–1. Tích phân tuyệt đối đoạn 5 s = sum(abs(x))/fs; đơn vị g·s với ACC hoặc mV·s với EMG. Magnitude ACC = sqrt(x²+y²+z²). Có loại trọng lực hay không phải được Như chốt, ghi vào processing config trước khi chạy.
+Mean/std đều dùng ddof=0 cho thống kê tín hiệu/rate; SDNN/SD IBI dùng ddof=1. pNN50 là tỷ lệ 0–1. Tích phân tuyệt đối đoạn 5 s = sum(abs(x))/fs; đơn vị g·s với ACC hoặc mV·s với EMG. Magnitude ACC = sqrt(x²+y²+z²). Theo thiết kế Như `nhu_g1_design_v2`, ACC giữ trọng lực; không tự trừ mean hoặc chuyển scale.
 
 Năng lượng dải tần được định nghĩa là tích phân PSD theo tần số, đơn vị bình phương đơn vị tín hiệu. Không gán tên LF/HF-HRV cho phổ của ECG/BVP thô. Phương pháp PSD, biên từng dải, cutoff bộ lọc và thuật toán phát hiện nhịp/SCR còn chờ thống nhất Như và đối chiếu proposal gốc. Các mục này được đánh dấu pending trong schema; không dùng cấu hình chưa khóa để chạy bảng chính.
 
 Đơn vị đầu ra mục tiêu: ECG/EMG mV, EDA µS, TEMP °C, ACC g, BVP arbitrary unit; rate bpm hoặc breaths/min, khoảng nhịp ms. Phải xác minh đơn vị/scale đầu vào từ tài liệu raw trước khi xuất với các đơn vị đó; không mặc định dữ liệu đã đúng đơn vị. Quy tắc chuyển đổi ACC cổ tay và hệ số các kênh nằm trong danh sách cần xác minh, không tự áp dụng hệ số khi chưa có căn cứ.
+
+## Tiền xử lý dùng theo thiết kế G1 của Như
+
+Phần Mai chốt dùng [thiết kế G1 của Như](G1_NHU_THIET_KE_TIEN_XU_LY.md) làm đầu vào theo yêu cầu người dùng; không xây một nhánh tiền xử lý riêng. Đây là thiết kế để triển khai/kiểm tra G2, chưa tuyên bố bộ lọc đã được nghiệm thu.
+
+- Đồng bộ theo PKL, giữ tần số gốc từng kênh; cắt khoảng `[start_s, end_s)` trên cùng lưới nhãn 700 Hz, không nâng mọi kênh lên 700 Hz.
+- EDA ngực low-pass 5 Hz; RESP ngực band-pass 0,1–0,35 Hz; EDA cổ tay chọn low-pass 1 Hz theo thiết kế Như, kiểm tra tín hiệu ở G2.
+- Theo đề xuất triển khai của Như: Butterworth bậc thiết kế 4, SOS, lọc hai chiều offline trên từng đoạn hữu hạn liên tục trước khi cắt cửa sổ. Không lọc xuyên NaN/Inf, không nối đoạn theo nhãn.
+- Theo `configs/preprocessing_g1_design.yaml` revision `nhu_g1_design_v2`: bỏ biên mỗi đầu đoạn hữu hạn 10 giây với EDA ngực/cổ tay, 30 giây với RESP; odd padding; đoạn quá ngắn không sử dụng. Đây là thiết kế, chưa nghiệm thu tác động lọc trên tín hiệu thật.
+- ACC giữ trọng lực, TEMP giữ tín hiệu gốc cho thống kê ban đầu; không tự chuyển scale. ACC/EMG tính feature trên 12 đoạn 5 giây rồi lấy trung bình.
+- Mai phụ trách feature/schema từ tín hiệu Như bàn giao. Detector ECG/BVP/SCR, decomposition EDA, dải PSD, scale/đơn vị và ngưỡng QA sinh lý chưa được quy định đầy đủ vẫn ghi rõ còn mở; không tự coi là đã chốt.
+- Bộ thử `physio_baseline_v1` lọc riêng trong từng cửa sổ không phải thiết kế thống nhất này; không lấy làm bộ cuối hoặc ghép với đầu ra theo Như.
 
 ## Thiếu dữ liệu và chất lượng
 
@@ -53,7 +65,7 @@ Năng lượng dải tần được định nghĩa là tích phân PSD theo tầ
 - SCR count = 0 chỉ khi EDA đạt chất lượng và detector chạy thành công nhưng không có SCR; lỗi detector hoặc tín hiệu không tin cậy phải là NaN.
 - Inf không hợp lệ, phải điều tra; không tự đổi thành số hữu hạn. Không được thiếu metadata bắt buộc.
 - quality_flag là chuỗi các mã cách nhau bằng dấu `;`, `ok` nếu các kiểm tra đã khóa đều đạt; ví dụ `wrist_bvp:insufficient_beats`, `chest_eda:nonfinite`, `chest_temp:suspect_contact`. Không dùng mã ok khi chưa chạy QA.
-- Báo cáo chất lượng G2 ghi số cửa sổ trước/sau loại theo người và lý do; phải chốt tập cửa sổ chung ngực/cổ tay/kết hợp. G1 chưa tự chọn chính sách loại chỉ vì NaN ở một cảm biến.
+- Theo QA Như bàn giao: dùng chung khóa cửa sổ giữa các kênh yêu cầu; loại và ghi lý do nếu cửa sổ thiếu mẫu, không đủ độ dài, có NaN/Inf ở kênh yêu cầu hoặc chồng vùng biên lọc. Không chọn lại mẫu theo từng nhóm cảm biến. NaN feature do detector không tin cậy là trường hợp riêng, được ghi lý do và xử lý trong fold; không đồng nhất với thiếu mẫu tín hiệu đầu vào. Tín hiệu phẳng/tiếp xúc nghi ngờ được gắn cờ để xem xét, không tự coi là đã đạt QA sinh lý.
 - Imputer, scaler, selection và resampling chỉ học trên train của từng fold; không điền NaN bằng thống kê toàn bảng trong bước trích feature.
 
 ## Điểm phối hợp và điều kiện khóa schema
@@ -61,9 +73,9 @@ Năng lượng dải tần được định nghĩa là tích phân PSD theo tầ
 | Người | Mai gửi | Mai cần nhận trước khi khóa G2 |
 | --- | --- | --- |
 | Thái | Schema, tên/thứ tự cột, quy ước NaN/nhãn, giao diện processor | Sử dụng loader/CLI, metadata, nhãn và giao diện processor Thái đã bàn giao |
-| Như | Danh mục feature, đơn vị mục tiêu, yêu cầu nhịp/SCR/ACC/EMG | Đồng bộ, scale, bộ lọc, detector, dải tần, xử lý biên và QA đã thống nhất |
+| Như | Danh mục feature, đơn vị mục tiêu, yêu cầu nhịp/SCR/ACC/EMG | Dùng thiết kế G1 đã bàn giao; tích hợp feature theo thiết kế đó, ghi rõ các tham số chưa được quy định |
 | Nam | Nhãn và nhóm cột để EDA/mô hình dùng chung | Các bất thường nhãn/tín hiệu/giá trị thiếu đã khảo sát |
 
 Mai làm danh mục/schema song song, không cần chờ Như hoàn tất code. Chỉ khóa phiên bản và nghiệm thu bảng S2 sau khi các điểm pending đã được thống nhất. Không coi một người đã đồng ý chỉ vì file đề xuất đã được tạo.
 
-Nghiệm thu S2 trên bốn máy: cùng khóa cửa sổ, nhãn, start/end, cột/thứ tự, đơn vị và config; so sánh feature bằng dung sai theo từng nhóm được nhóm thống nhất. Không áp số cửa sổ của quy tắc homogeneous cho majority. Chưa có đối chiếu bốn máy ở thời điểm lập G1 này.
+Nghiệm thu S2 trên bốn máy: cùng khóa cửa sổ, nhãn, start/end, cột/thứ tự, đơn vị và config; với gói 21 thống kê raw G1, dùng Python 3.12.14 và thư viện khóa, so sánh feature theo rtol=1e-7, atol=1e-9 như Như bàn giao. Dung sai này không tự áp dụng cho 68 feature sinh lý. Không áp số cửa sổ của quy tắc homogeneous cho majority. Chưa có đối chiếu bốn máy ở thời điểm lập G1 này.
