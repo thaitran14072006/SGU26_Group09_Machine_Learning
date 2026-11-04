@@ -1,0 +1,41 @@
+{
+  "created_at_utc": "2026-11-04T07:30:57.106521+00:00",
+  "input_file": "C:\\Users\\thanh\\source\\repos\\ML\\Machine-learning\\wesad-stress-detection\\notebooks\\..\\data\\features\\chest_60s_step60_raw_stats_v1\\all_subjects.csv",
+  "input_sha256": "f3f16af8d06f0d2df8f7bf7ac6537ec8c6606c3e5453d4378b2f629050115f6e",
+  "scope": "chest raw statistics; window 60s; step 60s; homogeneous labels",
+  "processing_metadata_verified": false,
+  "processing": null,
+  "n_windows": 513,
+  "n_subjects": 15,
+  "n_features": 21,
+  "subjects": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17"
+  ],
+  "missing_subjects": [],
+  "label_counts": {
+    "1": 282,
+    "2": 152,
+    "3": 79
+  },
+  "largest_smallest_class_ratio": 3.569620253164557,
+  "nan_feature_values": 0,
+  "inf_feature_values": 0,
+  "duplicate_key_rows": 0,
+  "constant_or_all_missing_features": [],
+  "raw_eda_enabled": true,
+  "interpretation_limit": "Exploratory full-table analysis; no model performance or physiological QA claim."
+}
