@@ -89,13 +89,13 @@ Lệnh `python` trong bước tạo phải là Python 3.12.14; kiểm tra `pytho
 
 1. Đã có raw S2 từ bộ WESAD tải từ nguồn tác giả. CSV đặc trưng không thay thế raw để kiểm tra tín hiệu. Giữ raw ngoài repository.
 2. Sao chép `configs/local.example.yaml` thành `configs/local.yaml`; thay `data_root` bằng thư mục thật chứa trực tiếp `S2/`. File local chỉ chứa `data_root` và được Git bỏ qua.
-3. Chạy config riêng của Như:
+3. Dùng config smoke chung, chọn S2 và nơi lưu riêng bằng tùy chọn lệnh:
 
 ```powershell
-.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_nhu_smoke.yaml --local configs/local.yaml --subjects S2 --resume
+.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g1_S2_shared_smoke_v1 --resume
 ```
 
-Đây là lượt thống kê raw để kiểm tra môi trường và cửa sổ G1, chưa chạy bộ lọc trong bản thiết kế này. Đầu ra: `data/features/nhu_g1_S2_py312_raw_stats_majority_v1/`. Dùng thư mục mới sau khi đổi source để không trộn mã băm với các lượt chạy trước.
+Đây là lượt thống kê raw để kiểm tra môi trường và cửa sổ G1, chưa chạy bộ lọc trong bản thiết kế này. Đầu ra: `data/features/g1_S2_shared_smoke_v1/`. Dùng thư mục mới sau khi đổi source để không trộn mã băm với các lượt chạy trước.
 
 4. Kiểm tra `run_status.json` complete cho S2, số cửa sổ theo nhãn, 60 giây/cửa sổ, khóa không trùng và checksum. Complete ở đây chỉ áp dụng subject đã chọn, không chứng minh đủ 15 người.
 5. Đối chiếu với Mai/Thái: cùng raw/source, cấu hình xử lý, phiên bản Python 3.12.14 và thư viện đã khóa; tên/thứ tự cột, khóa, nhãn, thời gian phải khớp. Với 21 thống kê raw G1, Như bàn giao dung sai `rtol=1e-7`, `atol=1e-9`; không tự áp dụng dung sai này cho 68 feature sinh lý. Công cụ và cách nhận gói đối chiếu ghi trong [bàn giao G1](G1_NHU_BAN_GIAO.md).
@@ -111,7 +111,7 @@ Kết quả kiểm tra thực tế trên máy Như ngày 03/11/2026:
 | Thư viện | Cài đúng `requirements.lock.txt`, cài package editable thành công |
 | `pip check` | `No broken requirements found.` |
 | Bộ kiểm tra hiện có | 19/19 đạt: 14 hạ tầng gốc và 5 kiểm tra nghiệm thu G1 |
-| Config `features_nhu_smoke.yaml` | Đọc bằng `read_config` thành công; xác minh S2, 60/5 giây và ngưỡng 0,90 |
+| Config chung `features_smoke.yaml` và tùy chọn lệnh | Chọn S2 bằng `--subjects S2`; giữ 60/5 giây và ngưỡng 0,90 |
 | Dữ liệu S2 thật | Đã có; chỉ chạy extractor thống kê raw để kiểm tra G1 |
 | Bộ lọc và đồng bộ đa tần số | Chỉ ở mức thiết kế G1, chưa có triển khai trong phần bàn giao của Như trên main |
 

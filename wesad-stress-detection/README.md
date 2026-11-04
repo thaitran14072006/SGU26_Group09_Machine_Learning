@@ -337,6 +337,8 @@ Trích lô Thái bằng cùng mã:
 
 `features_smoke.yaml` dùng 60 giây, bước 5 giây, majority 90%. Config cũ `features_chest.yaml` vẫn dùng homogeneous, bước 60 giây. Không trộn hai thư mục kết quả; không áp mốc số cửa sổ homogeneous cho majority.
 
+Smoke test dùng chung một file cấu hình. Để chỉ chạy S2 và lưu riêng, thêm `--subjects S2 --output-dir data/features/g1_S2_shared_smoke_v1` vào lệnh. Không cần sao chép config cho từng thành viên; `--output-dir` ghi đè riêng nơi lưu, không đổi phương pháp xử lý.
+
 Đầu ra trong `data/features/chest_raw_stats_majority_v1/`:
 
 - `<subject>.csv` và `<subject>.json`: bảng và manifest từng người.

@@ -22,11 +22,13 @@ Máy Như đã có `.venv-g1` Python 3.12.14, không cần cài lại. Máy khá
 Chạy tại thư mục `wesad-stress-detection`:
 
 ```powershell
-.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_nhu_smoke.yaml --local configs/local.yaml --subjects S2 --resume
-.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/nhu_g1_S2_py312_raw_stats_majority_v1 --output outputs/g1/S2_py312_acceptance.json
+.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g1_S2_shared_smoke_v1 --resume
+.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_S2_shared_smoke_v1 --output outputs/g1/S2_py312_acceptance.json
 ```
 
 Lượt này gọi extractor raw có sẵn, không đọc config thiết kế để lọc tín hiệu. Các config/header/code khác nhau cần output_dir mới; không sửa manifest để tái sử dụng output cũ.
+
+Cập nhật 04/11: dùng duy nhất `features_smoke.yaml` cho smoke test. `--subjects S2` ghi đè danh sách người trong file chung, `--output-dir` chọn nơi lưu riêng. Config riêng trùng lặp đã bỏ. Các gói kết quả cũ vẫn được giữ; đường dẫn trong các lệnh trên dành cho lượt chạy bằng source hiện tại.
 
 ## Đối chiếu mẫu giữa các máy
 
@@ -35,7 +37,7 @@ Mỗi thành viên dùng cùng source trên main, Python 3.12.14, thư viện kh
 Máy Như có thể đặt gói nhận từ máy khác vào `data/features/g1_reference_mai/` (hoặc tên thành viên tương ứng), rồi chạy:
 
 ```powershell
-.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/nhu_g1_S2_py312_raw_stats_majority_v1 --reference-dir data/features/g1_reference_mai --output outputs/g1/compare_nhu_mai.json
+.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_S2_shared_smoke_v1 --reference-dir data/features/g1_reference_mai --output outputs/g1/compare_nhu_mai.json
 ```
 
 Đây là đường dẫn mẫu cho gói thực sự nhận được, chưa có gói Mai trên máy Như. Lặp lại với gói Thái và Nam khi có. Công cụ kiểm tra:
