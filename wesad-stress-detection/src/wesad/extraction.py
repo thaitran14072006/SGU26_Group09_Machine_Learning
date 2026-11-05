@@ -106,6 +106,8 @@ def run_extraction(config, subjects=None, resume=False):
                 manifest = {"status": "complete", "signature": signature, "source_sha256": source_hash,
                             "csv_sha256": file_hash(target), "feature_columns": columns,
                             "n_windows": len(frame), "seconds": round(perf_counter() - started, 3)}
+                if "extraction_qa" in frame.attrs:
+                    manifest["extraction_qa"] = frame.attrs["extraction_qa"]
                 write_json(manifest_path, manifest)
             columns = validate_features(frame)
             if schema_columns is not None and columns != schema_columns:
@@ -113,6 +115,7 @@ def run_extraction(config, subjects=None, resume=False):
             schema_columns = columns
             summary = {"subject_id": path.stem, "n_windows": len(frame), "resumed": skipped,
                        "seconds": manifest["seconds"]}
+            summary.update(manifest.get("extraction_qa", {}))
             summary.update({f"n_label_{label}": int((frame.label_original == label).sum()) for label in (1, 2, 3)})
             summaries.append(summary)
             frames.append(frame)  # Chỉ giữ bảng đặc trưng để ghép cuối lượt.
@@ -124,6 +127,10 @@ def run_extraction(config, subjects=None, resume=False):
         write_csv(out / "quality_report.csv", pd.DataFrame(summaries))
         write_json(out / "feature_schema.json", {"feature_columns": schema_columns,
                    "feature_version": config["feature_version"], "processing_signature": signature,
+                   "sensor_groups": {
+                       "chest": [c for c in schema_columns if c.startswith("chest_")],
+                       "wrist": [c for c in schema_columns if c.startswith("wrist_")],
+                       "combined": schema_columns},
                    "description": "Raw statistics unless a team subject_processor is configured."})
         write_json(out / "checksums.json", {p.name: file_hash(p) for p in
                    [out / "all_subjects.csv", out / "feature_schema.json", *[out / f"{s.stem}.csv" for s in paths]]})
@@ -135,3 +142,4 @@ def run_extraction(config, subjects=None, resume=False):
         write_json(out / "run_status.json", {"status": "failed", "error": str(exc),
                    "completed_subjects": [s["subject_id"] for s in summaries]})
         raise
+

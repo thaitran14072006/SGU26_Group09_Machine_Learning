@@ -1,16 +1,17 @@
-# Thống kê raw ECG, EDA và Resp; chưa có đặc trưng sinh lý.
-# dùng nhãn majority
+# Raw statistics for every recorded chest/wrist sensor. Not the 68-feature physiology draft.
 data_root: data/raw/WESAD/WESAD
-device: chest
-sensors: [ECG, EDA, Resp]
-sampling_rate_hz: 700
+device: combined
+sampling_rate_hz: 700  # label grid only; sensors retain their native sample rates
+sensors:
+  chest: [ECG, EDA, EMG, Resp, Temp, ACC]
+  wrist: [BVP, EDA, TEMP, ACC]
+subject_processor: wesad.multisensor:process_subject
 labels: [1, 2, 3]
 window_seconds: 60
 step_seconds: 5
 label_rule: majority
 min_label_fraction: 0.90
-feature_version: chest_raw_stats_majority_v1
-subjects: null
-output_dir: data/features/chest_raw_stats_majority_v1
-
+feature_version: all_sensors_raw_stats_v1
+subjects: [S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S13, S14, S15, S16, S17]
+output_dir: data/features/all_sensors_raw_stats_v2
 
