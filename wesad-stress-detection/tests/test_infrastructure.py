@@ -47,7 +47,7 @@ class WindowTests(unittest.TestCase):
 
     def test_invalid_dominant_label_and_homogeneous_boundary(self):
         self.assertFalse(self.windows([4] * 10, label_rule="majority"))
-        self.assertFalse(self.windows([1] * 9 + [2]))
+        self.assertFalse(self.windows([1] * 9 + [2], label_rule="homogeneous"))
         self.assertEqual(len(self.windows([1] * 10)), 1)
 
     def test_no_concatenation_and_discard_short_tail(self):

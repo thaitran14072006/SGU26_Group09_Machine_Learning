@@ -1,11 +1,11 @@
-# Cấu hình chạy thử trên bảng thống kê raw.
-features: data/features/chest_raw_stats_majority_v1/all_subjects.csv
-output_dir: outputs/experiments/raw_stats_defaults
+# LOSO trên 112 thống kê raw ngực và cổ tay; chưa phải đặc trưng sinh lý.
+features: data/features/all_sensors_raw_stats_v1/all_subjects.csv
+output_dir: outputs/experiments/all_sensors_raw_stats_defaults
 expected_subjects: [S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S13, S14, S15, S16, S17]
 models: [dummy, lr, knn, svm, rf, mlp]
 tasks: [multiclass, binary]
 seed: 42
-sensor_set: chest_raw_statistics
+sensor_set: combined_raw_statistics
 normalization: global_train
 balance: false
 nested: false
@@ -32,3 +32,4 @@ search_spaces:
     - {model__hidden_layer_sizes: [[64, 32]], model__alpha: [0.001], model__learning_rate_init: [0.001]}
     - {model__hidden_layer_sizes: [[32]], model__alpha: [0.001], model__learning_rate_init: [0.01]}
     - {model__hidden_layer_sizes: [[64, 32]], model__alpha: [0.0001], model__learning_rate_init: [0.01]}
+
