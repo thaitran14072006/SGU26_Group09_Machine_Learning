@@ -22,7 +22,7 @@ def iter_windows(
     labels: np.ndarray,
     sampling_rate_hz: float = 700,
     window_seconds: float = 60,
-    step_seconds: float = 60,
+    step_seconds: float = 5,
     allowed_labels: Sequence[int] = (1, 2, 3),
     label_rule: str = "homogeneous",
     min_label_fraction: float = 0.90,

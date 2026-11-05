@@ -9,5 +9,5 @@ step_seconds: 5
 label_rule: majority
 min_label_fraction: 0.90
 feature_version: chest_raw_stats_majority_v1
-subjects: [S2, S7, S13, S15]
+subjects: null
 output_dir: data/features/chest_raw_stats_majority_v1
