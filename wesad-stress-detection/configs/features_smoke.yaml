@@ -1,4 +1,5 @@
 # Thống kê raw ECG, EDA và Resp; chưa có đặc trưng sinh lý.
+# dùng nhãn majority
 data_root: data/raw/WESAD/WESAD
 device: chest
 sensors: [ECG, EDA, Resp]
@@ -11,3 +12,5 @@ min_label_fraction: 0.90
 feature_version: chest_raw_stats_majority_v1
 subjects: null
 output_dir: data/features/chest_raw_stats_majority_v1
+
+
