@@ -113,7 +113,6 @@ Nó không bảo đảm dữ liệu đã có đủ 15 người.
 --local ghi đè data_root.
 --output-dir ghi đè thư mục kết quả.
 
-<<<<<<< HEAD
 Script mặc định dùng configs/features_smoke.yaml. Các lệnh vẫn truyền --config rõ ràng để đối chiếu cấu hình.
 
 ## 5. Cách chia cửa sổ và gán nhãn
@@ -240,7 +239,7 @@ subject_id được dùng để chia nhóm trong LOSO.
 quality_flag = finite_only_not_physiological_QA không chứng minh
 tín hiệu không có nhiễu hoặc đạt chất lượng sinh lý.
 
-Không dùng configs/feature_schema.json nháp 68 feature cho bảng này.
+Schema sinh lý 68 feature trong configs/feature_schema.json là hợp đồng riêng, không dùng để kiểm tra bảng raw 112 này.
 Dùng feature_schema.json được sinh cùng thư mục CSV.
 
 ## 10. Chạy tiếp và thay phiên bản
@@ -288,7 +287,7 @@ của từng fold. Không chuẩn hóa toàn bảng trước LOSO.
 | Lệnh cũ trỏ tới cấu hình đã bỏ | Cập nhật main và dùng configs/features_smoke.yaml |
 | Không tìm thấy Sx/Sx.pkl | data_root phải chứa trực tiếp các thư mục Sx |
 | all_subjects.csv chỉ có một vài người | Xem --subjects và phạm vi lần chạy cuối |
-| Schema thiếu các cột chest_ecg_... | Có thể đang dùng nhầm schema nháp 68 feature |
+| Schema thiếu các cột chest_ecg_... | Kiểm tra đúng phiên bản schema raw 112 hoặc hợp đồng sinh lý 68 |
 | Số cửa sổ khác bộ 60/60 | Do đổi bước trượt và quy tắc nhãn |
 | Notebook báo ngoài lưới 60 giây | Notebook vẫn kiểm tra bộ 60/60 cũ |
 | Resume báo khác chữ ký | Dùng output mới hoặc khôi phục đúng phiên bản xử lý cũ |
@@ -301,9 +300,8 @@ Máy Như dùng Python 3.12.14 trong .venv-g1; thay .venv bằng .venv-g1 trong 
 
 Thiết kế bộ lọc trong configs/preprocessing_g1_design.yaml chưa áp dụng lên bộ raw 112. Bộ đang chọn dùng thống kê trực tiếp trong cửa sổ 60 giây, bước 5 giây; không tự đổi định nghĩa feature khi nghiệm thu mẫu.
 
-## 14. Bàn giao G1 phần danh mục và schema
+## 14. Bàn giao G1 phần Mai
 
-Danh mục/schema nháp theo phân công đã được kiểm tra: [68 feature dự kiến](docs/G1_DANH_MUC_FEATURE.csv), [hợp đồng feature](docs/G1_HOP_DONG_FEATURE.md), [schema nháp](configs/feature_schema.json) và [bàn giao](docs/BAN_GIAO.md). Phần này dùng thiết kế G1 của Như và đã cập nhật đầu vào từ EDA 60/5 của Nam ngày 05/11/2026.
+Đầu ra chính: [schema](configs/feature_schema.json), [danh mục feature](docs/G1_DANH_MUC_FEATURE.csv), [hợp đồng](docs/G1_HOP_DONG_FEATURE.md), [bàn giao và kết quả tự kiểm tra S2](docs/BAN_GIAO.md). Bằng chứng đơn vị được gộp trong schema/hợp đồng. Hợp đồng 68 feature sinh lý đã chốt thiết kế, chưa triển khai/kiểm chứng extractor; bộ raw hiện tại vẫn có 112 feature theo cấu hình nhóm.
 
-Schema nháp gồm 8 metadata + 68 feature dự kiến cho ngực/cổ tay/kết hợp; đơn vị mục tiêu và các tham số còn mở được ghi rõ. Gói raw G1 hiện dùng 112 feature và phải dùng schema sinh cùng CSV như mục 9. Những thông tin gói 21/schema 68 dưới đây ghi lại bàn giao trước quyết định bộ 112, không thay thế định nghĩa bộ đang chọn. Máy Mai đã kiểm tra gói S2 đạt trên Python 3.12.14 và đủ thư viện khóa: 395 cửa sổ, 25/25 test đạt; đối chiếu đủ bốn máy vẫn chưa hoàn tất. Xem lệnh chạy và bằng chứng trong bàn giao.
->>>>>>> 360c5177a45447c07a1d3b986023de4eb51bf33a
+Cả bốn chạy mẫu S2 theo phân công. Mai tự kiểm tra gói máy mình; Như nhận ZIP và tổng hợp đối chiếu theo cách nhóm đã xác định. Máy Mai: Python 3.12.14, source fa7b694, 395 cửa sổ, 112 feature, kiểm tra một gói passed; chưa có nghiệm thu bốn máy. Schema raw lấy từ file sinh cùng CSV, không tạo thêm danh mục/schema trùng lặp trong Git. Gói dữ liệu gửi ngoài Git, không gửi môi trường Python.

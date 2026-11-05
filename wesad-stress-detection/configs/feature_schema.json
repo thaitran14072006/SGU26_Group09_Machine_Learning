@@ -1,11 +1,11 @@
 {
-  "schema_version": "g1_mai_draft_v1",
-  "status": "draft_pending_feature_details_and_s2_acceptance",
+  "schema_version": "g1_physiological_contract_v1",
+  "status": "design_locked_implementation_not_validated",
   "stage": "G1",
   "owner": "Nguyen Thi Truc Mai",
   "date": "2026-11-03",
   "source_assignment": "PHAN_CONG_MAY_HOC.docx",
-  "feature_version": null,
+  "feature_version": "physiological_68_v1",
   "ready_for_extraction": false,
   "ready_for_training": false,
   "expected_subjects": [
@@ -121,7 +121,7 @@
       "dtype": "string",
       "nullable": false,
       "unit": "1",
-      "definition": "Semicolon-separated sensor:reason codes; ok only after agreed QA has run"
+      "definition": "Sorted semicolon-separated sensor:reason codes; heuristic_checks_passed_not_physiological_validation only when no flagged issue"
     }
   ],
   "unique_key": [
@@ -131,13 +131,13 @@
   "feature_columns": [
     "chest_ecg_hr_mean_bpm",
     "chest_ecg_hr_std_bpm",
-    "chest_ecg_mean_nn_ms",
-    "chest_ecg_sdnn_ms",
+    "chest_ecg_mean_rr_ms",
+    "chest_ecg_sd_rr_ms",
     "chest_ecg_rmssd_ms",
     "chest_ecg_pnn50",
-    "chest_ecg_band1_power",
-    "chest_ecg_band2_power",
-    "chest_ecg_band3_power",
+    "chest_ecg_power_5_10_hz",
+    "chest_ecg_power_10_20_hz",
+    "chest_ecg_power_20_40_hz",
     "chest_eda_tonic_mean",
     "chest_eda_tonic_std",
     "chest_eda_phasic_mean",
@@ -172,9 +172,9 @@
     "wrist_bvp_sd_ibi_ms",
     "wrist_bvp_rmssd_ibi_ms",
     "wrist_bvp_pnn50_ibi",
-    "wrist_bvp_band1_power",
-    "wrist_bvp_band2_power",
-    "wrist_bvp_band3_power",
+    "wrist_bvp_power_0p5_1_hz",
+    "wrist_bvp_power_1_2_hz",
+    "wrist_bvp_power_2_5_hz",
     "wrist_eda_tonic_mean",
     "wrist_eda_tonic_std",
     "wrist_eda_phasic_mean",
@@ -209,8 +209,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
       "name": "chest_ecg_hr_std_bpm",
@@ -222,34 +223,37 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
-      "name": "chest_ecg_mean_nn_ms",
+      "name": "chest_ecg_mean_rr_ms",
       "dtype": "float64",
       "unit": "ms",
-      "definition": "Mean accepted interval; ECG NN interpretation requires artifact/ectopic handling",
+      "definition": "Mean accepted ECG RR interval times 1000; heuristic artifact rejection, not verified NN",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
-      "name": "chest_ecg_sdnn_ms",
+      "name": "chest_ecg_sd_rr_ms",
       "dtype": "float64",
       "unit": "ms",
-      "definition": "Sample standard deviation of accepted intervals, ddof=1",
+      "definition": "Sample SD of accepted ECG RR intervals times 1000, ddof=1; not verified NN",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
       "name": "chest_ecg_rmssd_ms",
@@ -261,8 +265,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
       "name": "chest_ecg_pnn50",
@@ -274,47 +279,51 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
-      "name": "chest_ecg_band1_power",
+      "name": "chest_ecg_power_5_10_hz",
       "dtype": "float64",
       "unit": "mV^2",
-      "definition": "Integral of signal PSD over band 1; not HRV LF/HF power",
+      "definition": "Welch PSD integral over [5, 10] Hz of locked filtered amplitude signal; not RR spectral HRV",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "band_edges_psd_method_and_filter_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "psd"
     },
     {
-      "name": "chest_ecg_band2_power",
+      "name": "chest_ecg_power_10_20_hz",
       "dtype": "float64",
       "unit": "mV^2",
-      "definition": "Integral of signal PSD over band 2; not HRV LF/HF power",
+      "definition": "Welch PSD integral over [10, 20] Hz of locked filtered amplitude signal; not RR spectral HRV",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "band_edges_psd_method_and_filter_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "psd"
     },
     {
-      "name": "chest_ecg_band3_power",
+      "name": "chest_ecg_power_20_40_hz",
       "dtype": "float64",
       "unit": "mV^2",
-      "definition": "Integral of signal PSD over band 3; not HRV LF/HF power",
+      "definition": "Welch PSD integral over [20, 40] Hz of locked filtered amplitude signal; not RR spectral HRV",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "planned",
-      "pending": "band_edges_psd_method_and_filter_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "psd"
     },
     {
       "name": "chest_eda_tonic_mean",
@@ -326,8 +335,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "chest_eda_tonic_std",
@@ -339,8 +349,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "chest_eda_phasic_mean",
@@ -352,8 +363,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "chest_eda_phasic_std",
@@ -365,8 +377,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "chest_eda_scr_count",
@@ -378,8 +391,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "decomposition_scr_onsets_thresholds_and_quality_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "chest_eda_scr_rate_per_min",
@@ -391,8 +405,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "decomposition_scr_onsets_thresholds_and_quality_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "chest_eda_scr_amplitude_mean",
@@ -404,8 +419,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "decomposition_scr_onsets_thresholds_and_quality_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "chest_eda_scr_amplitude_max",
@@ -417,8 +433,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "decomposition_scr_onsets_thresholds_and_quality_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "chest_resp_rate_mean",
@@ -430,8 +447,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "resp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "resp"
     },
     {
       "name": "chest_resp_rate_std",
@@ -443,8 +461,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "resp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "resp"
     },
     {
       "name": "chest_temp_mean",
@@ -456,8 +475,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "temp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "temp"
     },
     {
       "name": "chest_temp_slope_per_s",
@@ -469,8 +489,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "temp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "temp"
     },
     {
       "name": "chest_acc_x_5s_mean_mean",
@@ -482,8 +503,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_x_5s_std_mean",
@@ -495,8 +517,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_x_5s_abs_integral_mean",
@@ -508,8 +531,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_y_5s_mean_mean",
@@ -521,8 +545,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_y_5s_std_mean",
@@ -534,8 +559,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_y_5s_abs_integral_mean",
@@ -547,8 +573,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_z_5s_mean_mean",
@@ -560,8 +587,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_z_5s_std_mean",
@@ -573,8 +601,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_z_5s_abs_integral_mean",
@@ -586,8 +615,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_magnitude_5s_mean_mean",
@@ -599,8 +629,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_magnitude_5s_std_mean",
@@ -612,8 +643,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_acc_magnitude_5s_abs_integral_mean",
@@ -625,8 +657,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_emg_5s_rms_mean",
@@ -638,8 +671,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "emg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_emg_5s_mav_mean",
@@ -651,8 +685,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "emg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_emg_5s_waveform_length_per_s_mean",
@@ -664,8 +699,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "emg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "chest_emg_5s_abs_integral_mean",
@@ -677,8 +713,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "emg",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_bvp_pulse_rate_mean_bpm",
@@ -690,8 +727,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
       "name": "wrist_bvp_pulse_rate_std_bpm",
@@ -703,21 +741,23 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
       "name": "wrist_bvp_mean_ibi_ms",
       "dtype": "float64",
       "unit": "ms",
-      "definition": "Mean accepted interval; ECG NN interpretation requires artifact/ectopic handling",
+      "definition": "Mean accepted BVP inter-pulse interval times 1000; PRV, not ECG NN",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
       "name": "wrist_bvp_sd_ibi_ms",
@@ -729,8 +769,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
       "name": "wrist_bvp_rmssd_ibi_ms",
@@ -742,8 +783,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
       "name": "wrist_bvp_pnn50_ibi",
@@ -755,47 +797,51 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "cardiac_intervals"
     },
     {
-      "name": "wrist_bvp_band1_power",
+      "name": "wrist_bvp_power_0p5_1_hz",
       "dtype": "float64",
       "unit": "a.u.^2",
-      "definition": "Integral of signal PSD over band 1; not HRV LF/HF power",
+      "definition": "Welch PSD integral over [0.5, 1] Hz of locked filtered amplitude signal; not RR spectral HRV",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "band_edges_psd_method_and_filter_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "psd"
     },
     {
-      "name": "wrist_bvp_band2_power",
+      "name": "wrist_bvp_power_1_2_hz",
       "dtype": "float64",
       "unit": "a.u.^2",
-      "definition": "Integral of signal PSD over band 2; not HRV LF/HF power",
+      "definition": "Welch PSD integral over [1, 2] Hz of locked filtered amplitude signal; not RR spectral HRV",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "band_edges_psd_method_and_filter_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "psd"
     },
     {
-      "name": "wrist_bvp_band3_power",
+      "name": "wrist_bvp_power_2_5_hz",
       "dtype": "float64",
       "unit": "a.u.^2",
-      "definition": "Integral of signal PSD over band 3; not HRV LF/HF power",
+      "definition": "Welch PSD integral over [2, 5] Hz of locked filtered amplitude signal; not RR spectral HRV",
       "aggregation": "window_60s",
       "nullable": true,
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "planned",
-      "pending": "band_edges_psd_method_and_filter_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "psd"
     },
     {
       "name": "wrist_eda_tonic_mean",
@@ -807,8 +853,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "wrist_eda_tonic_std",
@@ -820,8 +867,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "wrist_eda_phasic_mean",
@@ -833,8 +881,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "wrist_eda_phasic_std",
@@ -846,8 +895,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "wrist_eda_scr_count",
@@ -859,8 +909,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "decomposition_scr_onsets_thresholds_and_quality_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "wrist_eda_scr_rate_per_min",
@@ -872,8 +923,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "decomposition_scr_onsets_thresholds_and_quality_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "wrist_eda_scr_amplitude_mean",
@@ -885,8 +937,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "decomposition_scr_onsets_thresholds_and_quality_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "wrist_eda_scr_amplitude_max",
@@ -898,8 +951,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "planned",
-      "pending": "decomposition_scr_onsets_thresholds_and_quality_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "eda"
     },
     {
       "name": "wrist_temp_mean",
@@ -911,8 +965,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "temp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "temp"
     },
     {
       "name": "wrist_temp_slope_per_s",
@@ -924,8 +979,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "temp",
-      "status": "planned",
-      "pending": "preprocessing_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "temp"
     },
     {
       "name": "wrist_acc_x_5s_mean_mean",
@@ -937,8 +993,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_x_5s_std_mean",
@@ -950,8 +1007,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_x_5s_abs_integral_mean",
@@ -963,8 +1021,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_y_5s_mean_mean",
@@ -976,8 +1035,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_y_5s_std_mean",
@@ -989,8 +1049,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_y_5s_abs_integral_mean",
@@ -1002,8 +1063,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_z_5s_mean_mean",
@@ -1015,8 +1077,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_z_5s_std_mean",
@@ -1028,8 +1091,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_z_5s_abs_integral_mean",
@@ -1041,8 +1105,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_magnitude_5s_mean_mean",
@@ -1054,8 +1119,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_magnitude_5s_std_mean",
@@ -1067,8 +1133,9 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     },
     {
       "name": "wrist_acc_magnitude_5s_abs_integral_mean",
@@ -1080,21 +1147,22 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "planned",
-      "pending": "input_scale_and_gravity_handling_agreement"
+      "status": "design_locked",
+      "pending": "",
+      "method_ref": "acc_emg"
     }
   ],
   "sensor_groups": {
     "chest": [
       "chest_ecg_hr_mean_bpm",
       "chest_ecg_hr_std_bpm",
-      "chest_ecg_mean_nn_ms",
-      "chest_ecg_sdnn_ms",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
       "chest_ecg_rmssd_ms",
       "chest_ecg_pnn50",
-      "chest_ecg_band1_power",
-      "chest_ecg_band2_power",
-      "chest_ecg_band3_power",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
       "chest_eda_tonic_mean",
       "chest_eda_tonic_std",
       "chest_eda_phasic_mean",
@@ -1131,9 +1199,9 @@
       "wrist_bvp_sd_ibi_ms",
       "wrist_bvp_rmssd_ibi_ms",
       "wrist_bvp_pnn50_ibi",
-      "wrist_bvp_band1_power",
-      "wrist_bvp_band2_power",
-      "wrist_bvp_band3_power",
+      "wrist_bvp_power_0p5_1_hz",
+      "wrist_bvp_power_1_2_hz",
+      "wrist_bvp_power_2_5_hz",
       "wrist_eda_tonic_mean",
       "wrist_eda_tonic_std",
       "wrist_eda_phasic_mean",
@@ -1160,13 +1228,13 @@
     "combined": [
       "chest_ecg_hr_mean_bpm",
       "chest_ecg_hr_std_bpm",
-      "chest_ecg_mean_nn_ms",
-      "chest_ecg_sdnn_ms",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
       "chest_ecg_rmssd_ms",
       "chest_ecg_pnn50",
-      "chest_ecg_band1_power",
-      "chest_ecg_band2_power",
-      "chest_ecg_band3_power",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
       "chest_eda_tonic_mean",
       "chest_eda_tonic_std",
       "chest_eda_phasic_mean",
@@ -1201,9 +1269,9 @@
       "wrist_bvp_sd_ibi_ms",
       "wrist_bvp_rmssd_ibi_ms",
       "wrist_bvp_pnn50_ibi",
-      "wrist_bvp_band1_power",
-      "wrist_bvp_band2_power",
-      "wrist_bvp_band3_power",
+      "wrist_bvp_power_0p5_1_hz",
+      "wrist_bvp_power_1_2_hz",
+      "wrist_bvp_power_2_5_hz",
       "wrist_eda_tonic_mean",
       "wrist_eda_tonic_std",
       "wrist_eda_phasic_mean",
@@ -1239,13 +1307,13 @@
     "quality_flag",
     "chest_ecg_hr_mean_bpm",
     "chest_ecg_hr_std_bpm",
-    "chest_ecg_mean_nn_ms",
-    "chest_ecg_sdnn_ms",
+    "chest_ecg_mean_rr_ms",
+    "chest_ecg_sd_rr_ms",
     "chest_ecg_rmssd_ms",
     "chest_ecg_pnn50",
-    "chest_ecg_band1_power",
-    "chest_ecg_band2_power",
-    "chest_ecg_band3_power",
+    "chest_ecg_power_5_10_hz",
+    "chest_ecg_power_10_20_hz",
+    "chest_ecg_power_20_40_hz",
     "chest_eda_tonic_mean",
     "chest_eda_tonic_std",
     "chest_eda_phasic_mean",
@@ -1280,9 +1348,9 @@
     "wrist_bvp_sd_ibi_ms",
     "wrist_bvp_rmssd_ibi_ms",
     "wrist_bvp_pnn50_ibi",
-    "wrist_bvp_band1_power",
-    "wrist_bvp_band2_power",
-    "wrist_bvp_band3_power",
+    "wrist_bvp_power_0p5_1_hz",
+    "wrist_bvp_power_1_2_hz",
+    "wrist_bvp_power_2_5_hz",
     "wrist_eda_tonic_mean",
     "wrist_eda_tonic_std",
     "wrist_eda_phasic_mean",
@@ -1307,27 +1375,19 @@
     "wrist_acc_magnitude_5s_abs_integral_mean"
   ],
   "missing_policy": {
-    "features": "NaN; empty CSV field; reason in quality_flag",
+    "features": "NaN; empty CSV field; reason in quality_flag. Valid no-SCR: count/rate=0, amplitude mean/max=NaN with no_scr_events.",
     "metadata": "missing forbidden",
     "infinity": "invalid; investigate",
     "imputation": "train-fold only; never during extraction"
   },
-  "target_units_status": "Output targets only; raw units and conversion factors must be verified before G2",
-  "pending_decisions": [
-    "Raw physical units and scale factors with evidence",
-    "ECG/BVP and EMG filters, beat detectors, artifact rules and minimum reliability",
-    "EDA decomposition, SCR onset, thresholds and no-event amplitude policy",
-    "PSD method and three band boundaries for ECG/BVP",
-    "Physiological QA thresholds and final tolerances for 68 physiological features",
-    "Four-machine S2 acceptance on common source, Python 3.12.14 and locked dependencies"
-  ],
   "reference_outputs": {
     "contract": "docs/G1_HOP_DONG_FEATURE.md",
     "catalog": "docs/G1_DANH_MUC_FEATURE.csv",
     "handoff": "docs/BAN_GIAO.md",
     "g2_processor": "src/wesad/features.py",
     "g3_baselines": "src/wesad/baselines.py",
-    "g3_metrics": "src/wesad/metrics.py"
+    "g3_metrics": "src/wesad/metrics.py",
+    "raw_112_package_schema": "data/features/g1_s2_raw112_py31214_fa7b694/feature_schema.json (shared outside Git)"
   },
   "preprocessing_design": {
     "source": "docs/G1_NHU_THIET_KE_TIEN_XU_LY.md",
@@ -1376,19 +1436,12 @@
       "short_segments": "mark_unusable_if_padding_or_edge_removal_leaves_no_interior",
       "no_bridge_over_nonfinite": true,
       "edge_lengths_status": "nhu_design_addition_not_runtime_validated",
-      "edge_policy": "Exclude configured edge_seconds at both ends of each finite segment; exclude windows overlapping invalid regions"
+      "edge_policy": "See methods.filter.edges_seconds_each_end; EDA tonic/phasic adds 60 s to the cleaned-signal design"
     },
-    "acc_temp": "ACC retains gravity; ACC/TEMP use original signal for initial statistics; no scale conversion without raw evidence",
+    "acc_temp": "Calibrated chest ACC/TEMP kept; wrist ACC /64 to g; S2 suspect chest TEMP masked NaN",
     "acc_emg_aggregation": "12 nonoverlapping 5 s blocks inside 60 s; calculate per block then average",
-    "invalid_samples": "Exclude windows with missing/nonfinite required-channel samples or filter-edge overlap; record reasons; do not impute during extraction",
-    "not_yet_specified": [
-      "ECG_BVP_and_EMG_filters_and_detectors",
-      "beat_artifact_rules_and_minimum_reliability",
-      "EDA_decomposition_and_SCR_rules",
-      "PSD_bands_and_method",
-      "verified_unit_conversions",
-      "physiological_QA_thresholds_and_final_feature_tolerances"
-    ],
+    "invalid_samples": "Exclude common windows overlapping missing/nonfinite required channels or any required filter edge; feature-level detector/contact failures stay NaN with flags",
+    "not_yet_specified": [],
     "status": "adopted_for_g1_from_nhu_design",
     "runtime_validated": false,
     "acceptance_scope": "User selected Nhu written G1 design as the preprocessing basis; no claim of additional personal confirmation from Nhu or final signal validation",
@@ -1397,7 +1450,6 @@
       "handoff": "docs/G1_NHU_BAN_GIAO.md",
       "scope": "G1 design and raw-stat sample acceptance only",
       "runtime_ready": false,
-      "mai_review_of_supplement": "not recorded; do not infer personal confirmation",
       "acc_gravity": "retained; unit conversion still requires evidence",
       "g1_sample_python": "3.12.14",
       "g1_raw_stats_rtol": 1e-07,
@@ -1409,7 +1461,7 @@
     "acc": {
       "gravity": "retained",
       "magnitude": "sqrt_x2_plus_y2_plus_z2",
-      "scale_conversion": "pending_raw_evidence"
+      "scale_conversion": "wrist ACC /64 to g; chest already g; see unit_policy"
     },
     "quality_design": {
       "signal_comparison_windows": "common_keys_across_requested_channels",
@@ -1418,10 +1470,11 @@
       "filter_edge_overlap": "exclude_window_and_record_reason",
       "do_not_impute_during_extraction": true,
       "flat_or_suspect_contact": "flag_for_review_no_automatic_physiological_acceptance",
-      "s2_chest_temperature_note": "suspect_contact_from_subject_readme",
-      "source_units": "unverified_until_checked_against_raw_documentation",
+      "s2_chest_temperature_note": "mask both S2 chest TEMP features NaN with chest_temp:suspect_contact",
+      "source_units": "documented and sampled on aligned S2; unit_policy fixes adapter boundary",
       "physiological_validity": "not_established_by_finiteness"
-    }
+    },
+    "feature_design_supplement": "methods section in this contract; preserves Nhu EDA/RESP cleaned cutoffs and adds tonic60s edges and feature-specific details"
   },
   "g1_sample_acceptance": {
     "python": "3.12.14",
@@ -1449,38 +1502,330 @@
       "tests_passed": 25,
       "all_16_locked_packages_verified": true,
       "four_machine_acceptance": false
+    },
+    "current_raw112_result": {
+      "report": "docs/BAN_GIAO.md#kiểm-tra-s2-và-người-tổng-hợp",
+      "status": "passed",
+      "scope": "g1_raw112_single_package",
+      "n_windows": 395,
+      "n_features": 112,
+      "four_machine_acceptance": false
+    },
+    "coordination": {
+      "local_check": "Mai checks own S2 package before handoff; not cross-machine acceptance",
+      "cross_machine_comparison": "Nhu consolidates ZIP packages according to user team arrangement",
+      "group_acceptance": "pending actual comparison across four machines; no certification in this schema"
     }
   },
   "updated_at": "2026-11-05",
   "source_proposal": "Nhom09_NhanDienStress_WESAD_Proposal_v3.docx (read-only reference)",
-  "g1_deliverable_status": {
-    "feature_catalog_units_labels_missing_and_draft_schema": "prepared_and_consistency_checked",
-    "preprocessing_basis": "nhu_g1_design_v2",
-    "runtime_raw_sample_schema": "generated beside CSV; do not use this 68-feature draft to validate the 21-feature raw package",
-    "local_s2_acceptance": "passed_single_raw_package_python_3.12.14_locked_dependencies",
-    "four_machine_acceptance": false
-  },
   "eda_design_evidence": {
     "source": "notebooks/reports/tables/eda_step5/eda_summary.json",
-    "observations": "notebooks/reports/tables/eda_step5/eda_observations.md",
-    "scope": "Nam reported chest raw ECG/EDA/Resp statistics; not validation of these 68 physiological features",
+    "scope": "Nam EDA of 112 raw statistics, not physiological acceptance",
     "n_subjects": 15,
-    "n_windows": 6196,
-    "n_features": 21,
-    "label_counts": {
-      "1": 3377,
-      "2": 1848,
-      "3": 971
+    "n_features": 112,
+    "n_windows": 6196
+  },
+  "readiness": {
+    "g1_design_complete": true,
+    "implementation_complete": false,
+    "physiological_s2_validated": false,
+    "four_machine_acceptance": false,
+    "meaning": "This locks the design for implementation; it does not certify the historical 21 raw or current 112 raw pipeline as a physiological extractor."
+  },
+  "unit_policy": {
+    "source": "WESAD original wesad_readme.pdf sections II.1-II.3 and S2_E4_Data.zip/info.txt",
+    "chest_pkl": "already converted: ECG/EMG mV; EDA uS; TEMP degC; ACC g; RESP percent. Do not apply ADC formulas again.",
+    "wrist_pkl": "EDA uS; TEMP degC; BVP a.u.; ACC in 1/64 g, divide by 64 once to produce g.",
+    "input_boundary": "Only official synchronized WESAD PKL is supported. TXT/ZIP ADC values require a separate adapter; never guess units from range.",
+    "evidence": "unit_policy.unit_evidence embedded in this schema; human summary in docs/G1_HOP_DONG_FEATURE.md",
+    "verification_scope": "Documentation plus aligned S2 samples, not a fresh audit of all 15 recordings. For other sources require explicit unit declarations.",
+    "amplitude_output_units": {
+      "ECG": "mV",
+      "EMG": "mV",
+      "EDA": "uS",
+      "TEMP": "degC",
+      "ACC": "g",
+      "BVP": "a.u.",
+      "RESP": "breaths/min after cycle detection"
     },
-    "nan_feature_values": 0,
-    "inf_feature_values": 0,
-    "duplicate_key_rows": 0,
-    "raw_quality_scope": "ECG/EDA/ACC only; no NaN/Inf or length mismatches reported for 45 subject-sensor pairs",
-    "design_consequences": [
-      "Retain physiological QA and missing-feature reasons; finite raw data does not validate beat/SCR detection",
-      "IQR flags are review signals; do not automatically exclude windows",
-      "Feature selection and imputation remain train-fold only"
-    ],
-    "does_not_establish": "wrist/EMG/TEMP/RESP raw quality, physical unit conversions, final physiological feature values or cross-machine agreement"
+    "unit_evidence": {
+      "scope": "Aligned S2 chest 100 samples and wrist first20 samples; sample verification, not all subjects",
+      "wrist": {
+        "ACC": {
+          "pkl_matches_original_20_sample_run": true,
+          "first_matching_offset": 49447
+        },
+        "EDA": {
+          "pkl_matches_original_20_sample_run": true,
+          "first_matching_offset": 6180
+        },
+        "TEMP": {
+          "pkl_matches_original_20_sample_run": true,
+          "first_matching_offset": 6180
+        },
+        "BVP": {
+          "pkl_matches_original_20_sample_run": true,
+          "first_matching_offset": 98894
+        }
+      },
+      "chest_aligned_first_sample": {
+        "raw_row_offset": 92017,
+        "checks": {
+          "ECG": {
+            "matches": true
+          },
+          "EDA": {
+            "matches": true
+          },
+          "EMG": {
+            "matches": true
+          },
+          "Temp": {
+            "matches": true
+          },
+          "ACC": {
+            "matches": true
+          },
+          "Resp": {
+            "matches": true
+          }
+        }
+      },
+      "reference": {
+        "title": "WESAD Dataset README",
+        "sections": [
+          "II.1",
+          "II.2",
+          "II.3"
+        ],
+        "sha256": "167f2f6388c029f4cf669e5dd54089854ce355c55b149520da9266fea65d809b",
+        "wrist_additional": "S2_E4_Data.zip/info.txt"
+      },
+      "chest_aligned_100_samples": {
+        "raw_row_offset": 92017,
+        "sample_count": 100,
+        "atol": 1e-05,
+        "rtol": 1e-05,
+        "checks": {
+          "ECG": {
+            "matches": true,
+            "max_abs_difference": 0.0
+          },
+          "EDA": {
+            "matches": true,
+            "max_abs_difference": 0.0
+          },
+          "EMG": {
+            "matches": true,
+            "max_abs_difference": 1.734723475976807e-18
+          },
+          "Temp": {
+            "matches": true,
+            "max_abs_difference": 3.747507531670635e-05
+          },
+          "ACC": {
+            "matches": true,
+            "max_abs_difference": 5.950927728370914e-08
+          },
+          "Resp": {
+            "matches": true,
+            "max_abs_difference": 0.0
+          }
+        }
+      }
+    }
+  },
+  "methods": {
+    "numeric": {
+      "dtype": "float64",
+      "signal_std_ddof": 0,
+      "interval_sd_ddof": 1,
+      "pnn50_threshold_ms": 50,
+      "pnn50_unit": "fraction 0..1",
+      "band_power": "integral of amplitude-signal PSD, not RR spectral HRV; do not call LF/HF"
+    },
+    "filter": {
+      "api": "scipy.signal.butter(order=4,fs=native_hz,output=sos), sosfiltfilt(padtype=odd,padlen=3*(2*n_sections+1-min(zeros_at_origin,poles_at_origin)))",
+      "scope": "each continuous finite subject segment before slicing; never cross NaN/Inf or concatenate label-separated spans",
+      "edges_seconds_each_end": {
+        "ecg": 10,
+        "bvp": 10,
+        "emg": 1,
+        "eda_cleaned": 10,
+        "eda_tonic_phasic": 60,
+        "resp": 30
+      },
+      "short_segment": "unusable when len<=padlen or no eligible interior after removing edges",
+      "offline_only": true
+    },
+    "ecg": {
+      "bandpass_hz": [
+        5,
+        40
+      ],
+      "rate_hz": 700,
+      "detection_bandpass_hz": [
+        5,
+        20
+      ],
+      "detector": "squared detection-band signal; centered 0.10 s boxcar (70 samples), clipped segment boundaries; find_peaks(distance=210,prominence=max(0.5*std(envelope),1e-12)); refine each candidate to argmax(abs(detection_signal)) in +/-0.10 s; unique sorted indices; if refinement distance<0.30 s retain larger absolute peak, ties earlier",
+      "interval_method": "cardiac_intervals",
+      "interpretation": "ECG RR variability with heuristic artifact rejection; no clinical normal-to-normal classification"
+    },
+    "bvp": {
+      "bandpass_hz": [
+        0.5,
+        5
+      ],
+      "rate_hz": 64,
+      "detector": "find_peaks on bandpassed BVP, distance=ceil(0.30*64)=20, prominence=max(0.5*std(filtered),1e-12)",
+      "interval_method": "cardiac_intervals",
+      "interpretation": "pulse rate and PRV; not ECG HRV"
+    },
+    "cardiac_intervals": {
+      "rule": "RR=diff(peaks)/fs. Stage1 keep 0.30<=RR<=2.00 s. m=median(stage1 RR); Stage2 keep stage1 intervals with abs(RR-m)<=0.20*m, inclusive. No interpolation or filling.",
+      "minimum_accepted_intervals": 20,
+      "minimum_accepted_fraction": 0.8,
+      "minimum_originally_adjacent_accepted_pairs": 10,
+      "fail": "all six rate/interval features NaN; flag device_sensor:insufficient_or_unreliable_beats",
+      "pairs": "diff(original RR) only where both adjacent original RR pass; never bridge a rejected RR",
+      "formula": "rate=60/RR; mean/std(rate,ddof=0); mean(RR)*1000; std(RR,ddof=1)*1000; sqrt(mean(adjacent_diff**2))*1000; mean(abs(adjacent_diff)>0.05)"
+    },
+    "eda": {
+      "clean_lowpass_hz": {
+        "chest": 5,
+        "wrist": 1
+      },
+      "tonic_lowpass_hz": 0.05,
+      "decomposition": "tonic=Butterworth4 SOS forward/back lowpass of cleaned EDA; phasic=cleaned-tonic. Explicit filter-based approximation, not cvxEDA.",
+      "detector": "find_peaks(phasic,distance=ceil(fs*1.0),prominence=0.01). For each peak find last minimum in preceding 4 s (inclusive), capped strictly after previous accepted peak; onset-to-peak amplitude = phasic[peak]-phasic[onset]. Accept when amplitude>=0.01 uS and 0.25<=rise_seconds<=4.0, onset and peak both inside the eligible window.",
+      "count_rule": "detect on continuous finite segments, assign only complete onset/peak events within [start,end); count each event once per window, overlapping windows may contain same event",
+      "no_event": "usable signal with no accepted events: count=0,rate=0, amplitude_mean/max=NaN; flag sensor:no_scr_events",
+      "unusable": "all eight EDA features NaN and flag sensor:flat_or_unusable; never encode detector failure as zero"
+    },
+    "resp": {
+      "bandpass_hz": [
+        0.1,
+        0.35
+      ],
+      "detector": "find_peaks(filtered,distance=ceil(2.0*fs),prominence=max(0.5*std(filtered),1e-12)); use adjacent peaks both in window",
+      "interval_range_seconds": [
+        2,
+        15
+      ],
+      "minimum_valid_intervals": 3,
+      "minimum_valid_fraction": 0.8,
+      "formula": "rate_i=60/diff(peaks_seconds); rate_mean=mean(rate_i), rate_std=std(rate_i,ddof=0)",
+      "fail": "both rate features NaN; chest_resp:insufficient_cycles"
+    },
+    "psd": {
+      "api": "scipy.signal.welch",
+      "input": "ECG 5-40 Hz signal and BVP 0.5-5 Hz signal after locked filtering; no extra resampling",
+      "window": "get_window(hann,4*fs,fftbins=True)",
+      "nperseg": "4*fs",
+      "noverlap": "2*fs",
+      "nfft": "4*fs",
+      "detrend": "constant",
+      "scaling": "density",
+      "return_onesided": true,
+      "average": "mean",
+      "bands_hz": {
+        "chest_ecg": [
+          [
+            5,
+            10
+          ],
+          [
+            10,
+            20
+          ],
+          [
+            20,
+            40
+          ]
+        ],
+        "wrist_bvp": [
+          [
+            0.5,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            5
+          ]
+        ]
+      },
+      "integration": "numpy.trapezoid(Pxx[low<=f<=high],f[low<=f<=high]); all boundaries lie exactly on 0.25-Hz bins; adjacent bands sharing endpoints do not duplicate area",
+      "output_units": {
+        "chest_ecg": "mV^2",
+        "wrist_bvp": "a.u.^2"
+      }
+    },
+    "temp": {
+      "input": "original calibrated signal",
+      "mean": "mean(x)",
+      "slope": "sum((t-mean(t))*(x-mean(x)))/sum((t-mean(t))**2), t=arange(n)/fs seconds",
+      "known_quality": "S2 chest TEMP flagged suspect_contact per subject readme: output both chest TEMP features NaN for the whole recording; retain common windows; flag chest_temp:suspect_contact"
+    },
+    "acc_emg": {
+      "block_seconds": 5,
+      "blocks_per_window": 12,
+      "aggregation": "arithmetic mean of all 12 per-block feature values; require all 12 blocks",
+      "acc": "convert wrist ACC /64 once; chest ACC unchanged; retain gravity; x,y,z,magnitude=sqrt(x*x+y*y+z*z)",
+      "acc_formulas": [
+        "mean(x)",
+        "std(x,ddof=0)",
+        "sum(abs(x))/fs"
+      ],
+      "emg_bandpass_hz": [
+        20,
+        250
+      ],
+      "emg_formulas": [
+        "sqrt(mean(x*x))",
+        "mean(abs(x))",
+        "sum(abs(diff(x)))/5",
+        "sum(abs(x))/fs"
+      ],
+      "missing_block": "exclude entire common window; do not nanmean fewer than 12 blocks"
+    },
+    "qa": {
+      "common_window_selection": "all required channels must cover full window and pass finite/sample/filter-edge checks; reject once for every sensor group, record reason counts",
+      "flat_threshold": "std(channel)<=1e-10 in calibrated output units. Mark signal-dependent physiological features NaN; do not automatically discard otherwise eligible common windows. ACC/TEMP descriptive values remain defined except known suspect-contact mask.",
+      "detector_exception": "catch expected detector failure only; mark affected feature group NaN and detector_failure reason; unexpected errors fail run",
+      "nonfinite_output": "NaN allowed only for declared reasons; Inf raises validation error",
+      "flags": "unique sorted sensor:reason codes joined by semicolon; if none use heuristic_checks_passed_not_physiological_validation",
+      "no_imputation": "do not impute during extraction; fit imputer/scaler/selection/resampling on train-fold only"
+    },
+    "reproducibility": {
+      "design_choices": "Thresholds/algorithms are explicit Mai design choices under user request; peer review and runtime validation are not claimed. Changes require new feature_version.",
+      "python": "3.12.14",
+      "libraries": "requirements.lock.txt",
+      "comparison": {
+        "metadata_and_order": "exact",
+        "feature_rtol": 1e-06,
+        "feature_atol": 1e-08,
+        "nan_masks": "exactly equal; equal_nan allowed only when quality reasons match"
+      },
+      "acceptance": "verify implementation on synthetic invariants and physiological S2 before accepting 15-subject extraction; raw 21/112 S2 does not certify this design"
+    }
+  },
+  "change_policy": {
+    "breaking_name_changes": {
+      "chest_ecg_mean_nn_ms": "chest_ecg_mean_rr_ms",
+      "chest_ecg_sdnn_ms": "chest_ecg_sd_rr_ms",
+      "chest_ecg_band1_power": "chest_ecg_power_5_10_hz",
+      "chest_ecg_band2_power": "chest_ecg_power_10_20_hz",
+      "chest_ecg_band3_power": "chest_ecg_power_20_40_hz",
+      "wrist_bvp_band1_power": "wrist_bvp_power_0p5_1_hz",
+      "wrist_bvp_band2_power": "wrist_bvp_power_1_2_hz",
+      "wrist_bvp_band3_power": "wrist_bvp_power_2_5_hz"
+    },
+    "reason": "Explicit PSD bands; RR names avoid falsely asserting ectopic/NN classification; affects only unimplemented physiological schema, not raw outputs"
   }
 }

@@ -1,89 +1,289 @@
-# Giai đoạn 1 Mai Danh mục và hợp đồng feature
+# Hợp đồng feature sinh lý G1 — physiological_68_v1
 
-Ngày chuẩn bị: 03/11/2026. Phạm vi theo G1 trong PHAN_CONG_MAY_HOC.docx: danh mục feature, đơn vị, nhãn nhị phân, cách đánh dấu thiếu và schema đầu ra nháp. Tài liệu này không nghiệm thu extractor hoặc kết quả huấn luyện của G2/G3.
+Đã khóa thiết kế danh mục, công thức, thông số, đơn vị, nhãn và dữ liệu thiếu ngày 05/11/2026 theo yêu cầu hoàn thiện phần Mai. Các lựa chọn detector/ngưỡng/PSD là lựa chọn thiết kế của phần Mai theo yêu cầu người dùng cho lần triển khai kế tiếp, chưa phải kết quả thực nghiệm hoặc xác nhận review của thành viên khác. Không dùng trạng thái thiết kế này thay cho nghiệm thu extractor.
 
-## File đầu ra đúng phân công
+## Đầu ra chính
 
-| File | Mục đích | Giai đoạn |
-| --- | --- | --- |
-| `configs/feature_schema.json` | Schema nháp, danh sách/thứ tự cột, kiểu dữ liệu, đơn vị và quy ước thiếu | G1 |
-| `docs/G1_DANH_MUC_FEATURE.csv` | Danh mục feature đọc được bằng bảng tính, cùng tên và thứ tự với schema | G1 |
-| `docs/G1_HOP_DONG_FEATURE.md` | Định nghĩa, cách phối hợp và điều kiện nghiệm thu | G1 |
-| `docs/BAN_GIAO.md` | Bàn giao riêng G1 | G1 |
-| `src/wesad/features.py` | `process_subject(path, config) -> DataFrame`; triển khai theo hợp đồng sau khi thống nhất tiền xử lý | G2 |
-| `src/wesad/baselines.py` | Dummy và Logistic Regression | G3 |
-| `src/wesad/metrics.py` | Metric theo người và tổng hợp | G3 |
+- `configs/feature_schema.json`: hợp đồng sinh lý 68 feature, `design_locked_implementation_not_validated`.
+- `docs/G1_DANH_MUC_FEATURE.csv`: 68 tên/công thức/đơn vị/thứ tự đồng nhất JSON, 37 ngực và 31 cổ tay.
+- Bằng chứng đơn vị được gộp vào `unit_policy.unit_evidence` trong schema chính và phần đơn vị ở tài liệu này.
+- Schema raw 112 thực tế lấy từ `feature_schema.json` sinh cùng thư mục gói S2 ngoài Git; không tạo thêm schema/danh mục raw trùng lặp trong Git.
+- Danh mục sinh lý trước đây đã được hoàn thiện ngay trong schema chính; không duy trì thêm bản kế hoạch trùng lặp.
 
-Tên module baselines.py/metrics.py là điểm bàn giao đề xuất trong phân công. G1 chưa cần tạo module rỗng hoặc chuyển mã đang chạy từ models.py/evaluation.py. Bộ `physio_baseline_v1` đã thử trước đây là thử nghiệm riêng, không phải schema G1 này và chưa đủ các yêu cầu feature của bản phân công.
+## Cửa sổ, nhãn và cột
 
-## Quy ước chung đã ghi nhận từ phân công
+15 người S2–S11/S13–S17, seed 42. Cửa sổ 60 giây, bước 5 giây, khoảng [start,end) trên cùng mốc PKL. Majority ≥90% tính trên toàn bộ nhãn gốc; chỉ nhận 1/2/3, không nối các đoạn sau khi bỏ nhãn. Nhị phân: 2→1, 1/3→0; nhãn khác không thành Non-stress.
 
-- Đối tượng: S2–S11, S13–S17. Seed 42.
-- Cửa sổ 60 giây, bước 5 giây, trên thời gian gốc. Không nối các đoạn sau khi bỏ nhãn.
-- Nhãn đa số ≥0,90 trên toàn bộ cửa sổ, kể cả nhãn không dùng trong mẫu số. Chỉ nhận nhãn 1/2/3; bỏ cửa sổ không đạt.
-- `label_original`: 1 Baseline, 2 Stress, 3 Amusement. `label_binary`: 2→1, 1/3→0. Nhãn 0/4/khác không được ánh xạ thành non-stress.
-- Metadata đứng trước, feature theo đúng thứ tự `feature_columns` trong schema. X chỉ gồm feature; không dùng mã người, thời gian, nhãn, độ thuần nhãn hoặc quality_flag.
-- Khóa duy nhất `(subject_id, window_id)`; window_id = `<subject_id>_<start_index_700hz>`. start_s/end_s tính bằng giây từ đầu PKL đồng bộ; end_s − start_s = 60.
-- Prefix feature: `chest_<sensor>_...`, `wrist_<sensor>_...`; nhóm combined là chest nối wrist theo thứ tự schema. Các so sánh dùng cùng khóa cửa sổ đủ điều kiện.
+Tám metadata đứng trước: subject_id, window_id, start_s, end_s, label_original, label_binary, label_fraction, quality_flag. window_id dùng chỉ số bắt đầu trên lưới 700 Hz. Khóa (subject_id,window_id) duy nhất. Feature theo đúng thứ tự JSON/CSV; chỉ feature làm X. Các so sánh cảm biến dùng chung cửa sổ đủ điều kiện; combined = chest nối wrist.
 
-## Danh mục feature G1
+## Đơn vị đã quyết định
 
-Danh sách cụ thể và đơn vị nằm trong schema và CSV. Đây là danh mục dự kiến để Mai/Như đối chiếu và khóa ở đầu G2, không phải tuyên bố các cột đã được trích xuất.
+Theo README WESAD gốc II.1–II.3: chest ECG/EMG mV, EDA µS, TEMP °C, ACC g, RESP %. Mẫu PKL S2 đã khớp công thức chuyển đổi tại đúng dòng raw 92017; không chuyển ADC lần nữa. Wrist EDA µS, TEMP °C; BVP a.u.; ACC PKL khớp CSV 1/64 g nên chia 64 đúng một lần trước feature. Phép kiểm chứng mẫu này không thay một cuộc kiểm tra toàn bộ 15 phiên thu; hợp đồng chỉ nhận PKL WESAD chính thức, nguồn khác cần adapter có khai báo đơn vị.
 
-| Nhóm | Danh mục |
-| --- | --- |
-| ECG ngực | HR mean/std, mean NN, SDNN, RMSSD, pNN50; năng lượng tín hiệu theo ba dải tần |
-| BVP cổ tay | Pulse rate mean/std; mean IBI, SD IBI, RMSSD IBI, pNN50 IBI; năng lượng theo ba dải tần. Tên PRV tách biệt HRV ECG |
-| EDA ngực/cổ tay | Mean/std tonic và phasic; SCR count, rate/min, mean/max amplitude tính từ onset đã xác định |
-| RESP ngực | Nhịp thở mean/std |
-| TEMP ngực/cổ tay | Mean và slope |
-| ACC ngực/cổ tay | Mean, std, tích phân tuyệt đối cho x/y/z và magnitude; tính từng đoạn 5 giây, lấy trung bình qua 12 đoạn |
-| EMG ngực | RMS, MAV, waveform length per second, tích phân tuyệt đối; tính từng đoạn 5 giây, lấy trung bình qua 12 đoạn |
+HR/pulse rate bpm; RR/IBI ms; pNN50 tỷ lệ 0–1; RESP breaths/min. PSD amplitude ECG mV², BVP a.u.²; không phải LF/HF từ chuỗi RR. Tích phân ACC g·s, EMG mV·s; slope TEMP °C/s; waveform length EMG mV/s. Bằng chứng cụ thể nằm trong `unit_policy.unit_evidence` của schema chính: 100 mẫu ngực S2 căn tại dòng raw 92017 khớp công thức gốc; 20 mẫu đầu của từng kênh cổ tay khớp một đoạn trong CSV gốc. Đây là kiểm chứng mẫu, không phải kiểm tra toàn bộ 15 người.
 
-Mean/std đều dùng ddof=0 cho thống kê tín hiệu/rate; SDNN/SD IBI dùng ddof=1. pNN50 là tỷ lệ 0–1. Tích phân tuyệt đối đoạn 5 s = sum(abs(x))/fs; đơn vị g·s với ACC hoặc mV·s với EMG. Magnitude ACC = sqrt(x²+y²+z²). Theo thiết kế Như `nhu_g1_design_v2`, ACC giữ trọng lực; không tự trừ mean hoặc chuyển scale.
+## Định nghĩa chung
 
-Năng lượng dải tần được định nghĩa là tích phân PSD theo tần số, đơn vị bình phương đơn vị tín hiệu. Không gán tên LF/HF-HRV cho phổ của ECG/BVP thô. Các cutoff EDA/RESP đã lấy theo thiết kế G1 của Như bên dưới. Phương pháp PSD, biên từng dải và thuật toán phát hiện nhịp/SCR chưa được quy định đầy đủ, cần khóa trước khi triển khai G2. Các mục này được đánh dấu pending trong schema; không dùng cấu hình chưa khóa để chạy bảng chính.
+Mean/std tín hiệu và tốc độ dùng ddof=0; SD RR/IBI dùng ddof=1. RR/IBI tính bằng chênh lệch đỉnh. RMSSD và pNN50 chỉ dùng các cặp khoảng liền nhau trong chuỗi gốc cùng hợp lệ, không nối qua khoảng bị loại. Tên mean_nn/sdnn được đổi rõ thành mean_rr/sd_rr vì detector heuristic không xác minh nhịp ngoại tâm thu; danh sách đổi tên có trong change_policy.
 
-Đơn vị đầu ra mục tiêu: ECG/EMG mV, EDA µS, TEMP °C, ACC g, BVP arbitrary unit; rate bpm hoặc breaths/min, khoảng nhịp ms. Phải xác minh đơn vị/scale đầu vào từ tài liệu raw trước khi xuất với các đơn vị đó; không mặc định dữ liệu đã đúng đơn vị. Quy tắc chuyển đổi ACC cổ tay và hệ số các kênh nằm trong danh sách cần xác minh, không tự áp dụng hệ số khi chưa có căn cứ.
+TEMP slope = sum((t−mean(t))*(x−mean(x)))/sum((t−mean(t))²), t tính bằng giây. ACC giữ trọng lực, magnitude=sqrt(x²+y²+z²). ACC/EMG chia đúng 12 đoạn 5 giây; mỗi feature cuối là mean của 12 giá trị. ACC tính mean/std/sum(abs(x))/fs; EMG tính RMS/MAV/sum(abs(diff(x)))/5/sum(abs(x))/fs. Không lấy nanmean trên ít hơn 12 đoạn.
 
-## Tiền xử lý dùng theo thiết kế G1 của Như
+## Thông số thuật toán đã khóa
 
-Phần Mai chốt dùng [thiết kế G1 của Như](G1_NHU_THIET_KE_TIEN_XU_LY.md) làm đầu vào theo yêu cầu người dùng; không xây một nhánh tiền xử lý riêng. Đây là thiết kế để triển khai/kiểm tra G2, chưa tuyên bố bộ lọc đã được nghiệm thu.
+Các mục dưới đây được xuất trực tiếp từ `methods` trong schema để tránh tài liệu và JSON lệch nhau. Thiết kế giữ cutoff EDA/RESP của Như; bổ sung detector, PSD và biên tonic để triển khai G2. Lọc trên đoạn hữu hạn liên tục trước cắt cửa sổ, offline hai chiều. Không lọc xuyên NaN/Inf.
+### numeric
 
-- Đồng bộ theo PKL, giữ tần số gốc từng kênh; cắt khoảng `[start_s, end_s)` trên cùng lưới nhãn 700 Hz, không nâng mọi kênh lên 700 Hz.
-- EDA ngực low-pass 5 Hz; RESP ngực band-pass 0,1–0,35 Hz; EDA cổ tay chọn low-pass 1 Hz theo thiết kế Như, kiểm tra tín hiệu ở G2.
-- Theo đề xuất triển khai của Như: Butterworth bậc thiết kế 4, SOS, lọc hai chiều offline trên từng đoạn hữu hạn liên tục trước khi cắt cửa sổ. Không lọc xuyên NaN/Inf, không nối đoạn theo nhãn.
-- Theo `configs/preprocessing_g1_design.yaml` revision `nhu_g1_design_v2`: bỏ biên mỗi đầu đoạn hữu hạn 10 giây với EDA ngực/cổ tay, 30 giây với RESP; odd padding; đoạn quá ngắn không sử dụng. Đây là thiết kế, chưa nghiệm thu tác động lọc trên tín hiệu thật.
-- ACC giữ trọng lực, TEMP giữ tín hiệu gốc cho thống kê ban đầu; không tự chuyển scale. ACC/EMG tính feature trên 12 đoạn 5 giây rồi lấy trung bình.
-- Mai phụ trách feature/schema từ tín hiệu Như bàn giao. Detector ECG/BVP/SCR, decomposition EDA, dải PSD, scale/đơn vị và ngưỡng QA sinh lý chưa được quy định đầy đủ vẫn ghi rõ còn mở; không tự coi là đã chốt.
-- Bộ thử `physio_baseline_v1` lọc riêng trong từng cửa sổ không phải thiết kế thống nhất này; không lấy làm bộ cuối hoặc ghép với đầu ra theo Như.
+```json
+{
+  "dtype": "float64",
+  "signal_std_ddof": 0,
+  "interval_sd_ddof": 1,
+  "pnn50_threshold_ms": 50,
+  "pnn50_unit": "fraction 0..1",
+  "band_power": "integral of amplitude-signal PSD, not RR spectral HRV; do not call LF/HF"
+}
+```
 
-## Thiếu dữ liệu và chất lượng
+### filter
 
-- CSV dùng ô trống để biểu diễn NaN ở feature không đủ dữ liệu; không dùng 0, -999 hoặc chuỗi trong cột feature để thay thiếu.
-- Nhịp không đủ tin cậy: rate/HRV/PRV liên quan là NaN, gắn cờ kèm tên thiết bị/cảm biến. Ngưỡng độ tin cậy và số khoảng tối thiểu được khóa cùng detector với Như trước G2.
-- SCR count = 0 chỉ khi EDA đạt chất lượng và detector chạy thành công nhưng không có SCR; lỗi detector hoặc tín hiệu không tin cậy phải là NaN.
-- Inf không hợp lệ, phải điều tra; không tự đổi thành số hữu hạn. Không được thiếu metadata bắt buộc.
-- quality_flag là chuỗi các mã cách nhau bằng dấu `;`, `ok` nếu các kiểm tra đã khóa đều đạt; ví dụ `wrist_bvp:insufficient_beats`, `chest_eda:nonfinite`, `chest_temp:suspect_contact`. Không dùng mã ok khi chưa chạy QA.
-- Theo QA Như bàn giao: dùng chung khóa cửa sổ giữa các kênh yêu cầu; loại và ghi lý do nếu cửa sổ thiếu mẫu, không đủ độ dài, có NaN/Inf ở kênh yêu cầu hoặc chồng vùng biên lọc. Không chọn lại mẫu theo từng nhóm cảm biến. NaN feature do detector không tin cậy là trường hợp riêng, được ghi lý do và xử lý trong fold; không đồng nhất với thiếu mẫu tín hiệu đầu vào. Tín hiệu phẳng/tiếp xúc nghi ngờ được gắn cờ để xem xét, không tự coi là đã đạt QA sinh lý.
-- Imputer, scaler, selection và resampling chỉ học trên train của từng fold; không điền NaN bằng thống kê toàn bảng trong bước trích feature.
+```json
+{
+  "api": "scipy.signal.butter(order=4,fs=native_hz,output=sos), sosfiltfilt(padtype=odd,padlen=3*(2*n_sections+1-min(zeros_at_origin,poles_at_origin)))",
+  "scope": "each continuous finite subject segment before slicing; never cross NaN/Inf or concatenate label-separated spans",
+  "edges_seconds_each_end": {
+    "ecg": 10,
+    "bvp": 10,
+    "emg": 1,
+    "eda_cleaned": 10,
+    "eda_tonic_phasic": 60,
+    "resp": 30
+  },
+  "short_segment": "unusable when len<=padlen or no eligible interior after removing edges",
+  "offline_only": true
+}
+```
 
-## Điểm phối hợp và điều kiện khóa schema
+### ecg
 
-| Người | Mai gửi | Mai cần nhận trước khi khóa G2 |
-| --- | --- | --- |
-| Thái | Schema, tên/thứ tự cột, quy ước NaN/nhãn, giao diện processor | Sử dụng loader/CLI, metadata, nhãn và giao diện processor Thái đã bàn giao |
-| Như | Danh mục feature, đơn vị mục tiêu, yêu cầu nhịp/SCR/ACC/EMG | Dùng thiết kế G1 đã bàn giao; tích hợp feature theo thiết kế đó, ghi rõ các tham số chưa được quy định |
-| Nam | Nhãn và nhóm cột để EDA/mô hình dùng chung | Các bất thường nhãn/tín hiệu/giá trị thiếu đã khảo sát |
+```json
+{
+  "bandpass_hz": [
+    5,
+    40
+  ],
+  "rate_hz": 700,
+  "detection_bandpass_hz": [
+    5,
+    20
+  ],
+  "detector": "squared detection-band signal; centered 0.10 s boxcar (70 samples), clipped segment boundaries; find_peaks(distance=210,prominence=max(0.5*std(envelope),1e-12)); refine each candidate to argmax(abs(detection_signal)) in +/-0.10 s; unique sorted indices; if refinement distance<0.30 s retain larger absolute peak, ties earlier",
+  "interval_method": "cardiac_intervals",
+  "interpretation": "ECG RR variability with heuristic artifact rejection; no clinical normal-to-normal classification"
+}
+```
 
-Mai làm danh mục/schema song song, không cần chờ Như hoàn tất code. Chỉ khóa phiên bản và nghiệm thu bảng S2 sau khi các điểm pending đã được thống nhất. Không coi một người đã đồng ý chỉ vì file đề xuất đã được tạo.
+### bvp
 
-Nghiệm thu S2 trên bốn máy: cùng khóa cửa sổ, nhãn, start/end, cột/thứ tự, đơn vị và config; với gói 21 thống kê raw G1, dùng Python 3.12.14 và thư viện khóa, so sánh feature theo rtol=1e-7, atol=1e-9 như Như bàn giao. Dung sai này không tự áp dụng cho 68 feature sinh lý. Không áp số cửa sổ của quy tắc homogeneous cho majority. Chưa có đối chiếu bốn máy ở thời điểm lập G1 này.
+```json
+{
+  "bandpass_hz": [
+    0.5,
+    5
+  ],
+  "rate_hz": 64,
+  "detector": "find_peaks on bandpassed BVP, distance=ceil(0.30*64)=20, prominence=max(0.5*std(filtered),1e-12)",
+  "interval_method": "cardiac_intervals",
+  "interpretation": "pulse rate and PRV; not ECG HRV"
+}
+```
 
-## Cập nhật từ EDA của Nam ngày 05/11/2026
+### cardiac_intervals
 
-Đã nhận kết quả tại `notebooks/reports/tables/eda_step5/eda_summary.json` và `eda_observations.md`: 15 người, 6.196 cửa sổ 60/5, 21 feature raw; 3.377 Baseline, 1.848 Stress, 971 Amusement; không có NaN/Inf feature hoặc khóa trùng trong bảng Nam khảo sát. Kiểm tra raw của Nam gồm ECG/EDA/ACC ở 15 người, không báo NaN/Inf hoặc lệch độ dài trong 45 cặp người–tín hiệu.
+```json
+{
+  "rule": "RR=diff(peaks)/fs. Stage1 keep 0.30<=RR<=2.00 s. m=median(stage1 RR); Stage2 keep stage1 intervals with abs(RR-m)<=0.20*m, inclusive. No interpolation or filling.",
+  "minimum_accepted_intervals": 20,
+  "minimum_accepted_fraction": 0.8,
+  "minimum_originally_adjacent_accepted_pairs": 10,
+  "fail": "all six rate/interval features NaN; flag device_sensor:insufficient_or_unreliable_beats",
+  "pairs": "diff(original RR) only where both adjacent original RR pass; never bridge a rejected RR",
+  "formula": "rate=60/RR; mean/std(rate,ddof=0); mean(RR)*1000; std(RR,ddof=1)*1000; sqrt(mean(adjacent_diff**2))*1000; mean(abs(adjacent_diff)>0.05)"
+}
+```
 
-Phần Mai sử dụng các kết quả này làm đầu vào thiết kế: giữ nhãn nhị phân 2→1, 1/3→0; giữ QA sinh lý và cách ghi thiếu cho detector; cờ IQR chỉ phục vụ xem xét, chưa tự loại cửa sổ. Không suy rộng kiểm tra raw ba kênh sang chất lượng cổ tay/EMG/TEMP/RESP, đơn vị vật lý hoặc giá trị 68 feature dự kiến. Việc chọn feature vẫn học trong train của từng fold.
+### eda
 
-Danh mục, đơn vị mục tiêu, nhãn, cách ghi thiếu và schema nháp G1 đã được chuẩn bị, kiểm tra nhất quán. Cập nhật sau khi cài Python 3.12.14: kiểm tra một gói S2 trên máy này đã đạt (395 cửa sổ, 21 feature raw); đối chiếu bốn máy còn chưa hoàn tất; các tham số detector/PSD/scale chưa khóa vẫn được giữ trong `pending_decisions`.
+```json
+{
+  "clean_lowpass_hz": {
+    "chest": 5,
+    "wrist": 1
+  },
+  "tonic_lowpass_hz": 0.05,
+  "decomposition": "tonic=Butterworth4 SOS forward/back lowpass of cleaned EDA; phasic=cleaned-tonic. Explicit filter-based approximation, not cvxEDA.",
+  "detector": "find_peaks(phasic,distance=ceil(fs*1.0),prominence=0.01). For each peak find last minimum in preceding 4 s (inclusive), capped strictly after previous accepted peak; onset-to-peak amplitude = phasic[peak]-phasic[onset]. Accept when amplitude>=0.01 uS and 0.25<=rise_seconds<=4.0, onset and peak both inside the eligible window.",
+  "count_rule": "detect on continuous finite segments, assign only complete onset/peak events within [start,end); count each event once per window, overlapping windows may contain same event",
+  "no_event": "usable signal with no accepted events: count=0,rate=0, amplitude_mean/max=NaN; flag sensor:no_scr_events",
+  "unusable": "all eight EDA features NaN and flag sensor:flat_or_unusable; never encode detector failure as zero"
+}
+```
+
+### resp
+
+```json
+{
+  "bandpass_hz": [
+    0.1,
+    0.35
+  ],
+  "detector": "find_peaks(filtered,distance=ceil(2.0*fs),prominence=max(0.5*std(filtered),1e-12)); use adjacent peaks both in window",
+  "interval_range_seconds": [
+    2,
+    15
+  ],
+  "minimum_valid_intervals": 3,
+  "minimum_valid_fraction": 0.8,
+  "formula": "rate_i=60/diff(peaks_seconds); rate_mean=mean(rate_i), rate_std=std(rate_i,ddof=0)",
+  "fail": "both rate features NaN; chest_resp:insufficient_cycles"
+}
+```
+
+### psd
+
+```json
+{
+  "api": "scipy.signal.welch",
+  "input": "ECG 5-40 Hz signal and BVP 0.5-5 Hz signal after locked filtering; no extra resampling",
+  "window": "get_window(hann,4*fs,fftbins=True)",
+  "nperseg": "4*fs",
+  "noverlap": "2*fs",
+  "nfft": "4*fs",
+  "detrend": "constant",
+  "scaling": "density",
+  "return_onesided": true,
+  "average": "mean",
+  "bands_hz": {
+    "chest_ecg": [
+      [
+        5,
+        10
+      ],
+      [
+        10,
+        20
+      ],
+      [
+        20,
+        40
+      ]
+    ],
+    "wrist_bvp": [
+      [
+        0.5,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        5
+      ]
+    ]
+  },
+  "integration": "numpy.trapezoid(Pxx[low<=f<=high],f[low<=f<=high]); all boundaries lie exactly on 0.25-Hz bins; adjacent bands sharing endpoints do not duplicate area",
+  "output_units": {
+    "chest_ecg": "mV^2",
+    "wrist_bvp": "a.u.^2"
+  }
+}
+```
+
+### temp
+
+```json
+{
+  "input": "original calibrated signal",
+  "mean": "mean(x)",
+  "slope": "sum((t-mean(t))*(x-mean(x)))/sum((t-mean(t))**2), t=arange(n)/fs seconds",
+  "known_quality": "S2 chest TEMP flagged suspect_contact per subject readme: output both chest TEMP features NaN for the whole recording; retain common windows; flag chest_temp:suspect_contact"
+}
+```
+
+### acc_emg
+
+```json
+{
+  "block_seconds": 5,
+  "blocks_per_window": 12,
+  "aggregation": "arithmetic mean of all 12 per-block feature values; require all 12 blocks",
+  "acc": "convert wrist ACC /64 once; chest ACC unchanged; retain gravity; x,y,z,magnitude=sqrt(x*x+y*y+z*z)",
+  "acc_formulas": [
+    "mean(x)",
+    "std(x,ddof=0)",
+    "sum(abs(x))/fs"
+  ],
+  "emg_bandpass_hz": [
+    20,
+    250
+  ],
+  "emg_formulas": [
+    "sqrt(mean(x*x))",
+    "mean(abs(x))",
+    "sum(abs(diff(x)))/5",
+    "sum(abs(x))/fs"
+  ],
+  "missing_block": "exclude entire common window; do not nanmean fewer than 12 blocks"
+}
+```
+
+### qa
+
+```json
+{
+  "common_window_selection": "all required channels must cover full window and pass finite/sample/filter-edge checks; reject once for every sensor group, record reason counts",
+  "flat_threshold": "std(channel)<=1e-10 in calibrated output units. Mark signal-dependent physiological features NaN; do not automatically discard otherwise eligible common windows. ACC/TEMP descriptive values remain defined except known suspect-contact mask.",
+  "detector_exception": "catch expected detector failure only; mark affected feature group NaN and detector_failure reason; unexpected errors fail run",
+  "nonfinite_output": "NaN allowed only for declared reasons; Inf raises validation error",
+  "flags": "unique sorted sensor:reason codes joined by semicolon; if none use heuristic_checks_passed_not_physiological_validation",
+  "no_imputation": "do not impute during extraction; fit imputer/scaler/selection/resampling on train-fold only"
+}
+```
+
+### reproducibility
+
+```json
+{
+  "design_choices": "All thresholds/algorithms are group design decisions for implementation, not claims of original paper parameters or clinical validation. Changes require new feature_version.",
+  "python": "3.12.14",
+  "libraries": "requirements.lock.txt",
+  "comparison": {
+    "metadata_and_order": "exact",
+    "feature_rtol": 1e-06,
+    "feature_atol": 1e-08,
+    "nan_masks": "exactly equal; equal_nan allowed only when quality reasons match"
+  },
+  "acceptance": "verify implementation on synthetic invariants and physiological S2 before accepting 15-subject extraction; raw 21/112 S2 does not certify this design"
+}
+```
+
+## Thiếu và chất lượng
+
+Feature thiếu là NaN, CSV ô trống; không dùng 0/-999 để che lỗi. Metadata không được thiếu. Inf là lỗi xác thực. Detector không đủ tin cậy tạo NaN cho nhóm liên quan và mã nguyên nhân; không loại riêng từng nhóm cảm biến khỏi tập khóa chung. SCR không sự kiện: count/rate=0, amplitude mean/max=NaN và no_scr_events. S2 chest TEMP có cảnh báo tiếp xúc từ readme: giữ cửa sổ nhưng hai feature TEMP là NaN, chest_temp:suspect_contact.
+
+Cờ được sắp xếp, loại trùng, nối bằng dấu chấm phẩy. Khi không có cảnh báo chỉ ghi heuristic_checks_passed_not_physiological_validation; không tuyên bố chất lượng lâm sàng. Imputer/scaler/selection/resampling học trong train-fold.
+
+## Phạm vi kiểm tra S2 của Mai
+
+Theo phân công G1, cả bốn chạy mẫu S2 trên cùng raw/mã/môi trường/cấu hình. Việc riêng của Mai là danh mục feature, đơn vị, nhãn nhị phân, cách ghi thiếu và schema. Kết quả trong phần “Kiểm tra S2 và người tổng hợp” của `docs/BAN_GIAO.md` chỉ ghi kiểm tra gói S2 trên máy Mai trước khi gửi, không nhận nhiệm vụ tổng hợp hay ký nghiệm thu bốn máy.
+
+Theo cách tổ chức nhóm người dùng đã xác định, Như nhận các gói ZIP và tổng hợp đối chiếu. Mai gửi nguyên gói `data/features/g1_s2_raw112_py31214_fa7b694/` ngoài Git; không gửi môi trường Python. Gói phải giữ CSV, schema, config, manifest và checksum. Kết quả `passed` cục bộ không thay kết quả đối chiếu của Như.
+
+## Phiên bản và nghiệm thu
+
+Đổi cột, công thức, đơn vị, detector, ngưỡng hoặc cửa sổ phải tăng feature_version. Danh sách 68 cột và thông số đã chốt để triển khai; ready_for_extraction/training vẫn false vì extractor đúng hợp đồng chưa triển khai/kiểm chứng. Bộ thử physio_baseline_v1 (175 cột) không được coi là implementation của hợp đồng này.
+
+Mẫu S2 đã passed trước đây là 21 raw, không chứng minh bộ 68 sinh lý đạt; bộ 112 raw cũng không thay nghiệm thu sinh lý. Cần kiểm tra implementation trên dữ liệu tổng hợp và S2 trước khi trích đủ 15 người. So metadata/cột/NaN mask và lý do chính xác; feature sinh lý rtol=1e-6, atol=1e-8 theo lựa chọn thiết kế đã ghi; chưa tuyên bố bốn máy đạt.
+
+Nguồn phương pháp/API: [WESAD tác giả](https://ubi29.informatik.uni-siegen.de/usi/data_wesad.html), [SciPy Welch](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.welch.html), [SciPy find_peaks](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html). Các tham số cụ thể ở đây do nhóm chọn để triển khai, không quy cho tác giả/API.

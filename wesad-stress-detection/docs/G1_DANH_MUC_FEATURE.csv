@@ -1,69 +1,69 @@
-﻿name,dtype,unit,definition,aggregation,nullable,missing_representation,device,sensor,status,pending
-chest_ecg_hr_mean_bpm,float64,bpm,Mean instantaneous rate from accepted adjacent intervals,window_60s,True,NaN; empty CSV field,chest,ecg,planned,preprocessing_agreement
-chest_ecg_hr_std_bpm,float64,bpm,Population standard deviation of instantaneous rate,window_60s,True,NaN; empty CSV field,chest,ecg,planned,preprocessing_agreement
-chest_ecg_mean_nn_ms,float64,ms,Mean accepted interval; ECG NN interpretation requires artifact/ectopic handling,window_60s,True,NaN; empty CSV field,chest,ecg,planned,preprocessing_agreement
-chest_ecg_sdnn_ms,float64,ms,"Sample standard deviation of accepted intervals, ddof=1",window_60s,True,NaN; empty CSV field,chest,ecg,planned,preprocessing_agreement
-chest_ecg_rmssd_ms,float64,ms,Root mean square of successive interval differences; never bridge rejected intervals,window_60s,True,NaN; empty CSV field,chest,ecg,planned,preprocessing_agreement
-chest_ecg_pnn50,float64,1,Fraction of valid adjacent interval pairs differing by more than 50 ms,window_60s,True,NaN; empty CSV field,chest,ecg,planned,preprocessing_agreement
-chest_ecg_band1_power,float64,mV^2,Integral of signal PSD over band 1; not HRV LF/HF power,window_60s,True,NaN; empty CSV field,chest,ecg,planned,band_edges_psd_method_and_filter_agreement
-chest_ecg_band2_power,float64,mV^2,Integral of signal PSD over band 2; not HRV LF/HF power,window_60s,True,NaN; empty CSV field,chest,ecg,planned,band_edges_psd_method_and_filter_agreement
-chest_ecg_band3_power,float64,mV^2,Integral of signal PSD over band 3; not HRV LF/HF power,window_60s,True,NaN; empty CSV field,chest,ecg,planned,band_edges_psd_method_and_filter_agreement
-chest_eda_tonic_mean,float64,uS,mean of tonic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,chest,eda,planned,preprocessing_agreement
-chest_eda_tonic_std,float64,uS,std of tonic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,chest,eda,planned,preprocessing_agreement
-chest_eda_phasic_mean,float64,uS,mean of phasic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,chest,eda,planned,preprocessing_agreement
-chest_eda_phasic_std,float64,uS,std of phasic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,chest,eda,planned,preprocessing_agreement
-chest_eda_scr_count,float64,count,Number of valid SCR events; zero only when usable EDA has no detected events,window_60s,True,NaN; empty CSV field,chest,eda,planned,decomposition_scr_onsets_thresholds_and_quality_agreement
-chest_eda_scr_rate_per_min,float64,events/min,Valid SCR count divided by window duration in minutes,window_60s,True,NaN; empty CSV field,chest,eda,planned,decomposition_scr_onsets_thresholds_and_quality_agreement
-chest_eda_scr_amplitude_mean,float64,uS,Mean SCR onset-to-peak amplitude; NaN when amplitude is undefined,window_60s,True,NaN; empty CSV field,chest,eda,planned,decomposition_scr_onsets_thresholds_and_quality_agreement
-chest_eda_scr_amplitude_max,float64,uS,Maximum SCR onset-to-peak amplitude; NaN when amplitude is undefined,window_60s,True,NaN; empty CSV field,chest,eda,planned,decomposition_scr_onsets_thresholds_and_quality_agreement
-chest_resp_rate_mean,float64,breaths/min,mean breathing rate from valid cycle intervals; std ddof=0,window_60s,True,NaN; empty CSV field,chest,resp,planned,preprocessing_agreement
-chest_resp_rate_std,float64,breaths/min,std breathing rate from valid cycle intervals; std ddof=0,window_60s,True,NaN; empty CSV field,chest,resp,planned,preprocessing_agreement
-chest_temp_mean,float64,degC,Mean temperature,window_60s,True,NaN; empty CSV field,chest,temp,planned,preprocessing_agreement
-chest_temp_slope_per_s,float64,degC/s,Least-squares slope against physical time in seconds,window_60s,True,NaN; empty CSV field,chest,temp,planned,preprocessing_agreement
-chest_acc_x_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_x_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_x_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_y_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_y_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_y_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_z_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_z_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_z_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_magnitude_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_magnitude_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_acc_magnitude_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,planned,input_scale_and_gravity_handling_agreement
-chest_emg_5s_rms_mean,float64,mV,"Root mean square per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,emg,planned,preprocessing_agreement
-chest_emg_5s_mav_mean,float64,mV,"Mean absolute value per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,emg,planned,preprocessing_agreement
-chest_emg_5s_waveform_length_per_s_mean,float64,mV/s,"sum(abs(diff(x)))/5 seconds per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,emg,planned,preprocessing_agreement
-chest_emg_5s_abs_integral_mean,float64,mV*s,"sum(abs(x))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,emg,planned,preprocessing_agreement
-wrist_bvp_pulse_rate_mean_bpm,float64,bpm,Mean instantaneous rate from accepted adjacent intervals,window_60s,True,NaN; empty CSV field,wrist,bvp,planned,preprocessing_agreement
-wrist_bvp_pulse_rate_std_bpm,float64,bpm,Population standard deviation of instantaneous rate,window_60s,True,NaN; empty CSV field,wrist,bvp,planned,preprocessing_agreement
-wrist_bvp_mean_ibi_ms,float64,ms,Mean accepted interval; ECG NN interpretation requires artifact/ectopic handling,window_60s,True,NaN; empty CSV field,wrist,bvp,planned,preprocessing_agreement
-wrist_bvp_sd_ibi_ms,float64,ms,"Sample standard deviation of accepted intervals, ddof=1",window_60s,True,NaN; empty CSV field,wrist,bvp,planned,preprocessing_agreement
-wrist_bvp_rmssd_ibi_ms,float64,ms,Root mean square of successive interval differences; never bridge rejected intervals,window_60s,True,NaN; empty CSV field,wrist,bvp,planned,preprocessing_agreement
-wrist_bvp_pnn50_ibi,float64,1,Fraction of valid adjacent interval pairs differing by more than 50 ms,window_60s,True,NaN; empty CSV field,wrist,bvp,planned,preprocessing_agreement
-wrist_bvp_band1_power,float64,a.u.^2,Integral of signal PSD over band 1; not HRV LF/HF power,window_60s,True,NaN; empty CSV field,wrist,bvp,planned,band_edges_psd_method_and_filter_agreement
-wrist_bvp_band2_power,float64,a.u.^2,Integral of signal PSD over band 2; not HRV LF/HF power,window_60s,True,NaN; empty CSV field,wrist,bvp,planned,band_edges_psd_method_and_filter_agreement
-wrist_bvp_band3_power,float64,a.u.^2,Integral of signal PSD over band 3; not HRV LF/HF power,window_60s,True,NaN; empty CSV field,wrist,bvp,planned,band_edges_psd_method_and_filter_agreement
-wrist_eda_tonic_mean,float64,uS,mean of tonic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,wrist,eda,planned,preprocessing_agreement
-wrist_eda_tonic_std,float64,uS,std of tonic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,wrist,eda,planned,preprocessing_agreement
-wrist_eda_phasic_mean,float64,uS,mean of phasic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,wrist,eda,planned,preprocessing_agreement
-wrist_eda_phasic_std,float64,uS,std of phasic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,wrist,eda,planned,preprocessing_agreement
-wrist_eda_scr_count,float64,count,Number of valid SCR events; zero only when usable EDA has no detected events,window_60s,True,NaN; empty CSV field,wrist,eda,planned,decomposition_scr_onsets_thresholds_and_quality_agreement
-wrist_eda_scr_rate_per_min,float64,events/min,Valid SCR count divided by window duration in minutes,window_60s,True,NaN; empty CSV field,wrist,eda,planned,decomposition_scr_onsets_thresholds_and_quality_agreement
-wrist_eda_scr_amplitude_mean,float64,uS,Mean SCR onset-to-peak amplitude; NaN when amplitude is undefined,window_60s,True,NaN; empty CSV field,wrist,eda,planned,decomposition_scr_onsets_thresholds_and_quality_agreement
-wrist_eda_scr_amplitude_max,float64,uS,Maximum SCR onset-to-peak amplitude; NaN when amplitude is undefined,window_60s,True,NaN; empty CSV field,wrist,eda,planned,decomposition_scr_onsets_thresholds_and_quality_agreement
-wrist_temp_mean,float64,degC,Mean temperature,window_60s,True,NaN; empty CSV field,wrist,temp,planned,preprocessing_agreement
-wrist_temp_slope_per_s,float64,degC/s,Least-squares slope against physical time in seconds,window_60s,True,NaN; empty CSV field,wrist,temp,planned,preprocessing_agreement
-wrist_acc_x_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_x_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_x_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_y_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_y_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_y_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_z_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_z_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_z_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_magnitude_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_magnitude_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
-wrist_acc_magnitude_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,planned,input_scale_and_gravity_handling_agreement
+﻿name,dtype,unit,definition,aggregation,nullable,missing_representation,device,sensor,status,pending,method_ref
+chest_ecg_hr_mean_bpm,float64,bpm,Mean instantaneous rate from accepted adjacent intervals,window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,cardiac_intervals
+chest_ecg_hr_std_bpm,float64,bpm,Population standard deviation of instantaneous rate,window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,cardiac_intervals
+chest_ecg_mean_rr_ms,float64,ms,"Mean accepted ECG RR interval times 1000; heuristic artifact rejection, not verified NN",window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,cardiac_intervals
+chest_ecg_sd_rr_ms,float64,ms,"Sample SD of accepted ECG RR intervals times 1000, ddof=1; not verified NN",window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,cardiac_intervals
+chest_ecg_rmssd_ms,float64,ms,Root mean square of successive interval differences; never bridge rejected intervals,window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,cardiac_intervals
+chest_ecg_pnn50,float64,1,Fraction of valid adjacent interval pairs differing by more than 50 ms,window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,cardiac_intervals
+chest_ecg_power_5_10_hz,float64,mV^2,"Welch PSD integral over [5, 10] Hz of locked filtered amplitude signal; not RR spectral HRV",window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,psd
+chest_ecg_power_10_20_hz,float64,mV^2,"Welch PSD integral over [10, 20] Hz of locked filtered amplitude signal; not RR spectral HRV",window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,psd
+chest_ecg_power_20_40_hz,float64,mV^2,"Welch PSD integral over [20, 40] Hz of locked filtered amplitude signal; not RR spectral HRV",window_60s,True,NaN; empty CSV field,chest,ecg,design_locked,,psd
+chest_eda_tonic_mean,float64,uS,mean of tonic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,chest,eda,design_locked,,eda
+chest_eda_tonic_std,float64,uS,std of tonic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,chest,eda,design_locked,,eda
+chest_eda_phasic_mean,float64,uS,mean of phasic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,chest,eda,design_locked,,eda
+chest_eda_phasic_std,float64,uS,std of phasic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,chest,eda,design_locked,,eda
+chest_eda_scr_count,float64,count,Number of valid SCR events; zero only when usable EDA has no detected events,window_60s,True,NaN; empty CSV field,chest,eda,design_locked,,eda
+chest_eda_scr_rate_per_min,float64,events/min,Valid SCR count divided by window duration in minutes,window_60s,True,NaN; empty CSV field,chest,eda,design_locked,,eda
+chest_eda_scr_amplitude_mean,float64,uS,Mean SCR onset-to-peak amplitude; NaN when amplitude is undefined,window_60s,True,NaN; empty CSV field,chest,eda,design_locked,,eda
+chest_eda_scr_amplitude_max,float64,uS,Maximum SCR onset-to-peak amplitude; NaN when amplitude is undefined,window_60s,True,NaN; empty CSV field,chest,eda,design_locked,,eda
+chest_resp_rate_mean,float64,breaths/min,mean breathing rate from valid cycle intervals; std ddof=0,window_60s,True,NaN; empty CSV field,chest,resp,design_locked,,resp
+chest_resp_rate_std,float64,breaths/min,std breathing rate from valid cycle intervals; std ddof=0,window_60s,True,NaN; empty CSV field,chest,resp,design_locked,,resp
+chest_temp_mean,float64,degC,Mean temperature,window_60s,True,NaN; empty CSV field,chest,temp,design_locked,,temp
+chest_temp_slope_per_s,float64,degC/s,Least-squares slope against physical time in seconds,window_60s,True,NaN; empty CSV field,chest,temp,design_locked,,temp
+chest_acc_x_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_x_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_x_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_y_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_y_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_y_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_z_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_z_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_z_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_magnitude_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_magnitude_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_acc_magnitude_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,acc,design_locked,,acc_emg
+chest_emg_5s_rms_mean,float64,mV,"Root mean square per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,emg,design_locked,,acc_emg
+chest_emg_5s_mav_mean,float64,mV,"Mean absolute value per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,emg,design_locked,,acc_emg
+chest_emg_5s_waveform_length_per_s_mean,float64,mV/s,"sum(abs(diff(x)))/5 seconds per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,emg,design_locked,,acc_emg
+chest_emg_5s_abs_integral_mean,float64,mV*s,"sum(abs(x))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,chest,emg,design_locked,,acc_emg
+wrist_bvp_pulse_rate_mean_bpm,float64,bpm,Mean instantaneous rate from accepted adjacent intervals,window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,cardiac_intervals
+wrist_bvp_pulse_rate_std_bpm,float64,bpm,Population standard deviation of instantaneous rate,window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,cardiac_intervals
+wrist_bvp_mean_ibi_ms,float64,ms,"Mean accepted BVP inter-pulse interval times 1000; PRV, not ECG NN",window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,cardiac_intervals
+wrist_bvp_sd_ibi_ms,float64,ms,"Sample standard deviation of accepted intervals, ddof=1",window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,cardiac_intervals
+wrist_bvp_rmssd_ibi_ms,float64,ms,Root mean square of successive interval differences; never bridge rejected intervals,window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,cardiac_intervals
+wrist_bvp_pnn50_ibi,float64,1,Fraction of valid adjacent interval pairs differing by more than 50 ms,window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,cardiac_intervals
+wrist_bvp_power_0p5_1_hz,float64,a.u.^2,"Welch PSD integral over [0.5, 1] Hz of locked filtered amplitude signal; not RR spectral HRV",window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,psd
+wrist_bvp_power_1_2_hz,float64,a.u.^2,"Welch PSD integral over [1, 2] Hz of locked filtered amplitude signal; not RR spectral HRV",window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,psd
+wrist_bvp_power_2_5_hz,float64,a.u.^2,"Welch PSD integral over [2, 5] Hz of locked filtered amplitude signal; not RR spectral HRV",window_60s,True,NaN; empty CSV field,wrist,bvp,design_locked,,psd
+wrist_eda_tonic_mean,float64,uS,mean of tonic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,wrist,eda,design_locked,,eda
+wrist_eda_tonic_std,float64,uS,std of tonic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,wrist,eda,design_locked,,eda
+wrist_eda_phasic_mean,float64,uS,mean of phasic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,wrist,eda,design_locked,,eda
+wrist_eda_phasic_std,float64,uS,std of phasic EDA; std ddof=0,window_60s,True,NaN; empty CSV field,wrist,eda,design_locked,,eda
+wrist_eda_scr_count,float64,count,Number of valid SCR events; zero only when usable EDA has no detected events,window_60s,True,NaN; empty CSV field,wrist,eda,design_locked,,eda
+wrist_eda_scr_rate_per_min,float64,events/min,Valid SCR count divided by window duration in minutes,window_60s,True,NaN; empty CSV field,wrist,eda,design_locked,,eda
+wrist_eda_scr_amplitude_mean,float64,uS,Mean SCR onset-to-peak amplitude; NaN when amplitude is undefined,window_60s,True,NaN; empty CSV field,wrist,eda,design_locked,,eda
+wrist_eda_scr_amplitude_max,float64,uS,Maximum SCR onset-to-peak amplitude; NaN when amplitude is undefined,window_60s,True,NaN; empty CSV field,wrist,eda,design_locked,,eda
+wrist_temp_mean,float64,degC,Mean temperature,window_60s,True,NaN; empty CSV field,wrist,temp,design_locked,,temp
+wrist_temp_slope_per_s,float64,degC/s,Least-squares slope against physical time in seconds,window_60s,True,NaN; empty CSV field,wrist,temp,design_locked,,temp
+wrist_acc_x_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_x_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_x_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_y_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_y_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_y_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_z_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_z_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_z_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_magnitude_5s_mean_mean,float64,g,"Mean signed acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_magnitude_5s_std_mean,float64,g,"Population standard deviation of acceleration per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
+wrist_acc_magnitude_5s_abs_integral_mean,float64,g*s,"sum(abs(acceleration))/sampling_rate_hz per 5 s block, averaged over 12 blocks",mean_of_12_nonoverlapping_5s_blocks,True,NaN; empty CSV field,wrist,acc,design_locked,,acc_emg
