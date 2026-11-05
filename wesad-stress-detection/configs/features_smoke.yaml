@@ -13,5 +13,5 @@ label_rule: majority
 min_label_fraction: 0.90
 feature_version: all_sensors_raw_stats_v1
 subjects: [S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S13, S14, S15, S16, S17]
-output_dir: data/features/all_sensors_raw_stats_v2
+output_dir: data/features/all_sensors_raw_stats_v
 

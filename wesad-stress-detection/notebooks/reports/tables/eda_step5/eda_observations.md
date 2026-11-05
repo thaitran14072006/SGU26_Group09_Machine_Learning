@@ -2,7 +2,7 @@
 
 
 
-Bảng hiện có **6,196 cửa sổ**, **15 người** và **21 đặc trưng** thống kê raw ECG/EDA/Resp ngực.
+Bảng hiện có **6,196 cửa sổ**, **15 người** và **112 đặc trưng** thống kê raw ngực và cổ tay.
 
 Cấu hình mục tiêu là majority ≥90%. Có thể có tối đa 10% mẫu khác nhãn trong cửa sổ hợp lệ.
 
@@ -36,11 +36,11 @@ label_fraction quan sát từ 0.9015 đến 1.0000.
 
 quality_flag phản ánh phạm vi kiểm tra của extractor; tính hữu hạn không chứng minh chất lượng sinh lý.
 
-- ecg_max: 1400 giá trị bị đánh dấu IQR (22.60% trên giá trị hữu hạn).
+- chest_ecg_max: 1400 giá trị bị đánh dấu IQR (22.60% trên giá trị hữu hạn).
 
-- eda_std: 972 giá trị bị đánh dấu IQR (15.69% trên giá trị hữu hạn).
+- chest_eda_std: 972 giá trị bị đánh dấu IQR (15.69% trên giá trị hữu hạn).
 
-- eda_iqr: 917 giá trị bị đánh dấu IQR (14.80% trên giá trị hữu hạn).
+- chest_eda_iqr: 917 giá trị bị đánh dấu IQR (14.80% trên giá trị hữu hạn).
 
 Đánh dấu IQR phục vụ xem xét; chưa tự loại cửa sổ hoặc kết luận đó là lỗi.
 
@@ -48,15 +48,15 @@ quality_flag phản ánh phạm vi kiểm tra của extractor; tính hữu hạn
 
 ### Tương quan
 
-- ecg_std và ecg_rms: r = 1.000000.
+- chest_ecg_std và chest_ecg_rms: r = 1.000000.
 
-- eda_mean và eda_rms: r = 0.999998.
+- wrist_temp_mean và wrist_temp_rms: r = 1.000000.
 
-- resp_std và resp_rms: r = 0.999998.
+- wrist_bvp_std và wrist_bvp_rms: r = 1.000000.
 
-- eda_max và eda_rms: r = 0.998406.
+- chest_eda_mean và chest_eda_rms: r = 0.999998.
 
-- eda_mean và eda_max: r = 0.998334.
+- chest_resp_std và chest_resp_rms: r = 0.999998.
 
 Nếu chọn đặc trưng cho mô hình, học lựa chọn trong train của từng fold; không chọn trên toàn bảng rồi báo điểm test như đánh giá độc lập.
 
@@ -64,15 +64,17 @@ Nếu chọn đặc trưng cho mô hình, học lựa chọn trong train của t
 
 ### Tín hiệu thô
 
-Đã kiểm tra 15 người và 45 cặp người–tín hiệu ECG/EDA/ACC trong lần chạy này.
+Đã kiểm tra 15 người và 150 cặp người–thiết bị–tín hiệu ngực/cổ tay trong lần chạy này.
 
-Tổng NaN: 0; tổng Inf: 0; số cặp sai độ dài so với nhãn: 0.
+Tổng NaN: 0; tổng Inf: 0; số cặp không khớp thời lượng nhãn trong dung sai một mẫu: 0.
+
+Số kênh bị thiếu: 0; số cặp sai shape: 0.
 
 
 
 ### Hướng mô hình hóa
 
-Chỉ dùng 21 feature làm X; giữ subject_id cho outer LOSO, không đưa metadata hoặc nhãn vào X.
+Chỉ dùng 112 feature trong schema làm X (ngực 63, cổ tay 49); giữ subject_id cho LOSO, không đưa metadata hoặc nhãn vào X.
 
 Stress là lớp 1 trong bài toán nhị phân; Baseline và Amusement là Non-stress (0).
 
