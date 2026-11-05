@@ -22,7 +22,7 @@ class MultisensorTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.path = self.root / "S2" / "S2.pkl"
         self.path.parent.mkdir()
-        self.config = read_config("configs/features_all_sensors.yaml")
+        self.config = read_config("configs/features_smoke.yaml")
         self.config.update(data_root=str(self.root), subjects=["S2"], output_dir=str(self.root / "features"))
         self.raw = {"label": np.ones(65 * 700), "signal": {}}
         for device, specs in SENSOR_SPECS.items():
@@ -128,7 +128,9 @@ class MultisensorTests(unittest.TestCase):
         self.assertEqual(read_json(out / "run_status.json")["subjects"], ["S2"])
 
     def test_old_raw_stat_config_still_produces_21_features(self):
-        config = read_config("configs/features_smoke.yaml")
+        config = {"device": "chest", "sampling_rate_hz": 700, "sensors": ["ECG", "EDA", "Resp"],
+                  "labels": [1, 2, 3], "window_seconds": 60, "step_seconds": 5,
+                  "label_rule": "majority", "min_label_fraction": .9}
         frame = legacy_process(self.path, config)
         self.assertEqual(frame.shape, (2, 29))
         self.assertIn("ecg_mean", frame)

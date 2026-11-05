@@ -1,3 +1,5 @@
+> Cập nhật theo quyết định nhóm: G1 hiện nghiệm thu bộ 112 thống kê raw, 63 ngực + 49 cổ tay, phiên bản all_sensors_raw_stats_v1. Gói 21 trước đây chỉ là lịch sử chạy mẫu.
+
 # Thiết kế tiền xử lý G1
 
 Người phụ trách: Phạm Quỳnh Như. Cập nhật ngày 05/11/2026 theo README Nam đưa vào main tại `e6415a4` và kết quả EDA bước 5 giây tại `babdf38`/`21a9ef0`.
@@ -28,7 +30,7 @@ CLI và hàm `iter_windows` mặc định đã thống nhất bước 5 giây, m
 
 Đọc PKL WESAD đã đồng bộ, dùng chung mốc thời gian. Tạo danh sách cửa sổ/nhãn một lần trên lưới nhãn 700 Hz; mỗi kênh cắt cùng khoảng thời gian theo tần số gốc của nó. Không nâng toàn bộ kênh lên 700 Hz, không tự thêm offset hoặc cắt ngắn khi thiếu mẫu.
 
-Đã kiểm tra cấu trúc S2: 10 kênh có shape đúng, không có NaN/Inf và cùng thời lượng 6.079 giây với nhãn. Đây là kiểm tra cấu trúc, không suy ra chất lượng sinh lý. Hàm cửa sổ hiện có chỉ nhận tín hiệu cùng tần số với nhãn; xử lý đa tần số ở đây là hợp đồng thiết kế để bước triển khai sau tuân theo.
+Đã kiểm tra cấu trúc S2: 10 kênh có shape đúng, không có NaN/Inf và cùng thời lượng 6.079 giây với nhãn. Đây là kiểm tra cấu trúc, không suy ra chất lượng sinh lý. Hàm iter_windows xác định nhãn trên lưới 700 Hz; processor multisensor hiện có cắt từng kênh theo tần số gốc và cùng khóa. Lượt mẫu G1 gọi processor này, không tự viết thêm một bộ xử lý riêng.
 
 ## 3. Lựa chọn bộ lọc và chất lượng
 
@@ -52,15 +54,15 @@ ECG/BVP/EMG gắn với detector/feature, decomposition EDA/SCR, PSD, chuyển �
 
 ## 4. Bàn giao với Mai
 
-Mai đã chọn cơ sở thiết kế G1 tại `b5a0cb8` và cập nhật đầy đủ revision v2 tại `2f380a8`; schema 68 feature vẫn là danh mục dự kiến. Giữ nguyên revision thiết kế v2 để khớp schema Mai. Như bàn giao thời gian/nhãn, thiết kế lọc và chính sách chất lượng; Mai triển khai feature/schema theo đầu vào đã thống nhất.
+Nhóm hiện chốt bộ 112 thống kê raw; schema sinh kèm gói 112 là hợp đồng nghiệm thu đang dùng. Schema nháp 68 feature của Mai là thiết kế sinh lý trước đó. Giữ revision thiết kế bộ lọc v2 làm tài liệu, chưa áp dụng bộ lọc lên gói raw 112 và chưa đổi công thức feature của nhóm.
 
 ACC/EMG: chia cửa sổ 60 giây thành 12 đoạn 5 giây không chồng lấp, tính feature mỗi đoạn rồi lấy trung bình. Các feature khác theo cửa sổ 60 giây. Đây là hợp đồng, chưa viết helper hoặc extractor G2.
 
-Giữ 8 metadata và tiền tố `chest_`/`wrist_` theo schema Mai. Metadata không vào X; imputer/scaler/selection/resampling chỉ học trong train của từng fold. Bảng mẫu hiện tại chỉ có 21 thống kê raw, dùng schema sinh kèm CSV, không dùng schema nháp 68 feature để kiểm tra bảng này.
+Giữ 8 metadata và tiền tố `chest_`/`wrist_` theo schema Mai. Metadata không vào X; imputer/scaler/selection/resampling chỉ học trong train của từng fold. Bảng mẫu hiện tại chỉ có 112 thống kê raw, dùng schema sinh kèm CSV, không dùng schema nháp 68 feature để kiểm tra bảng này.
 
 ## 5. Kiểm tra và điều kiện nghiệm thu
 
-Đã chạy 25 test trên Python 3.12.14: 14 hạ tầng gốc, 5 kiểm tra gói G1 và 6 kiểm tra cửa sổ/CLI theo README. Test mới kiểm tra đúng 90%, thiếu một mẫu so với 90%, nhãn bị loại, lưới 60/5, phần dư cuối và giữ thời gian gốc. Kết quả test không thay cho nghiệm thu các máy.
+Đã chạy 35 test trên Python 3.12.14: 14 hạ tầng gốc, 7 kiểm tra gói G1, 6 kiểm tra cửa sổ/CLI và 8 kiểm tra đa cảm biến theo README. Test mới kiểm tra đúng 90%, thiếu một mẫu so với 90%, nhãn bị loại, lưới 60/5, phần dư cuối và giữ thời gian gốc. Kết quả test không thay cho nghiệm thu các máy.
 
 Đã chạy mẫu S2 theo lệnh README và công cụ kiểm tra gói. Kết quả trong [biên bản S2](G1_NHU_KIEM_TRA_S2.md). Lệnh chạy, file bàn giao và cách đối chiếu ở [bàn giao G1](G1_NHU_BAN_GIAO.md).
 

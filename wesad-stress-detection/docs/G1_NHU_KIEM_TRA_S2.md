@@ -1,57 +1,38 @@
-# Kiểm tra mẫu S2 G1
+# Kiểm tra S2 G1 với bộ 112 đã chốt
 
-Cập nhật ngày 05/11/2026 theo README mới của Nam. Lượt này chỉ đọc PKL S2, chạy thống kê raw có sẵn và kiểm tra G1; chưa chạy bộ lọc sinh lý hoặc extractor 68 feature.
+Cập nhật 05/11/2026 theo quyết định nhóm: dùng 112 thống kê raw ngực/cổ tay, phiên bản `all_sensors_raw_stats_v1`. Các lượt 21 trước đây là lịch sử chạy mẫu, không dùng để nghiệm thu bộ đang chọn.
 
-## Nguồn và môi trường
+## Kết quả mới trên máy Như
 
-- Python 3.12.14 trong `.venv-g1`, thư viện theo `requirements.lock.txt`; `pip check` đạt.
-- Raw SHA256: `36ef5e8afc0f91998eefba7c12fc9fa97b7b07198cbec0126917d7abb436ca23`.
-- Code SHA256: `43192da69227611ac1877f1fb8fb92c6435daa69b7d8e324d34895d89ee64c9d`.
-- Config `configs/features_smoke.yaml`: ngực ECG/EDA/Resp, 700 Hz, cửa sổ 60 giây, bước 5 giây, majority >=90%.
-- Chọn S2 bằng `--subjects S2`, output riêng `data/features/g1_s2_raw_stats/` đúng ví dụ README.
+- Python 3.12.14 trong `.venv-g1`, thư viện theo requirements.lock.txt.
+- Config `configs/features_smoke.yaml`, processor `wesad.multisensor:process_subject`.
+- Cửa sổ 60 giây, bước 5 giây, majority >=90%; kênh giữ tần số gốc.
+- Bảng S2: **395 dòng x 120 cột**, gồm 8 metadata và **112 feature**: 63 ngực, 49 cổ tay.
+- Nhãn: 219 Baseline, 113 Stress, 63 Amusement.
+- 1.204 cửa sổ ứng viên; loại 809 do quy tắc nhãn; không loại thêm vì thiếu mẫu hoặc NaN/Inf ở kênh yêu cầu; giữ 395.
+- Thời gian extractor ghi nhận: 10.019 giây, không gồm toàn bộ khởi động Python; chưa đo RAM đỉnh.
+- Công cụ kiểm tra G1: passed, đúng header/thứ tự feature, nhóm cảm biến, khóa, metadata, checksum và môi trường.
+- Bộ **35/35 test đạt**: 14 hạ tầng, 7 nghiệm thu gói G1, 6 cửa sổ/CLI và 8 đa cảm biến. Có test từ chối gói 21 cũ và schema chia nhóm cảm biến sai.
 
-## Kết quả trên máy Như
+Raw SHA256: `36ef5e8afc0f91998eefba7c12fc9fa97b7b07198cbec0126917d7abb436ca23`.
+Code SHA256: `e6bf04894e04f54b1966bc3a34663aac068f9f2fde7d615f196600e1eb8d4e43`.
 
-| Nội dung | Kết quả |
-| --- | ---: |
-| Cửa sổ giữ lại | 395 |
-| Baseline | 219 |
-| Stress | 113 |
-| Amusement | 63 |
-| Metadata | 8 |
-| Thống kê raw | 21 |
-| Thời gian extractor ghi nhận | 5,143 giây |
-| Test đạt | 25/25 |
+## Định nghĩa bộ đang dùng
 
-Thời gian không gồm toàn bộ khởi động Python; chưa đo RAM đỉnh. `run_status.json` complete chỉ áp dụng S2. Gói đạt kiểm tra metadata, khóa, lưới thời gian, tỷ lệ nhãn, schema, manifest/checksum và tính hữu hạn. Số 395 là quan sát, không được mã hóa thành điều kiện bắt buộc.
+Mỗi kênh có mean, std, min, max, RMS, IQR, range; ACC có x/y/z và magnitude. Tính trực tiếp trong cửa sổ 60 giây. Không áp dụng bộ lọc sinh lý, chuyển đơn vị hoặc công thức tổng hợp ACC/EMG 12 đoạn 5 giây lên gói raw này. Thiết kế bộ lọc trong hợp đồng G1 là tài liệu cho bước triển khai sau, chưa phải định nghĩa feature của bộ 112.
 
-25 test gồm 14 hạ tầng gốc, 5 kiểm tra gói G1 và 6 kiểm tra cửa sổ/CLI. Test mới sử dụng cửa sổ 42.000 mẫu ở 700 Hz: 37.800 mẫu nhãn hợp lệ được nhận, 37.799 bị loại; nhãn 0/4/5/6/7 không thành lớp đích; cửa sổ mặc định dịch 3.500 mẫu; giữ trục thời gian gốc và bỏ phần cuối thiếu độ dài.
+Schema nháp 68 feature của Mai ghi một hướng thiết kế sinh lý trước quyết định bộ 112; không dùng schema đó để kiểm tra bảng hiện tại. Dùng `feature_schema.json` sinh kèm gói 112. Ghi chú S2 về tiếp xúc cảm biến nhiệt độ ngực vẫn cần xem xét; tính hữu hạn không xác nhận chất lượng sinh lý.
 
-Kiểm tra cấu trúc raw: cả 10 kênh ngực/cổ tay có shape đúng cấu hình, không có NaN/Inf và cùng thời lượng 6.079 giây với nhãn. Xác nhận cấu trúc không chứng minh tín hiệu đạt chất lượng sinh lý. Dữ liệu đã đồng bộ trong PKL; chưa tự thêm offset hoặc đổi scale/đơn vị.
+## Đối chiếu Nam và giới hạn nghiệm thu
 
-Ghi chú nguồn `S2/S2_readme.txt` cho biết cảm biến nhiệt độ ngực không luôn được gắn sát. Ghi nhận vấn đề tiếp xúc để thiết kế QA; chưa tự sửa giá trị hoặc loại S2.
+Báo cáo EDA mới của Nam tại `notebooks/reports/tables/eda_step5/` ghi 112 feature và 6.196 cửa sổ/15 người. Cấu hình và số lượng từng lớp S2 khớp lượt chạy này. Đây là so sánh ở mức tóm tắt; chưa có gói đầy đủ để đối chiếu từng khóa/feature giữa các máy.
 
-## Đối chiếu phần Nam vừa push
+`four_machine_acceptance` vẫn false. Chỉ chạy S2 trên máy Như trong lượt này, không nhận kết quả 15 người của Nam làm kết quả chạy trên máy Như.
 
-Đọc `notebooks/reports/tables/eda_step5/eda_summary.json` và `windows_by_subject_and_label.csv` từ main tại `21a9ef0`:
+## Kết quả lưu ngoài Git
 
-- Cấu hình xử lý trong báo cáo Nam trùng cấu hình lượt S2 này.
-- Hàng S2 của Nam cũng có 219 Baseline, 113 Stress, 63 Amusement, tổng 395.
-- Báo cáo Nam có 6.196 cửa sổ từ 15 người; đây là kết quả EDA của Nam, không phải lượt chạy 15 người trên máy Như.
+- `data/features/g1_s2_all_sensors_raw_stats_v1/`: S2.csv, S2.json, all_subjects.csv, config.json, schema, checksum và quality report.
+- `outputs/g1/S2_all_sensors_acceptance.json`: nghiệm thu gói đơn.
+- `outputs/g1/compare_nam_112_summary.json`: đối chiếu tóm tắt với Nam.
 
-So sánh trên chỉ ở mức cấu hình và số lượng. Bảng tóm tắt không chứa toàn bộ khóa, feature từng dòng, manifest/raw hash/môi trường của gói S2, nên chưa nghiệm thu cặp gói hoặc bốn máy.
-
-## File bằng chứng và bước bàn giao G1
-
-Các kết quả lưu ngoài Git:
-
-```text
-data/features/g1_s2_raw_stats/
-outputs/g1/S2_acceptance.json
-outputs/g1/S2_structure.json
-outputs/g1/compare_nam_summary.json
-```
-
-Báo cáo nghiệm thu có `status: passed`, `scope: g1_raw_stats_single_package`, `four_machine_acceptance: false`. Báo cáo so Nam ghi rõ chỉ so tóm tắt và chưa so giá trị từng dòng. Những gói S2 từ các lượt cũ vẫn được giữ ngoài Git, không trộn với lượt source hiện tại.
-
-Cách chạy lại và đối chiếu gói từ máy khác nằm trong [bàn giao G1](G1_NHU_BAN_GIAO.md). Phần G1 trên máy Như đã có đầu ra; còn chờ gói đầy đủ của các máy để nghiệm thu chung. Chưa triển khai G2.
+Lệnh chạy lại và nhận gói đối chiếu có trong [bàn giao G1](G1_NHU_BAN_GIAO.md). Các gói cũ giữ nguyên ngoài Git.

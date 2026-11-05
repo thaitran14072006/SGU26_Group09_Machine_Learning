@@ -1,5 +1,7 @@
 # Hợp đồng thiết kế G1; KHÔNG phải config cho extractor hay runner.
 stage: G1
+selected_feature_set: all_sensors_raw_stats_v1
+filter_design_application: future_only_not_applied_to_selected_112_raw_stats
 status: design_handoff_only
 runtime_ready: false
 mai_design_basis_commit: b5a0cb8181a12df637d035bbcb517a78741540f1
@@ -57,7 +59,12 @@ quality_design:
   physiological_validity: not_established_by_finiteness
 g1_sample_acceptance:
   python: 3.12.14
-  feature_scope: chest_raw_stats_majority_v1_only
+  feature_scope: all_sensors_raw_stats_v1_only
+  feature_count: 112
+  chest_feature_count: 63
+  wrist_feature_count: 49
+  metadata_count: 8
+  selected_statistics: raw_60s_no_filtering_no_5s_acc_emg_aggregation
   metadata_and_feature_order: exact
   row_order: match_by_window_id
   feature_rtol: 1.0e-7

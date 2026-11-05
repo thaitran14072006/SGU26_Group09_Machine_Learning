@@ -11,10 +11,22 @@ import numpy as np
 import pandas as pd
 
 from wesad.data import load_feature_table
+from wesad.multisensor import SENSOR_SPECS, STATS, channel_names
 from wesad.utils import file_hash, read_json, resolve_path, write_json
 
 METADATA = ["subject_id", "window_id", "start_s", "end_s", "label_original",
             "label_binary", "label_fraction", "quality_flag"]
+
+
+def expected_feature_columns():
+    return [f"{name}_{stat}" for device, specs in SENSOR_SPECS.items()
+            for sensor, (_, axes) in specs.items()
+            for name in channel_names(device, sensor, axes) for stat in STATS]
+
+
+def expected_sensor_groups(features):
+    return {"chest": [c for c in features if c.startswith("chest_")],
+            "wrist": [c for c in features if c.startswith("wrist_")], "combined": features}
 
 
 def read_sample(directory):
@@ -25,15 +37,15 @@ def read_sample(directory):
     status = read_json(directory / "run_status.json")
     frame, features = load_feature_table(directory / "S2.csv", expected_subjects=["S2"])
     settings = snapshot["processing"]
-    expected = {"device": "chest", "sampling_rate_hz": 700, "window_seconds": 60,
+    expected = {"device": "combined", "sampling_rate_hz": 700, "window_seconds": 60,
                 "step_seconds": 5, "label_rule": "majority", "min_label_fraction": .9}
     if any(settings.get(key) != value for key, value in expected.items()):
-        raise ValueError("Package is not the agreed G1 chest raw-stat 60/5 majority-90% sample.")
-    if (settings.get("sensors") != ["ECG", "EDA", "Resp"]
+        raise ValueError("Package is not the agreed G1 combined raw-stat 60/5 majority-90% sample.")
+    if (settings.get("sensors") != {device: list(specs) for device, specs in SENSOR_SPECS.items()}
             or settings.get("labels") != [1, 2, 3]
-            or settings.get("subject_processor")
-            or settings.get("feature_version") != "chest_raw_stats_majority_v1"):
-        raise ValueError("Use the original G1 raw-stat extractor, sensors and label order.")
+            or settings.get("subject_processor") != "wesad.multisensor:process_subject"
+            or settings.get("feature_version") != "all_sensors_raw_stats_v1"):
+        raise ValueError("G1 requires all 112 combined raw-stat features and the shared multisensor processor.")
     if (status.get("status") != "complete" or "S2" not in status.get("subjects", [])
             or manifest.get("status") != "complete"
             or manifest.get("n_windows") != len(frame)
@@ -42,10 +54,12 @@ def read_sample(directory):
             or schema.get("processing_signature") != snapshot.get("signature")
             or manifest.get("feature_columns") != features):
         raise ValueError("Incomplete or inconsistent package/manifest/checksum.")
-    expected_features = [f"{sensor}_{stat}" for sensor in ("ecg", "eda", "resp")
-                         for stat in ("mean", "std", "min", "max", "rms", "iqr", "range")]
+    expected_features = expected_feature_columns()
     if list(frame.columns) != METADATA + expected_features or features != expected_features:
         raise ValueError("Metadata or feature names/order differ from the G1 raw-stat schema.")
+    if (schema.get("sensor_groups") != expected_sensor_groups(features)
+            or schema.get("feature_version") != "all_sensors_raw_stats_v1"):
+        raise ValueError("Generated schema must identify 63 chest and 49 wrist features in canonical order.")
     if (frame[METADATA].isna().any().any() or not np.isfinite(frame[features].to_numpy()).all()
             or not np.allclose(frame.end_s - frame.start_s, 60, rtol=0, atol=1e-9)
             or not np.allclose(frame.start_s / 5, np.round(frame.start_s / 5), rtol=0, atol=1e-9)
@@ -75,6 +89,7 @@ def check_sample(directory, reference=None, *, rtol=1e-7, atol=1e-9):
         raise ValueError(f"G1 target Python is {target_python}; package used {identity['python']}.")
     result = {"status": "passed", "scope": "g1_raw_stats_single_package", "identity": identity,
               "n_windows": len(frame), "n_features": len(features),
+              "sensor_group_counts": {"chest": 63, "wrist": 49, "combined": 112},
               "label_counts": {str(k): int(v) for k, v in frame.label_original.value_counts().sort_index().items()},
               "rtol": rtol, "atol": atol, "four_machine_acceptance": False}
     if reference is not None:

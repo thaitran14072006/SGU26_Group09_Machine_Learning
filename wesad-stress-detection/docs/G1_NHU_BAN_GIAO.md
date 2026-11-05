@@ -1,3 +1,5 @@
+> Cập nhật theo quyết định nhóm: G1 hiện nghiệm thu bộ 112 thống kê raw, 63 ngực + 49 cổ tay, phiên bản all_sensors_raw_stats_v1. Gói 21 trước đây chỉ là lịch sử chạy mẫu.
+
 # Bàn giao G1 theo README mới
 
 Người phụ trách: Phạm Quỳnh Như. Cập nhật ngày 05/11/2026, sau README và EDA bước 5 giây của Nam. Phạm vi chỉ gồm thiết kế, cấu hình hiện có, kiểm tra biên nhãn và một lượt mẫu S2 theo phân công G1.
@@ -24,16 +26,16 @@ Chạy tại thư mục `wesad-stress-detection`, sau khi cấu hình `configs/l
 ```powershell
 .\.venv-g1\Scripts\python.exe -m pip check
 .\.venv-g1\Scripts\python.exe -m unittest discover -s tests -v
-.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g1_s2_raw_stats --resume
-.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_s2_raw_stats --output outputs/g1/S2_acceptance.json
+.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g1_s2_all_sensors_raw_stats_v1 --resume
+.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_s2_all_sensors_raw_stats_v1 --output outputs/g1/S2_all_sensors_acceptance.json
 ```
 
 Đây là đúng cấu hình và đường dẫn mẫu S2 trong README mới, dùng Python 3.12.14 của máy Như. Nếu output đã có chữ ký code/config/môi trường khác, chọn tên thư mục mới bằng `--output-dir`, không sửa manifest để ép resume. Các gói cũ vẫn giữ ngoài Git.
 
 ## Bằng chứng đã có
 
-- `pip check` đạt; 25/25 test đạt.
-- Mẫu S2 complete: 395 cửa sổ, 219 Baseline, 113 Stress, 63 Amusement; 8 metadata + 21 thống kê raw, kiểm tra gói passed.
+- `pip check` đạt; 35/35 test đạt.
+- Mẫu S2 complete: 395 cửa sổ, 219 Baseline, 113 Stress, 63 Amusement; 8 metadata + 112 thống kê raw, kiểm tra gói passed.
 - 10 kênh S2 có shape đúng và thời lượng 6.079 giây; chưa khẳng định chất lượng sinh lý.
 - Cấu hình và số cửa sổ/lớp S2 khớp bảng EDA mới của Nam. Chưa so được khóa và giá trị feature giữa các máy từ bảng tóm tắt.
 
@@ -44,9 +46,9 @@ Nhận ngoài Git cả thư mục gói gồm `S2.csv`, `S2.json`, `config.json`,
 Đặt gói Mai, ví dụ, tại `data/features/g1_reference_mai/`, rồi chạy:
 
 ```powershell
-.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_s2_raw_stats --reference-dir data/features/g1_reference_mai --output outputs/g1/compare_nhu_mai.json
+.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_s2_all_sensors_raw_stats_v1 --reference-dir data/features/g1_reference_mai --output outputs/g1/compare_nhu_mai.json
 ```
 
-So tên/thứ tự cột, khóa, nhãn và thời gian chính xác; 21 thống kê raw dùng rtol=1e-7, atol=1e-9 theo bàn giao G1. Không áp dung sai này cho 68 feature sinh lý. Gói từ source khác phải được chạy lại bằng source thống nhất trước khi so sánh.
+So tên/thứ tự cột, khóa, nhãn và thời gian chính xác; 112 thống kê raw dùng rtol=1e-7, atol=1e-9 theo bàn giao G1. Không áp dung sai này cho 68 feature sinh lý. Gói từ source khác phải được chạy lại bằng source thống nhất trước khi so sánh.
 
 Công cụ không xác thực danh tính máy, từ chối đối chiếu cùng thư mục và luôn giữ `four_machine_acceptance: false`. Cần kết quả/nguồn gói thực tế của các thành viên trước khi ký nghiệm thu chung. Hiện mới có gói đầy đủ trên máy Như và bảng tóm tắt EDA của Nam; chưa có các gói đối chiếu đầy đủ.

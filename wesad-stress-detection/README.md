@@ -1,28 +1,27 @@
-> **Trích xuất toàn bộ ngực + cổ tay:** dùng `configs/features_all_sensors.yaml` (mặc định mới của CLI), xem [hướng dẫn chi tiết](docs/ALL_SENSORS_RAW_STATS.md). Bộ này có 112 thống kê raw, không phải schema nháp 68 feature sinh lý. Config mô hình tương ứng là `configs/experiment_all_sensors.yaml`.
->
-> Các hướng dẫn và cấu hình `features_smoke.yaml` dưới đây vẫn dành cho bộ **21 thống kê raw ngực** cũ khi truyền `--config` tường minh. Không trộn hai phiên bản dữ liệu.
+> Nhóm chốt bộ 112 thống kê raw ngực/cổ tay. Dùng `configs/features_smoke.yaml` và `configs/experiment.yaml`; hướng dẫn đầy đủ tại [CHIA_NHO_DATA.md](docs/CHIA_NHO_DATA.md).
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
-## 1. Bộ G1 cũ: 21 thống kê ngực
+## 1. Bộ G1 hiện tại: 112 thống kê ngực và cổ tay
 
 Pipeline đọc dữ liệu PKL theo từng người, chia tín hiệu thành cửa sổ,
 trích xuất đặc trưng, lưu CSV theo người và ghép thành all_subjects.csv.
 
-Cấu hình bộ 21 feature trong phần hướng dẫn này:
+Cấu hình bộ 112 feature trong phần hướng dẫn này:
 
-- Thiết bị: cảm biến ngực.
-- Tín hiệu: ECG, EDA, Resp.
-- Tần số lấy mẫu: 700 Hz.
+- Thiết bị: cảm biến ngực và cổ tay.
+- Ngực: ECG, EDA, EMG, Resp, Temp và ACC.
+- Cổ tay: BVP, EDA, TEMP và ACC.
+- Lưới nhãn/ngực: 700 Hz; cổ tay giữ tần số gốc 64/32/4 Hz.
 - Độ dài cửa sổ: 60 giây.
 - Bước trượt: 5 giây.
 - Nhãn hợp lệ: 1 Baseline, 2 Stress, 3 Amusement.
 - Chấp nhận cửa sổ nếu nhãn chiếm đa số đạt ít nhất 90%.
-- Mỗi tín hiệu có 7 thống kê: mean, std, min, max, RMS, IQR, range.
-- Tổng cộng 21 đặc trưng và 8 cột metadata.
+- Mỗi kênh có 7 thống kê: mean, std, min, max, RMS, IQR, range. ACC tách x/y/z và magnitude.
+- Tổng cộng 112 đặc trưng (63 ngực + 49 cổ tay) và 8 cột metadata: 120 cột.
 
 Đây là thống kê tín hiệu thô; chưa có lọc nhiễu sinh lý,
-HRV, SCR, xử lý cổ tay hoặc ACC đa trục trong processor G1 cũ.
+HRV hoặc SCR. Processor hiện giữ tần số gốc từng kênh và tách ACC x/y/z/magnitude; chưa lọc hoặc tổng hợp ACC/EMG theo đoạn 5 giây.
 
 Pipeline không lưu mỗi cửa sổ thành một file tín hiệu thô riêng.
 Mỗi cửa sổ hợp lệ trở thành một dòng trong bảng đặc trưng.
@@ -89,20 +88,22 @@ Chỉ đọc PKL từ nguồn WESAD tin cậy.
 File: configs/features_smoke.yaml
 
 ```yaml
+# Raw statistics for every recorded chest/wrist sensor. Not the 68-feature physiology draft.
 data_root: data/raw/WESAD/WESAD
-device: chest
-sensors: [ECG, EDA, Resp]
-sampling_rate_hz: 700
+device: combined
+sampling_rate_hz: 700  # label grid only; sensors retain their native sample rates
+sensors:
+  chest: [ECG, EDA, EMG, Resp, Temp, ACC]
+  wrist: [BVP, EDA, TEMP, ACC]
+subject_processor: wesad.multisensor:process_subject
 labels: [1, 2, 3]
-
 window_seconds: 60
 step_seconds: 5
 label_rule: majority
 min_label_fraction: 0.90
-
-feature_version: chest_raw_stats_majority_v1
-subjects: null
-output_dir: data/features/chest_raw_stats_majority_v1
+feature_version: all_sensors_raw_stats_v1
+subjects: [S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S13, S14, S15, S16, S17]
+output_dir: data/features/all_sensors_raw_stats_v1
 ```
 
 subjects: null nghĩa là tự tìm các thư mục subject có trên máy.
@@ -113,11 +114,7 @@ Nó không bảo đảm dữ liệu đã có đủ 15 người.
 --output-dir ghi đè thư mục kết quả.
 
 <<<<<<< HEAD
-Script mặc định dùng configs/features_all_sensors.yaml. Các lệnh cho bộ 21 feature bên dưới vẫn
-=======
-Script mặc định dùng configs/features_smoke.yaml. Các lệnh bên dưới vẫn
->>>>>>> 360c5177a45447c07a1d3b986023de4eb51bf33a
-truyền --config rõ ràng để người chạy dễ đối chiếu cấu hình.
+Script mặc định dùng configs/features_smoke.yaml. Các lệnh vẫn truyền --config rõ ràng để đối chiếu cấu hình.
 
 ## 5. Cách chia cửa sổ và gán nhãn
 
@@ -137,7 +134,7 @@ Với mỗi cửa sổ:
 2. Tìm nhãn có số mẫu lớn nhất.
 3. Chỉ giữ nếu nhãn đó thuộc 1/2/3 và chiếm ít nhất 90%.
 4. Loại cửa sổ nếu tín hiệu yêu cầu có NaN hoặc Inf.
-5. Tính 21 thống kê và lưu thành một dòng.
+5. Cắt cùng khoảng thời gian ở từng kênh theo tần số gốc; tính 112 thống kê và lưu một dòng.
 
 Ví dụ:
 
@@ -154,13 +151,13 @@ Phần cuối bản ghi không đủ 60 giây không tạo cửa sổ.
 Nên dùng thư mục riêng để kết quả thử không thay bảng tổng hợp chính:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g1_s2_raw_stats --resume
+.\.venv\Scripts\python.exe scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g1_s2_all_sensors_raw_stats_v1 --resume
 ```
 
 Kiểm tra gói S2:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_s2_raw_stats --output outputs/g1/S2_acceptance.json
+.\.venv\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_s2_all_sensors_raw_stats_v1 --output outputs/g1/S2_all_sensors_acceptance.json
 ```
 
 Công cụ này kiểm tra gói raw-stat S2 theo hợp đồng G1.
@@ -178,7 +175,7 @@ Chỉ định đủ danh sách để phát hiện ngay khi thiếu file:
 Chương trình đọc từng PKL tuần tự, lưu kết quả theo người,
 sau đó tự ghép thành:
 
-data/features/chest_raw_stats_majority_v1/all_subjects.csv
+data/features/all_sensors_raw_stats_v1/all_subjects.csv
 
 Không cần tự chia thành 15 bộ train/test.
 
@@ -210,7 +207,7 @@ vì sẽ gây trùng dữ liệu.
 | S2.json, S3.json, ... | Hash nguồn/CSV, số cửa sổ, thời gian và thông tin hoàn tất |
 | all_subjects.csv | Bảng ghép của các subject được chọn trong lần chạy |
 | quality_report.csv | Số cửa sổ và số lượng từng nhãn theo người |
-| feature_schema.json | Danh sách 21 feature thực tế của gói này |
+| feature_schema.json | Danh sách 112 feature thực tế và nhóm ngực/cổ tay/kết hợp |
 | config.json | Cấu hình xử lý, chữ ký, mã Git và môi trường |
 | checksums.json | Hash của bảng, schema và các CSV theo người |
 | run_status.json | Trạng thái và phạm vi lần chạy |
@@ -235,7 +232,7 @@ Tám cột metadata:
 - label_fraction: tỷ lệ nhãn đa số.
 - quality_flag: phạm vi kiểm tra chất lượng đã thực hiện.
 
-Có 21 cột feature: 7 thống kê cho mỗi ECG, EDA và Resp.
+Có 112 cột feature: 7 thống kê cho mỗi kênh; ACC có x/y/z và magnitude. Nhóm ngực có 63 cột, cổ tay có 49 cột.
 
 Không đưa metadata vào X khi huấn luyện.
 subject_id được dùng để chia nhóm trong LOSO.
@@ -296,23 +293,17 @@ của từng fold. Không chuẩn hóa toàn bảng trước LOSO.
 | Notebook báo ngoài lưới 60 giây | Notebook vẫn kiểm tra bộ 60/60 cũ |
 | Resume báo khác chữ ký | Dùng output mới hoặc khôi phục đúng phiên bản xử lý cũ |
 
-## 13. Bàn giao G1 phần Như
+## 13. Bàn giao G1 phần Như theo bộ 112
 
-Đã cập nhật theo README này: [thiết kế đồng bộ và bộ lọc](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md), [hướng dẫn bàn giao](docs/G1_NHU_BAN_GIAO.md) và [kiểm tra mẫu S2](docs/G1_NHU_KIEM_TRA_S2.md).
+Đã cập nhật [thiết kế G1](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md), [bàn giao](docs/G1_NHU_BAN_GIAO.md) và [kết quả S2](docs/G1_NHU_KIEM_TRA_S2.md) theo bộ 112 nhóm đã chốt. Công cụ check_g1_sample.py kiểm tra đúng 112 feature, 63 ngực/49 cổ tay, phiên bản all_sensors_raw_stats_v1; từ chối gói 21 cũ.
 
-<<<<<<< HEAD
-Bộ G1 cũ dùng `--config configs/features_smoke.yaml` tường minh; CLI hiện mặc định dùng `features_all_sensors.yaml`; hàm cửa sổ mặc định dùng 60 giây, bước 5 giây, majority >=90%. Trên máy Như, môi trường Python 3.12.14 hiện có tên `.venv-g1`; khi làm theo các lệnh README, thay `.venv` bằng `.venv-g1` nếu dùng môi trường đã cài này. Mẫu S2 đạt 395 cửa sổ và bộ 25 test đạt. Cấu hình/số cửa sổ S2 khớp bảng EDA bước 5 giây của Nam; nghiệm thu đầy đủ giữa các máy vẫn chờ gói đối chiếu.
+Máy Như dùng Python 3.12.14 trong .venv-g1; thay .venv bằng .venv-g1 trong các lệnh nếu dùng môi trường đã cài này. Gói S2 hiện tại có 395 cửa sổ và 120 cột; 35 test đạt. Nghiệm thu bốn máy vẫn cần gói cùng source và môi trường.
 
-`configs/preprocessing_g1_design.yaml` chỉ là hợp đồng thiết kế G1, `runtime_ready: false`; không truyền file đó vào extractor. Phần triển khai bộ lọc và feature sinh lý G2 chưa được thực hiện.
-
-=======
-CLI mặc định dùng `features_smoke.yaml`; hàm cửa sổ mặc định dùng 60 giây, bước 5 giây, majority >=90%. Trên máy Như, môi trường Python 3.12.14 hiện có tên `.venv-g1`; khi làm theo các lệnh README, thay `.venv` bằng `.venv-g1` nếu dùng môi trường đã cài này. Mẫu S2 đạt 395 cửa sổ và bộ 25 test đạt. Cấu hình/số cửa sổ S2 khớp bảng EDA bước 5 giây của Nam; nghiệm thu đầy đủ giữa các máy vẫn chờ gói đối chiếu.
-
-`configs/preprocessing_g1_design.yaml` chỉ là hợp đồng thiết kế G1, `runtime_ready: false`; không truyền file đó vào extractor. Phần triển khai bộ lọc và feature sinh lý G2 chưa được thực hiện.
+Thiết kế bộ lọc trong configs/preprocessing_g1_design.yaml chưa áp dụng lên bộ raw 112. Bộ đang chọn dùng thống kê trực tiếp trong cửa sổ 60 giây, bước 5 giây; không tự đổi định nghĩa feature khi nghiệm thu mẫu.
 
 ## 14. Bàn giao G1 phần danh mục và schema
 
 Danh mục/schema nháp theo phân công đã được kiểm tra: [68 feature dự kiến](docs/G1_DANH_MUC_FEATURE.csv), [hợp đồng feature](docs/G1_HOP_DONG_FEATURE.md), [schema nháp](configs/feature_schema.json) và [bàn giao](docs/BAN_GIAO.md). Phần này dùng thiết kế G1 của Như và đã cập nhật đầu vào từ EDA 60/5 của Nam ngày 05/11/2026.
 
-Schema nháp gồm 8 metadata + 68 feature dự kiến cho ngực/cổ tay/kết hợp; đơn vị mục tiêu và các tham số còn mở được ghi rõ. Gói raw G1 hiện chạy 21 feature phải dùng schema sinh cùng CSV như mục 9. Máy Mai đã kiểm tra gói S2 đạt trên Python 3.12.14 và đủ thư viện khóa: 395 cửa sổ, 25/25 test đạt; đối chiếu đủ bốn máy vẫn chưa hoàn tất. Xem lệnh chạy và bằng chứng trong bàn giao.
+Schema nháp gồm 8 metadata + 68 feature dự kiến cho ngực/cổ tay/kết hợp; đơn vị mục tiêu và các tham số còn mở được ghi rõ. Gói raw G1 hiện dùng 112 feature và phải dùng schema sinh cùng CSV như mục 9. Những thông tin gói 21/schema 68 dưới đây ghi lại bàn giao trước quyết định bộ 112, không thay thế định nghĩa bộ đang chọn. Máy Mai đã kiểm tra gói S2 đạt trên Python 3.12.14 và đủ thư viện khóa: 395 cửa sổ, 25/25 test đạt; đối chiếu đủ bốn máy vẫn chưa hoàn tất. Xem lệnh chạy và bằng chứng trong bàn giao.
 >>>>>>> 360c5177a45447c07a1d3b986023de4eb51bf33a

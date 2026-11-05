@@ -58,6 +58,8 @@ class G1WindowingTests(unittest.TestCase):
         self.assertEqual(config["step_seconds"], 5)
         self.assertEqual(config["label_rule"], "majority")
         self.assertEqual(config["min_label_fraction"], .9)
+        self.assertEqual(config["device"], "combined")
+        self.assertEqual(config["subject_processor"], "wesad.multisensor:process_subject")
 
 
 if __name__ == "__main__":
