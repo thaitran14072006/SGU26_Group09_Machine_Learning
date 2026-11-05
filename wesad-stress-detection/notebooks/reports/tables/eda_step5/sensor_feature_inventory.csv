@@ -1,0 +1,11 @@
+﻿sensor,n_features
+chest_ecg,7
+chest_eda,7
+chest_emg,7
+chest_resp,7
+chest_temp,7
+chest_acc,28
+wrist_bvp,7
+wrist_eda,7
+wrist_temp,7
+wrist_acc,28

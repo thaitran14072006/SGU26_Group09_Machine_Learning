@@ -1,17 +1,29 @@
 {
-  "created_at_utc": "2026-11-05T01:18:31.694611+00:00",
-  "input_file": "c:\\Users\\thanh\\source\\repos\\ML\\Machine-learning\\wesad-stress-detection\\data\\features\\chest_raw_stats_majority_v1\\all_subjects.csv",
-  "input_sha256": "f41d18c984eb628f3a479e18b2b6fdc0ca37a497521c240a1086a40391923f45",
-  "scope": "chest raw statistics; window 60s; step 5s; majority >=0.90",
+  "created_at_utc": "2026-11-05T13:44:18.878977+00:00",
+  "input_file": "c:\\Users\\thanh\\source\\repos\\ML\\Machine-learning\\wesad-stress-detection\\data\\features\\all_sensors_raw_stats_v1\\all_subjects.csv",
+  "input_sha256": "de34cf16aa21e5e15bc61f5c4ac22b859fc7237c048e82fd1b9e63ddef662b91",
+  "scope": "all chest and wrist raw statistics; window 60s; step 5s; majority >=0.90",
   "processing_metadata_verified": true,
   "processing": {
-    "device": "chest",
-    "sensors": [
-      "ECG",
-      "EDA",
-      "Resp"
-    ],
+    "device": "combined",
     "sampling_rate_hz": 700,
+    "sensors": {
+      "chest": [
+        "ECG",
+        "EDA",
+        "EMG",
+        "Resp",
+        "Temp",
+        "ACC"
+      ],
+      "wrist": [
+        "BVP",
+        "EDA",
+        "TEMP",
+        "ACC"
+      ]
+    },
+    "subject_processor": "wesad.multisensor:process_subject",
     "labels": [
       1,
       2,
@@ -21,11 +33,11 @@
     "step_seconds": 5,
     "label_rule": "majority",
     "min_label_fraction": 0.9,
-    "feature_version": "chest_raw_stats_majority_v1"
+    "feature_version": "all_sensors_raw_stats_v1"
   },
   "n_windows": 6196,
   "n_subjects": 15,
-  "n_features": 21,
+  "n_features": 112,
   "subjects": [
     "S2",
     "S3",
@@ -44,6 +56,13 @@
     "S17"
   ],
   "missing_subjects": [],
+  "extra_subjects": [],
+  "feature_groups": {
+    "chest": 63,
+    "wrist": 49,
+    "combined": 112
+  },
+  "schema_present": true,
   "label_counts": {
     "1": 3377,
     "2": 1848,
