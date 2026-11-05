@@ -24,7 +24,7 @@ def iter_windows(
     window_seconds: float = 60,
     step_seconds: float = 5,
     allowed_labels: Sequence[int] = (1, 2, 3),
-    label_rule: str = "homogeneous",
+    label_rule: str = "majority",
     min_label_fraction: float = 0.90,
 ) -> Iterator[Window]:
     """Trả về cửa sổ đủ độ dài, đạt quy tắc nhãn và có tín hiệu hữu hạn.
@@ -32,6 +32,7 @@ def iter_windows(
     Tín hiệu đầu vào đã căn chỉnh và có cùng tần số với labels.
     Lưới bắt đầu tại 0; phần dư cuối bản ghi và cửa sổ có NaN/Inf bị loại.
     Hỗ trợ nhãn đồng nhất hoặc nhãn đa số theo min_label_fraction.
+    Mặc định 60 giây, bước 5 giây, nhãn đa số ít nhất 90% theo G1.
     Kiểm tra này chưa phát hiện tín hiệu phẳng hoặc nhiễu sinh lý.
     """
     parameters = (sampling_rate_hz, window_seconds, step_seconds)

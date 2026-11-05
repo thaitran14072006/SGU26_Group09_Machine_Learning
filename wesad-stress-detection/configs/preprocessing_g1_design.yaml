@@ -4,6 +4,9 @@ status: design_handoff_only
 runtime_ready: false
 mai_design_basis_commit: b5a0cb8181a12df637d035bbcb517a78741540f1
 design_revision: nhu_g1_design_v2
+updated_at: '2026-11-05'
+readme_basis_commit: e6415a4
+seed: 42
 window:
   seconds: 60
   step_seconds: 5

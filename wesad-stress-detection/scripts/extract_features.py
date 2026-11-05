@@ -11,7 +11,7 @@ from wesad.utils import read_config
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", default="configs/features_chest.yaml")
+    parser.add_argument("--config", default="configs/features_smoke.yaml")
     parser.add_argument("--local", help="YAML containing only data_root")
     parser.add_argument("--subjects", nargs="+")
     parser.add_argument("--output-dir", help="Override result directory without duplicating the config")

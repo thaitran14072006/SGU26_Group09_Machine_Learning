@@ -1,62 +1,52 @@
-# Bàn giao G1 của Như sau cập nhật Mai
+# Bàn giao G1 theo README mới
 
-Ngày 03/11/2026. Phạm vi chỉ G1: môi trường, thiết kế đồng bộ/bộ lọc, cửa sổ 60/5 majority 90%, test biên nhãn và chạy mẫu S2. Chưa triển khai bộ lọc hoặc thuật toán feature G2.
+Người phụ trách: Phạm Quỳnh Như. Cập nhật ngày 05/11/2026, sau README và EDA bước 5 giây của Nam. Phạm vi chỉ gồm thiết kế, cấu hình hiện có, kiểm tra biên nhãn và một lượt mẫu S2 theo phân công G1.
 
-## Đã khép các phần có thể làm trên máy Như
+## Đầu ra
 
-| Hạng mục | Bằng chứng |
+| File | Nội dung |
 | --- | --- |
-| Mai chọn thiết kế của Như | Commit `b5a0cb8`, mục `preprocessing_design` trong schema Mai |
-| Hợp đồng thiết kế có cấu trúc | `configs/preprocessing_g1_design.yaml`, stage G1, runtime_ready false |
-| Bổ sung thiết kế còn thiếu | Biên EDA 10 s, Resp 30 s; QA cửa sổ chung; giữ trọng lực ACC; không đổi scale khi chưa có bằng chứng |
-| Đồng nhất phiên bản Python trên máy Như với bản bàn giao Thái | `.venv-g1` Python 3.12.14; `.python-version`; cài đúng `requirements.lock.txt`, pip check đạt |
-| Test hạ tầng/biên nhãn và công cụ nghiệm thu | 19/19 đạt, gồm 5 test mới cho đối chiếu gói G1 |
-| Mẫu S2 trên môi trường mục tiêu | 395 cửa sổ: Baseline 219, Stress 113, Amusement 63; kiểm tra gói đạt |
+| `docs/G1_NHU_THIET_KE_TIEN_XU_LY.md` | Đồng bộ ngực/cổ tay, bộ lọc và QA ở mức thiết kế; cửa sổ 60/5, nhãn >=90% |
+| `configs/preprocessing_g1_design.yaml` | Hợp đồng thiết kế, runtime_ready false; không dùng để chạy extractor |
+| `configs/features_smoke.yaml` | Config raw chung theo README Nam; không tạo smoke riêng |
+| `tests/test_g1_windowing.py` | 6 test G1 trên cửa sổ 42.000 mẫu và mặc định CLI |
+| `scripts/check_g1_sample.py`, `tests/test_g1_sample.py` | Kiểm tra gói raw S2 và đối chiếu gói từ máy khác |
+| `docs/G1_NHU_KIEM_TRA_S2.md` | Kết quả S2 hiện tại và giới hạn nghiệm thu |
 
-Mai đã chọn thiết kế ban đầu; không suy ra Mai đã review phần biên/QA bổ sung này. Những giá trị thiết kế chưa được chứng minh chất lượng sinh lý. Các chi tiết detector/PSD/chuyển đơn vị gắn với feature vẫn cần Mai/Như thống nhất trước triển khai G2, không được tự đánh dấu đã hoàn thành.
+CLI mặc định đã sửa sang `features_smoke.yaml`, vì cấu hình cũ đã bị xóa. Hàm cửa sổ mặc định dùng majority >=90%, bước 5 giây. Không thêm thuật toán lọc, HRV/SCR, xử lý đa tần số hoặc feature ACC/EMG của G2.
 
-## Cách chạy lại G1
+## Môi trường và chạy mẫu
 
-Máy Như đã có `.venv-g1` Python 3.12.14, không cần cài lại. Máy khác tạo venv bằng Python đúng phiên bản này, cài `requirements.lock.txt`, cài editable như [thiết kế G1](G1_NHU_THIET_KE_TIEN_XU_LY.md).
+README dùng tên venv `.venv`; trên máy Như, môi trường Python 3.12.14 đã cài sẵn mang tên `.venv-g1`. Khác tên thư mục không làm đổi phương pháp. Dùng đúng Python trong `.python-version`, `requirements.lock.txt` và cài package editable; không dùng môi trường 3.13.9 cũ để nghiệm thu G1.
 
-Chạy tại thư mục `wesad-stress-detection`:
+Chạy tại thư mục `wesad-stress-detection`, sau khi cấu hình `configs/local.yaml` chỉ chứa `data_root` thật:
 
 ```powershell
-.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g1_S2_shared_smoke_v1 --resume
-.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_S2_shared_smoke_v1 --output outputs/g1/S2_py312_acceptance.json
+.\.venv-g1\Scripts\python.exe -m pip check
+.\.venv-g1\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv-g1\Scripts\python.exe scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g1_s2_raw_stats --resume
+.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_s2_raw_stats --output outputs/g1/S2_acceptance.json
 ```
 
-Lượt này gọi extractor raw có sẵn, không đọc config thiết kế để lọc tín hiệu. Các config/header/code khác nhau cần output_dir mới; không sửa manifest để tái sử dụng output cũ.
+Đây là đúng cấu hình và đường dẫn mẫu S2 trong README mới, dùng Python 3.12.14 của máy Như. Nếu output đã có chữ ký code/config/môi trường khác, chọn tên thư mục mới bằng `--output-dir`, không sửa manifest để ép resume. Các gói cũ vẫn giữ ngoài Git.
 
-Cập nhật 04/11: dùng duy nhất `features_smoke.yaml` cho smoke test. `--subjects S2` ghi đè danh sách người trong file chung, `--output-dir` chọn nơi lưu riêng. Config riêng trùng lặp đã bỏ. Các gói kết quả cũ vẫn được giữ; đường dẫn trong các lệnh trên dành cho lượt chạy bằng source hiện tại.
+## Bằng chứng đã có
 
-## Đối chiếu mẫu giữa các máy
+- `pip check` đạt; 25/25 test đạt.
+- Mẫu S2 complete: 395 cửa sổ, 219 Baseline, 113 Stress, 63 Amusement; 8 metadata + 21 thống kê raw, kiểm tra gói passed.
+- 10 kênh S2 có shape đúng và thời lượng 6.079 giây; chưa khẳng định chất lượng sinh lý.
+- Cấu hình và số cửa sổ/lớp S2 khớp bảng EDA mới của Nam. Chưa so được khóa và giá trị feature giữa các máy từ bảng tóm tắt.
 
-Mỗi thành viên dùng cùng source trên main, Python 3.12.14, thư viện khóa, raw S2 và config smoke. Giữ nguyên cả gói gồm `S2.csv`, `S2.json`, `config.json`, `feature_schema.json`, `run_status.json`; chia sẻ ngoài Git. Những gói cũ có source hash hoặc môi trường khác phải chạy lại, không bỏ qua kiểm tra chỉ vì cùng số cửa sổ.
+## Gói cần nhận để đối chiếu máy khác
 
-Máy Như có thể đặt gói nhận từ máy khác vào `data/features/g1_reference_mai/` (hoặc tên thành viên tương ứng), rồi chạy:
+Nhận ngoài Git cả thư mục gói gồm `S2.csv`, `S2.json`, `config.json`, `feature_schema.json`, `run_status.json`. Các máy cần cùng raw/source, Python patch version và thư viện. Số cửa sổ bằng nhau chưa đủ nghiệm thu.
+
+Đặt gói Mai, ví dụ, tại `data/features/g1_reference_mai/`, rồi chạy:
 
 ```powershell
-.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_S2_shared_smoke_v1 --reference-dir data/features/g1_reference_mai --output outputs/g1/compare_nhu_mai.json
+.\.venv-g1\Scripts\python.exe scripts/check_g1_sample.py --features-dir data/features/g1_s2_raw_stats --reference-dir data/features/g1_reference_mai --output outputs/g1/compare_nhu_mai.json
 ```
 
-Đây là đường dẫn mẫu cho gói thực sự nhận được, chưa có gói Mai trên máy Như. Lặp lại với gói Thái và Nam khi có. Công cụ kiểm tra:
+So tên/thứ tự cột, khóa, nhãn và thời gian chính xác; 21 thống kê raw dùng rtol=1e-7, atol=1e-9 theo bàn giao G1. Không áp dung sai này cho 68 feature sinh lý. Gói từ source khác phải được chạy lại bằng source thống nhất trước khi so sánh.
 
-- Raw/source hash, thông số xử lý, Python patch version và thư viện trong snapshot phải trùng.
-- Header metadata, tên/thứ tự 21 feature phải đúng; nhãn, mốc thời gian, quality flag và tỷ lệ nhãn phải khớp theo khóa `window_id`.
-- Feature phải hữu hạn; so sánh `abs(a-b) <= 1e-9 + 1e-7*abs(b)`. Đây là dung sai bàn giao cho thống kê raw G1; không dùng làm dung sai mặc định cho 68 feature sinh lý.
-- Mỗi gói phải complete, CSV khớp checksum/manifest; cửa sổ dài 60 giây, bắt đầu trên lưới 5 giây, tỷ lệ nhãn >=90% và window_id dựa trên chỉ số 700 Hz gốc.
-- Số 395 là quan sát của lượt S2 này, không được mã hóa thành điều kiện bắt buộc để che lỗi phương pháp.
-
-Một báo cáo passed chỉ chứng minh gói đơn hoặc cặp gói đã được kiểm tra. Công cụ luôn giữ `four_machine_acceptance: false` và từ chối so sánh một thư mục với chính nó. Không có cơ chế xác thực danh tính máy; cần các thành viên xác nhận nguồn gói để nghiệm thu nhóm.
-
-## Trạng thái nghiệm thu
-
-| Máy | Trạng thái có bằng chứng |
-| --- | --- |
-| Như | Gói S2 Python 3.12.14 đã kiểm tra đạt |
-| Thái | Có bản bàn giao trước đó, chưa nhận gói chạy cùng source G1 hiện tại để so sánh trực tiếp |
-| Mai | Đã có schema/chốt cơ sở thiết kế, chưa nhận gói S2 cùng source để so sánh |
-| Nam | Chưa nhận gói S2 cùng source để so sánh |
-
-Phần chuẩn bị G1 của Như đã có đầu ra. Nghiệm thu bốn máy còn chờ gói và xác nhận của các thành viên; không thể thay bằng chạy nhiều môi trường trên một máy. Chưa triển khai G2.
+Công cụ không xác thực danh tính máy, từ chối đối chiếu cùng thư mục và luôn giữ `four_machine_acceptance: false`. Cần kết quả/nguồn gói thực tế của các thành viên trước khi ký nghiệm thu chung. Hiện mới có gói đầy đủ trên máy Như và bảng tóm tắt EDA của Nam; chưa có các gói đối chiếu đầy đủ.

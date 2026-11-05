@@ -108,8 +108,8 @@ Nó không bảo đảm dữ liệu đã có đủ 15 người.
 --local ghi đè data_root.
 --output-dir ghi đè thư mục kết quả.
 
-Luôn truyền --config rõ ràng. Script hiện còn mặc định tới
-configs/features_chest.yaml, nhưng file đó không còn trong nhánh main.
+Script mặc định dùng configs/features_smoke.yaml. Các lệnh bên dưới vẫn
+truyền --config rõ ràng để người chạy dễ đối chiếu cấu hình.
 
 ## 5. Cách chia cửa sổ và gán nhãn
 
@@ -280,10 +280,18 @@ của từng fold. Không chuẩn hóa toàn bảng trước LOSO.
 
 | Hiện tượng | Kiểm tra |
 |---|---|
-| Không tìm thấy features_chest.yaml | Truyền --config configs/features_smoke.yaml |
+| Lệnh cũ trỏ tới cấu hình đã bỏ | Cập nhật main và dùng configs/features_smoke.yaml |
 | Không tìm thấy Sx/Sx.pkl | data_root phải chứa trực tiếp các thư mục Sx |
 | all_subjects.csv chỉ có một vài người | Xem --subjects và phạm vi lần chạy cuối |
 | Schema thiếu các cột chest_ecg_... | Có thể đang dùng nhầm schema nháp 68 feature |
 | Số cửa sổ khác bộ 60/60 | Do đổi bước trượt và quy tắc nhãn |
 | Notebook báo ngoài lưới 60 giây | Notebook vẫn kiểm tra bộ 60/60 cũ |
 | Resume báo khác chữ ký | Dùng output mới hoặc khôi phục đúng phiên bản xử lý cũ |
+
+## 13. Bàn giao G1 phần Như
+
+Đã cập nhật theo README này: [thiết kế đồng bộ và bộ lọc](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md), [hướng dẫn bàn giao](docs/G1_NHU_BAN_GIAO.md) và [kiểm tra mẫu S2](docs/G1_NHU_KIEM_TRA_S2.md).
+
+CLI mặc định dùng `features_smoke.yaml`; hàm cửa sổ mặc định dùng 60 giây, bước 5 giây, majority >=90%. Trên máy Như, môi trường Python 3.12.14 hiện có tên `.venv-g1`; khi làm theo các lệnh README, thay `.venv` bằng `.venv-g1` nếu dùng môi trường đã cài này. Mẫu S2 đạt 395 cửa sổ và bộ 25 test đạt. Cấu hình/số cửa sổ S2 khớp bảng EDA bước 5 giây của Nam; nghiệm thu đầy đủ giữa các máy vẫn chờ gói đối chiếu.
+
+`configs/preprocessing_g1_design.yaml` chỉ là hợp đồng thiết kế G1, `runtime_ready: false`; không truyền file đó vào extractor. Phần triển khai bộ lọc và feature sinh lý G2 chưa được thực hiện.
