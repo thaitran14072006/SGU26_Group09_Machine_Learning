@@ -42,7 +42,7 @@ Danh sách cụ thể và đơn vị nằm trong schema và CSV. Đây là danh 
 
 Mean/std đều dùng ddof=0 cho thống kê tín hiệu/rate; SDNN/SD IBI dùng ddof=1. pNN50 là tỷ lệ 0–1. Tích phân tuyệt đối đoạn 5 s = sum(abs(x))/fs; đơn vị g·s với ACC hoặc mV·s với EMG. Magnitude ACC = sqrt(x²+y²+z²). Theo thiết kế Như `nhu_g1_design_v2`, ACC giữ trọng lực; không tự trừ mean hoặc chuyển scale.
 
-Năng lượng dải tần được định nghĩa là tích phân PSD theo tần số, đơn vị bình phương đơn vị tín hiệu. Không gán tên LF/HF-HRV cho phổ của ECG/BVP thô. Phương pháp PSD, biên từng dải, cutoff bộ lọc và thuật toán phát hiện nhịp/SCR còn chờ thống nhất Như và đối chiếu proposal gốc. Các mục này được đánh dấu pending trong schema; không dùng cấu hình chưa khóa để chạy bảng chính.
+Năng lượng dải tần được định nghĩa là tích phân PSD theo tần số, đơn vị bình phương đơn vị tín hiệu. Không gán tên LF/HF-HRV cho phổ của ECG/BVP thô. Các cutoff EDA/RESP đã lấy theo thiết kế G1 của Như bên dưới. Phương pháp PSD, biên từng dải và thuật toán phát hiện nhịp/SCR chưa được quy định đầy đủ, cần khóa trước khi triển khai G2. Các mục này được đánh dấu pending trong schema; không dùng cấu hình chưa khóa để chạy bảng chính.
 
 Đơn vị đầu ra mục tiêu: ECG/EMG mV, EDA µS, TEMP °C, ACC g, BVP arbitrary unit; rate bpm hoặc breaths/min, khoảng nhịp ms. Phải xác minh đơn vị/scale đầu vào từ tài liệu raw trước khi xuất với các đơn vị đó; không mặc định dữ liệu đã đúng đơn vị. Quy tắc chuyển đổi ACC cổ tay và hệ số các kênh nằm trong danh sách cần xác minh, không tự áp dụng hệ số khi chưa có căn cứ.
 
@@ -79,3 +79,11 @@ Phần Mai chốt dùng [thiết kế G1 của Như](G1_NHU_THIET_KE_TIEN_XU_LY.
 Mai làm danh mục/schema song song, không cần chờ Như hoàn tất code. Chỉ khóa phiên bản và nghiệm thu bảng S2 sau khi các điểm pending đã được thống nhất. Không coi một người đã đồng ý chỉ vì file đề xuất đã được tạo.
 
 Nghiệm thu S2 trên bốn máy: cùng khóa cửa sổ, nhãn, start/end, cột/thứ tự, đơn vị và config; với gói 21 thống kê raw G1, dùng Python 3.12.14 và thư viện khóa, so sánh feature theo rtol=1e-7, atol=1e-9 như Như bàn giao. Dung sai này không tự áp dụng cho 68 feature sinh lý. Không áp số cửa sổ của quy tắc homogeneous cho majority. Chưa có đối chiếu bốn máy ở thời điểm lập G1 này.
+
+## Cập nhật từ EDA của Nam ngày 05/11/2026
+
+Đã nhận kết quả tại `notebooks/reports/tables/eda_step5/eda_summary.json` và `eda_observations.md`: 15 người, 6.196 cửa sổ 60/5, 21 feature raw; 3.377 Baseline, 1.848 Stress, 971 Amusement; không có NaN/Inf feature hoặc khóa trùng trong bảng Nam khảo sát. Kiểm tra raw của Nam gồm ECG/EDA/ACC ở 15 người, không báo NaN/Inf hoặc lệch độ dài trong 45 cặp người–tín hiệu.
+
+Phần Mai sử dụng các kết quả này làm đầu vào thiết kế: giữ nhãn nhị phân 2→1, 1/3→0; giữ QA sinh lý và cách ghi thiếu cho detector; cờ IQR chỉ phục vụ xem xét, chưa tự loại cửa sổ. Không suy rộng kiểm tra raw ba kênh sang chất lượng cổ tay/EMG/TEMP/RESP, đơn vị vật lý hoặc giá trị 68 feature dự kiến. Việc chọn feature vẫn học trong train của từng fold.
+
+Danh mục, đơn vị mục tiêu, nhãn, cách ghi thiếu và schema nháp G1 đã được chuẩn bị, kiểm tra nhất quán. Cập nhật sau khi cài Python 3.12.14: kiểm tra một gói S2 trên máy này đã đạt (395 cửa sổ, 21 feature raw); đối chiếu bốn máy còn chưa hoàn tất; các tham số detector/PSD/scale chưa khóa vẫn được giữ trong `pending_decisions`.

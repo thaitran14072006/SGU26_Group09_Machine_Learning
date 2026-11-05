@@ -1432,6 +1432,55 @@
     "feature_atol": 1e-09,
     "observed_window_count_is_not_a_hardcoded_requirement": true,
     "four_machines": "pending_external_packages",
-    "scope_note": "Raw 21-feature G1 package only; these tolerances are not final tolerances for 68 physiological features"
+    "scope_note": "Raw 21-feature G1 package only; these tolerances are not final tolerances for 68 physiological features",
+    "local_result": {
+      "report": "outputs/g1/S2_acceptance_py31214.json",
+      "features_dir": "data/features/g1_s2_raw_stats_py31214_d85d9e7",
+      "status": "passed",
+      "scope": "g1_raw_stats_single_package",
+      "source_commit": "d85d9e7d766cc164b4047ac2be939deaff9e8a5a",
+      "n_windows": 395,
+      "n_features": 21,
+      "label_counts": {
+        "1": 219,
+        "2": 113,
+        "3": 63
+      },
+      "tests_passed": 25,
+      "all_16_locked_packages_verified": true,
+      "four_machine_acceptance": false
+    }
+  },
+  "updated_at": "2026-11-05",
+  "source_proposal": "Nhom09_NhanDienStress_WESAD_Proposal_v3.docx (read-only reference)",
+  "g1_deliverable_status": {
+    "feature_catalog_units_labels_missing_and_draft_schema": "prepared_and_consistency_checked",
+    "preprocessing_basis": "nhu_g1_design_v2",
+    "runtime_raw_sample_schema": "generated beside CSV; do not use this 68-feature draft to validate the 21-feature raw package",
+    "local_s2_acceptance": "passed_single_raw_package_python_3.12.14_locked_dependencies",
+    "four_machine_acceptance": false
+  },
+  "eda_design_evidence": {
+    "source": "notebooks/reports/tables/eda_step5/eda_summary.json",
+    "observations": "notebooks/reports/tables/eda_step5/eda_observations.md",
+    "scope": "Nam reported chest raw ECG/EDA/Resp statistics; not validation of these 68 physiological features",
+    "n_subjects": 15,
+    "n_windows": 6196,
+    "n_features": 21,
+    "label_counts": {
+      "1": 3377,
+      "2": 1848,
+      "3": 971
+    },
+    "nan_feature_values": 0,
+    "inf_feature_values": 0,
+    "duplicate_key_rows": 0,
+    "raw_quality_scope": "ECG/EDA/ACC only; no NaN/Inf or length mismatches reported for 45 subject-sensor pairs",
+    "design_consequences": [
+      "Retain physiological QA and missing-feature reasons; finite raw data does not validate beat/SCR detection",
+      "IQR flags are review signals; do not automatically exclude windows",
+      "Feature selection and imputation remain train-fold only"
+    ],
+    "does_not_establish": "wrist/EMG/TEMP/RESP raw quality, physical unit conversions, final physiological feature values or cross-machine agreement"
   }
 }

@@ -295,3 +295,9 @@ của từng fold. Không chuẩn hóa toàn bảng trước LOSO.
 CLI mặc định dùng `features_smoke.yaml`; hàm cửa sổ mặc định dùng 60 giây, bước 5 giây, majority >=90%. Trên máy Như, môi trường Python 3.12.14 hiện có tên `.venv-g1`; khi làm theo các lệnh README, thay `.venv` bằng `.venv-g1` nếu dùng môi trường đã cài này. Mẫu S2 đạt 395 cửa sổ và bộ 25 test đạt. Cấu hình/số cửa sổ S2 khớp bảng EDA bước 5 giây của Nam; nghiệm thu đầy đủ giữa các máy vẫn chờ gói đối chiếu.
 
 `configs/preprocessing_g1_design.yaml` chỉ là hợp đồng thiết kế G1, `runtime_ready: false`; không truyền file đó vào extractor. Phần triển khai bộ lọc và feature sinh lý G2 chưa được thực hiện.
+
+## 14. Bàn giao G1 phần danh mục và schema
+
+Danh mục/schema nháp theo phân công đã được kiểm tra: [68 feature dự kiến](docs/G1_DANH_MUC_FEATURE.csv), [hợp đồng feature](docs/G1_HOP_DONG_FEATURE.md), [schema nháp](configs/feature_schema.json) và [bàn giao](docs/BAN_GIAO.md). Phần này dùng thiết kế G1 của Như và đã cập nhật đầu vào từ EDA 60/5 của Nam ngày 05/11/2026.
+
+Schema nháp gồm 8 metadata + 68 feature dự kiến cho ngực/cổ tay/kết hợp; đơn vị mục tiêu và các tham số còn mở được ghi rõ. Gói raw G1 hiện chạy 21 feature phải dùng schema sinh cùng CSV như mục 9. Máy Mai đã kiểm tra gói S2 đạt trên Python 3.12.14 và đủ thư viện khóa: 395 cửa sổ, 25/25 test đạt; đối chiếu đủ bốn máy vẫn chưa hoàn tất. Xem lệnh chạy và bằng chứng trong bàn giao.

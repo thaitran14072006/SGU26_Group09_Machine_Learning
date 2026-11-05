@@ -35,6 +35,36 @@ Chưa gửi tin nhắn, chưa tạo PR hay ghi nhận review thay thành viên.
 - Butterworth bậc thiết kế 4, SOS, lọc hai chiều offline trên đoạn hữu hạn liên tục trước khi cắt cửa sổ.
 - ACC giữ trọng lực, TEMP giữ tín hiệu gốc; không chuyển scale khi chưa có bằng chứng. ACC/EMG chia 12 đoạn 5 giây rồi lấy trung bình feature.
 - Nhận revision `nhu_g1_design_v2` trong `configs/preprocessing_g1_design.yaml`: biên EDA 10 giây, RESP 30 giây, odd padding; loại cửa sổ thiếu mẫu/NaN/Inf ở kênh yêu cầu hoặc chồng biên, ghi lý do và giữ chung khóa cho các so sánh cảm biến.
-- Gói raw G1 dùng Python 3.12.14, thư viện khóa, rtol=1e-7 và atol=1e-9. Chưa chạy nghiệm thu gói S2 máy Mai cùng source/môi trường; không áp dung sai raw cho 68 feature sinh lý.
+- Gói raw G1 dùng Python 3.12.14, thư viện khóa, rtol=1e-7 và atol=1e-9. Đã kiểm tra gói S2 máy Mai bằng source Git d85d9e7 và môi trường khóa (kết quả bên dưới); không áp dung sai raw cho 68 feature sinh lý.
 
 Đây là chốt lựa chọn thiết kế G1 theo bản Như đã đưa vào repo, chưa phải nghiệm thu bộ lọc trên tín hiệu thật. Các thông số chưa có trong bản Như (detector, PSD, scale, ngưỡng QA sinh lý) vẫn được ghi rõ còn mở để hoàn thiện trước lượt chính. Chưa chạy G2.
+
+## Cập nhật ngày 05/11/2026 theo README và EDA mới
+
+Đã đọc README hiện tại, bản phân công và proposal v3 được cung cấp trên máy; giữ nguyên các tài liệu Word. Phần Mai tiếp tục dùng thiết kế `nhu_g1_design_v2` và nhận kết quả EDA mới của Nam, không còn ghi chờ Nam khảo sát G1. Bằng chứng và giới hạn EDA đã được bổ sung vào schema và hợp đồng feature.
+
+Đã kiểm tra trực tiếp JSON/CSV: đủ 68 feature duy nhất, 8 metadata, 37 feature ngực + 31 cổ tay; tên/thứ tự/kiểu/đơn vị/định nghĩa/cách gộp khớp danh mục; nhóm combined và ánh xạ nhị phân nhất quán. Đây là phần danh mục và schema nháp của Mai theo G1.
+
+README hiện chạy gói `chest_raw_stats_majority_v1` gồm 21 feature; schema thực tế của gói phải lấy từ thư mục output. Không thay bằng schema nháp 68 feature trong `configs/` và không ép số cửa sổ theo bảng EDA.
+
+Đã tạo `.venv-g1` Python 3.12.14, kiểm tra đủ 16 thư viện khớp `requirements.lock.txt`, cài dự án editable và kiểm tra tương thích bằng uv đạt. Mẫu S2 và 25/25 test đã đạt như phần bằng chứng bên dưới. Chưa có gói S2 từ các máy khác để đối chiếu, nên chưa đánh dấu toàn nhóm hoàn tất G1.
+
+## Bằng chứng mẫu S2 trên máy Mai — Python 3.12.14
+
+- Môi trường: `.venv-g1`; đủ 16 phiên bản khớp file khóa, kiểm tra tương thích bằng `uv pip check` đạt.
+- Chạy bản mã được xuất từ Git commit `d85d9e7d766cc164b4047ac2be939deaff9e8a5a` tại `outputs/g1/source_d85d9e7/wesad-stress-detection` để không lẫn mã thử nghiệm chưa commit trong workspace.
+- Bộ test G1/hạ tầng của bản mã đó: 25/25 đạt. Log: `outputs/g1/tests_py31214.txt`; môi trường: `outputs/g1/environment_py31214.json`.
+- Gói: `data/features/g1_s2_raw_stats_py31214_d85d9e7/`; 395 cửa sổ, 8 metadata + 21 thống kê raw; Baseline 219, Stress 113, Amusement 63.
+- Báo cáo: `outputs/g1/S2_acceptance_py31214.json`, `status: passed`, `scope: g1_raw_stats_single_package`, `four_machine_acceptance: false`.
+- Raw SHA-256: `36ef5e8afc0f91998eefba7c12fc9fa97b7b07198cbec0126917d7abb436ca23`; code SHA-256: `44cf7eef4d541670b04e5f571f9df94009451a1b808174e549d6b27bbaa0f425`.
+
+Dùng môi trường mới cho dự án bằng `.\.venv-g1\Scripts\Activate.ps1`, rồi `python --version` phải hiện 3.12.14. Python Anaconda cũ vẫn được giữ. Python nền nằm trong `outputs/g1/python/`; cần giữ thư mục đó để `.venv-g1` hoạt động. Raw, môi trường và output không commit lên Git.
+
+Lệnh chạy lại đúng bản mã đã kiểm tra (các đường dẫn local riêng đã nằm trong config local bị Git bỏ qua):
+
+```powershell
+.\.venv-g1\Scripts\python.exe outputs/g1/source_d85d9e7/wesad-stress-detection/scripts/extract_features.py --config configs/features_smoke.yaml --local configs/local.yaml --subjects S2 --output-dir D:/mayhoc/Machine-learning/wesad-stress-detection/data/features/g1_s2_raw_stats_py31214_d85d9e7 --resume
+.\.venv-g1\Scripts\python.exe outputs/g1/source_d85d9e7/wesad-stress-detection/scripts/check_g1_sample.py --features-dir D:/mayhoc/Machine-learning/wesad-stress-detection/data/features/g1_s2_raw_stats_py31214_d85d9e7 --output D:/mayhoc/Machine-learning/wesad-stress-detection/outputs/g1/S2_acceptance_py31214.json
+```
+
+Bàn giao cả thư mục gói S2 ngoài Git để các thành viên đối chiếu. Cần cùng raw/code/Python/thư viện/config; số cửa sổ và phân bố lớp bằng nhau chưa đủ xác nhận các giá trị feature. Chưa nhận gói khác để chạy so sánh; không lấy bản sao gói của chính máy này làm nghiệm thu nhiều máy.
