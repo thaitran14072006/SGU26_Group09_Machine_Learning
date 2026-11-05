@@ -1,0 +1,10 @@
+﻿feature_a,feature_b,pearson_r
+ecg_std,ecg_rms,0.9999999995195449
+eda_mean,eda_min,0.994022204488214
+eda_mean,eda_max,0.9983343912508561
+eda_mean,eda_rms,0.9999984390189649
+eda_std,eda_iqr,0.967828916349281
+eda_min,eda_max,0.9897108221821264
+eda_min,eda_rms,0.9939507259195435
+eda_max,eda_rms,0.9984058572986391
+resp_std,resp_rms,0.9999980428244587
