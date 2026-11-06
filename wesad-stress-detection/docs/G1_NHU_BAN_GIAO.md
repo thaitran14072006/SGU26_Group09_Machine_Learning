@@ -2,7 +2,7 @@
 
 # Bàn giao G1 theo README mới
 
-Người phụ trách: Phạm Quỳnh Như. Cập nhật ngày 05/11/2026, sau README và EDA bước 5 giây của Nam. Phạm vi chỉ gồm thiết kế, cấu hình hiện có, kiểm tra biên nhãn và một lượt mẫu S2 theo phân công G1.
+Người phụ trách: Phạm Quỳnh Như. Cập nhật ngày 06/11/2026, sau README và EDA bước 5 giây của Nam. Phạm vi chỉ gồm thiết kế, cấu hình hiện có, kiểm tra biên nhãn và một lượt mẫu S2 theo phân công G1.
 
 ## Đầu ra
 
@@ -37,9 +37,9 @@ Chạy tại thư mục `wesad-stress-detection`, sau khi cấu hình `configs/l
 - `pip check` đạt; 35/35 test đạt.
 - Mẫu S2 complete: 395 cửa sổ, 219 Baseline, 113 Stress, 63 Amusement; 8 metadata + 112 thống kê raw, kiểm tra gói passed.
 - 10 kênh S2 có shape đúng và thời lượng 6.079 giây; chưa khẳng định chất lượng sinh lý.
-- Cấu hình và số cửa sổ/lớp S2 khớp bảng EDA mới của Nam. Chưa so được khóa và giá trị feature giữa các máy từ bảng tóm tắt.
+- Đã đối chiếu đủ bốn gói S2 của Như, Thái, Mai, Nam: CSV giống hệt nhau. Nhóm nghiệm thu theo kết quả đầu ra; phần G1 của Như hoàn tất. Xem [biên bản đối chiếu](G1_DOI_CHIEU_S2_BON_THANH_VIEN.md).
 
-## Gói cần nhận để đối chiếu máy khác
+## Cách đối chiếu nghiêm ngặt khi cần tái lập
 
 Nhận ngoài Git cả thư mục gói gồm `S2.csv`, `S2.json`, `config.json`, `feature_schema.json`, `run_status.json`. Các máy cần cùng raw/source, Python patch version và thư viện. Số cửa sổ bằng nhau chưa đủ nghiệm thu.
 
@@ -51,4 +51,4 @@ Nhận ngoài Git cả thư mục gói gồm `S2.csv`, `S2.json`, `config.json`,
 
 So tên/thứ tự cột, khóa, nhãn và thời gian chính xác; 112 thống kê raw dùng rtol=1e-7, atol=1e-9 theo bàn giao G1. Không áp dung sai này cho 68 feature sinh lý. Gói từ source khác phải được chạy lại bằng source thống nhất trước khi so sánh.
 
-Công cụ không xác thực danh tính máy, từ chối đối chiếu cùng thư mục và luôn giữ `four_machine_acceptance: false`. Cần kết quả/nguồn gói thực tế của các thành viên trước khi ký nghiệm thu chung. Hiện mới có gói đầy đủ trên máy Như và bảng tóm tắt EDA của Nam; chưa có các gói đối chiếu đầy đủ.
+Công cụ không xác thực danh tính máy, từ chối đối chiếu cùng thư mục và luôn giữ `four_machine_acceptance: false`. Cần kết quả/nguồn gói thực tế của các thành viên trước khi ký nghiệm thu chung. Ngày 06/11/2026 đã nhận đủ bốn gói và xác nhận đầu ra giống hệt nhau. Nhóm chấp nhận kết quả này để chốt đối chiếu G1, dù thông tin mã nguồn/môi trường khác nhau; không yêu cầu chạy lại. Quyết định này được ghi riêng trong biên bản, không đổi hành vi của công cụ nghiêm ngặt.

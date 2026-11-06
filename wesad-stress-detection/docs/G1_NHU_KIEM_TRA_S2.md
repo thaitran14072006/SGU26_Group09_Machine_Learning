@@ -23,11 +23,11 @@ Mỗi kênh có mean, std, min, max, RMS, IQR, range; ACC có x/y/z và magnitud
 
 Schema nháp 68 feature của Mai ghi một hướng thiết kế sinh lý trước quyết định bộ 112; không dùng schema đó để kiểm tra bảng hiện tại. Dùng `feature_schema.json` sinh kèm gói 112. Ghi chú S2 về tiếp xúc cảm biến nhiệt độ ngực vẫn cần xem xét; tính hữu hạn không xác nhận chất lượng sinh lý.
 
-## Đối chiếu Nam và giới hạn nghiệm thu
+## Đối chiếu đủ bốn gói S2 — 06/11/2026
 
-Báo cáo EDA mới của Nam tại `notebooks/reports/tables/eda_step5/` ghi 112 feature và 6.196 cửa sổ/15 người. Cấu hình và số lượng từng lớp S2 khớp lượt chạy này. Đây là so sánh ở mức tóm tắt; chưa có gói đầy đủ để đối chiếu từng khóa/feature giữa các máy.
+Đã nhận gói Thái, Mai, Nam và đối chiếu với gói Như. Cả bốn S2.csv giống nhau từng byte: 395 cửa sổ, 112 feature, nhãn 219/113/63; metadata và giá trị feature khớp, sai lệch lớn nhất 0.
 
-`four_machine_acceptance` vẫn false. Chỉ chạy S2 trên máy Như trong lượt này, không nhận kết quả 15 người của Nam làm kết quả chạy trên máy Như.
+Nhóm chốt tiêu chí kết quả S2 giống nhau; phần đối chiếu và G1 của Như hoàn tất theo tiêu chí này. Khác biệt mã nguồn và môi trường vẫn được ghi nhận; công cụ đối chiếu nghiêm ngặt chưa đạt và các JSON cũ không được sửa. Xem [biên bản đối chiếu bốn thành viên](G1_DOI_CHIEU_S2_BON_THANH_VIEN.md) để biết chi tiết và phạm vi kết luận.
 
 ## Kết quả lưu ngoài Git
 

@@ -296,7 +296,7 @@ của từng fold. Không chuẩn hóa toàn bảng trước LOSO.
 
 Đã cập nhật [thiết kế G1](docs/G1_NHU_THIET_KE_TIEN_XU_LY.md), [bàn giao](docs/G1_NHU_BAN_GIAO.md) và [kết quả S2](docs/G1_NHU_KIEM_TRA_S2.md) theo bộ 112 nhóm đã chốt. Công cụ check_g1_sample.py kiểm tra đúng 112 feature, 63 ngực/49 cổ tay, phiên bản all_sensors_raw_stats_v1; từ chối gói 21 cũ.
 
-Máy Như dùng Python 3.12.14 trong .venv-g1; thay .venv bằng .venv-g1 trong các lệnh nếu dùng môi trường đã cài này. Gói S2 hiện tại có 395 cửa sổ và 120 cột; 35 test đạt. Nghiệm thu bốn máy vẫn cần gói cùng source và môi trường.
+Máy Như dùng Python 3.12.14 trong .venv-g1; thay .venv bằng .venv-g1 trong các lệnh nếu dùng môi trường đã cài này. Gói S2 hiện tại có 395 cửa sổ và 120 cột; 35 test đạt. Ngày 06/11/2026 đã đối chiếu đủ bốn gói S2, CSV giống hệt nhau; nhóm chốt phần G1 của Như theo tiêu chí đầu ra khớp nhau. Khác biệt nguồn chạy/môi trường vẫn được ghi nhận trong [biên bản đối chiếu](docs/G1_DOI_CHIEU_S2_BON_THANH_VIEN.md).
 
 Thiết kế bộ lọc trong configs/preprocessing_g1_design.yaml chưa áp dụng lên bộ raw 112. Bộ đang chọn dùng thống kê trực tiếp trong cửa sổ 60 giây, bước 5 giây; không tự đổi định nghĩa feature khi nghiệm thu mẫu.
 
@@ -304,4 +304,4 @@ Thiết kế bộ lọc trong configs/preprocessing_g1_design.yaml chưa áp d�
 
 Đầu ra chính: [schema](configs/feature_schema.json), [danh mục feature](docs/G1_DANH_MUC_FEATURE.csv), [hợp đồng](docs/G1_HOP_DONG_FEATURE.md), [bàn giao và kết quả tự kiểm tra S2](docs/BAN_GIAO.md). Bằng chứng đơn vị được gộp trong schema/hợp đồng. Hợp đồng 68 feature sinh lý đã chốt thiết kế, chưa triển khai/kiểm chứng extractor; bộ raw hiện tại vẫn có 112 feature theo cấu hình nhóm.
 
-Cả bốn chạy mẫu S2 theo phân công. Mai tự kiểm tra gói máy mình; Như nhận ZIP và tổng hợp đối chiếu theo cách nhóm đã xác định. Máy Mai: Python 3.12.14, source fa7b694, 395 cửa sổ, 112 feature, kiểm tra một gói passed; chưa có nghiệm thu bốn máy. Schema raw lấy từ file sinh cùng CSV, không tạo thêm danh mục/schema trùng lặp trong Git. Gói dữ liệu gửi ngoài Git, không gửi môi trường Python.
+Cả bốn chạy mẫu S2 theo phân công. Mai tự kiểm tra gói máy mình; Như nhận ZIP và tổng hợp đối chiếu theo cách nhóm đã xác định. Máy Mai: Python 3.12.14, source fa7b694, 395 cửa sổ, 112 feature, kiểm tra một gói passed; lượt kiểm tra gói đơn này có trước biên bản đối chiếu đủ bốn gói ngày 06/11/2026 nêu trên. Schema raw lấy từ file sinh cùng CSV, không tạo thêm danh mục/schema trùng lặp trong Git. Gói dữ liệu gửi ngoài Git, không gửi môi trường Python.

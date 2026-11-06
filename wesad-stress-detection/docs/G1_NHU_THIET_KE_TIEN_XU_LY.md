@@ -66,7 +66,7 @@ Giữ 8 metadata và tiền tố `chest_`/`wrist_` theo schema Mai. Metadata kh�
 
 Đã chạy mẫu S2 theo lệnh README và công cụ kiểm tra gói. Kết quả trong [biên bản S2](G1_NHU_KIEM_TRA_S2.md). Lệnh chạy, file bàn giao và cách đối chiếu ở [bàn giao G1](G1_NHU_BAN_GIAO.md).
 
-Phần thiết kế và chạy mẫu trên máy Như đã có bằng chứng. Nam có bảng tóm tắt cùng số cửa sổ/lớp S2 và cùng cấu hình, nhưng chưa có toàn bộ gói để so khóa/giá trị từng dòng. Nghiệm thu bốn máy vẫn chờ gói cùng source/môi trường và xác nhận thực tế. Chỉ tiếp tục G2 khi người dùng yêu cầu.
+Ngày 06/11/2026 đã đối chiếu đủ bốn gói S2: CSV giống hệt nhau. Theo quyết định nhóm chấp nhận kết quả đầu ra khớp nhau, phần G1 của Như hoàn tất. Khác biệt mã nguồn/môi trường được giữ trong [biên bản đối chiếu](G1_DOI_CHIEU_S2_BON_THANH_VIEN.md); chưa đạt tiêu chí tái lập nghiêm ngặt. Chỉ tiếp tục G2 khi người dùng yêu cầu.
 
 ## Nguồn đối chiếu
 
