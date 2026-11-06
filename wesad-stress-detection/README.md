@@ -305,3 +305,9 @@ Thiết kế bộ lọc trong configs/preprocessing_g1_design.yaml chưa áp d�
 Đầu ra chính: [schema](configs/feature_schema.json), [danh mục feature](docs/G1_DANH_MUC_FEATURE.csv), [hợp đồng](docs/G1_HOP_DONG_FEATURE.md), [bàn giao và kết quả tự kiểm tra S2](docs/BAN_GIAO.md). Bằng chứng đơn vị được gộp trong schema/hợp đồng. Hợp đồng 68 feature sinh lý đã chốt thiết kế, chưa triển khai/kiểm chứng extractor; bộ raw hiện tại vẫn có 112 feature theo cấu hình nhóm.
 
 Cả bốn chạy mẫu S2 theo phân công. Mai tự kiểm tra gói máy mình; Như nhận ZIP và tổng hợp đối chiếu theo cách nhóm đã xác định. Máy Mai: Python 3.12.14, source fa7b694, 395 cửa sổ, 112 feature, kiểm tra một gói passed; lượt kiểm tra gói đơn này có trước biên bản đối chiếu đủ bốn gói ngày 06/11/2026 nêu trên. Schema raw lấy từ file sinh cùng CSV, không tạo thêm danh mục/schema trùng lặp trong Git. Gói dữ liệu gửi ngoài Git, không gửi môi trường Python.
+
+## 15. Tổng hợp chốt G1 — 06/11/2026
+
+Mai đã tổng hợp [bàn giao và kết luận G1](docs/BAN_GIAO.md) dựa trên đầu ra bốn người và [biên bản đối chiếu của Như](docs/G1_DOI_CHIEU_S2_BON_THANH_VIEN.md). G1 được chốt theo tiêu chí đầu ra S2 giống nhau mà nhóm đã chấp nhận: cả bốn CSV giống từng byte, 395 cửa sổ, 112 feature + 8 metadata; sai lệch feature lớn nhất 0.
+
+Khác biệt source/môi trường vẫn được ghi rõ, kiểm tra tái lập nghiêm ngặt chưa đạt; không sửa manifest/JSON cũ để ép đạt. Lần chạy chung tiếp theo cần thống nhất source sạch và môi trường khóa. Kết luận này chỉ chốt phạm vi G1, không xác nhận đã triển khai/nghiệm thu bộ sinh lý68 của G2 hoặc đã hoàn tất các lượt review cá nhân.
