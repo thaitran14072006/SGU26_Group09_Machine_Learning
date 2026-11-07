@@ -1,12 +1,12 @@
 {
   "schema_version": "g1_physiological_contract_v1",
-  "status": "implemented_with_g1_reference_adapter",
+  "status": "feature_kernels_implemented_awaiting_preprocessing_provider",
   "stage": "G2",
   "owner": "Nguyen Thi Truc Mai",
   "date": "2026-11-03",
   "source_assignment": "PHAN_CONG_MAY_HOC.docx",
   "feature_version": "physiological_68_v1",
-  "ready_for_extraction": true,
+  "ready_for_extraction": false,
   "ready_for_training": false,
   "expected_subjects": [
     "S2",
@@ -1529,11 +1529,14 @@
   "readiness": {
     "g1_design_complete": true,
     "feature_implementation_complete": true,
-    "reference_adapter_implemented": true,
     "nhu_g2_runtime_integration_confirmed": false,
     "local_validation_reports": "outputs/g2/ and docs/G2_BAN_GIAO.md",
     "full_15_subject_package_ready": false,
-    "meaning": "Feature kernels and a reference adapter implement the G1 contract; local package checks do not establish peer review, cross-machine acceptance or physiological signal validity."
+    "meaning": "Mai feature kernels consume preprocessed/calibrated channels without filtering or conversion. Raw extraction requires Nhu explicit preprocessing provider; historical reference packages do not establish integration readiness.",
+    "feature_layer_ready": true,
+    "preprocessing_provider_configured": false,
+    "production_raw_extraction_ready": false,
+    "reference_adapter_location": "outputs/g2/reference_preprocessing.py (local diagnostics only, not shipped with feature layer)"
   },
   "unit_policy": {
     "source": "WESAD original wesad_readme.pdf sections II.1-II.3 and S2_E4_Data.zip/info.txt",
@@ -1830,5 +1833,12 @@
     },
     "reason": "Explicit PSD bands; RR names avoid falsely asserting ectopic/NN classification; affects only unimplemented physiological schema, not raw outputs"
   },
-  "design_stage": "G1"
+  "design_stage": "G1",
+  "input_pipeline": {
+    "required": "explicit preprocessing_provider: module:function",
+    "fallback": "none; missing provider fails before reading PKL",
+    "filtering_and_calibration_owner": "Nhu preprocessing provider supplies calibrated/native-rate signals and quality masks",
+    "feature_layer": "no butter/sosfiltfilt, resampling, or amplitude scale conversion; consumes prepared signals/events",
+    "boundary": "Channel values use schema units, including wrist ACC already in g; do not divide by 64 inside feature kernels"
+  }
 }

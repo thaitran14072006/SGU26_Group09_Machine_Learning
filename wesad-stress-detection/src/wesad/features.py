@@ -1,8 +1,9 @@
-"""G2 physiological_68_v1: feature kernels and a G1-design reference adapter.
+"""Mai G2 feature layer for already preprocessed, calibrated signals.
 
-The adapter is an integration aid, not a claim that Nhu has delivered/reviewed G2.
-Filtering uses whole finite recording segments, before label/window selection.
-All physiological detectors are fixed heuristics, not clinical signal validation.
+No filtering, resampling or amplitude-unit conversion is performed here.
+Raw extraction requires an explicit agreed preprocessing_provider from Nhu;
+there is no reference/default filtering fallback. Peak/SCR helpers operate on
+already prepared signals and remain fixed heuristics, not clinical validation.
 """
 
 from dataclasses import dataclass, field
@@ -11,7 +12,7 @@ import math
 
 import numpy as np
 import pandas as pd
-from scipy.signal import butter, find_peaks, get_window, sosfiltfilt, welch
+from scipy.signal import find_peaks, get_window, welch
 
 from wesad.data import load_subject, validate_features
 from wesad.multisensor import SENSOR_SPECS
@@ -29,7 +30,11 @@ OK = "heuristic_checks_passed_not_physiological_validation"
 
 @dataclass
 class Channel:
-    """Adapter interface. Indices and events are on this channel's native grid."""
+    """Prepared-signal interface: calibrated values; native-grid peaks/events and masks.
+
+    Providers own filtering, calibration and scale conversion (e.g. wrist ACC
+    already in g). Feature kernels consume these arrays without reprocessing.
+    """
     values: np.ndarray
     fs: int
     covered: np.ndarray
@@ -45,25 +50,11 @@ def finite_segments(mask):
     return zip(np.flatnonzero(changes == 1), np.flatnonzero(changes == -1))
 
 
-def filter_segments(x, fs, cutoff, kind, edge_seconds):
-    """Never filter across a missing sample. Short/edge regions remain unusable."""
-    sos = butter(4, cutoff, btype=kind, fs=fs, output="sos")
-    padlen = 3 * (2 * len(sos) + 1 - min((sos[:, 2] == 0).sum(), (sos[:, 5] == 0).sum()))
-    values = np.full(len(x), np.nan)
-    usable = np.zeros(len(x), dtype=bool)
-    edge = int(math.ceil(edge_seconds * fs))
-    for a, b in finite_segments(np.isfinite(x)):
-        if b - a <= padlen or b - a <= 2 * edge:
-            continue
-        values[a:b] = sosfiltfilt(sos, x[a:b], padtype="odd", padlen=int(padlen))
-        usable[a + edge:b - edge] = True
-    return values, usable
-
 
 def detect_beats(x, fs, usable, ecg=False):
     result = []
     distance = int(math.ceil(.30 * fs))
-    # Use unmasked finite segments for filtering/detection, then restrict peaks.
+    # Detect on finite, already filtered segments; then restrict peaks by usability.
     for a, b in finite_segments(np.isfinite(x)):
         y = x[a:b]
         if ecg:
@@ -110,63 +101,6 @@ def detect_scr(phasic, fs, usable):
                 previous = peak
     return np.asarray(events, dtype=float).reshape(-1, 3)
 
-
-def prepare_subject(data, config, contract):
-    """Reference input adapter following G1. Replace via preprocessing_provider.
-
-    Input is official synchronized PKL: chest is already calibrated, wrist ACC
-    is still in 1/64g. Conversion occurs exactly once here, never in kernels.
-    Returns every required channel; keeps rates, signal coverage and edge masks.
-    """
-    channels = {}
-    methods = contract["methods"]
-    n_labels = len(data["label"])
-    for device, sensors in SENSOR_SPECS.items():
-        for sensor, (fs, axes) in sensors.items():
-            try:
-                raw = np.asarray(data["signal"][device][sensor])
-            except KeyError as exc:
-                raise ValueError(f"Missing required {device}/{sensor}") from exc
-            if raw.ndim == 1 and axes == 1:
-                raw = raw[:, None]
-            if raw.ndim != 2 or raw.shape[1] != axes or not len(raw) or not np.issubdtype(raw.dtype, np.number):
-                raise ValueError(f"Invalid {device}/{sensor} shape or dtype")
-            # Short channels are accounted for by common-window rejection later.
-            if len(raw) / fs > n_labels / 700 + 1/fs + 1/700:
-                raise ValueError(f"{device}/{sensor} extends beyond synchronized label duration")
-            x = np.array(raw, dtype=np.float64, copy=True)
-            if sensor == "ACC" and device == "wrist":
-                x /= 64.0
-            covered = np.isfinite(x).all(axis=1)
-            usable = covered.copy()
-            key = f"{device}_{sensor.lower()}"
-            if axes == 1:
-                x = x[:, 0]
-            if sensor in ("ECG", "BVP", "EMG", "Resp"):
-                cutoffs = {"ECG": [5, 40], "BVP": [.5, 5], "EMG": [20, 250], "Resp": [.1, .35]}[sensor]
-                edges = {"ECG": 10, "BVP": 10, "EMG": 1, "Resp": 30}[sensor]
-                x, usable = filter_segments(x, fs, cutoffs, "bandpass", edges)
-            channel = Channel(x, fs, covered, usable)
-            if sensor == "ECG":
-                detection, mask = filter_segments(np.asarray(raw[:, 0], dtype=float), fs, [5, 20], "bandpass", 10)
-                channel.peaks = detect_beats(detection, fs, mask, ecg=True)
-            elif sensor == "BVP":
-                channel.peaks = detect_beats(x, fs, usable)
-            elif sensor == "Resp":
-                found = []
-                for a, b in finite_segments(np.isfinite(x)):
-                    y = x[a:b]
-                    peaks, _ = find_peaks(y, distance=int(2*fs), prominence=max(.5*float(y.std()), 1e-12))
-                    found.extend(int(a+p) for p in peaks if usable[a+p])
-                channel.peaks = np.asarray(found, dtype=int)
-            elif sensor == "EDA":
-                x, mask = filter_segments(x, fs, methods["eda"]["clean_lowpass_hz"][device], "lowpass", 10)
-                tonic, tonic_mask = filter_segments(x, fs, .05, "lowpass", 60)
-                channel.values, channel.usable = x, mask & tonic_mask
-                channel.tonic, channel.phasic = tonic, x - tonic
-                channel.events = detect_scr(channel.phasic, fs, channel.usable)
-            channels[key] = channel
-    return channels
 
 
 def interval_features(peaks, fs):
@@ -302,10 +236,18 @@ def read_contract(config):
 
 def process_subject(path, config):
     contract = read_contract(config)
+    provider_spec = config.get("preprocessing_provider")
+    if not provider_spec:
+        raise ValueError("Configure Nhu's agreed preprocessing_provider before raw extraction; "
+                         "Mai's feature layer never filters raw signals by default")
+    try:
+        provider = import_callable(provider_spec)
+    except (ImportError, AttributeError) as exc:
+        raise ValueError(f"Preprocessing provider is not available: {provider_spec}") from exc
+    # Resolve the provider before loading a large PKL or creating a feature table.
     data = load_subject(path)
     subject = Path(path).stem
     labels = np.asarray(data["label"])
-    provider = import_callable(config["preprocessing_provider"]) if config.get("preprocessing_provider") else prepare_subject
     channels = provider(data, config, contract)
     expected = {f"{device}_{sensor.lower()}" for device, sensors in SENSOR_SPECS.items() for sensor in sensors}
     if set(channels) != expected:

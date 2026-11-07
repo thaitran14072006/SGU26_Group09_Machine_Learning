@@ -2,12 +2,12 @@
 import copy
 import unittest
 from pathlib import Path
+from unittest.mock import Mock, patch
 
 import numpy as np
 
 from wesad.features import (Channel, band_powers, block_features, detect_scr,
-                            filter_segments, interval_features, prepare_subject,
-                            read_contract, window_features)
+                            interval_features, process_subject, read_contract, window_features)
 from wesad.multisensor import SENSOR_SPECS
 from wesad.utils import read_config, read_json, resolve_path
 
@@ -63,18 +63,6 @@ class PhysiologicalFeatureTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             block_features(x[:-1], 32)
 
-    def test_filter_gaps_and_short_regions_are_not_bridged(self):
-        fs = 4
-        x = np.sin(np.arange(400)/fs)
-        x[180:200] = np.nan
-        y, valid = filter_segments(x, fs, 1, "lowpass", 10)
-        self.assertFalse(valid[:40].any())
-        self.assertFalse(valid[140:240].any())
-        self.assertTrue(np.isnan(y[180:200]).all())
-        short, mask = filter_segments(np.ones(20), fs, 1, "lowpass", 10)
-        self.assertFalse(mask.any())
-        self.assertTrue(np.isnan(short).all())
-
     def test_scr_onset_to_peak_amplitude_and_full_event_boundaries(self):
         fs = 4
         x = np.zeros(80)
@@ -125,17 +113,45 @@ class PhysiologicalFeatureTests(unittest.TestCase):
         result, _ = window_features(channels, 60*700, 120*700, "S5", self.contract)
         self.assertTrue(np.isfinite(result["chest_temp_mean"]))
 
-    def test_reference_adapter_converts_wrist_acc_once(self):
-        data = {"label": np.ones(150*700), "signal": {"chest": {}, "wrist": {}}}
-        for device, specs in SENSOR_SPECS.items():
-            for sensor, (fs, axes) in specs.items():
-                value = 64 if device == "wrist" and sensor == "ACC" else 1
-                data["signal"][device][sensor] = np.full((150*fs, axes), value, dtype=float)
-        channels = prepare_subject(data, self.config, self.contract)
-        np.testing.assert_allclose(channels["wrist_acc"].values, 1.)
-        np.testing.assert_allclose(data["signal"]["wrist"]["ACC"], 64.)
-        self.assertFalse(channels["wrist_eda"].usable[:60*4].any())
-        self.assertTrue(channels["wrist_eda"].usable[60*4:90*4].all())
+    def test_missing_or_removed_provider_fails_before_raw_loading(self):
+        config = copy.deepcopy(self.config)
+        config["preprocessing_provider"] = None
+        with patch("wesad.features.load_subject") as loader:
+            with self.assertRaisesRegex(ValueError, "preprocessing_provider"):
+                process_subject(Path("S5.pkl"), config)
+            loader.assert_not_called()
+        config["preprocessing_provider"] = "wesad.features:prepare_subject"
+        with patch("wesad.features.load_subject") as loader:
+            with self.assertRaisesRegex(ValueError, "not available"):
+                process_subject(Path("S5.pkl"), config)
+            loader.assert_not_called()
+
+    def test_already_calibrated_input_is_never_filtered_or_rescaled(self):
+        channels = self.prepared()
+        original = {k: c.values.copy() for k, c in channels.items()}
+        # A second filter would both alter the input and violate ownership.
+        with patch("scipy.signal.sosfiltfilt", side_effect=AssertionError("Unexpected second filter")):
+            result, _ = window_features(channels, 60*700, 120*700, "S5", self.contract)
+        self.assertAlmostEqual(result["wrist_acc_x_5s_mean_mean"], 1.)
+        self.assertAlmostEqual(result["wrist_acc_magnitude_5s_mean_mean"], np.sqrt(3))
+        for key, channel in channels.items():
+            np.testing.assert_array_equal(channel.values, original[key])
+
+    def test_subject_processor_uses_explicit_provider_once(self):
+        config = copy.deepcopy(self.config)
+        config["preprocessing_provider"] = "nhu.integration:prepare_subject"
+        channels = self.prepared()
+        data = {"label": np.ones(180*700), "signal": {"not_read_by_feature_layer": True}}
+        provider = Mock(return_value=channels)
+        with patch("wesad.features.import_callable", return_value=provider) as importer, \
+             patch("wesad.features.load_subject", return_value=data), \
+             patch("scipy.signal.sosfiltfilt", side_effect=AssertionError("Unexpected filter")):
+            frame = process_subject(Path("S5.pkl"), config)
+        importer.assert_called_once_with("nhu.integration:prepare_subject")
+        provider.assert_called_once_with(data, config, self.contract)
+        self.assertEqual(list(frame.columns), self.contract["output_column_order"])
+        self.assertEqual(len(frame), 25)
+        np.testing.assert_allclose(frame.wrist_acc_x_5s_mean_mean, 1.)
 
     def test_config_cannot_silently_change_contract_or_window_rule(self):
         read_contract(self.config)
