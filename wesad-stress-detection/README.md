@@ -2,6 +2,8 @@
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
+Cập nhật bàn giao dữ liệu G2 sinh lý: đã hoàn thành extractor/schema/hợp nhất, quality report, checksum và kiểm tra đủ 15 người; bộ chung có 6.189 cửa sổ, 68 feature + 8 metadata, được chạy bằng cùng nguồn của Như và Python 3.12.14. Gói nằm ngoài Git tại `data/features/g2_physiological68_group15_20261107.zip`; xem [bàn giao hiện tại](docs/G2_BAN_GIAO.md). NaN có lý do và hạn chế BVP được công bố, không tự đổi phương pháp; hoàn thành phần dữ liệu không đồng nghĩa nghiệm thu toàn bộ G2 của nhóm. Không thay đổi bộ raw112 trong hướng dẫn dưới đây.
+
 Phần G2 của Như có [bản tiền xử lý cơ bản và kết quả lô S4/S9/S11/S17](docs/G2_NHU_BAN_CO_BAN.md): lọc EDA/RESP, căn cửa sổ theo tần số gốc và kiểm tra ACC/EMG theo đoạn 5 giây. Bảng chẩn đoán G2 được lưu riêng; bộ 112 raw trong hướng dẫn dưới đây giữ nguyên định nghĩa.
 
 Cập nhật sau phần Mai `f24cafc`: đã nối provider tiền xử lý với extractor sinh lý68 và thử S2 (395 cửa sổ, 68 feature + 8 metadata; 68 test đạt). Đây là nhánh thử riêng dùng `configs/features_g2.yaml`, còn nhiều giá trị thiếu BVP cần rà với Mai; chưa nghiệm thu bộ sinh lý hoặc thay thế raw112. Chi tiết và lệnh chạy ở đầu tài liệu G2 của Như nêu trên.
