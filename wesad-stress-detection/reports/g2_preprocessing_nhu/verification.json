@@ -1,0 +1,161 @@
+{
+  "status": "passed",
+  "scope": "G2_basic_preprocessing_and_assigned_raw112_batch",
+  "subjects": [
+    "S4",
+    "S9",
+    "S11",
+    "S17"
+  ],
+  "n_windows": 1658,
+  "n_raw_features": 112,
+  "n_acc_emg_diagnostic_columns": 72,
+  "diagnostic_metadata_columns": 8,
+  "smoke_S2_windows": 395,
+  "checks": [
+    "raw112 shape, finite features and unique keys via shared loader",
+    "raw CSV hashes match manifests",
+    "diagnostic columns finite and window keys unique",
+    "raw and diagnostic first seven metadata columns equal for four assigned subjects",
+    "candidate windows equal kept plus disjoint rejection counts"
+  ],
+  "test_count": 43,
+  "test_status": "passed",
+  "audit_run": {
+    "processing": {
+      "version": "g2_preprocessing_basic_v1",
+      "window_seconds": 60,
+      "step_seconds": 5,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "min_label_fraction": 0.9,
+      "filter_order": 4,
+      "filters": {
+        "chest_eda": {
+          "kind": "lowpass",
+          "cutoff_hz": 5,
+          "edge_seconds": 10
+        },
+        "chest_resp": {
+          "kind": "bandpass",
+          "cutoff_hz": [
+            0.1,
+            0.35
+          ],
+          "edge_seconds": 30
+        },
+        "wrist_eda": {
+          "kind": "lowpass",
+          "cutoff_hz": 1,
+          "edge_seconds": 10
+        }
+      }
+    },
+    "git_commit": "a9eede5b79effbcef309dbe3cbe0a7d56cff6b31",
+    "git_dirty": true,
+    "code_sha256": "b3c8e7d55c6bc17e1d829f080740a9339ea70a24857fd31625de2137a0dd1678",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "subjects": [
+      "S2",
+      "S4",
+      "S9",
+      "S11",
+      "S17"
+    ],
+    "scope": "G2_preprocessing_diagnostic_only",
+    "signature": "e98f3f2e59939c99304dddbcbb8ed818f33d89ef34aaf4a462b8848a106c5928"
+  },
+  "audit_status": {
+    "status": "complete",
+    "subjects": [
+      "S2",
+      "S4",
+      "S9",
+      "S11",
+      "S17"
+    ],
+    "completed_subjects": [
+      "S2",
+      "S4",
+      "S9",
+      "S11",
+      "S17"
+    ]
+  },
+  "raw_batch_config": {
+    "signature": "87ef76b6a504fcfc2caeda4838124f3b58cca39790ad1dbf2612e92644cba274",
+    "processing": {
+      "device": "combined",
+      "sampling_rate_hz": 700,
+      "sensors": {
+        "chest": [
+          "ECG",
+          "EDA",
+          "EMG",
+          "Resp",
+          "Temp",
+          "ACC"
+        ],
+        "wrist": [
+          "BVP",
+          "EDA",
+          "TEMP",
+          "ACC"
+        ]
+      },
+      "subject_processor": "wesad.multisensor:process_subject",
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "window_seconds": 60,
+      "step_seconds": 5,
+      "label_rule": "majority",
+      "min_label_fraction": 0.9,
+      "feature_version": "all_sensors_raw_stats_v1"
+    },
+    "git_commit": "a9eede5b79effbcef309dbe3cbe0a7d56cff6b31",
+    "git_dirty": true,
+    "code_sha256": "b3c8e7d55c6bc17e1d829f080740a9339ea70a24857fd31625de2137a0dd1678",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    }
+  },
+  "raw_batch_status": {
+    "status": "complete",
+    "subjects": [
+      "S4",
+      "S9",
+      "S11",
+      "S17"
+    ],
+    "n_windows": 1658,
+    "scope": "selected_subjects_only"
+  },
+  "limitations": [
+    "Not a final physiological feature schema or full 15-subject integration",
+    "Basic filters have not been physiologically validated"
+  ]
+}

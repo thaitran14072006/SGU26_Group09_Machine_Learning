@@ -1,0 +1,15 @@
+# Basic G2 preprocessing audit; NOT a config for extract_features.py.
+version: g2_preprocessing_basic_v1
+data_root: data/raw/WESAD/WESAD
+subjects: [S4, S9, S11, S17]
+output_dir: outputs/g2_preprocessing_basic
+window_seconds: 60
+step_seconds: 5
+labels: [1, 2, 3]
+min_label_fraction: 0.90
+filter_order: 4
+# Continuous finite runs; SOS forward/backward, odd padding; no gap bridging.
+filters:
+  chest_eda: {kind: lowpass, cutoff_hz: 5, edge_seconds: 10}
+  chest_resp: {kind: bandpass, cutoff_hz: [0.1, 0.35], edge_seconds: 30}
+  wrist_eda: {kind: lowpass, cutoff_hz: 1, edge_seconds: 10}

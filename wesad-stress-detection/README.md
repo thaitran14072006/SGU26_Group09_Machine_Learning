@@ -2,6 +2,8 @@
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
+Phần G2 của Như có [bản tiền xử lý cơ bản và kết quả lô S4/S9/S11/S17](docs/G2_NHU_BAN_CO_BAN.md): lọc EDA/RESP, căn cửa sổ theo tần số gốc và kiểm tra ACC/EMG theo đoạn 5 giây. Bảng chẩn đoán G2 được lưu riêng; bộ 112 raw trong hướng dẫn dưới đây giữ nguyên định nghĩa.
+
 ## 1. Bộ G1 hiện tại: 112 thống kê ngực và cổ tay
 
 Pipeline đọc dữ liệu PKL theo từng người, chia tín hiệu thành cửa sổ,
