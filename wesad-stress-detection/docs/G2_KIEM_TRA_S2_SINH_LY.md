@@ -49,10 +49,37 @@ Thử nhạy cảm ngoài pipeline bằng phát hiện riêng trong mỗi cửa 
 
 Hai feature nhiệt độ ngực S2 vẫn thiếu có chủ đích do `suspect_contact`. SCR không có sự kiện hợp lệ thì biên độ thiếu có cờ; không điền 0 thay cho biên độ.
 
-## Bước tiếp theo
+## 3. Rà đồ thị BVP và đối chiếu ECG sau lượt kiểm tra đầu
 
-1. Mai/Như rà bằng mắt các đoạn BVP có peak được đánh dấu, đối chiếu thời điểm và ECG như nguồn tham khảo; ECG cũng không phải peak chuẩn đã gán nhãn. Phân biệt bỏ sót peak, peak nhiễu và biến thiên khoảng nhịp trước khi sửa detector/quy tắc.
-2. Thống nhất giữ heuristic với hạn chế đã công bố hay thay phương pháp. Nếu đổi định nghĩa, cập nhật hợp đồng/phiên bản riêng, chạy lại S2 và các test liên quan; không trộn với gói cũ.
-3. Trước khi chia lô sinh lý cho bốn người, dùng cùng nguồn sạch và môi trường thống nhất. Lô Mai là S5/S6/S10. Chưa mở rộng 15 người trong lượt kiểm tra này.
+Đã chạy `scripts/diagnose_s2_bvp.py` bằng Python 3.12.14 với provider hiện tại. Mã kiểm tra tái tạo đúng trạng thái thiếu của cả 395 cửa sổ trong CSV đã kiểm tra. Bổ sung bảng so sánh mọi cửa sổ, năm ví dụ chọn xác định trước và đồ thị raw/filtered BVP, peak, khoảng nhịp nhận/loại và ECG cùng thời gian. Dữ liệu và ảnh nằm ngoài Git tại `outputs/g2_s2_bvp_visual_review/`.
+
+| Ví dụ | Bắt đầu (s) | Peak BVP / ECG trong 60s | Khoảng BVP hợp lệ | Nhận xét khi rà hình |
+| --- | ---: | ---: | ---: | --- |
+| Baseline đạt | 1095 | 72 / 71 | 85,9% | Đoạn phóng 20–35s có chu kỳ BVP rõ, detector nhận đều; vẫn có nhiễu ở cuối cửa sổ |
+| Baseline thiếu, biên độ thấp | 980 | 59 / 70 | 74,1% | Có các đỉnh nhỏ trong đoạn 20–35s bị ngưỡng chung bỏ qua; ngưỡng cục bộ thêm đỉnh nhưng cửa sổ vẫn không đạt |
+| Baseline thiếu, biên độ cao | 1395 | 96 / 84 | 27,4% | BVP có nhiều dao động/đỉnh phụ; detector nhận cả các đỉnh gần nhau, khoảng nhịp không ổn định |
+| Stress thiếu | 2550 | 46 / 74 | 44,4% | BVP có biến động biên độ mạnh và đoạn ít dao động rõ, tạo khoảng giữa peak lên đến nhiều giây; ECG trong đoạn phóng có peak rõ hơn |
+| Amusement thiếu | 4915 | 40 / 64 | 33,3% | Nhiều chu kỳ biên độ nhỏ bị ngưỡng chung bỏ qua; thử cục bộ tăng peak lên 70 nhưng vẫn không đạt điều kiện khoảng nhịp |
+
+Trên toàn bộ S2, ECG vượt các kiểm tra heuristic ở 395/395 cửa sổ. Trung vị số peak BVP/ECG theo nhãn: baseline 71/72, stress 54/76, amusement 56/67. Peak ECG chưa có kiểm chứng độc lập; không coi số peak ECG là số nhịp thật, không ghép từng peak theo chỉ số và không thay feature BVP bằng ECG.
+
+**Kết luận từ bằng chứng hiện có:** detector BVP với ngưỡng prominence toàn đoạn có dấu hiệu bỏ sót chu kỳ nhỏ ở một số đoạn; ở đoạn khác lại nhận các đỉnh phụ/dao động không ổn định. Dạng sóng thô cũng biến dạng ở một số đoạn, nên chưa thể quy toàn bộ vấn đề cho bộ lọc hoặc chỉ sửa một ngưỡng. Cửa sổ đạt cũng có thể chứa đoạn nhiễu; vượt heuristic không tương đương đã xác nhận chất lượng sinh lý.
+
+Đã thử riêng năm ví dụ với **cùng toàn đoạn đầu vào, khoảng cách peak và mask biên**, chỉ thay prominence bằng 0.5 độ lệch chuẩn của cửa sổ đang xét. Bốn ví dụ thiếu vẫn thiếu, ví dụ đạt vẫn đạt. Đây là thử có kiểm soát hơn thử cắt riêng từng cửa sổ ở mục 2; không thay thế kết quả lịch sử và không sửa CSV. Không có bằng chứng đủ để chỉ hạ ngưỡng rồi công nhận bộ BVP hoàn tất.
+
+Ảnh đã xem: `baseline_pass.png`, `baseline_fail_low_amplitude.png`, `baseline_fail_high_amplitude.png`, `stress_fail.png`, `amusement_fail.png`. Các điểm đen là peak hiện tại; vòng cam là thử prominence cục bộ; khoảng đỏ là khoảng bị loại. Panel BVP và ECG phóng cùng 20–35 giây trong cửa sổ. Ảnh được render bằng matplotlib của Python hệ thống từ mảng đã xuất bằng môi trường 3.12.14; Python hệ thống không tính feature/provider.
+
+Bằng chứng số nhỏ được lưu tại `reports/g2_preprocessing_mai/S2_bvp_visual_diagnosis.json`. Lệnh tái tạo dữ liệu chẩn đoán (chọn thư mục output mới):
+
+```powershell
+.\.venv-g1\Scripts\python.exe -X utf8 scripts/diagnose_s2_bvp.py --raw data/raw/S2/S2.pkl --package data/features/g2_physiological68_S2_mai_review_20261107 --output outputs/g2_s2_bvp_visual_review_lan2
+```
+
+## Bàn giao tiếp theo
+
+1. Phần cần thống nhất về tiền xử lý và detector BVP để Như chạy, chốt và bàn giao một phiên bản dùng chung. Đây là hướng làm việc Mai yêu cầu, chưa phải xác nhận Như đã hoàn thành hoặc nhận việc.
+2. Mai lấy đúng mã nguồn, cấu hình, phiên bản/schema và kết quả Như bàn giao làm cơ sở để tiếp tục extractor, schema và hợp nhất. Không yêu cầu Mai chạy lại để đối chiếu nhiều máy như một điều kiện bàn giao. Các lượt chẩn đoán ở trên là bằng chứng lịch sử, không phải quy trình đối chiếu bắt buộc tiếp theo.
+3. Khi nhận gói, Mai kiểm tra schema, manifest/checksum, subject, nhãn, khóa trùng và NaN/Inf có lý do. Nếu Như đổi định nghĩa feature, cập nhật hợp đồng/phiên bản tương ứng trước khi dùng; không ghép lẫn gói cũ. Chưa coi BVP đã được xử lý xong chỉ vì đã chọn một nguồn dùng chung.
+4. Nếu nhóm tiếp tục chia lô, Mai chạy S5/S6/S10 bằng đúng phiên bản Như bàn giao; nếu nhận kết quả đã đủ subject thì kiểm tra và dùng trực tiếp, không chạy lặp để đối chiếu. Chưa mở rộng 15 người trong lượt kiểm tra này.
 
 Chẩn đoán này hoàn thành việc chạy/kiểm tra S2 và tìm điều kiện gây thiếu BVP; chưa giải quyết xong xác thực detector sinh lý. Không chạy G3, không thêm phần RAM, không commit/push hoặc đưa dữ liệu lớn lên Git.
