@@ -1,12 +1,12 @@
 {
   "schema_version": "g1_physiological_contract_v1",
-  "status": "design_locked_implementation_not_validated",
-  "stage": "G1",
+  "status": "implemented_with_g1_reference_adapter",
+  "stage": "G2",
   "owner": "Nguyen Thi Truc Mai",
   "date": "2026-11-03",
   "source_assignment": "PHAN_CONG_MAY_HOC.docx",
   "feature_version": "physiological_68_v1",
-  "ready_for_extraction": false,
+  "ready_for_extraction": true,
   "ready_for_training": false,
   "expected_subjects": [
     "S2",
@@ -209,7 +209,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -223,7 +223,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -237,7 +237,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -251,7 +251,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -265,7 +265,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -279,7 +279,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -293,7 +293,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "psd"
     },
@@ -307,7 +307,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "psd"
     },
@@ -321,7 +321,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "ecg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "psd"
     },
@@ -335,7 +335,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -349,7 +349,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -363,7 +363,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -377,7 +377,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -391,7 +391,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -405,7 +405,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -419,7 +419,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -433,7 +433,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -447,7 +447,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "resp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "resp"
     },
@@ -461,7 +461,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "resp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "resp"
     },
@@ -475,7 +475,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "temp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "temp"
     },
@@ -489,7 +489,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "temp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "temp"
     },
@@ -503,7 +503,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -517,7 +517,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -531,7 +531,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -545,7 +545,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -559,7 +559,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -573,7 +573,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -587,7 +587,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -601,7 +601,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -615,7 +615,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -629,7 +629,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -643,7 +643,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -657,7 +657,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -671,7 +671,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "emg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -685,7 +685,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "emg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -699,7 +699,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "emg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -713,7 +713,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "chest",
       "sensor": "emg",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -727,7 +727,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -741,7 +741,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -755,7 +755,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -769,7 +769,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -783,7 +783,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -797,7 +797,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "cardiac_intervals"
     },
@@ -811,7 +811,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "psd"
     },
@@ -825,7 +825,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "psd"
     },
@@ -839,7 +839,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "bvp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "psd"
     },
@@ -853,7 +853,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -867,7 +867,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -881,7 +881,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -895,7 +895,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -909,7 +909,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -923,7 +923,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -937,7 +937,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -951,7 +951,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "eda",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "eda"
     },
@@ -965,7 +965,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "temp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "temp"
     },
@@ -979,7 +979,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "temp",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "temp"
     },
@@ -993,7 +993,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1007,7 +1007,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1021,7 +1021,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1035,7 +1035,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1049,7 +1049,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1063,7 +1063,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1077,7 +1077,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1091,7 +1091,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1105,7 +1105,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1119,7 +1119,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1133,7 +1133,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     },
@@ -1147,7 +1147,7 @@
       "missing_representation": "NaN; empty CSV field",
       "device": "wrist",
       "sensor": "acc",
-      "status": "design_locked",
+      "status": "implemented",
       "pending": "",
       "method_ref": "acc_emg"
     }
@@ -1517,7 +1517,7 @@
       "group_acceptance": "pending actual comparison across four machines; no certification in this schema"
     }
   },
-  "updated_at": "2026-11-05",
+  "updated_at": "2026-11-07",
   "source_proposal": "Nhom09_NhanDienStress_WESAD_Proposal_v3.docx (read-only reference)",
   "eda_design_evidence": {
     "source": "notebooks/reports/tables/eda_step5/eda_summary.json",
@@ -1528,10 +1528,12 @@
   },
   "readiness": {
     "g1_design_complete": true,
-    "implementation_complete": false,
-    "physiological_s2_validated": false,
-    "four_machine_acceptance": false,
-    "meaning": "This locks the design for implementation; it does not certify the historical 21 raw or current 112 raw pipeline as a physiological extractor."
+    "feature_implementation_complete": true,
+    "reference_adapter_implemented": true,
+    "nhu_g2_runtime_integration_confirmed": false,
+    "local_validation_reports": "outputs/g2/ and docs/G2_BAN_GIAO.md",
+    "full_15_subject_package_ready": false,
+    "meaning": "Feature kernels and a reference adapter implement the G1 contract; local package checks do not establish peer review, cross-machine acceptance or physiological signal validity."
   },
   "unit_policy": {
     "source": "WESAD original wesad_readme.pdf sections II.1-II.3 and S2_E4_Data.zip/info.txt",
@@ -1827,5 +1829,6 @@
       "wrist_bvp_band3_power": "wrist_bvp_power_2_5_hz"
     },
     "reason": "Explicit PSD bands; RR names avoid falsely asserting ectopic/NN classification; affects only unimplemented physiological schema, not raw outputs"
-  }
+  },
+  "design_stage": "G1"
 }

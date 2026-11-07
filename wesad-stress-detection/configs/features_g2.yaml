@@ -1,0 +1,17 @@
+# Mai G2, physiological contract; separate from G1 raw112.
+data_root: data/raw
+subject_processor: wesad.features:process_subject
+preprocessing_provider: wesad.features:prepare_subject
+adapter_status: reference_from_g1_design_pending_nhu_g2_integration
+input_units: official_wesad_synchronized_pkl
+feature_contract: configs/feature_schema.json
+feature_contract_sha256: 1fddcfd87242dc532d0445cd294d79508984c68b3c007b5724cb1df19de2acc2
+feature_version: physiological_68_v1
+labels: [1, 2, 3]
+window_seconds: 60
+step_seconds: 5
+label_rule: majority
+min_label_fraction: 0.90
+seed: 42
+subjects: [S5, S6, S10]
+output_dir: data/features/g2_physiological_68_v1_reference
