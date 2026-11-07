@@ -4,6 +4,8 @@
 
 Phần G2 của Như có [bản tiền xử lý cơ bản và kết quả lô S4/S9/S11/S17](docs/G2_NHU_BAN_CO_BAN.md): lọc EDA/RESP, căn cửa sổ theo tần số gốc và kiểm tra ACC/EMG theo đoạn 5 giây. Bảng chẩn đoán G2 được lưu riêng; bộ 112 raw trong hướng dẫn dưới đây giữ nguyên định nghĩa.
 
+Cập nhật sau phần Mai `f24cafc`: đã nối provider tiền xử lý với extractor sinh lý68 và thử S2 (395 cửa sổ, 68 feature + 8 metadata; 68 test đạt). Đây là nhánh thử riêng dùng `configs/features_g2.yaml`, còn nhiều giá trị thiếu BVP cần rà với Mai; chưa nghiệm thu bộ sinh lý hoặc thay thế raw112. Chi tiết và lệnh chạy ở đầu tài liệu G2 của Như nêu trên.
+
 ## 1. Bộ G1 hiện tại: 112 thống kê ngực và cổ tay
 
 Pipeline đọc dữ liệu PKL theo từng người, chia tín hiệu thành cửa sổ,
