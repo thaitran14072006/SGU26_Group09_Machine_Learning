@@ -1,0 +1,247 @@
+{
+  "status": "passed",
+  "scope": "Nhu_four_subject_physiological68_basic_handoff_not_group_acceptance",
+  "subjects": {
+    "S4": {
+      "n_windows": 404,
+      "label_counts": {
+        "1": 222,
+        "2": 117,
+        "3": 65
+      },
+      "extraction_qa": {
+        "n_candidate_windows": 1273,
+        "n_label_valid_windows": 404,
+        "n_rejected_label": 869,
+        "n_rejected_incomplete_signal": 0,
+        "n_rejected_nonfinite_signal": 0,
+        "n_rejected_filter_edge": 0,
+        "n_kept_windows": 404,
+        "n_flagged_windows": 404,
+        "n_missing_feature_values": 2572
+      },
+      "missing_by_feature": {
+        "chest_eda_scr_amplitude_mean": 5,
+        "chest_eda_scr_amplitude_max": 5,
+        "wrist_bvp_pulse_rate_mean_bpm": 341,
+        "wrist_bvp_pulse_rate_std_bpm": 341,
+        "wrist_bvp_mean_ibi_ms": 341,
+        "wrist_bvp_sd_ibi_ms": 341,
+        "wrist_bvp_rmssd_ibi_ms": 341,
+        "wrist_bvp_pnn50_ibi": 341,
+        "wrist_eda_scr_amplitude_mean": 258,
+        "wrist_eda_scr_amplitude_max": 258
+      },
+      "quality_flag_counts": {
+        "wrist_bvp:insufficient_or_unreliable_beats;wrist_eda:no_scr_events": 195,
+        "wrist_bvp:insufficient_or_unreliable_beats": 146,
+        "wrist_eda:no_scr_events": 58,
+        "chest_eda:no_scr_events;wrist_eda:no_scr_events": 5
+      },
+      "source_sha256": "0f0740a79388723360ff12b4f47c465665ea7827d1399b18ac43908daac17900",
+      "csv_sha256": "9dc7d0ddc5ed38c573f5ad7c068a84be35f547e7298bd003539c573b118561c6"
+    },
+    "S9": {
+      "n_windows": 411,
+      "label_counts": {
+        "1": 227,
+        "2": 119,
+        "3": 65
+      },
+      "extraction_qa": {
+        "n_candidate_windows": 1033,
+        "n_label_valid_windows": 411,
+        "n_rejected_label": 622,
+        "n_rejected_incomplete_signal": 0,
+        "n_rejected_nonfinite_signal": 0,
+        "n_rejected_filter_edge": 0,
+        "n_kept_windows": 411,
+        "n_flagged_windows": 393,
+        "n_missing_feature_values": 2218
+      },
+      "missing_by_feature": {
+        "chest_ecg_hr_mean_bpm": 4,
+        "chest_ecg_hr_std_bpm": 4,
+        "chest_ecg_mean_rr_ms": 4,
+        "chest_ecg_sd_rr_ms": 4,
+        "chest_ecg_rmssd_ms": 4,
+        "chest_ecg_pnn50": 4,
+        "chest_eda_scr_amplitude_mean": 40,
+        "chest_eda_scr_amplitude_max": 40,
+        "wrist_bvp_pulse_rate_mean_bpm": 310,
+        "wrist_bvp_pulse_rate_std_bpm": 310,
+        "wrist_bvp_mean_ibi_ms": 310,
+        "wrist_bvp_sd_ibi_ms": 310,
+        "wrist_bvp_rmssd_ibi_ms": 310,
+        "wrist_bvp_pnn50_ibi": 310,
+        "wrist_eda_scr_amplitude_mean": 127,
+        "wrist_eda_scr_amplitude_max": 127
+      },
+      "quality_flag_counts": {
+        "wrist_bvp:insufficient_or_unreliable_beats": 244,
+        "wrist_eda:no_scr_events": 74,
+        "wrist_bvp:insufficient_or_unreliable_beats;wrist_eda:no_scr_events": 31,
+        "heuristic_checks_passed_not_physiological_validation": 18,
+        "chest_eda:no_scr_events;wrist_bvp:insufficient_or_unreliable_beats": 18,
+        "chest_eda:no_scr_events;wrist_bvp:insufficient_or_unreliable_beats;wrist_eda:no_scr_events": 13,
+        "chest_eda:no_scr_events;wrist_eda:no_scr_events": 9,
+        "chest_ecg:insufficient_or_unreliable_beats;wrist_bvp:insufficient_or_unreliable_beats": 4
+      },
+      "source_sha256": "24dc004e201bd541f092989443f0a29ebf89e4a227a80bb6b6d1987255039544",
+      "csv_sha256": "1898c41faef35a229f86943ea811ea1a98731a8a850e5f8714d1c392b28162cc"
+    },
+    "S11": {
+      "n_windows": 417,
+      "label_counts": {
+        "1": 227,
+        "2": 126,
+        "3": 64
+      },
+      "extraction_qa": {
+        "n_candidate_windows": 1035,
+        "n_label_valid_windows": 417,
+        "n_rejected_label": 618,
+        "n_rejected_incomplete_signal": 0,
+        "n_rejected_nonfinite_signal": 0,
+        "n_rejected_filter_edge": 0,
+        "n_kept_windows": 417,
+        "n_flagged_windows": 378,
+        "n_missing_feature_values": 2328
+      },
+      "missing_by_feature": {
+        "chest_ecg_hr_mean_bpm": 15,
+        "chest_ecg_hr_std_bpm": 15,
+        "chest_ecg_mean_rr_ms": 15,
+        "chest_ecg_sd_rr_ms": 15,
+        "chest_ecg_rmssd_ms": 15,
+        "chest_ecg_pnn50": 15,
+        "wrist_bvp_pulse_rate_mean_bpm": 367,
+        "wrist_bvp_pulse_rate_std_bpm": 367,
+        "wrist_bvp_mean_ibi_ms": 367,
+        "wrist_bvp_sd_ibi_ms": 367,
+        "wrist_bvp_rmssd_ibi_ms": 367,
+        "wrist_bvp_pnn50_ibi": 367,
+        "wrist_eda_scr_amplitude_mean": 18,
+        "wrist_eda_scr_amplitude_max": 18
+      },
+      "quality_flag_counts": {
+        "wrist_bvp:insufficient_or_unreliable_beats": 345,
+        "heuristic_checks_passed_not_physiological_validation": 39,
+        "chest_ecg:insufficient_or_unreliable_beats;wrist_bvp:insufficient_or_unreliable_beats": 15,
+        "wrist_eda:no_scr_events": 11,
+        "wrist_bvp:insufficient_or_unreliable_beats;wrist_eda:no_scr_events": 7
+      },
+      "source_sha256": "f39557a8d660b10154936f51debf2926aea7ebb9b26a168858f59502f914d8f7",
+      "csv_sha256": "01ec661ecfec36529240a7e8f0e97c888637f6199e6a29fb90424d9d27f3ded2"
+    },
+    "S17": {
+      "n_windows": 426,
+      "label_counts": {
+        "1": 226,
+        "2": 135,
+        "3": 65
+      },
+      "extraction_qa": {
+        "n_candidate_windows": 1173,
+        "n_label_valid_windows": 426,
+        "n_rejected_label": 747,
+        "n_rejected_incomplete_signal": 0,
+        "n_rejected_nonfinite_signal": 0,
+        "n_rejected_filter_edge": 0,
+        "n_kept_windows": 426,
+        "n_flagged_windows": 381,
+        "n_missing_feature_values": 2612
+      },
+      "missing_by_feature": {
+        "chest_ecg_hr_mean_bpm": 52,
+        "chest_ecg_hr_std_bpm": 52,
+        "chest_ecg_mean_rr_ms": 52,
+        "chest_ecg_sd_rr_ms": 52,
+        "chest_ecg_rmssd_ms": 52,
+        "chest_ecg_pnn50": 52,
+        "wrist_bvp_pulse_rate_mean_bpm": 348,
+        "wrist_bvp_pulse_rate_std_bpm": 348,
+        "wrist_bvp_mean_ibi_ms": 348,
+        "wrist_bvp_sd_ibi_ms": 348,
+        "wrist_bvp_rmssd_ibi_ms": 348,
+        "wrist_bvp_pnn50_ibi": 348,
+        "wrist_eda_scr_amplitude_mean": 106,
+        "wrist_eda_scr_amplitude_max": 106
+      },
+      "quality_flag_counts": {
+        "wrist_bvp:insufficient_or_unreliable_beats": 226,
+        "wrist_bvp:insufficient_or_unreliable_beats;wrist_eda:no_scr_events": 71,
+        "chest_ecg:insufficient_or_unreliable_beats;wrist_bvp:insufficient_or_unreliable_beats": 48,
+        "heuristic_checks_passed_not_physiological_validation": 45,
+        "wrist_eda:no_scr_events": 32,
+        "chest_ecg:insufficient_or_unreliable_beats;wrist_bvp:insufficient_or_unreliable_beats;wrist_eda:no_scr_events": 3,
+        "chest_ecg:insufficient_or_unreliable_beats": 1
+      },
+      "source_sha256": "3315796a75227d54d7b0056736f671484fd2fb85afffa65818fd76aeff2920fa",
+      "csv_sha256": "d8acd8dc78749dbea8a15f0cf20c8a303cf843f3bd45285ff98395ccc5674cd2"
+    }
+  },
+  "n_windows": 1658,
+  "n_features": 68,
+  "n_metadata": 8,
+  "label_counts": {
+    "1": 902,
+    "2": 497,
+    "3": 259
+  },
+  "n_missing_feature_values": 9730,
+  "config_snapshot": {
+    "signature": "e838ad4e7716f61d18460b5e5e112f6580db0aa22098235cce94d0533e2c0162",
+    "processing": {
+      "subject_processor": "wesad.features:process_subject",
+      "preprocessing_provider": "wesad.preprocessing_physiological:prepare_subject",
+      "adapter_status": "basic_provider_pending_group_review",
+      "input_units": "official_wesad_synchronized_pkl",
+      "feature_contract": "configs/feature_schema.json",
+      "feature_contract_sha256": "40abdf096e28e2207ad4c71f0e5c46fc6e1ae67de861c2f8aceec87d400d3692",
+      "feature_version": "physiological_68_v1",
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "window_seconds": 60,
+      "step_seconds": 5,
+      "label_rule": "majority",
+      "min_label_fraction": 0.9,
+      "seed": 42
+    },
+    "git_commit": "7720b010fb2167314c50acf56bd2c7d3a8468d80",
+    "git_dirty": false,
+    "code_sha256": "abd964e88fa0e5922c8bfc2cb71e1f4ad46ebb1d381e3f6bf82571817e1b452b",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    }
+  },
+  "all_subjects_sha256": "3b44c4b8bc69634fd43a7a6aa08aa35be1d8e2ea983fd865eb2ef4f4d8789850",
+  "zip_filename": "g2_nhu_physiological68_20261107.zip",
+  "zip_sha256": "909a4b2e153e152474f2dd5797946968cb21a1437a6f051c4f517baa8fcef28f",
+  "zip_bytes": 1748621,
+  "checks": [
+    "raw hashes match local originals",
+    "all original package checksums and per-subject manifests match",
+    "schema names/order match locked 68-feature contract",
+    "metadata matches earlier raw112 assigned batch",
+    "no duplicate window keys or Inf; NaN carry corresponding sensor quality flag",
+    "QA counts reconcile; concatenated per-subject rows equal all_subjects",
+    "ZIP integrity and uncompressed handoff file hashes match"
+  ],
+  "limitations": [
+    "Heuristic physiological quality not independently validated",
+    "Missing features retained, including unreliable BVP",
+    "Not a 15-subject or multi-machine physiological acceptance"
+  ]
+}

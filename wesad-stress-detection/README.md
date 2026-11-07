@@ -6,6 +6,8 @@ Phần G2 của Như có [bản tiền xử lý cơ bản và kết quả lô S4
 
 Cập nhật sau phần Mai `f24cafc`: đã nối provider tiền xử lý với extractor sinh lý68 và thử S2 (395 cửa sổ, 68 feature + 8 metadata; 68 test đạt). Đây là nhánh thử riêng dùng `configs/features_g2.yaml`, còn nhiều giá trị thiếu BVP cần rà với Mai; chưa nghiệm thu bộ sinh lý hoặc thay thế raw112. Chi tiết và lệnh chạy ở đầu tài liệu G2 của Như nêu trên.
 
+Theo yêu cầu bàn giao tiếp theo, đã chạy lô sinh lý S4/S9/S11/S17: 1.658 cửa sổ; ZIP tại `data/features/g2_nhu_physiological68_20261107.zip` ngoài Git để người dùng gửi Mai đồng bộ. Giá trị thiếu/cờ chất lượng được giữ nguyên, chưa xác nhận nghiệm thu sinh lý 15 người. Xem bảng kết quả và kiểm tra gói trong tài liệu G2 của Như.
+
 ## 1. Bộ G1 hiện tại: 112 thống kê ngực và cổ tay
 
 Pipeline đọc dữ liệu PKL theo từng người, chia tín hiệu thành cửa sổ,

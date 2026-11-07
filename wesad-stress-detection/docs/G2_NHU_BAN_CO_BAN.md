@@ -2,6 +2,35 @@
 
 Phạm vi theo phân công: lọc và đồng bộ theo thời gian, cửa sổ 60/5 với nhãn đa số 90%, kiểm tra ACC/EMG theo đoạn 5 giây; chạy lô S4, S9, S11, S17. Có chạy thêm S2 để kiểm tra. Chưa làm RF/MLP, tuning hoặc biểu đồ mô hình của các giai đoạn sau.
 
+## Lượt chạy lô sinh lý theo yêu cầu bàn giao Mai — 07/11/2026
+
+Sau lượt thử S2, người dùng chuyển lời Mai yêu cầu Như chạy lô bằng cấu hình hiện có để Mai lấy kết quả đồng bộ. Đã chạy S4/S9/S11/S17 qua cùng provider và hợp đồng `physiological_68_v1`, không thay detector hoặc ngưỡng để giảm số giá trị thiếu. Đây là bàn giao kết quả chạy, không xác nhận Mai đã review hay nghiệm thu chất lượng sinh lý.
+
+| Subject | Cửa sổ | Baseline | Stress | Amusement | Cửa sổ thiếu nhóm nhịp BVP | Tổng ô feature thiếu |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| S4 | 404 | 222 | 117 | 65 | 341 | 2572 |
+| S9 | 411 | 227 | 119 | 65 | 310 | 2218 |
+| S11 | 417 | 227 | 126 | 64 | 367 | 2328 |
+| S17 | 426 | 226 | 135 | 65 | 348 | 2612 |
+| Tổng | 1658 | 902 | 497 | 259 | 1366 | 9730 |
+
+Mỗi CSV có 68 feature (37 ngực + 31 cổ tay) và 8 metadata. Khóa/thời gian/nhãn/tỷ lệ nhãn khớp lô raw112 trước đó. Không trùng khóa, không Inf; NaN có cờ cảm biến tương ứng, giữ nguyên để Mai rà. Cửa sổ thiếu nhóm nhịp BVP là số cửa sổ có sáu feature nhịp/IBI thiếu, không phải số ô thiếu; PSD BVP vẫn có thể tính được. Chưa impute hoặc chuẩn hóa bảng.
+
+Đã đối chiếu raw hash với PKL local, manifest/checksum, schema/thứ tự 68 cột, đẳng thức QA và bảng tổng bằng các CSV từng người nối một lần. ZIP kiểm tra giải nén/hash thành công. Bằng chứng nhỏ được lưu ở [batch_physiological68_verification.json](../reports/g2_preprocessing_nhu/batch_physiological68_verification.json). Không thay bằng chứng S2 và raw112 cũ.
+
+### Gói gửi Mai ngoài Git
+
+- Thư mục: `data/features/g2_nhu_physiological68_20261107/`.
+- ZIP: `data/features/g2_nhu_physiological68_20261107.zip`.
+- Gồm CSV từng người, bảng tổng, config, schema sinh kèm, manifest, quality report, checksum và run status/log.
+- Kèm `physiological_contract.json` sao đúng hợp đồng đã dùng, `BAN_GIAO.md` và `handoff_checksums.json` kiểm tra tệp bổ sung; không sửa checksum gốc của extractor.
+
+Mai chỉ ghép bộ sinh lý cùng định nghĩa/provider đã thống nhất, mỗi subject một lần; không nối thêm all_subjects gây trùng và không trộn raw112 hoặc 72 chỉ số chẩn đoán. Còn rà tỷ lệ thiếu BVP và đồng bộ các lô khác; chưa kết luận toàn nhóm có đủ 15 người sinh lý đã nghiệm thu. Như đã chuẩn bị ZIP trên máy, người dùng tự gửi Mai.
+
+```powershell
+.\.venv-g1\Scripts\python.exe -X utf8 scripts/extract_features.py --config configs/features_g2.yaml --local configs/local.yaml --subjects S4 S9 S11 S17 --output-dir data/features/g2_nhu_physiological68_lan2 --resume
+```
+
 ## Cập nhật tiếp theo sau phần Mai — 07/11/2026
 
 Đã đọc main tới `f24cafc`: Mai tổng hợp đủ 15 người raw112 theo [báo cáo chung](G2_TONG_HOP_RAW112.md). Đây là kết quả Mai ghi nhận; lần cập nhật này không nhận lại gói 15 người hoặc chạy lại các lô raw để xác nhận độc lập.
@@ -27,7 +56,7 @@ Gói S2 mới nằm ngoài Git tại `data/features/g2_physiological68_S2_provid
 .\.venv-g1\Scripts\python.exe -X utf8 scripts/extract_features.py --config configs/features_g2.yaml --local configs/local.yaml --subjects S2 --output-dir data/features/g2_physiological68_S2_provider_lan2 --resume
 ```
 
-Đợt này dừng ở provider cơ bản và S2. Bước tiếp theo là bàn giao Mai rà giao diện và tỷ lệ thiếu BVP; sau đó mới quyết định chạy lô sinh lý S4/S9/S11/S17 hoặc mở rộng 15 người. Chưa có nghiệm thu nhiều máy cho bộ 68, chưa chạy G3. Các phần bên dưới mô tả bản đầu và bộ raw112 đã bàn giao.
+Ở mốc thử tích hợp ban đầu, mới có provider cơ bản và S2. Sau đó đã chạy lô sinh lý S4/S9/S11/S17 theo yêu cầu bàn giao ghi ở đầu tài liệu; tỷ lệ thiếu BVP vẫn cần Mai/Như rà. Chưa có nghiệm thu nhiều máy cho bộ 68, chưa chạy G3. Các phần bên dưới mô tả bản đầu và bộ raw112 đã bàn giao.
 
 ## Đã có
 
@@ -84,7 +113,7 @@ Chạy tại `wesad-stress-detection`. `configs/local.yaml` chỉ chứa đườ
 
 ## Bàn giao và phần để phát triển tiếp
 
-Bản cơ bản phần Như đã có mã và lần chạy lô thực tế. Mai đã báo cáo đủ 15 người raw112 ở `f24cafc`. Nhánh sinh lý68 mới nối provider và thử S2, còn cần rà kết quả trước khi mở rộng; chưa kết luận G2 sinh lý cả nhóm hoàn tất. Không lấy bộ 112 raw hoặc 72 chỉ số chẩn đoán làm bằng chứng đã nghiệm thu trọn bộ feature sinh lý của proposal.
+Bản cơ bản phần Như đã có mã và lần chạy lô thực tế. Mai đã báo cáo đủ 15 người raw112 ở `f24cafc`. Nhánh sinh lý68 có S2 và lô bốn subject của Như, đã đóng gói để gửi Mai; còn cần rà kết quả và đồng bộ các lô, chưa kết luận G2 sinh lý cả nhóm hoàn tất. Không lấy bộ 112 raw hoặc 72 chỉ số chẩn đoán làm bằng chứng đã nghiệm thu trọn bộ feature sinh lý của proposal.
 
 Các cải tiến để làm sau, không cố tình để lỗi trong chức năng đã có:
 
