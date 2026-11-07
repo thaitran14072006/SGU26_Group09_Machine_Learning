@@ -45,6 +45,43 @@ TODO sau bản cơ bản: rà chất lượng BVP và phương pháp detector qu
 
 ## Lịch sử trước khi nhận provider và tạo bộ chung
 
+### Kiểm tra S2 và lô S5/S6/S10 đã gộp
+
+Các kết quả dưới đây là lịch sử trước lượt tạo bộ chung đủ 15 người, không thay thế kết luận nghiệm thu hiện tại. Đã gộp thông tin cần lưu từ hai báo cáo trung gian về S2 và lô S5/S6/S10 vào đây.
+
+**S2:** provider nối được với extractor; 1.204 cửa sổ ứng viên, loại 809 do nhãn, giữ 395 (219 baseline, 113 stress, 63 amusement), không loại thêm do biên lọc/nonfinite/thiếu mẫu. Đủ 68 feature + 8 metadata, không trùng khóa/Inf, có 3.046 ô NaN với cờ lý do. Bảy metadata đầu khớp raw112 S2. CSV SHA-256 `aaec0dea4f42114b6574c845b76319237fef8ac96273ad92c196608c9e48eba9` khớp checksum Như công bố; lúc đó chưa có gói CSV gốc của Như tại máy để kiểm tra độc lập toàn gói. Code hash lượt thử là `469b9ef1575aba4881425ee4982caa9f8f2f72030b7c1b351360b9beb5bcabae`, khác nguồn Như do checkout có thay đổi; Python cùng 3.12.14 nhưng khác build. Không sửa manifest để ép cùng chữ ký. Lượt kiểm tra lịch sử này đạt 72/72 test; lượt nghiệm thu cuối đạt 76/76.
+
+Sáu feature nhịp/IBI BVP S2 thiếu tại 336/395 cửa sổ: baseline 160/219, stress 113/113, amusement 63/63. Tất cả 336 cửa sổ đều có tỷ lệ khoảng nhịp hợp lệ dưới 80%; 67 cửa sổ còn thiếu cả số khoảng hợp lệ và cặp kề, 37 còn thiếu cặp kề, 1 còn thiếu số khoảng hợp lệ. Có 231 cửa sổ chỉ không đạt tỷ lệ 80%. Khoảng được chấp nhận nằm trong 0.3–2 giây và lệch không quá 20% trung vị khoảng trong miền đó; cần ít nhất 20 khoảng và 10 cặp kề hợp lệ. 59 cửa sổ đạt toàn bộ điều kiện.
+
+Rà tín hiệu BVP 389.056 mẫu hữu hạn cho thấy ngưỡng prominence toàn đoạn là 35.5054 (0.5 độ lệch chuẩn 71.0108). Thử prominence cục bộ sau khi cắt cửa sổ cho 72 cửa sổ đạt thay vì 59, cứu 19 nhưng mất 6; thử này thay cả biên phát hiện nên chỉ là chẩn đoán. Không đưa thử nghiệm vào feature chính thức.
+
+| Ví dụ S2 | Bắt đầu (s) | Peak BVP / ECG trong 60s | Khoảng BVP hợp lệ |
+| --- | ---: | ---: | ---: |
+| Baseline đạt | 1095 | 72 / 71 | 85,9% |
+| Baseline thiếu, biên độ thấp | 980 | 59 / 70 | 74,1% |
+| Baseline thiếu, biên độ cao | 1395 | 96 / 84 | 27,4% |
+| Stress thiếu | 2550 | 46 / 74 | 44,4% |
+| Amusement thiếu | 4915 | 40 / 64 | 33,3% |
+
+Đồ thị cho thấy có dấu hiệu bỏ sót chu kỳ nhỏ ở một số đoạn và nhận đỉnh phụ ở đoạn khác. ECG chỉ là tham khảo, chưa có peak chuẩn độc lập, không dùng thay BVP. Thử có kiểm soát trên cùng toàn đoạn/mask, chỉ đổi prominence cho năm ví dụ trên, không cứu được bốn ví dụ thiếu. Không đủ căn cứ quy hết lỗi cho bộ lọc hay chỉ hạ ngưỡng. Nhiệt độ ngực S2 thiếu theo `suspect_contact`; biên độ SCR thiếu khi không có sự kiện, không điền 0.
+
+Bằng chứng chẩn đoán ngoài Git: `outputs/g2_s2_mai_review/` (integration, bvp_diagnosis, bvp_windows, tests) và `outputs/g2_s2_bvp_visual_review/` (diagnosis, window_comparison, năm ảnh raw/filtered/peak/khoảng nhịp/ECG). Đây không phải yêu cầu đối chiếu nhiều máy cho quy trình bàn giao tiếp theo.
+
+**Lô S5/S6/S10 trước lượt chung:** dùng nguồn `7720b01` và hợp đồng Như, hash `abd964e88fa0e5922c8bfc2cb71e1f4ad46ebb1d381e3f6bf82571817e1b452b`. Đã kiểm tra manifest, raw hash, nhãn, schema, checksum và ZIP; không đổi ngưỡng BVP hoặc impute.
+
+| Subject | Ứng viên | Loại do nhãn | Giữ | Baseline / Stress / Amusement | Cửa sổ thiếu nhịp BVP | Ô feature thiếu |
+| --- | ---: | ---: | ---: | --- | ---: | ---: |
+| S5 | 1240 | 826 | 414 | 230 / 119 / 65 | 392 | 2472 |
+| S6 | 1403 | 991 | 412 | 226 / 121 / 65 | 412 | 2664 |
+| S10 | 1088 | 662 | 426 | 226 / 135 / 65 | 326 | 2286 |
+| Tổng | 3731 | 2479 | 1252 | 682 / 375 / 195 | 1130 | 7422 |
+
+Không loại thêm do biên lọc/nonfinite/thiếu mẫu. Build Python standalone khác conda-forge của Như; giữ thông tin producer thật và không ghép các chữ ký cũ thành bộ chung. Bản nguồn xuất Git và kiểu xuống dòng được lưu trong `SOURCE_RECONSTRUCTION.json` kèm gói.
+
+Gói lô cũ ngoài Git: `data/features/g2_physiological68_S5_S6_S10_20261107/` và ZIP cùng tên, SHA-256 `dc0de86176b6fa53b58a6e9f0db5acb4aa471a0645861eb08341040383b386d4`. Báo cáo nhỏ: [S5_S6_S10_verification.json](../reports/g2_physiological68/S5_S6_S10_verification.json). Gói Như ban đầu có SHA-256 `909a4b2e153e152474f2dd5797946968cb21a1437a6f051c4f517baa8fcef28f`, đủ 4 subject/1.658 cửa sổ; hợp đồng kèm gói khớp hợp đồng checkout. Các lô lịch sử không được nối thêm vào bộ 15 người hiện tại vì sẽ lặp subject.
+
+### Lịch sử triển khai trước đó
+
 Các trạng thái provider chưa có và số liệu adapter tham chiếu ở phần dưới là lịch sử, không mô tả gói bàn giao hiện tại ở trên.
 
 Cập nhật bước 1 ngày 07/11/2026: **đã tách tiền xử lý khỏi mã feature của Mai**. `features.py` không còn Butterworth/SOS, resampling hoặc đổi scale biên độ. Config để `preprocessing_provider: null`; khi chưa nhận provider của Như, extractor dừng trước khi đọc PKL, không dùng nhánh lọc mặc định.

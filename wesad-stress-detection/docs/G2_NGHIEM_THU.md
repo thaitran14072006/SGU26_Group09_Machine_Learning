@@ -2,6 +2,8 @@
 
 **Chốt G2 bản cơ bản ngày 07/11/2026**, theo mục 4 “Giai đoạn 2 Tiền xử lý và đặc trưng”, phần “Nghiệm thu” trong `PHAN_CONG_MAY_HOC.docx` và yêu cầu chốt của người dùng. Đây là kết luận kiểm tra kỹ thuật và chính sách bàn giao dữ liệu; không ghi nhận thay chữ ký/review riêng của bốn thành viên, không xác nhận đã hoàn thành trước hạn 05/11.
 
+**G2 đã hoàn thành theo các tiêu chí phân công.** Cụm “bản cơ bản” chỉ phạm vi phương pháp hiện tại đã khóa và được nghiệm thu; không có nghĩa G2 còn dang dở. Các cải tiến detector được ghi TODO sau này, không là điều kiện bắt buộc để hoàn thành G2 hiện tại. Feature không đủ tin cậy được phép giữ NaN có lý do theo phân công.
+
 ## Đối chiếu tiêu chí
 
 | Tiêu chí trong phân công | Bằng chứng và kết luận |
