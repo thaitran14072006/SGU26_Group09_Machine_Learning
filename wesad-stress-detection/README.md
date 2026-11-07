@@ -8,6 +8,8 @@ Cập nhật sau phần Mai `f24cafc`: đã nối provider tiền xử lý với
 
 Theo yêu cầu bàn giao tiếp theo, đã chạy lô sinh lý S4/S9/S11/S17: 1.658 cửa sổ; ZIP tại `data/features/g2_nhu_physiological68_20261107.zip` ngoài Git để người dùng gửi Mai đồng bộ. Giá trị thiếu/cờ chất lượng được giữ nguyên, chưa xác nhận nghiệm thu sinh lý 15 người. Xem bảng kết quả và kiểm tra gói trong tài liệu G2 của Như.
 
+Đã nhận và kiểm tra ZIP sinh lý S5/S6/S10 của Mai sau `4b31246`. Công cụ `scripts/check_g2_bvp_quality.py` kiểm tra gói và tổng hợp thiếu nhịp BVP theo subject/nhãn cho hai lô: 7 subject, 2.910 cửa sổ; giữ nguyên thuật toán v1, chưa ghép bảng huấn luyện. Bảng chất lượng và giới hạn được ghi ở đầu tài liệu G2 của Như; toàn bộ 72 test đạt.
+
 ## 1. Bộ G1 hiện tại: 112 thống kê ngực và cổ tay
 
 Pipeline đọc dữ liệu PKL theo từng người, chia tín hiệu thành cửa sổ,

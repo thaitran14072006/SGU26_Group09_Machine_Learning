@@ -2,6 +2,44 @@
 
 Phạm vi theo phân công: lọc và đồng bộ theo thời gian, cửa sổ 60/5 với nhãn đa số 90%, kiểm tra ACC/EMG theo đoạn 5 giây; chạy lô S4, S9, S11, S17. Có chạy thêm S2 để kiểm tra. Chưa làm RF/MLP, tuning hoặc biểu đồ mô hình của các giai đoạn sau.
 
+## Nhận gói Mai và kiểm tra chất lượng BVP hai lô — 07/11/2026
+
+Đã đọc main tới `4b31246`: Mai bổ sung kết quả S5/S6/S10 và chẩn đoán BVP S2 (`822f7da`). Đã nhận trực tiếp ZIP `g2_physiological68_S5_S6_S10_20261107.zip`, giải nén vào thư mục riêng ngoài Git và kiểm tra nội dung. SHA-256 ZIP khớp báo cáo Mai: `dc0de86176b6fa53b58a6e9f0db5acb4aa471a0645861eb08341040383b386d4`.
+
+Gói có 1.252 cửa sổ: S5 414, S6 412, S10 426; 68 feature + 8 metadata. Checksum gốc/bàn giao, hợp đồng kèm gói, schema/thứ tự cột, metadata, manifest, QA và bảng tổng đều nhất quán. Raw hash cả ba subject khớp PKL local. Không chạy lại raw của Mai để đối chiếu nhiều máy.
+
+Đã kiểm tra đồng thời gói Như và Mai: cùng processing/provider/hợp đồng và code hash `abd964e88fa0e5922c8bfc2cb71e1f4ad46ebb1d381e3f6bf82571817e1b452b`. Python cùng 3.12.14 và phiên bản các thư viện được ghi nhận giống nhau, nhưng build Python khác; giữ nguyên chữ ký và metadata thật. Không sửa các gói để ép cùng môi trường, không tự hợp nhất thành bảng huấn luyện mới.
+
+### Bổ sung cơ bản trong lượt này
+
+- `src/wesad/g2_bvp_quality.py`: tổng hợp số cửa sổ thiếu nhóm sáu feature nhịp/IBI theo subject và nhãn; phát hiện nhóm thiếu không đồng nhất hoặc không khớp cờ lý do.
+- `scripts/check_g2_bvp_quality.py`: kiểm tra các gói sinh lý đã giải nén trước khi xuất bảng chất lượng; từ chối subject trùng và gói sai định nghĩa, checksum hoặc metadata.
+- `tests/test_g2_bvp_quality.py`: 4 test mới cho đếm theo nhãn, lý do thiếu, nhóm thiếu một phần, khóa trùng và Inf. Toàn bộ checkout chạy **72/72 test đạt**.
+- Bằng chứng: [mai_package_bvp_review.json](../reports/g2_preprocessing_nhu/mai_package_bvp_review.json), [bvp_missing_by_subject_label.csv](../reports/g2_preprocessing_nhu/bvp_missing_by_subject_label.csv).
+
+### Kết quả hai lô, không gồm S2 tham chiếu
+
+| Nhãn | Cửa sổ | Thiếu sáu feature nhịp/IBI BVP |
+| --- | ---: | ---: |
+| Baseline | 1584 | 1324 |
+| Stress | 872 | 857 |
+| Amusement | 454 | 315 |
+| Tổng | 2910 | 2496 |
+
+Đã xem đủ 7 subject trong hai gói: S4/S9/S11/S17 và S5/S6/S10. S6 thiếu toàn bộ nhóm nhịp BVP (412/412 cửa sổ). Tổng ô thiếu của toàn bộ 68 feature là 17.152; 2.496 ở bảng là số cửa sổ thiếu nhóm nhịp BVP, không phải số ô thiếu. Feature PSD BVP vẫn có thể có giá trị. Thiếu theo nhãn không đồng đều nên không coi bộ BVP đã đạt chất lượng chỉ vì gói qua kiểm tra cấu trúc.
+
+**Bản bàn giao cơ bản hiện tại giữ `physiological_68_v1` và thuật toán cũ** để Mai đồng bộ hai lô đã chạy. Lượt này bổ sung kiểm tra chất lượng, không thay tín hiệu, ngưỡng hoặc giá trị feature; không yêu cầu chạy lại chỉ vì thêm mã báo cáo. Nếu sau này sửa detector, cần thống nhất phiên bản/hợp đồng và chạy lại các lô chịu ảnh hưởng. Chẩn đoán Mai cho thấy vấn đề không được giải quyết đơn giản bằng một ngưỡng prominence, nên chưa tự chọn một phương án chưa được kiểm chứng.
+
+Phần chạy và bàn giao lô cơ bản của Như đã có. Mai tiếp tục dùng đúng các gói để kiểm tra/hợp nhất theo vai trò; bộ sinh lý toàn nhóm chưa đủ 15 subject trong hai gói được nhận tại đây. Danh sách `not_received_subjects` của báo cáo chỉ nói ngoài hai gói được kiểm tra, không khẳng định các thành viên chưa chạy các subject đó; S2 tham chiếu của Như vẫn được lưu riêng.
+
+Lệnh kiểm tra lại (dùng thư mục output mới):
+
+```powershell
+.\.venv-g1\Scripts\python.exe -X utf8 scripts/check_g2_bvp_quality.py --packages data/features/g2_nhu_physiological68_20261107 data/features/g2_received_mai_physiological68_20261107/g2_physiological68_S5_S6_S10_20261107 --output-dir outputs/g2_nhu_mai_bvp_review_lan2
+```
+
+TODO cho lần nâng cấp sau: rà detector BVP có đối chứng tín hiệu/peak trước khi đổi phương pháp. Chưa tự mở rộng lô sinh lý 15 người hoặc bắt đầu G3; giữ raw112 và các bằng chứng lịch sử nguyên trạng.
+
 ## Lượt chạy lô sinh lý theo yêu cầu bàn giao Mai — 07/11/2026
 
 Sau lượt thử S2, người dùng chuyển lời Mai yêu cầu Như chạy lô bằng cấu hình hiện có để Mai lấy kết quả đồng bộ. Đã chạy S4/S9/S11/S17 qua cùng provider và hợp đồng `physiological_68_v1`, không thay detector hoặc ngưỡng để giảm số giá trị thiếu. Đây là bàn giao kết quả chạy, không xác nhận Mai đã review hay nghiệm thu chất lượng sinh lý.

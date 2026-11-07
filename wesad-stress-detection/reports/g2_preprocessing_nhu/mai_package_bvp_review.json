@@ -1,0 +1,292 @@
+{
+  "status": "passed_package_and_quality_consistency_checks",
+  "scope": "descriptive_BVP_QA_only",
+  "n_windows": 2910,
+  "subjects": [
+    "S4",
+    "S5",
+    "S6",
+    "S9",
+    "S10",
+    "S11",
+    "S17"
+  ],
+  "not_received_subjects": [
+    "S2",
+    "S3",
+    "S7",
+    "S8",
+    "S13",
+    "S14",
+    "S15",
+    "S16"
+  ],
+  "n_bvp_interval_missing": 2496,
+  "n_missing_feature_values": 17152,
+  "by_subject_label": [
+    {
+      "subject_id": "S10",
+      "label_original": 1,
+      "n_windows": 226,
+      "n_bvp_interval_available": 63,
+      "n_bvp_interval_missing": 163,
+      "bvp_interval_missing_fraction": 0.7212389380530974
+    },
+    {
+      "subject_id": "S10",
+      "label_original": 2,
+      "n_windows": 135,
+      "n_bvp_interval_available": 6,
+      "n_bvp_interval_missing": 129,
+      "bvp_interval_missing_fraction": 0.9555555555555556
+    },
+    {
+      "subject_id": "S10",
+      "label_original": 3,
+      "n_windows": 65,
+      "n_bvp_interval_available": 31,
+      "n_bvp_interval_missing": 34,
+      "bvp_interval_missing_fraction": 0.5230769230769231
+    },
+    {
+      "subject_id": "S11",
+      "label_original": 1,
+      "n_windows": 227,
+      "n_bvp_interval_available": 35,
+      "n_bvp_interval_missing": 192,
+      "bvp_interval_missing_fraction": 0.8458149779735683
+    },
+    {
+      "subject_id": "S11",
+      "label_original": 2,
+      "n_windows": 126,
+      "n_bvp_interval_available": 0,
+      "n_bvp_interval_missing": 126,
+      "bvp_interval_missing_fraction": 1.0
+    },
+    {
+      "subject_id": "S11",
+      "label_original": 3,
+      "n_windows": 64,
+      "n_bvp_interval_available": 15,
+      "n_bvp_interval_missing": 49,
+      "bvp_interval_missing_fraction": 0.765625
+    },
+    {
+      "subject_id": "S17",
+      "label_original": 1,
+      "n_windows": 226,
+      "n_bvp_interval_available": 78,
+      "n_bvp_interval_missing": 148,
+      "bvp_interval_missing_fraction": 0.6548672566371682
+    },
+    {
+      "subject_id": "S17",
+      "label_original": 2,
+      "n_windows": 135,
+      "n_bvp_interval_available": 0,
+      "n_bvp_interval_missing": 135,
+      "bvp_interval_missing_fraction": 1.0
+    },
+    {
+      "subject_id": "S17",
+      "label_original": 3,
+      "n_windows": 65,
+      "n_bvp_interval_available": 0,
+      "n_bvp_interval_missing": 65,
+      "bvp_interval_missing_fraction": 1.0
+    },
+    {
+      "subject_id": "S4",
+      "label_original": 1,
+      "n_windows": 222,
+      "n_bvp_interval_available": 28,
+      "n_bvp_interval_missing": 194,
+      "bvp_interval_missing_fraction": 0.8738738738738738
+    },
+    {
+      "subject_id": "S4",
+      "label_original": 2,
+      "n_windows": 117,
+      "n_bvp_interval_available": 0,
+      "n_bvp_interval_missing": 117,
+      "bvp_interval_missing_fraction": 1.0
+    },
+    {
+      "subject_id": "S4",
+      "label_original": 3,
+      "n_windows": 65,
+      "n_bvp_interval_available": 35,
+      "n_bvp_interval_missing": 30,
+      "bvp_interval_missing_fraction": 0.46153846153846156
+    },
+    {
+      "subject_id": "S5",
+      "label_original": 1,
+      "n_windows": 230,
+      "n_bvp_interval_available": 18,
+      "n_bvp_interval_missing": 212,
+      "bvp_interval_missing_fraction": 0.9217391304347826
+    },
+    {
+      "subject_id": "S5",
+      "label_original": 2,
+      "n_windows": 119,
+      "n_bvp_interval_available": 0,
+      "n_bvp_interval_missing": 119,
+      "bvp_interval_missing_fraction": 1.0
+    },
+    {
+      "subject_id": "S5",
+      "label_original": 3,
+      "n_windows": 65,
+      "n_bvp_interval_available": 4,
+      "n_bvp_interval_missing": 61,
+      "bvp_interval_missing_fraction": 0.9384615384615385
+    },
+    {
+      "subject_id": "S6",
+      "label_original": 1,
+      "n_windows": 226,
+      "n_bvp_interval_available": 0,
+      "n_bvp_interval_missing": 226,
+      "bvp_interval_missing_fraction": 1.0
+    },
+    {
+      "subject_id": "S6",
+      "label_original": 2,
+      "n_windows": 121,
+      "n_bvp_interval_available": 0,
+      "n_bvp_interval_missing": 121,
+      "bvp_interval_missing_fraction": 1.0
+    },
+    {
+      "subject_id": "S6",
+      "label_original": 3,
+      "n_windows": 65,
+      "n_bvp_interval_available": 0,
+      "n_bvp_interval_missing": 65,
+      "bvp_interval_missing_fraction": 1.0
+    },
+    {
+      "subject_id": "S9",
+      "label_original": 1,
+      "n_windows": 227,
+      "n_bvp_interval_available": 38,
+      "n_bvp_interval_missing": 189,
+      "bvp_interval_missing_fraction": 0.8325991189427313
+    },
+    {
+      "subject_id": "S9",
+      "label_original": 2,
+      "n_windows": 119,
+      "n_bvp_interval_available": 9,
+      "n_bvp_interval_missing": 110,
+      "bvp_interval_missing_fraction": 0.9243697478991597
+    },
+    {
+      "subject_id": "S9",
+      "label_original": 3,
+      "n_windows": 65,
+      "n_bvp_interval_available": 54,
+      "n_bvp_interval_missing": 11,
+      "bvp_interval_missing_fraction": 0.16923076923076924
+    }
+  ],
+  "source_packages": [
+    {
+      "package": "g2_nhu_physiological68_20261107",
+      "subjects": [
+        "S4",
+        "S9",
+        "S11",
+        "S17"
+      ],
+      "code_sha256": "abd964e88fa0e5922c8bfc2cb71e1f4ad46ebb1d381e3f6bf82571817e1b452b",
+      "environment": {
+        "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+        "packages": {
+          "numpy": "2.5.4",
+          "pandas": "3.1.0",
+          "PyYAML": "6.0.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1",
+          "imbalanced-learn": "0.14.2"
+        }
+      },
+      "processing": {
+        "subject_processor": "wesad.features:process_subject",
+        "preprocessing_provider": "wesad.preprocessing_physiological:prepare_subject",
+        "adapter_status": "basic_provider_pending_group_review",
+        "input_units": "official_wesad_synchronized_pkl",
+        "feature_contract": "configs/feature_schema.json",
+        "feature_contract_sha256": "40abdf096e28e2207ad4c71f0e5c46fc6e1ae67de861c2f8aceec87d400d3692",
+        "feature_version": "physiological_68_v1",
+        "labels": [
+          1,
+          2,
+          3
+        ],
+        "window_seconds": 60,
+        "step_seconds": 5,
+        "label_rule": "majority",
+        "min_label_fraction": 0.9,
+        "seed": 42
+      },
+      "signature": "e838ad4e7716f61d18460b5e5e112f6580db0aa22098235cce94d0533e2c0162"
+    },
+    {
+      "package": "g2_physiological68_S5_S6_S10_20261107",
+      "subjects": [
+        "S5",
+        "S6",
+        "S10"
+      ],
+      "code_sha256": "abd964e88fa0e5922c8bfc2cb71e1f4ad46ebb1d381e3f6bf82571817e1b452b",
+      "environment": {
+        "python": "3.12.14 (main, Sep 29 2026, 15:00:58) [MSC v.1944 64 bit (AMD64)]",
+        "packages": {
+          "numpy": "2.5.4",
+          "pandas": "3.1.0",
+          "PyYAML": "6.0.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1",
+          "imbalanced-learn": "0.14.2"
+        }
+      },
+      "processing": {
+        "subject_processor": "wesad.features:process_subject",
+        "preprocessing_provider": "wesad.preprocessing_physiological:prepare_subject",
+        "adapter_status": "basic_provider_pending_group_review",
+        "input_units": "official_wesad_synchronized_pkl",
+        "feature_contract": "configs/feature_schema.json",
+        "feature_contract_sha256": "40abdf096e28e2207ad4c71f0e5c46fc6e1ae67de861c2f8aceec87d400d3692",
+        "feature_version": "physiological_68_v1",
+        "labels": [
+          1,
+          2,
+          3
+        ],
+        "window_seconds": 60,
+        "step_seconds": 5,
+        "label_rule": "majority",
+        "min_label_fraction": 0.9,
+        "seed": 42
+      },
+      "signature": "2ccaa97aea74dd6c3cef8b5d18bfc462a7d475c41b9c3b4116e9be7766da4e4c"
+    }
+  ],
+  "code_hashes_match": true,
+  "full_environments_match": false,
+  "physiological_acceptance": false,
+  "merged_training_table_created": false,
+  "received_zip": {
+    "name": "g2_physiological68_S5_S6_S10_20261107.zip",
+    "sha256": "dc0de86176b6fa53b58a6e9f0db5acb4aa471a0645861eb08341040383b386d4",
+    "matches_mai_published_sha256": true,
+    "received_subject_raw_hashes_match_local_PKL": true
+  },
+  "source_reviewed_commit": "4b312468758cecc6b615fb35f787e26c01074ed4",
+  "bvp_method_changed": false,
+  "n_tests_passed": 72
+}
