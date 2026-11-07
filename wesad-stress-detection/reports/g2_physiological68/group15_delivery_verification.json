@@ -68,7 +68,7 @@
   "nhu_runtime_integration_confirmed": true,
   "physiological_signal_validity_established": false,
   "delivery_complete": true,
-  "group_G2_acceptance": false,
+  "group_G2_acceptance": true,
   "raw_hashes_verified": true,
   "single_source_environment": true,
   "producer_signature": "2ccaa97aea74dd6c3cef8b5d18bfc462a7d475c41b9c3b4116e9be7766da4e4c",
@@ -79,9 +79,11 @@
   "n_bvp_missing": 5312,
   "window_policy": "Same original keys for chest/wrist/combined; retain reasoned NaN. No complete-case exclusion or imputation applied.",
   "limits": [
-    "BVP heuristics unchanged; signal validity not independently established.",
-    "Delivery completion does not approve all group members tasks or G3 readiness."
+    "BVP missingness disclosed and reasoned NaN retained under the assignment rules; no independent physiological validation claimed.",
+    "No G3 model work or imputation/scaling fit on full data is included."
   ],
-  "zip_sha256": "93085179037015164625f6c9d504deeebc7eabf50a78d2da6fca3c63b96d6a49",
+  "acceptance_scope": "G2_basic_preprocessing_features",
+  "acceptance_report": "acceptance.json",
+  "zip_sha256": "68f10ae940e4c1b3d269cf5836803800f3460a92755a5494cd8468d479075c50",
   "zip_path": "D:\\mayhoc\\Machine-learning\\wesad-stress-detection\\data\\features\\g2_physiological68_group15_20261107.zip"
 }

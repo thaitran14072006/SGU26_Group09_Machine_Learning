@@ -2,7 +2,7 @@
 
 ## Bàn giao hiện tại — 07/11/2026
 
-**Hoàn thành phạm vi extractor, schema, hợp nhất feature, quality report, checksum và kiểm tra đủ 15 người.** Đây là hoàn thành phần dữ liệu được giao, không phải tự nghiệm thu toàn bộ công việc G2 của nhóm.
+**Hoàn thành phạm vi extractor, schema, hợp nhất feature, quality report, checksum và kiểm tra đủ 15 người. G2 bản cơ bản đã được chốt theo các tiêu chí nghiệm thu trong phân công và yêu cầu của người dùng.** Xem [biên bản nghiệm thu G2](G2_NGHIEM_THU.md) về tập cửa sổ chung, chính sách NaN và hạn chế BVP; không xác nhận thay các lượt review/chữ ký cá nhân.
 
 Đã tạo bộ chung bằng một lượt chạy đủ S2–S11/S13–S17 trên máy hiện tại: cùng nguồn `7720b01` của Như, cùng provider/hợp đồng, Python 3.12.14 và thư viện khóa. Lượt này tạo dữ liệu chung, không đối chiếu kết quả giữa các máy. Không dùng gói Nam Python 3.13.5 hoặc trộn các chữ ký môi trường cũ vào bộ mới. Các gói bàn giao trước vẫn giữ làm bằng chứng lịch sử.
 
@@ -41,7 +41,7 @@ Sau khi có gói nguồn đủ 15 người, đóng gói bằng lệnh dưới đ
 .\.venv-g1\Scripts\python.exe -X utf8 scripts/finalize_g2_physiological.py --source data/features/g2_physiological68_group15_source_20261107 --output data/features/g2_physiological68_group15_lan2 --raw-root data/raw --report reports/g2_physiological68/group15_delivery_lan2.json
 ```
 
-TODO sau bản cơ bản: rà chất lượng BVP và phương pháp detector qua đầu mối Như, kiểm chứng tín hiệu bổ sung nếu nhóm yêu cầu. Không tự làm mô hình G3 hoặc phần RAM. Raw/ZIP/CSV feature lớn giữ ngoài Git. Chưa commit/push.
+TODO sau bản cơ bản: rà chất lượng BVP và phương pháp detector qua đầu mối Như, kiểm chứng tín hiệu bổ sung nếu nhóm yêu cầu; không là điều kiện phải lấp hết NaN của bản nghiệm thu này. Không tự làm mô hình G3 hoặc phần RAM. Raw/ZIP/CSV feature lớn giữ ngoài Git. Phần bàn giao trước đã push trong `779b658`; các cập nhật nghiệm thu mới chưa commit/push.
 
 ## Lịch sử trước khi nhận provider và tạo bộ chung
 
