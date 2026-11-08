@@ -1,0 +1,354 @@
+{
+  "scope": "G3_Dummy_LogisticRegression_complete_group_predictions_pending",
+  "date": "2026-11-08",
+  "summary": {
+    "status": "complete",
+    "subjects_expected": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "standard_deviation": "sample ddof=1; null for a single subject",
+    "results": [
+      {
+        "task": "multiclass",
+        "model": "dummy",
+        "complete_15_subjects": true,
+        "n_subjects": 15,
+        "missing_subjects": [],
+        "macro_f1_mean": 0.23504733157030386,
+        "macro_f1_std": 0.0023050657764379116,
+        "balanced_accuracy_mean": 0.33333333333333326,
+        "balanced_accuracy_std": 5.745950043620392e-17,
+        "labels": [
+          1,
+          2,
+          3
+        ],
+        "confusion_matrix": [
+          [
+            3370,
+            0,
+            0
+          ],
+          [
+            1848,
+            0,
+            0
+          ],
+          [
+            971,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "task": "multiclass",
+        "model": "lr",
+        "complete_15_subjects": true,
+        "n_subjects": 15,
+        "missing_subjects": [],
+        "macro_f1_mean": 0.5893909849051658,
+        "macro_f1_std": 0.14841550046399016,
+        "balanced_accuracy_mean": 0.6314714102230179,
+        "balanced_accuracy_std": 0.13936735511968865,
+        "labels": [
+          1,
+          2,
+          3
+        ],
+        "confusion_matrix": [
+          [
+            2529,
+            237,
+            604
+          ],
+          [
+            275,
+            1368,
+            205
+          ],
+          [
+            445,
+            133,
+            393
+          ]
+        ]
+      },
+      {
+        "task": "binary",
+        "model": "dummy",
+        "complete_15_subjects": true,
+        "n_subjects": 15,
+        "missing_subjects": [],
+        "macro_f1_mean": 0.412280833506436,
+        "macro_f1_std": 0.0035257644521511874,
+        "balanced_accuracy_mean": 0.5,
+        "balanced_accuracy_std": 0.0,
+        "labels": [
+          0,
+          1
+        ],
+        "confusion_matrix": [
+          [
+            4341,
+            0
+          ],
+          [
+            1848,
+            0
+          ]
+        ]
+      },
+      {
+        "task": "binary",
+        "model": "lr",
+        "complete_15_subjects": true,
+        "n_subjects": 15,
+        "missing_subjects": [],
+        "macro_f1_mean": 0.8102690822424197,
+        "macro_f1_std": 0.19375701538087678,
+        "balanced_accuracy_mean": 0.830361701020403,
+        "balanced_accuracy_std": 0.17518048524324856,
+        "labels": [
+          0,
+          1
+        ],
+        "confusion_matrix": [
+          [
+            4086,
+            255
+          ],
+          [
+            512,
+            1336
+          ]
+        ]
+      }
+    ]
+  },
+  "verification": {
+    "status": "passed",
+    "scope": "main",
+    "n_features": 68,
+    "n_subjects": 15,
+    "n_predictions": 24756,
+    "n_folds": 60,
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+    "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+    "warnings_by_fold": [],
+    "models": [
+      "dummy",
+      "lr"
+    ],
+    "tasks": [
+      "multiclass",
+      "binary"
+    ]
+  },
+  "quick_check": {
+    "scope": "quick",
+    "n_folds": 4,
+    "n_predictions": 1580,
+    "included_in_main": false
+  },
+  "group_status": {
+    "status": "waiting_for_models",
+    "missing_models": [
+      "knn",
+      "svm",
+      "rf",
+      "mlp"
+    ]
+  },
+  "provenance": {
+    "git_commit": "8b1e1cd029891db6015c3ae236d5eb77a59a765b",
+    "git_dirty": true,
+    "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+    "signature": "845bb75f8658b541c470e1bd97d27ed4759e8183145637c5fc9bc86f13c222a8",
+    "settings": {
+      "protocol": "g3_defaults_physiological68_v1",
+      "feature_version": "physiological_68_v1",
+      "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+      "source_paths": [
+        "src/wesad/data.py",
+        "src/wesad/evaluation.py",
+        "src/wesad/models.py",
+        "src/wesad/utils.py",
+        "src/wesad/g3.py",
+        "scripts/run_g3_baselines.py",
+        "scripts/merge_g3_predictions.py"
+      ],
+      "source_hash_normalization": "LF",
+      "expected_subjects": [
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17"
+      ],
+      "models": [
+        "dummy",
+        "lr"
+      ],
+      "tasks": [
+        "multiclass",
+        "binary"
+      ],
+      "seed": 42,
+      "sensor_set": "combined_physiological68",
+      "normalization": "global_train",
+      "balance": false,
+      "nested": false,
+      "zero_division": 0,
+      "missing_train_class": "error",
+      "missing_test_class": "fixed_labels_for_macro_f1_observed_classes_for_balanced_accuracy",
+      "model_params": {
+        "lr": {
+          "random_state": 42
+        }
+      },
+      "run_kind": "main"
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+    "feature_columns": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_mean",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_mean",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_count",
+      "chest_eda_scr_rate_per_min",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_temp_slope_per_s",
+      "chest_acc_x_5s_mean_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_x_5s_abs_integral_mean",
+      "chest_acc_y_5s_mean_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_y_5s_abs_integral_mean",
+      "chest_acc_z_5s_mean_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_z_5s_abs_integral_mean",
+      "chest_acc_magnitude_5s_mean_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "chest_acc_magnitude_5s_abs_integral_mean",
+      "chest_emg_5s_rms_mean",
+      "chest_emg_5s_mav_mean",
+      "chest_emg_5s_waveform_length_per_s_mean",
+      "chest_emg_5s_abs_integral_mean",
+      "wrist_bvp_pulse_rate_mean_bpm",
+      "wrist_bvp_pulse_rate_std_bpm",
+      "wrist_bvp_mean_ibi_ms",
+      "wrist_bvp_sd_ibi_ms",
+      "wrist_bvp_rmssd_ibi_ms",
+      "wrist_bvp_pnn50_ibi",
+      "wrist_bvp_power_0p5_1_hz",
+      "wrist_bvp_power_1_2_hz",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_tonic_std",
+      "wrist_eda_phasic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_mean",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_mean_mean",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_x_5s_abs_integral_mean",
+      "wrist_acc_y_5s_mean_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_y_5s_abs_integral_mean",
+      "wrist_acc_z_5s_mean_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_mean_mean",
+      "wrist_acc_magnitude_5s_std_mean",
+      "wrist_acc_magnitude_5s_abs_integral_mean"
+    ],
+    "environment": {
+      "python": "3.12.14 (main, Sep 29 2026, 15:00:58) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    }
+  },
+  "model_parameters": {
+    "dummy": {
+      "constant": null,
+      "random_state": null,
+      "strategy": "most_frequent"
+    },
+    "lr": {
+      "C": 1.0,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 100,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    }
+  },
+  "tests": {
+    "passed": 84,
+    "new_G3_tests": 8
+  },
+  "missing_policy": "Train-only median imputation; keep_empty_features=True. Train-only StandardScaler for LR; preserve all 6189 keys.",
+  "limits": [
+    "Only Dummy and LR are completed here; not all group G3 models.",
+    "BVP missingness from G2 remains; no additional feature extraction or detector changes.",
+    "Default parameters retained; no nested tuning, balancing or feature selection."
+  ],
+  "zip_path": "outputs\\g3_baselines_physiological68_v1.zip",
+  "zip_sha256": "d339de4fb11848948d3e96749e60c40cf15c98fd3ff7a67d8bf665218f12fdfe"
+}
