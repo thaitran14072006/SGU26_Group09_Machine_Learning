@@ -2,6 +2,8 @@
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
+G3 phần Như có [bản chuẩn bị RF/MLP mặc định và lệnh quick một fold](docs/G3_NHU_CHUAN_BI.md). Đã kiểm tra luồng bằng dữ liệu giả; chưa chọn bảng đầu vào thay nhóm hoặc chạy kết quả G3 chính thức. Factory/cấu hình riêng giữ seed 42, chưa tuning.
+
 Cập nhật G2 sinh lý: **đã chốt G2 bản cơ bản** theo [biên bản nghiệm thu](docs/G2_NGHIEM_THU.md). Bộ chung đủ 15 người, 6.189 cửa sổ, 68 feature + 8 metadata, cùng nguồn của Như và Python 3.12.14; đã kiểm tra schema, khóa, manifest, checksum và quality report. Giữ cùng tập cửa sổ cho ba nhóm cảm biến, giữ NaN có lý do và công bố hạn chế BVP; không đổi phương pháp để ép hết thiếu. Gói ngoài Git: `data/features/g2_physiological68_group15_20261107.zip`; xem [bàn giao](docs/G2_BAN_GIAO.md). Không thay đổi bộ raw112 trong hướng dẫn dưới đây hoặc thực hiện mô hình G3 trong lượt chốt này.
 
 Phần G2 của Như có [bản tiền xử lý cơ bản và kết quả lô S4/S9/S11/S17](docs/G2_NHU_BAN_CO_BAN.md): lọc EDA/RESP, căn cửa sổ theo tần số gốc và kiểm tra ACC/EMG theo đoạn 5 giây. Bảng chẩn đoán G2 được lưu riêng; bộ 112 raw trong hướng dẫn dưới đây giữ nguyên định nghĩa.

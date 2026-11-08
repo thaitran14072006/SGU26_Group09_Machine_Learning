@@ -1,0 +1,93 @@
+{
+  "status": "passed_preparation_checks_only",
+  "date": "2026-11-08",
+  "data_kind": "synthetic_fixture_not_WESAD",
+  "official_G3_run_started": false,
+  "group_feature_table_selected": false,
+  "models": [
+    "rf",
+    "mlp"
+  ],
+  "tasks": [
+    "multiclass",
+    "binary"
+  ],
+  "test_count_passed": 81,
+  "new_RF_MLP_tests": 5,
+  "quick_run_status": "partial",
+  "n_checked_folds": 4,
+  "quick_scope": "quick_one_outer_subject_not_official_G3",
+  "default_changes": {
+    "rf": {
+      "random_state": 42,
+      "n_jobs": 1
+    },
+    "mlp": {
+      "random_state": 42
+    }
+  },
+  "preprocessing": "median imputer keep_empty_features=True; StandardScaler; fit on training fold only",
+  "checks": [
+    "default estimator parameters match installed locked library except documented seed/jobs",
+    "training imputer/scaler statistics unchanged after predicting an extreme test distribution",
+    "both tasks and models use disjoint training/test subjects on synthetic fixture",
+    "four completed quick folds, 72 unique predictions, runner status remains partial",
+    "resume reuses verified synthetic fold outputs without refitting",
+    "CLI requires explicit features/test-subject/sensor-set/output; no default group input selection"
+  ],
+  "limitations": [
+    "No real WESAD training/evaluation in this preparation",
+    "No plots or official 15-subject metrics yet",
+    "No tuning, selection or resampling"
+  ],
+  "synthetic_quick_logs": {
+    "multiclass/rf": {
+      "seconds_fit_and_predict": 0.1283,
+      "warnings": [],
+      "train_subjects": [
+        "S2",
+        "S3"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "multiclass/mlp": {
+      "seconds_fit_and_predict": 0.0503,
+      "warnings": [
+        "Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet."
+      ],
+      "train_subjects": [
+        "S2",
+        "S3"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "binary/rf": {
+      "seconds_fit_and_predict": 0.0824,
+      "warnings": [],
+      "train_subjects": [
+        "S2",
+        "S3"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "binary/mlp": {
+      "seconds_fit_and_predict": 0.0472,
+      "warnings": [
+        "Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet."
+      ],
+      "train_subjects": [
+        "S2",
+        "S3"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    }
+  }
+}
