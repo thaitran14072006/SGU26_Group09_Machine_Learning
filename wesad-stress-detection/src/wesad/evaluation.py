@@ -1,6 +1,7 @@
 """Đánh giá LOSO, tuning theo nhóm và lưu kết quả từng fold."""
 
 from pathlib import Path
+import hashlib
 from time import perf_counter
 import warnings
 
@@ -15,7 +16,7 @@ from threadpoolctl import threadpool_limits
 from wesad.data import SUBJECTS, load_feature_table
 from wesad.models import build_pipeline, search_grid
 from wesad.utils import (code_hash, environment, file_hash, fingerprint, provenance,
-                         log_event, read_json, resolve_path, write_csv, write_json)
+                         log_event, read_json, resolve_path, write_csv, write_json, PROJECT_ROOT)
 
 
 def task_target(frame, task):
@@ -61,15 +62,28 @@ def run_experiment(config, resume=False, outer_subjects=None, allow_partial=Fals
         raise ValueError("Core runner supports global_train only. Subject-test normalization needs a separate declared experiment.")
     X, groups = frame[columns].astype(float), frame.subject_id
     effective = {k: v for k, v in config.items() if k not in {"features", "schema", "output_dir"}}
+    source_paths = config.get("source_paths")
+    if source_paths:
+        sources = [resolve_path(p) for p in source_paths]
+        if any(not p.is_relative_to(PROJECT_ROOT) or p.suffix != '.py' for p in sources):
+            raise ValueError("Experiment source paths must be Python files inside the project.")
+        normalize = config.get('source_hash_normalization') == 'LF'
+        experiment_code = fingerprint({p.relative_to(PROJECT_ROOT).as_posix():
+            hashlib.sha256(p.read_bytes().replace(b'\r\n', b'\n')).hexdigest() if normalize else file_hash(p)
+            for p in sources})
+    else:
+        experiment_code = code_hash()
     identity = {"settings": effective, "data_sha256": file_hash(table_path), "feature_columns": columns,
-                "code_sha256": code_hash(), "environment": environment()}
+                "code_sha256": experiment_code, "environment": environment()}
     signature = fingerprint(identity)
     out = resolve_path(config["output_dir"])
     out.mkdir(parents=True, exist_ok=True)
     manifest_path = out / "config.json"
     if manifest_path.exists() and read_json(manifest_path)["signature"] != signature:
         raise ValueError("Experiment folder has different data/settings/code/environment; use a new output_dir.")
-    write_json(manifest_path, {"signature": signature, **identity, **provenance()})
+    # Preserve the run's source identity; generic provenance may hash unrelated
+    # G2 tools when a declared experiment source set is in use.
+    write_json(manifest_path, {**provenance(), "signature": signature, **identity})
     write_json(out / "environment.json", environment())
     write_json(out / "run_status.json", {"status": "running", "requested_outer_subjects": sorted(selected)})
     try:

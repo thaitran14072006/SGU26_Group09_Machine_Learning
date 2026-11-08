@@ -1,3 +1,5 @@
+> **G3 hiện tại dùng bộ sinh lý 68 đã nghiệm thu**, cấu hình `configs/defaults.yaml`; xem [bàn giao G3 Dummy/LR](docs/G3_BAN_GIAO.md). Hướng dẫn raw112 bên dưới được giữ để truy vết G1/G2 cũ.
+
 > Nhóm chốt bộ 112 thống kê raw ngực/cổ tay. Dùng `configs/features_smoke.yaml` và `configs/experiment.yaml`; hướng dẫn đầy đủ tại [CHIA_NHO_DATA.md](docs/CHIA_NHO_DATA.md).
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
