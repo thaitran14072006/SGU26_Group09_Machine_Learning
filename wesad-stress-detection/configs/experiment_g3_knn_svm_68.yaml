@@ -1,0 +1,36 @@
+# G3: mặc định, 68 đặc trưng sinh lý, đủ 15 người.
+features: data/features/g2_physiological68_all15/all_subjects.csv
+schema: data/features/g2_physiological68_all15/feature_schema.json
+output_dir: outputs/experiments/g3_knn_svm_physiological68_defaults
+expected_subjects:
+- S2
+- S3
+- S4
+- S5
+- S6
+- S7
+- S8
+- S9
+- S10
+- S11
+- S13
+- S14
+- S15
+- S16
+- S17
+models:
+- knn
+- svm
+tasks:
+- multiclass
+- binary
+seed: 42
+sensor_set: combined_physiological68
+normalization: global_train
+balance: false
+nested: false
+variance_threshold: null
+model_factories:
+  knn: wesad.models_neighbors_svm:build_pipeline
+  svm: wesad.models_neighbors_svm:build_pipeline
+model_params: {}
