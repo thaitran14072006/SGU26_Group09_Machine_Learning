@@ -1,5 +1,7 @@
 # G3 phần Như — RF/MLP cơ bản, cập nhật 08/11/2026
 
+> Cập nhật mới nhất: đã chạy đủ 15 lượt LOSO cho RF/MLP ở cả hai bài toán, 60 fold và 24.756 dự đoán. Xem [kết quả G3 của Như](G3_NHU_KET_QUA.md). Phần bên dưới giữ lịch sử chuẩn bị/quick; không dùng các điểm quick làm điểm main.
+
 Nhóm đã chốt dùng **68 sinh lý** (`physiological_68_v1`). Đã nhận đúng gói chung, kiểm tra và chạy thử RF/MLP mặc định trên WESAD thật: 14 người train, S4 test. Chưa chạy đủ 15 lượt LOSO, chưa tuning hoặc kết luận hiệu năng chính thức.
 
 ## Đầu vào chung đã nhận

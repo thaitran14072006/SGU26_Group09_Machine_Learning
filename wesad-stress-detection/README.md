@@ -4,7 +4,7 @@
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
-G3 phần Như đã dùng bộ **68 sinh lý** nhóm chốt và chạy thử RF/MLP trên bảng chung 6.189 cửa sổ/15 người: train 14 người, test S4 cho cả ba lớp và nhị phân. Đây là một fold quick, chưa phải kết quả G3 chính thức qua 15 outer subjects; seed 42 và tham số mặc định, chưa tuning. Toàn bộ 90 test đạt. Xem [bàn giao G3 của Như](docs/G3_NHU_CHUAN_BI.md) để biết dữ liệu, kiểm tra và lệnh chạy.
+G3 phần Như đã hoàn thành **RF/MLP mặc định trên bộ 68 sinh lý**: đủ 15 lượt LOSO cho cả ba lớp và nhị phân, 60 fold và 24.756 dự đoán ngoài mẫu. Đã kiểm tra độc lập số liệu, đóng ZIP bàn giao và làm hai hình sơ bộ; chưa tuning hoặc kết luận G3 cả nhóm hoàn tất. Xem [kết quả và bàn giao RF/MLP](docs/G3_NHU_KET_QUA.md); [lịch sử chuẩn bị/quick](docs/G3_NHU_CHUAN_BI.md) được giữ riêng.
 
 Cập nhật G2 sinh lý: **đã chốt G2 bản cơ bản** theo [biên bản nghiệm thu](docs/G2_NGHIEM_THU.md). Bộ chung đủ 15 người, 6.189 cửa sổ, 68 feature + 8 metadata, cùng nguồn của Như và Python 3.12.14; đã kiểm tra schema, khóa, manifest, checksum và quality report. Giữ cùng tập cửa sổ cho ba nhóm cảm biến, giữ NaN có lý do và công bố hạn chế BVP; không đổi phương pháp để ép hết thiếu. Gói ngoài Git: `data/features/g2_physiological68_group15_20261107.zip`; xem [bàn giao](docs/G2_BAN_GIAO.md). Không thay đổi bộ raw112 trong hướng dẫn dưới đây hoặc thực hiện mô hình G3 trong lượt chốt này.
 
