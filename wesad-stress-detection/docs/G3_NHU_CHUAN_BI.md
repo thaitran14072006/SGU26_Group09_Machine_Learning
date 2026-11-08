@@ -1,59 +1,66 @@
-# Chuẩn bị G3 phần Như — 08/11/2026
+# G3 phần Như — RF/MLP cơ bản, cập nhật 08/11/2026
 
-Theo phân công: RF và MLP mặc định, seed 42 khi hỗ trợ; chạy ba lớp và nhị phân bằng LOSO; ghi thời gian, cảnh báo hội tụ và trực quan sơ bộ. Lượt này chỉ chuẩn bị module/cấu hình và lệnh quick một fold; chưa chọn bảng đầu vào thay nhóm, chưa train WESAD hoặc làm G4.
+Nhóm đã chốt dùng **68 sinh lý** (`physiological_68_v1`). Đã nhận đúng gói chung, kiểm tra và chạy thử RF/MLP mặc định trên WESAD thật: 14 người train, S4 test. Chưa chạy đủ 15 lượt LOSO, chưa tuning hoặc kết luận hiệu năng chính thức.
 
-## Bản cơ bản đã có
+## Đầu vào chung đã nhận
+
+- ZIP: `g2_physiological68_group15_20261107.zip`, SHA-256 `68f10ae940e4c1b3d269cf5836803800f3460a92755a5494cd8468d479075c50`.
+- Đã giải nén ngoài Git tại `data/features/g2_physiological68_group15_20261107/`.
+- Bảng có **6.189 cửa sổ, 76 cột = 68 feature + 8 metadata**, đủ S2–S11 và S13–S17.
+- SHA-256 CSV: `2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba`, khớp khóa dữ liệu trong `configs/defaults.yaml`.
+- Đã kiểm tra checksum gói, schema/thứ tự cột, đủ subject, khóa trùng và Inf. NaN/cờ chất lượng giữ nguyên; không điền trước trên toàn bảng.
+- File all_subjects.csv gửi riêng trước đó có 120 cột và checksum `de34cf16aa21e5e15bc61f5c4ac22b859fc7237c048e82fd1b9e63ddef662b91` là **raw112**, không dùng cho lượt sinh lý này.
+
+Số cửa sổ sinh lý khác raw112 (6.189 so với 6.196); không ép bằng nhau. Lần kiểm tra này dùng đúng bảng chung có checksum được chốt.
+
+## Phần mã cơ bản
 
 | File | Nội dung |
 | --- | --- |
-| `src/wesad/models_rf_mlp.py` | Factory RF/MLP riêng cho phần Như, gọi qua cơ chế model_factories của runner Thái |
-| `configs/g3_nhu_defaults.yaml` | Chỉ RF/MLP, hai bài toán, seed 42; features=null chờ đầu vào cụ thể |
-| `scripts/run_nhu_g3_quick.py` | Yêu cầu đường dẫn bảng/schema và subject test; chỉ chạy một outer subject, lưu quick_check.json |
-| `tests/test_models_rf_mlp.py` | 5 test mới về tham số mặc định, xử lý thiếu, train-only preprocessing và LOSO/resume |
-| `reports/g3_nhu/preparation_check.json` | Bằng chứng kiểm tra bằng dữ liệu giả, không công bố điểm mô hình giả như kết quả đồ án |
+| `src/wesad/models_rf_mlp.py` | Factory riêng RF/MLP, gọi runner chung của Thái |
+| `configs/g3_nhu_defaults.yaml` | Seed 42, hai bài toán, combined_physiological68; features=null vì CLI yêu cầu chỉ rõ file |
+| `scripts/run_nhu_g3_quick.py` | Kiểm tra đúng schema 68 trước khi train, chạy một outer subject và ghi rõ phạm vi quick |
+| `tests/test_models_rf_mlp.py` | Kiểm tra mặc định, train-only preprocessing, LOSO/resume và chặn raw112 |
 
-Tận dụng `run_experiment.py`/`evaluation.py` hiện có để lưu dự đoán, metrics, splits, warnings và confusion matrix dạng số. Không viết một bộ LOSO khác hoặc thay đổi code RF/MLP fallback chung của nhóm.
+CLI từ chối raw112, sai phiên bản hoặc sai tên/thứ tự feature. Việc nhóm chọn bộ 68 đã được ghi nhận; `features=null` chỉ buộc truyền đường dẫn rõ ràng, không còn mang nghĩa nhóm chưa chọn loại dữ liệu.
 
-## Cấu hình mặc định
+## Mặc định và xử lý thiếu
 
-- RF dùng `RandomForestClassifier(random_state=42, n_jobs=1)`; các tham số estimator khác giữ mặc định của thư viện khóa.
-- MLP dùng `MLPClassifier(random_state=42)`; giữ hidden_layer_sizes=(100,), max_iter=200 và các mặc định khác, không bật early stopping hoặc tự tăng max_iter.
-- Cả hai pipeline có median imputer và StandardScaler, fit trên train của đúng fold. Giữ cột train trống bằng `keep_empty_features=True`; nếu cả cột train thiếu, fallback của imputer là 0 và phải diễn giải giới hạn này khi chọn bộ sinh lý. Không lấy thông tin test để điền thiếu.
-- Không dùng selection, class balancing, resampling hoặc nested tuning trong bản G3 mặc định. Factory từ chối các tùy chọn đó và model_params override để tránh nhầm với mặc định.
-- X do loader chung chọn từ schema, không lấy subject_id, window_id, thời gian, nhãn hoặc quality_flag làm feature.
+- RF: `RandomForestClassifier(random_state=42, n_jobs=1)`, các tham số estimator khác giữ mặc định của phiên bản khóa.
+- MLP: `MLPClassifier(random_state=42)`, hidden_layer_sizes=(100,), max_iter=200, không tự tăng max_iter hoặc bật early stopping.
+- Cả hai có median imputer với keep_empty_features=True và StandardScaler, chỉ fit trên train của từng fold. Cột hoàn toàn thiếu trong train được giữ theo fallback 0 của imputer; không học giá trị thay thế từ test.
+- Không tuning, selection, balancing hoặc resampling. X chỉ gồm feature theo schema, không dùng mã người, thời gian, nhãn hoặc quality_flag.
+- Tận dụng runner hiện có để lưu dự đoán, điểm, splits, thời gian fit+predict, warnings và confusion matrix dạng số. Không tạo một bộ LOSO riêng.
 
-## Đã kiểm tra, chưa phải kết quả G3
+## Lượt thử đúng bảng 15 người
 
-Toàn checkout: **81/81 test đạt**, có 5 test mới RF/MLP. Đã chạy CLI quick thật trên bảng giả có ba subject S2/S3/S4: train S2+S3, test S4, hai mô hình × hai bài toán = bốn fold hoàn tất. Có 72 dòng dự đoán riêng biệt theo task/model/window, status `partial` và nhãn quick, chưa đủ 15 lượt LOSO.
+Train 14 người trừ S4; test 404 cửa sổ S4. Hai mô hình × hai bài toán = bốn lượt fit. Output ngoài Git: `outputs/g3_nhu_phys68_group15_quick_20261108/`.
 
-Fixture chỉ kiểm tra đường đi mã và giao diện; tên subject là mã giả tương thích loader, không phải tín hiệu WESAD của các subject này. Các điểm trong output giả không được dùng làm kết quả đồ án. Fixture/output ở ngoài Git tại `outputs/g3_nhu_synthetic_check_20261108/`; báo cáo nhỏ chỉ ghi kiểm tra, không ghi điểm F1 từ dữ liệu giả.
+| Bài toán | Mô hình | Macro-F1 trên S4 | Balanced Accuracy trên S4 |
+| --- | --- | ---: | ---: |
+| Ba lớp | RF | 0.6241 | 0.6667 |
+| Ba lớp | MLP | 0.6212 | 0.6610 |
+| Nhị phân | RF | 1.0000 | 1.0000 |
+| Nhị phân | MLP | 1.0000 | 1.0000 |
 
-Test fit MLP mặc định trên một mẫu giả nhỏ có phát sinh cảnh báo chưa hội tụ ở 200 vòng; không sửa max_iter để làm mất cảnh báo. Khi chạy WESAD, xem warnings của từng fold và báo đúng trường hợp không hội tụ.
+Đây chỉ là **một subject test**, không phải điểm trung bình 15 người. Điểm nhị phân 1.0 trên S4 không đủ để kết luận mô hình hoàn hảo hoặc tổng quát hóa tốt. Cả bốn lượt không ghi cảnh báo trong lần chạy này. BVP thiếu vẫn là giới hạn của đầu vào; không chỉnh detector hoặc dữ liệu để làm tăng điểm.
 
-## Khi nhận bảng dữ liệu nhóm chốt
-
-Chưa quyết định thay nhóm giữa raw112 và sinh lý68. Nhận đúng `all_subjects.csv` cùng schema đi kèm; ghi rõ sensor_set theo gói thực tế. Dùng thư mục output mới cho mỗi lần thay dữ liệu/code/cấu hình.
-
-Ví dụ cú pháp sau khi có bảng raw112 chung trên máy (thay đường dẫn nếu nhóm chọn gói khác):
+Đã kiểm tra 1.616 dòng dự đoán: không trùng khóa theo task/model/subject/window, y_true đúng theo S4, S4 không xuất hiện trong train; tính lại Macro-F1/Balanced Accuracy và xác minh hash tệp từng fold. Status vẫn **partial**, chưa đủ 15 outer subjects. Bằng chứng nhỏ: [physiological68_group15_quick_check.json](../reports/g3_nhu/physiological68_group15_quick_check.json).
 
 ```powershell
-.\.venv-g1\Scripts\python.exe -X utf8 scripts/run_nhu_g3_quick.py --features data/features/g2_raw112_group15_20261107/all_subjects.csv --test-subject S4 --sensor-set combined_raw112 --output outputs/g3_nhu_raw112_quick_lan1
+.\.venv-g1\Scripts\python.exe -X utf8 scripts/run_nhu_g3_quick.py --features data/features/g2_physiological68_group15_20261107/all_subjects.csv --test-subject S4 --output outputs/g3_nhu_phys68_group15_quick_lan2
 ```
 
-Đây là hướng dẫn cho gói sẽ nhận, chưa phải lệnh đã chạy trên dữ liệu thật. Quick cho phép bảng thiếu subject để kiểm tra luồng; nếu dùng bảng lô bốn người thì train chỉ có ba người và vẫn không phải LOSO 14-train/1-test chính thức. Lệnh không tự chốt đầu vào, không chạy toàn bộ test subjects và không có resume; chọn output mới để giữ bằng chứng.
+Dùng output mới để giữ bằng chứng. Không đưa các dự đoán quick vào bảng G3 chính thức. Macro-F1 theo tập nhãn cố định, zero_division=0; Balanced Accuracy theo các lớp thực sự có trong test như runner chung.
 
-Xem sau khi chạy:
+## Kiểm tra và lịch sử
 
-- `quick_check.json`: phạm vi quick, thời gian fit+predict và warnings của bốn fold.
-- `folds/<task>/<model>/<subject>/details.json`: cảnh báo, train/test subjects, confusion matrix theo thứ tự [1,2,3] hoặc [0,1].
-- `metrics_by_subject.csv`, `predictions.csv`, `splits.json`, `summary.json`: giữ trạng thái partial; không đưa vào bảng kết quả G3 chính thức.
-
-Runner hiện ghi thời gian fit và predict chung, chưa tách riêng. Các định nghĩa metric kế thừa runner: Macro-F1 theo tập nhãn cố định với zero_division=0; Balanced Accuracy dùng các lớp thật có mặt trong test fold. Trường hợp thiếu lớp cần Thái/Mai xác nhận chính sách trước báo cáo chính thức.
+- Toàn checkout **90/90 test đạt**, có test chặn input raw112 và nhận đúng hợp đồng 68. Sửa fixture baseline để đọc hợp đồng trong Git, không phụ thuộc ZIP dữ liệu bị ignore; không thay code/mô hình baseline.
+- Bản chuẩn bị trước đó kiểm tra bằng dữ liệu giả; [preparation_check.json](../reports/g3_nhu/preparation_check.json) giữ nguyên là bằng chứng lịch sử, không chứa điểm mô hình giả làm kết quả đồ án.
+- Trước khi có ZIP chung, đã thử lô thật S4/S9/S11/S17 với 3 train / 1 test; bằng chứng riêng ở [physiological68_local4_quick_check.json](../reports/g3_nhu/physiological68_local4_quick_check.json). Không trộn lượt này với lượt 14 train / 1 test phía trên.
 
 ## Các đợt tiếp theo
 
-1. Sau khi nhóm chốt dữ liệu: thử một fold trên WESAD thật, kiểm tra feature/NaN, thời gian và hội tụ.
-2. Sau khi lượt thử đạt yêu cầu: chạy đủ 15 outer subjects bằng runner chung, lưu dự đoán và điểm hai bài toán. Không tự bỏ `features=null` hoặc thay đầu vào trước khi có gói đã chọn.
-3. Từ dự đoán thật: làm confusion matrix và biểu đồ sơ bộ. Bản chuẩn bị này chưa thêm biểu đồ.
+Bước tiếp theo là chạy RF/MLP đủ 15 outer subjects theo giao thức G3 chung và giữ riêng output main với quick, rồi làm hình từ dự đoán thật. Cần dùng đúng khóa CSV trên và thống nhất giao diện bàn giao với Thái/Mai. Bản cập nhật này dừng ở lượt thử; chưa thêm hình hoặc thực hiện G4. Nếu cần đổi max_iter vì không hội tụ, phải báo riêng cấu hình thay đổi, không gọi đó là mặc định.
 
-Tuning RF/MLP thuộc G4. Giữ bản cơ bản để cập nhật theo từng đợt; không cố tình tạo lỗi hoặc thay đổi tham số mặc định nhằm làm kết quả đẹp hơn. Người dùng tự commit và push.
+Người dùng tự commit và push. Dữ liệu CSV/ZIP, output huấn luyện và môi trường Python vẫn ngoài Git.

@@ -26,11 +26,35 @@ class NhuModelsTests(unittest.TestCase):
             self.assertEqual(pipeline["model"].get_params(), reference.get_params())
             self.assertEqual([key for key, _ in pipeline.steps], ["imputer", "scaler", "model"])
 
-    def test_config_registers_both_factories_without_selecting_a_dataset(self):
+    def test_config_registers_factories_for_group_choice_without_assuming_a_file(self):
         config = read_config("configs/g3_nhu_defaults.yaml")
         self.assertIsNone(config["features"])
+        self.assertEqual(config["feature_version"], "physiological_68_v1")
+        self.assertTrue(config["input_feature_family_confirmed_by_group"])
         for name in config["models"]:
             self.assertEqual(build_pipeline(name, config)["model"].random_state, 42)
+
+    def test_quick_input_rejects_raw112_and_accepts_the_68_contract(self):
+        import importlib.util
+        from wesad.utils import PROJECT_ROOT, write_json
+        spec = importlib.util.spec_from_file_location("nhu_g3_quick", PROJECT_ROOT / "scripts/run_nhu_g3_quick.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        contract = read_json(PROJECT_ROOT / "configs/feature_schema.json")
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / "features.csv"
+            schema = root / "feature_schema.json"
+            frame = pd.DataFrame([{"subject_id": "S4", "window_id": "S4_0", "start_s": 0,
+                "end_s": 60, "label_original": 1, "label_binary": 0, "label_fraction": 1.,
+                "quality_flag": "synthetic_test_only", **dict.fromkeys(contract["feature_columns"], 0.)}],
+                columns=contract["output_column_order"])
+            write_csv(path, frame)
+            write_json(schema, contract)
+            self.assertEqual(module.check_input(path)["n_features"], 68)
+            write_json(schema, {**contract, "feature_version": "all_sensors_raw_stats_v1"})
+            with self.assertRaisesRegex(ValueError, "group selected"):
+                module.check_input(path)
 
     def test_default_factory_rejects_nondefault_experiments(self):
         for change in [{"nested": True}, {"balance": True}, {"variance_threshold": 0},

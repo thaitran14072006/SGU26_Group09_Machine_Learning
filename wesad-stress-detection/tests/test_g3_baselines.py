@@ -18,7 +18,8 @@ class G3BaselineTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)
         self.config=read_config('configs/defaults.yaml')
-        schema=read_json(self.config['schema'])
+        # Synthetic unit fixtures must not require the ignored group data ZIP.
+        schema=read_json(Path(__file__).resolve().parents[1]/'configs/feature_schema.json')
         rng=np.random.default_rng(42)
         rows=[]
         for j,subject in enumerate(SUBJECTS):
