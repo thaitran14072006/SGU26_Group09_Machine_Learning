@@ -8,6 +8,8 @@ G3 đã kiểm tra/hợp nhất đủ Dummy/LR/KNN/SVM/RF/MLP: **180 fold, 74.26
 
 G3 phần Như đã hoàn thành **RF/MLP mặc định trên bộ 68 sinh lý**: đủ 15 lượt LOSO cho cả ba lớp và nhị phân, 60 fold và 24.756 dự đoán ngoài mẫu. Đã kiểm tra độc lập số liệu, đóng ZIP bàn giao và làm hai hình sơ bộ; chưa tuning hoặc kết luận G3 cả nhóm hoàn tất. Xem [kết quả và bàn giao RF/MLP](docs/G3_NHU_KET_QUA.md); [lịch sử chuẩn bị/quick](docs/G3_NHU_CHUAN_BI.md) được giữ riêng.
 
+Sau cập nhật Mai `813a11b`, gói RF/MLP đã được đưa vào tổng hợp sáu mô hình. Như đã kiểm tra số liệu của mình trong bảng nhóm khớp kết quả gốc; phần G3 cơ bản của Như đã chốt. Xem mục chốt bàn giao trong tài liệu kết quả; giữ giới hạn nguồn runtime của các producer đúng như [báo cáo tổng hợp Mai](docs/G3_TONG_HOP.md).
+
 Cập nhật G2 sinh lý: **đã chốt G2 bản cơ bản** theo [biên bản nghiệm thu](docs/G2_NGHIEM_THU.md). Bộ chung đủ 15 người, 6.189 cửa sổ, 68 feature + 8 metadata, cùng nguồn của Như và Python 3.12.14; đã kiểm tra schema, khóa, manifest, checksum và quality report. Giữ cùng tập cửa sổ cho ba nhóm cảm biến, giữ NaN có lý do và công bố hạn chế BVP; không đổi phương pháp để ép hết thiếu. Gói ngoài Git: `data/features/g2_physiological68_group15_20261107.zip`; xem [bàn giao](docs/G2_BAN_GIAO.md). Không thay đổi bộ raw112 trong hướng dẫn dưới đây hoặc thực hiện mô hình G3 trong lượt chốt này.
 
 Phần G2 của Như có [bản tiền xử lý cơ bản và kết quả lô S4/S9/S11/S17](docs/G2_NHU_BAN_CO_BAN.md): lọc EDA/RESP, căn cửa sổ theo tần số gốc và kiểm tra ACC/EMG theo đoạn 5 giây. Bảng chẩn đoán G2 được lưu riêng; bộ 112 raw trong hướng dẫn dưới đây giữ nguyên định nghĩa.
