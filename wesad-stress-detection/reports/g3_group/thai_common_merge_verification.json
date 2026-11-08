@@ -1,0 +1,197 @@
+{
+  "status": "passed",
+  "scope": "Thai_independent_common_protocol_merge",
+  "checked_at": "2026-11-08T15:14:00.061904+07:00",
+  "feature_version": "physiological_68_v1",
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "n_input_windows": 6189,
+  "n_features": 68,
+  "n_subjects": 15,
+  "n_models": 6,
+  "n_tasks": 2,
+  "n_folds": 180,
+  "n_predictions": 74268,
+  "missing_models": [],
+  "common_G3_source_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+  "common_G3_protocol": "g3_defaults_physiological68_v1",
+  "merge_tool": "scripts/merge_g3_predictions.py via wesad.g3.merge_runs",
+  "checks": {
+    "all_runs_main_and_complete": true,
+    "same_locked_data_and_feature_columns": true,
+    "common_protocol_and_source_snapshots_verified": true,
+    "python_3_12_14_and_locked_packages_match": true,
+    "fold_checksums_and_14_train_1_test_verified": true,
+    "out_of_fold_truth_and_window_coverage_verified": true,
+    "metrics_confusion_matrices_and_sample_statistics_recomputed": true,
+    "duplicate_prediction_keys": 0,
+    "existing_repository_macro_f1_and_balanced_accuracy_unchanged": true
+  },
+  "packages": [
+    {
+      "member": "Mai",
+      "archive": "g3_baselines_physiological68_v1.zip",
+      "archive_sha256": "d339de4fb11848948d3e96749e60c40cf15c98fd3ff7a67d8bf665218f12fdfe",
+      "models": [
+        "dummy",
+        "lr"
+      ],
+      "tasks": [
+        "multiclass",
+        "binary"
+      ],
+      "run_signature": "845bb75f8658b541c470e1bd97d27ed4759e8183145637c5fc9bc86f13c222a8",
+      "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+      "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+      "source_snapshot_sha256": "1a4b043bff7bb06cd5ff76ef82556a5646c8d0b12ab5ca6c6c24e2bcbed14be6",
+      "producer_git_commit": "8b1e1cd029891db6015c3ae236d5eb77a59a765b",
+      "producer_git_dirty": true,
+      "producer_environment": {
+        "python": "3.12.14 (main, Sep 29 2026, 15:00:58) [MSC v.1944 64 bit (AMD64)]",
+        "packages": {
+          "numpy": "2.5.4",
+          "pandas": "3.1.0",
+          "PyYAML": "6.0.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1",
+          "imbalanced-learn": "0.14.2"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "scope": "main",
+        "n_features": 68,
+        "n_subjects": 15,
+        "n_predictions": 24756,
+        "n_folds": 60,
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+        "warnings_by_fold": [],
+        "models": [
+          "dummy",
+          "lr"
+        ],
+        "tasks": [
+          "multiclass",
+          "binary"
+        ]
+      }
+    },
+    {
+      "member": "Nam",
+      "archive": "Nam_G3_KNN_SVM_Full.zip",
+      "archive_sha256": "6568887aeb8811abc129bfad51fff488e0fa882f1080699452bf61629161b64a",
+      "models": [
+        "knn",
+        "svm"
+      ],
+      "tasks": [
+        "multiclass",
+        "binary"
+      ],
+      "run_signature": "42e1d31ea2fb8ca6e30ef6e829d87bf46bfb88641e7aa1bf887987a92f812163",
+      "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+      "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+      "source_snapshot_sha256": "24252e76048cbd4302f7fa30c62d3cfca3420a4bea2a8661dbf89557803a04ac",
+      "producer_git_commit": "78ba4f8a67001388475666e43c88f74ae2503930",
+      "producer_git_dirty": true,
+      "producer_environment": {
+        "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+        "packages": {
+          "numpy": "2.5.4",
+          "pandas": "3.1.0",
+          "PyYAML": "6.0.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1",
+          "imbalanced-learn": "0.14.2"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "scope": "main",
+        "n_features": 68,
+        "n_subjects": 15,
+        "n_predictions": 24756,
+        "n_folds": 60,
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+        "warnings_by_fold": [],
+        "models": [
+          "knn",
+          "svm"
+        ],
+        "tasks": [
+          "multiclass",
+          "binary"
+        ]
+      }
+    },
+    {
+      "member": "Nhu",
+      "archive": "g3_nhu_rf_mlp_phys68_main_20261108.zip",
+      "archive_sha256": "a9756c4f32a8b5728e5ad9cee19acb28d6c6d3feada173c31e6b59dfd7fc5170",
+      "models": [
+        "rf",
+        "mlp"
+      ],
+      "tasks": [
+        "multiclass",
+        "binary"
+      ],
+      "run_signature": "299864b57df1af923491566a14953dd95ae86a752983b017e45ef15e7d7fff15",
+      "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+      "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+      "source_snapshot_sha256": "24fcc88afd208265246373fd5f74c4cabd81f2220b3d9112972c7230cd3be7b4",
+      "producer_git_commit": "82b29517ecdba0a32d638273b03b09985db8b27f",
+      "producer_git_dirty": false,
+      "producer_environment": {
+        "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+        "packages": {
+          "numpy": "2.5.4",
+          "pandas": "3.1.0",
+          "PyYAML": "6.0.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1",
+          "imbalanced-learn": "0.14.2"
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "scope": "main",
+        "n_features": 68,
+        "n_subjects": 15,
+        "n_predictions": 24756,
+        "n_folds": 60,
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+        "warnings_by_fold": [],
+        "models": [
+          "rf",
+          "mlp"
+        ],
+        "tasks": [
+          "multiclass",
+          "binary"
+        ]
+      }
+    }
+  ],
+  "merged_outputs": {
+    "predictions.csv": {
+      "sha256": "cde7a3502b8ed20dcb6cd133fc3f1be75ddb2d4c40c4935453ddd8411b3fccd1"
+    },
+    "metrics_by_subject.csv": {
+      "sha256": "c51b829d4ad89e9160e8ef4b806cede0c4f594c1a584f5fe244ad5ca4953a975"
+    },
+    "summary.json": {
+      "sha256": "04a513c3781011420d171cfa68f73fe893c9cfced64ef9a2ae140a1e39338c7b"
+    }
+  },
+  "provenance_policy": [
+    "New Nam common-protocol package supersedes the old factory-run package for this independent merge.",
+    "Historical received_packages.json and summary.json remain evidence of the earlier merge.",
+    "Producer git_dirty and Python build strings are retained as recorded.",
+    "Common source acceptance covers the seven declared G3 files, not every repository file or identical Python builds.",
+    "No models were retrained during verification or merge.",
+    "Producer archives and detailed predictions are stored outside Git."
+  ]
+}
