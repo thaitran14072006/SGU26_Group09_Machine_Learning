@@ -1,6 +1,6 @@
 # G3: mặc định, 68 đặc trưng sinh lý, đủ 15 người.
-features: data/features/g2_physiological68_nam_py31214/all_subjects.csv
-schema: data/features/g2_physiological68_nam_py31214/feature_schema.json
+features: data/features/g2_physiological68_group15_20261107/all_subjects.csv
+schema: data/features/g2_physiological68_group15_20261107/feature_schema.json
 output_dir: outputs/experiments/g3_knn_svm_physiological68_defaults
 expected_subjects:
 - S2
