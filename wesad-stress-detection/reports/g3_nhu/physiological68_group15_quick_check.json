@@ -1,0 +1,166 @@
+{
+  "status": "passed_one_outer_subject_quick_check",
+  "data_kind": "real_WESAD_physiological68_group15",
+  "feature_version": "physiological_68_v1",
+  "group_choice_confirmed": true,
+  "official_15_fold_run": false,
+  "n_input_subjects": 15,
+  "n_train_subjects": 14,
+  "test_subject": "S4",
+  "n_input_windows": 6189,
+  "n_features": 68,
+  "n_test_windows": 404,
+  "n_prediction_rows": 1616,
+  "n_completed_model_task_folds": 4,
+  "csv_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "matches_locked_group_csv": true,
+  "zip_name": "g2_physiological68_group15_20261107.zip",
+  "zip_sha256": "68f10ae940e4c1b3d269cf5836803800f3460a92755a5494cd8468d479075c50",
+  "metrics": [
+    {
+      "subject_id": "S4",
+      "task": "multiclass",
+      "model": "rf",
+      "n_test": 404,
+      "macro_f1": 0.6240995415848068,
+      "balanced_accuracy": 0.6666666666666666,
+      "seconds": 1.4322
+    },
+    {
+      "subject_id": "S4",
+      "task": "multiclass",
+      "model": "mlp",
+      "n_test": 404,
+      "macro_f1": 0.621225978366416,
+      "balanced_accuracy": 0.660968660968661,
+      "seconds": 0.7329
+    },
+    {
+      "subject_id": "S4",
+      "task": "binary",
+      "model": "rf",
+      "n_test": 404,
+      "macro_f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "seconds": 1.1329
+    },
+    {
+      "subject_id": "S4",
+      "task": "binary",
+      "model": "mlp",
+      "n_test": 404,
+      "macro_f1": 1.0,
+      "balanced_accuracy": 1.0,
+      "seconds": 0.6281
+    }
+  ],
+  "runtime_and_warnings": {
+    "multiclass/rf": {
+      "seconds_fit_and_predict": 1.4322,
+      "warnings": [],
+      "train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "multiclass/mlp": {
+      "seconds_fit_and_predict": 0.7329,
+      "warnings": [],
+      "train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "binary/rf": {
+      "seconds_fit_and_predict": 1.1329,
+      "warnings": [],
+      "train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "binary/mlp": {
+      "seconds_fit_and_predict": 0.6281,
+      "warnings": [],
+      "train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    }
+  },
+  "default_estimator_settings_preserved": true,
+  "all_tests_passed": 90,
+  "checks": [
+    "all 15 original subjects, exact 76-column contract, no Inf or duplicate keys",
+    "group CSV hash equals configs/defaults.yaml lock; package checksums verified",
+    "held-out S4 absent from all 14 training subjects",
+    "1616 predictions checked against true labels and fold hashes",
+    "macro-F1 and balanced accuracy recomputed from predictions"
+  ],
+  "limits": [
+    "One test subject only, not official 15-fold LOSO performance",
+    "No across-subject mean/std; no tuning",
+    "BVP missing features remain; train-fold imputation only"
+  ],
+  "output_directory": "outputs/g3_nhu_phys68_group15_quick_20261108"
+}

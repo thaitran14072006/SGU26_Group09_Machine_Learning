@@ -1,0 +1,124 @@
+{
+  "status": "passed_quick_check_only",
+  "data_kind": "real_WESAD_physiological68",
+  "group_chose_feature_version": "physiological_68_v1",
+  "official_15_subject_run": false,
+  "scope": "quick_train_3_subjects_test_S4",
+  "train_subjects": [
+    "S9",
+    "S11",
+    "S17"
+  ],
+  "test_subjects": [
+    "S4"
+  ],
+  "n_input_windows": 1658,
+  "n_features": 68,
+  "n_test_windows": 404,
+  "n_prediction_rows": 1616,
+  "data_sha256": "3b44c4b8bc69634fd43a7a6aa08aa35be1d8e2ea983fd865eb2ef4f4d8789850",
+  "default_estimator_settings_preserved": true,
+  "result_status": "partial",
+  "metrics": [
+    {
+      "subject_id": "S4",
+      "task": "multiclass",
+      "model": "rf",
+      "n_test": 404,
+      "macro_f1": 0.4341446041493278,
+      "balanced_accuracy": 0.44501424501424497,
+      "seconds": 0.4164
+    },
+    {
+      "subject_id": "S4",
+      "task": "multiclass",
+      "model": "mlp",
+      "n_test": 404,
+      "macro_f1": 0.621225978366416,
+      "balanced_accuracy": 0.660968660968661,
+      "seconds": 0.2496
+    },
+    {
+      "subject_id": "S4",
+      "task": "binary",
+      "model": "rf",
+      "n_test": 404,
+      "macro_f1": 0.4153400868306802,
+      "balanced_accuracy": 0.5,
+      "seconds": 0.3793
+    },
+    {
+      "subject_id": "S4",
+      "task": "binary",
+      "model": "mlp",
+      "n_test": 404,
+      "macro_f1": 0.9878441402136302,
+      "balanced_accuracy": 0.982905982905983,
+      "seconds": 0.4123
+    }
+  ],
+  "warnings_and_runtime": {
+    "multiclass/rf": {
+      "seconds_fit_and_predict": 0.4164,
+      "warnings": [],
+      "train_subjects": [
+        "S11",
+        "S17",
+        "S9"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "multiclass/mlp": {
+      "seconds_fit_and_predict": 0.2496,
+      "warnings": [],
+      "train_subjects": [
+        "S11",
+        "S17",
+        "S9"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "binary/rf": {
+      "seconds_fit_and_predict": 0.3793,
+      "warnings": [],
+      "train_subjects": [
+        "S11",
+        "S17",
+        "S9"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    },
+    "binary/mlp": {
+      "seconds_fit_and_predict": 0.4123,
+      "warnings": [],
+      "train_subjects": [
+        "S11",
+        "S17",
+        "S9"
+      ],
+      "test_subjects": [
+        "S4"
+      ]
+    }
+  },
+  "checks": [
+    "prediction truth matches held-out S4 original labels/binary mapping",
+    "macro-F1 and balanced accuracy recomputed from saved predictions",
+    "all four completed fold output hashes verified",
+    "test subject absent from training subjects",
+    "input schema guarded against raw112 or wrong feature order"
+  ],
+  "full_group_package_available_locally": false,
+  "next_step": "Obtain selected group15 CSV/schema and verify its locked data hash before official LOSO.",
+  "limits": [
+    "Three training subjects, not fourteen",
+    "No official G3 score or cross-subject mean",
+    "BVP missingness retained; imputation fitted on training folds only"
+  ]
+}

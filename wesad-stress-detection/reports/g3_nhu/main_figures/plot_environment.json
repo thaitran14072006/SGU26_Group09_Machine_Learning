@@ -1,0 +1,9 @@
+{
+  "matplotlib": "3.10.6",
+  "scope": "render_saved_metrics_only_no_training",
+  "run": "g3_nhu_rf_mlp_phys68_main_20261108",
+  "figures": [
+    "confusion_matrices.png",
+    "macro_f1_by_subject.png"
+  ]
+}

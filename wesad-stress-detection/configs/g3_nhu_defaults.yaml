@@ -1,0 +1,17 @@
+# Group chose physiological68 on 2026-11-08; quick CLI requires an explicit input path.
+# scripts/run_nhu_g3_quick.py requires an explicit --features path.
+features: null
+output_dir: outputs/g3_nhu_quick
+expected_subjects: [S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S13, S14, S15, S16, S17]
+models: [rf, mlp]
+tasks: [multiclass, binary]
+model_factories:
+  rf: wesad.models_rf_mlp:build_default_pipeline
+  mlp: wesad.models_rf_mlp:build_default_pipeline
+seed: 42
+sensor_set: combined_physiological68
+feature_version: physiological_68_v1
+input_feature_family_confirmed_by_group: true
+normalization: global_train
+balance: false
+nested: false

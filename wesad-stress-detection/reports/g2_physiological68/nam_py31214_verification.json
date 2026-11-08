@@ -1,0 +1,65 @@
+{
+  "status": "passed_package_checks",
+  "archive": "g2_physiological68_nam_py31214.rar",
+  "archive_sha256": "4026f7a637850bffdd488b09f3cc23936b0e6446ebe21646aa05764f7e613d13",
+  "n_windows": 1638,
+  "subjects": [
+    {
+      "subject_id": "S3",
+      "n_windows": 401
+    },
+    {
+      "subject_id": "S8",
+      "n_windows": 412
+    },
+    {
+      "subject_id": "S14",
+      "n_windows": 410
+    },
+    {
+      "subject_id": "S16",
+      "n_windows": 415
+    }
+  ],
+  "producer": {
+    "signature": "27c25dd9560dfb94932aaa9f4f78e05c185e10e2b877fa20b047b45f71575e4a",
+    "processing": {
+      "subject_processor": "wesad.features:process_subject",
+      "preprocessing_provider": "wesad.preprocessing_physiological:prepare_subject",
+      "adapter_status": "basic_provider_pending_group_review",
+      "input_units": "official_wesad_synchronized_pkl",
+      "feature_contract": "configs/feature_schema.json",
+      "feature_contract_sha256": "40abdf096e28e2207ad4c71f0e5c46fc6e1ae67de861c2f8aceec87d400d3692",
+      "feature_version": "physiological_68_v1",
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "window_seconds": 60,
+      "step_seconds": 5,
+      "label_rule": "majority",
+      "min_label_fraction": 0.9,
+      "seed": 42
+    },
+    "git_commit": "a2b66b9897197e9e99b74b6f3dceaa231097334e",
+    "git_dirty": false,
+    "code_sha256": "61ecff72f0f68357cbfc8697e29445383daf469f0e84624523256c457193508a",
+    "environment": {
+      "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:37:13) [MSC v.1942 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    }
+  },
+  "use_in_final_package": false,
+  "reason": "Canonical final package already recomputed all 15 using a single source/environment; do not replace or append duplicate subjects.",
+  "limits": [
+    "Full Python build differs; source hash retained as producer declared. No claim of identical producer code hash or cross-machine equivalence."
+  ]
+}

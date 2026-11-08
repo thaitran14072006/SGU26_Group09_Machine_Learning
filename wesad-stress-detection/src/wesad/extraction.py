@@ -79,6 +79,7 @@ def run_extraction(config, subjects=None, resume=False):
     write_json(snapshot, {"signature": signature, "processing": processing, **provenance(), "environment": environment()})
     write_json(out / "run_status.json", {"status": "running", "subjects": [p.stem for p in paths]})
     summaries, frames, schema_columns = [], [], None
+    output_contract = None
     try:
         for path in paths:
             started = perf_counter()
@@ -90,10 +91,12 @@ def run_extraction(config, subjects=None, resume=False):
                     manifest = read_json(manifest_path)
                     if (manifest.get("status") == "complete" and manifest.get("signature") == signature and manifest.get("source_sha256") == source_hash
                             and manifest.get("csv_sha256") == file_hash(target)):
-                        frame = pd.read_csv(target, dtype={"subject_id": str, "window_id": str})
+                        frame = pd.read_csv(target, dtype={"subject_id": str, "window_id": str}, float_precision="round_trip")
                         validate_features(frame, manifest["feature_columns"], [path.stem])
                         if len(frame) != manifest["n_windows"]:
                             raise ValueError("Incomplete cached rows.")
+                        if "feature_contract" in manifest:
+                            frame.attrs["feature_contract"] = manifest["feature_contract"]
                         skipped = True
                 except (ValueError, KeyError, OSError):
                     frame = None
@@ -108,11 +111,18 @@ def run_extraction(config, subjects=None, resume=False):
                             "n_windows": len(frame), "seconds": round(perf_counter() - started, 3)}
                 if "extraction_qa" in frame.attrs:
                     manifest["extraction_qa"] = frame.attrs["extraction_qa"]
+                if "feature_contract" in frame.attrs:
+                    manifest["feature_contract"] = frame.attrs["feature_contract"]
                 write_json(manifest_path, manifest)
             columns = validate_features(frame)
             if schema_columns is not None and columns != schema_columns:
                 raise ValueError("Different feature order across subjects.")
             schema_columns = columns
+            if "feature_contract" in frame.attrs:
+                candidate = frame.attrs["feature_contract"]
+                if output_contract is not None and candidate != output_contract:
+                    raise ValueError("Different feature contracts across subjects.")
+                output_contract = candidate
             summary = {"subject_id": path.stem, "n_windows": len(frame), "resumed": skipped,
                        "seconds": manifest["seconds"]}
             summary.update(manifest.get("extraction_qa", {}))
@@ -125,13 +135,17 @@ def run_extraction(config, subjects=None, resume=False):
         validate_features(merged, schema_columns, [p.stem for p in paths])
         write_csv(out / "all_subjects.csv", merged)
         write_csv(out / "quality_report.csv", pd.DataFrame(summaries))
-        write_json(out / "feature_schema.json", {"feature_columns": schema_columns,
+        actual_schema = {"feature_columns": schema_columns,
                    "feature_version": config["feature_version"], "processing_signature": signature,
                    "sensor_groups": {
                        "chest": [c for c in schema_columns if c.startswith("chest_")],
                        "wrist": [c for c in schema_columns if c.startswith("wrist_")],
                        "combined": schema_columns},
-                   "description": "Raw statistics unless a team subject_processor is configured."})
+                   "description": "Raw statistics unless a team subject_processor is configured."}
+        if output_contract is not None:
+            actual_schema.update(output_contract)
+            actual_schema["description"] = "Physiological feature contract; fixed heuristics, no physiological validation claim."
+        write_json(out / "feature_schema.json", actual_schema)
         write_json(out / "checksums.json", {p.name: file_hash(p) for p in
                    [out / "all_subjects.csv", out / "feature_schema.json", *[out / f"{s.stem}.csv" for s in paths]]})
         write_json(out / "run_status.json", {"status": "complete", "subjects": [p.stem for p in paths],
