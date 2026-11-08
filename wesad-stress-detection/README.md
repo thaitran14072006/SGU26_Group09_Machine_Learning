@@ -4,6 +4,8 @@
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
+**Lấy dữ liệu:** xem [nguồn WESAD, cách nhận gói G2 và kiểm tra SHA-256](docs/DU_LIEU_VA_TRUY_CAP.md). Gói 68 feature nhận trực tiếp từ nhóm, hiện chưa có link tải công khai; raw và bảng feature lớn không nằm trong Git.
+
 G3 đã kiểm tra/hợp nhất đủ Dummy/LR/KNN/SVM/RF/MLP: **180 fold, 74.268 dự đoán ngoài mẫu**, phần tổng hợp của Mai đã hoàn thành. Nguồn Nam là runner cũ đã review riêng, không có snapshot runtime nên không coi mọi nguồn chạy giống hoàn toàn; giới hạn và provenance nằm trong [báo cáo tổng hợp](docs/G3_TONG_HOP.md). Gói cuối ngoài Git: `outputs/g3_group_predictions_six_models_20261108.zip`.
 
 G3 phần Như đã hoàn thành **RF/MLP mặc định trên bộ 68 sinh lý**: đủ 15 lượt LOSO cho cả ba lớp và nhị phân, 60 fold và 24.756 dự đoán ngoài mẫu. Đã kiểm tra độc lập số liệu, đóng ZIP bàn giao và làm hai hình sơ bộ; chưa tuning hoặc kết luận G3 cả nhóm hoàn tất. Xem [kết quả và bàn giao RF/MLP](docs/G3_NHU_KET_QUA.md); [lịch sử chuẩn bị/quick](docs/G3_NHU_CHUAN_BI.md) được giữ riêng.
