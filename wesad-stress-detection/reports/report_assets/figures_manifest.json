@@ -1,0 +1,23 @@
+{
+  "scope": "figures_only_no_training",
+  "metric_source": "reports\\g3_group\\metrics_by_subject.csv",
+  "metric_source_sha256": "142ffc357304b186935ae57134bc37f5a30a90d2c81e6a0a3817046c2a9d8149",
+  "summary_source_sha256": "107e6d2dde4f4329e727611fff58d359fb134bc9550d012d840bcec584e8f1c2",
+  "statistics": "Equal subject weight; sample SD ddof=1, not standard error or confidence interval.",
+  "n_models": 6,
+  "n_tasks": 2,
+  "n_subjects": 15,
+  "n_folds": 180,
+  "renderer": {
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+    "matplotlib": "3.10.6",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "files": {
+    "docs/figures/g3_six_models_comparison.png": "6b5e821baffaf9ad88703e4e3b8dc7de606657c28da094cc8223c2fb75dc6d72",
+    "docs/figures/g3_six_models_comparison.svg": "2184879d382966dcd3c8c1060064d2e7aac44d30c5d994451187c0564bb8fc82",
+    "docs/figures/wesad_pipeline.png": "9e50f400f172bb521d63e906b9b8b6edd47f88eaba2127196a4a079d929aaf8a",
+    "docs/figures/wesad_pipeline.svg": "84d794d69c0b52ecb6772f9ab5c4ee91e0788478670726ac9a0216cdd41e9a9e"
+  },
+  "later_common_protocol_review_sha256": "edad01f8c01c1775a7105d4b9045b44c68c6424b95b26bfd4144594975118dd6"
+}
