@@ -4,7 +4,7 @@
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
-**Lấy dữ liệu:** xem [nguồn WESAD, cách nhận gói G2 và kiểm tra SHA-256](docs/DU_LIEU_VA_TRUY_CAP.md). Gói 68 feature nhận trực tiếp từ nhóm, hiện chưa có link tải công khai; raw và bảng feature lớn không nằm trong Git.
+**Lấy dữ liệu:** [tải ZIP G2 sinh lý68 trên Google Drive](https://drive.google.com/file/d/1_49kkKKLmxywYkf_SZXhIhBQ35_PxA8_/view?usp=sharing), rồi làm theo [hướng dẫn nguồn WESAD, giải nén và kiểm tra SHA-256](docs/DU_LIEU_VA_TRUY_CAP.md). Raw và bảng feature lớn không nằm trong Git.
 
 G3 đã kiểm tra/hợp nhất đủ Dummy/LR/KNN/SVM/RF/MLP: **180 fold, 74.268 dự đoán ngoài mẫu**, phần tổng hợp của Mai đã hoàn thành. Nguồn Nam là runner cũ đã review riêng, không có snapshot runtime nên không coi mọi nguồn chạy giống hoàn toàn; giới hạn và provenance nằm trong [báo cáo tổng hợp](docs/G3_TONG_HOP.md). Gói cuối ngoài Git: `outputs/g3_group_predictions_six_models_20261108.zip`.
 

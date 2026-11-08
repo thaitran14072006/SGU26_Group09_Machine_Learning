@@ -4,7 +4,9 @@
 
 G3 dùng gói `g2_physiological68_group15_20261107.zip` do nhóm tạo từ WESAD: **15 subject, 6.189 cửa sổ, 68 feature sinh lý + 8 metadata**, phiên bản `physiological_68_v1`. Đây là dữ liệu đã xử lý của nhóm, không phải file raw tải trực tiếp từ WESAD. Không dùng bộ raw112 thay cho bộ này.
 
-**Hiện chưa có link tải công khai.** Thành viên/người đánh giá nhận ZIP trực tiếp từ Mai hoặc đầu mối lưu dữ liệu của nhóm. Repository không tự cung cấp ZIP và chưa bảo đảm người ngoài nhóm tải được chỉ bằng một URL; khi có Drive/OneDrive, bổ sung link và quyền truy cập tại mục này. Không đưa raw hoặc CSV feature lớn lên Git.
+**Tải gói G2:** [g2_physiological68_group15_20261107.zip trên Google Drive](https://drive.google.com/file/d/1_49kkKKLmxywYkf_SZXhIhBQ35_PxA8_/view?usp=sharing).
+
+Link do Mai cung cấp ngày 08/11/2026. Sau khi tải, kiểm tra SHA-256 của ZIP theo bảng dưới trước khi giải nén. Checksum chuẩn được xác minh trên gói bàn giao cục bộ; chưa xác minh byte tải từ Drive qua công cụ trong phiên này. Nếu link yêu cầu quyền truy cập, liên hệ chủ sở hữu gói hoặc nhận trực tiếp từ nhóm. Để người đánh giá truy cập không cần tài khoản nhóm, chủ sở hữu cần bật quyền xem/tải cho người có link. Không đưa raw hoặc CSV feature lớn lên Git.
 
 Trên máy đang bàn giao, gói nằm tại:
 
@@ -20,7 +22,7 @@ D:\mayhoc\Machine-learning\wesad-stress-detection\data\features\g2_physiological
 
 Trong thư mục này, `all_subjects.csv` là bảng đầu vào G3, `feature_schema.json` xác định các cột feature, `checksums.json` dùng kiểm tra toàn vẹn. Cấu hình `configs/defaults.yaml` đã trỏ tới thư mục tương ứng bằng đường dẫn tương đối từ project.
 
-Các đường dẫn trên là vị trí cục bộ, không phải link tải cho máy khác. Thành viên khác cần nhận ZIP từ nhóm và đặt đúng cấu trúc thư mục. Sau khi nhận ZIP và kiểm tra hash, giải nén tại thư mục project:
+Các đường dẫn trên là vị trí cục bộ, không phải link tải cho máy khác. Thành viên khác tải ZIP từ Google Drive ở trên hoặc nhận trực tiếp từ nhóm rồi đặt đúng cấu trúc thư mục. Sau khi nhận ZIP và kiểm tra hash, giải nén tại thư mục project:
 
 ```powershell
 Expand-Archive -LiteralPath 'C:\Users\Mai\Downloads\g2_physiological68_group15_20261107.zip' -DestinationPath 'data/features'
