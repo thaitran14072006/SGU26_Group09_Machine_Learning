@@ -1,5 +1,23 @@
 # G3 Như — RF và MLP mặc định, 08/11/2026
 
+## Chốt bàn giao sau cập nhật Mai
+
+Đã cập nhật checkout tới `813a11b` và đọc [tổng hợp G3 của Mai](G3_TONG_HOP.md). Mai đã nhận gói RF/MLP, kiểm tra 261 tệp checksum bàn giao và đưa vào bảng đủ sáu mô hình: 180 fold, 74.268 dự đoán ngoài mẫu. Đây là trạng thái tổng hợp Mai công bố; lượt rà này không nhận lại ZIP dự đoán của cả sáu mô hình.
+
+Như đã kiểm tra lại ZIP gốc trên máy có SHA-256 đúng gói Mai ghi nhận; chạy lại bước **xác minh** 60 fold gốc, không train lại. Toàn bộ 60 dòng metric RF/MLP trong bảng nhóm khớp chính xác bảng gốc, gồm task/model/subject, số mẫu, điểm và thời gian; bốn nhóm summary/mean/std/confusion matrix cũng khớp. Bằng chứng: [group_acceptance_check.json](../reports/g3_nhu/group_acceptance_check.json).
+
+| Yêu cầu G3 của Như | Trạng thái |
+| --- | --- |
+| RF/MLP mặc định, seed 42 | Đã chạy và lưu tham số thật |
+| Ba lớp và nhị phân, đủ 15 lượt LOSO | Đủ 60 fold, 24.756 dự đoán |
+| Ghi thời gian và hội tụ | Có thời gian từng fold; không ghi warnings trong lượt main |
+| Trực quan sơ bộ | Có confusion matrix và Macro-F1 từng subject |
+| Bàn giao, rà sau khi Mai hợp nhất | Gói đã được nhận, số liệu RF/MLP trong bảng nhóm khớp |
+
+**Phần G3 cơ bản được phân công của Như đã hoàn tất.** Không còn lượt train bổ sung bắt buộc trong G3 ở bản này. Giữ các mục tuning/biến thể, phân tích sâu và hình báo cáo cuối cho các giai đoạn sau hoặc góp ý cụ thể. Lượt này chỉ chốt kiểm tra và bàn giao, không đổi mô hình, dữ liệu hay tạo gói ZIP mới.
+
+Giới hạn nguồn runtime KNN/SVM được Mai ghi trong báo cáo nhóm vẫn giữ nguyên; kết quả rà RF/MLP không nâng thành chứng nhận mọi producer cùng source runtime. Không thực hiện kiểm định hoặc kết luận chất lượng sinh lý trong bước chốt G3 này.
+
 Đã hoàn thành phần chạy RF/MLP mặc định và hình sơ bộ: hai bài toán, mỗi mô hình/bài toán đủ 15 lượt LOSO. Tổng **60 fold, 24.756 dự đoán ngoài mẫu**. Phạm vi chỉ phần Như; chưa ghi G3 toàn nhóm hoàn tất hoặc thực hiện tuning G4.
 
 ## Dữ liệu và cách chạy

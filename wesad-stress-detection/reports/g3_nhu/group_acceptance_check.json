@@ -1,0 +1,29 @@
+{
+  "status": "passed_RF_MLP_handoff_and_group_metrics_check",
+  "date": "2026-11-08",
+  "reviewed_group_commit": "813a11b",
+  "scope": "Nhu_G3_basic_completion_only",
+  "mai_received_status": "passed",
+  "zip_sha256": "a9756c4f32a8b5728e5ad9cee19acb28d6c6d3feada173c31e6b59dfd7fc5170",
+  "checked_original_handoff_files_reported_by_mai": 261,
+  "RF_MLP_folds": 60,
+  "RF_MLP_predictions": 24756,
+  "RF_MLP_metrics_rows_match_exactly": true,
+  "RF_MLP_summary_and_confusion_matrices_match": true,
+  "local_original_run_reverified": true,
+  "group_reported_folds": 180,
+  "group_reported_predictions": 74268,
+  "group_missing_models": [],
+  "source_files_checked": {
+    "reports\\g3_group\\summary.json": "107e6d2dde4f4329e727611fff58d359fb134bc9550d012d840bcec584e8f1c2",
+    "reports\\g3_group\\metrics_by_subject.csv": "142ffc357304b186935ae57134bc37f5a30a90d2c81e6a0a3817046c2a9d8149",
+    "reports\\g3_group\\received_packages.json": "9c2f8dcca7f3b2955cb7c7080ca4a5a3f7b32b662460b4382785507982266a6b"
+  },
+  "no_model_refit": true,
+  "G4_started": false,
+  "limits": [
+    "Original RF/MLP package and published group metrics checked locally; full six-model prediction ZIP not supplied in this turn.",
+    "KNN/SVM runtime-source limitation from Mai remains; this check does not certify identical runtime source for all producers.",
+    "No statistical significance tests or physiological validation claimed."
+  ]
+}

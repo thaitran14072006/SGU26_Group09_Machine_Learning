@@ -1,5 +1,7 @@
 # Bàn giao G3 Dummy và Logistic Regression
 
+Cập nhật nhận đủ gói 08/11/2026: đã kiểm tra/hợp nhất Dummy/LR/KNN/SVM/RF/MLP, **180 fold, 74.268 dự đoán**; phần tổng hợp của Mai đã hoàn thành. Xem [báo cáo cuối](G3_TONG_HOP.md) về review runner cũ của Nam và giới hạn snapshot runtime, không tuyên bố mọi code hash giống nhau. Các trạng thái chờ bên dưới là lịch sử trước khi nhận đủ gói.
+
 Ngày 08/11/2026: đã hoàn thành Dummy majority và Logistic Regression mặc định cho hai bài toán, mỗi mô hình/bài toán đủ 15 fold LOSO. Phần kiểm tra nhãn, metric theo subject và công cụ hợp nhất dự đoán đã có. Tổng hợp đủ sáu mô hình còn chờ Nam gửi KNN/SVM và Như gửi RF/MLP; không ghi G3 cả nhóm hoàn tất.
 
 ## Dữ liệu và quy tắc chạy
@@ -62,4 +64,4 @@ Khi Nam/Như gửi thư mục kết quả đầy đủ, Mai dùng:
 
 Công cụ kiểm tra cùng checksum bảng, feature/schema, quy tắc mặc định, code G3, Python patch/thư viện, khóa/nhãn dự đoán, checksum fold, đúng 14 train/1 test và metric tính lại; từ chối quick, fold thiếu, khóa trùng và nguồn khác chưa xác minh. Các build Python khác nhau được lưu provenance, không giả cùng chuỗi build. Chỉ báo `complete` khi nhận đủ sáu mô hình, hai bài toán và 15 subject mỗi tổ hợp. Không nhận kết quả tuning hay raw112 vào bảng này.
 
-Chưa commit/push các file G3. Các thay đổi G1 và tài liệu dọn cũ không thuộc commit này.
+Phần Dummy/LR đã push trong `a5e9099`. Các cập nhật hợp nhất cuối mới chưa commit/push; thay đổi G1 và tài liệu dọn cũ không thuộc lượt này.

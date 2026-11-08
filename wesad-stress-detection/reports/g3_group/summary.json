@@ -1,0 +1,823 @@
+{
+  "status": "complete_OOF_aggregation",
+  "scope": "six_default_models_two_tasks_combined_physiological68",
+  "n_subjects": 15,
+  "n_folds": 180,
+  "n_predictions": 74268,
+  "missing_models": [],
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "results": [
+    {
+      "task": "binary",
+      "model": "dummy",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          4341,
+          0
+        ],
+        [
+          1848,
+          0
+        ]
+      ],
+      "macro_f1_mean": 0.412280833506436,
+      "macro_f1_std": 0.0035257644521511874,
+      "balanced_accuracy_mean": 0.5,
+      "balanced_accuracy_std": 0.0
+    },
+    {
+      "task": "binary",
+      "model": "knn",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          3697,
+          644
+        ],
+        [
+          634,
+          1214
+        ]
+      ],
+      "macro_f1_mean": 0.7258402310722236,
+      "macro_f1_std": 0.1823347360535403,
+      "balanced_accuracy_mean": 0.7540544692138772,
+      "balanced_accuracy_std": 0.16498499590571308
+    },
+    {
+      "task": "binary",
+      "model": "lr",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          4086,
+          255
+        ],
+        [
+          512,
+          1336
+        ]
+      ],
+      "macro_f1_mean": 0.8102690822424197,
+      "macro_f1_std": 0.19375701538087678,
+      "balanced_accuracy_mean": 0.830361701020403,
+      "balanced_accuracy_std": 0.17518048524324856
+    },
+    {
+      "task": "binary",
+      "model": "mlp",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          3933,
+          408
+        ],
+        [
+          475,
+          1373
+        ]
+      ],
+      "macro_f1_mean": 0.7985988177486798,
+      "macro_f1_std": 0.18455199888353732,
+      "balanced_accuracy_mean": 0.8224763079984198,
+      "balanced_accuracy_std": 0.16709327408984326
+    },
+    {
+      "task": "binary",
+      "model": "rf",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          3878,
+          463
+        ],
+        [
+          226,
+          1622
+        ]
+      ],
+      "macro_f1_mean": 0.8735236066640247,
+      "macro_f1_std": 0.14399961724891233,
+      "balanced_accuracy_mean": 0.8864823644234859,
+      "balanced_accuracy_std": 0.11428041013837434
+    },
+    {
+      "task": "binary",
+      "model": "svm",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          3932,
+          409
+        ],
+        [
+          312,
+          1536
+        ]
+      ],
+      "macro_f1_mean": 0.8423833958036872,
+      "macro_f1_std": 0.18053258477494386,
+      "balanced_accuracy_mean": 0.8662837186576062,
+      "balanced_accuracy_std": 0.15750595002129666
+    },
+    {
+      "task": "multiclass",
+      "model": "dummy",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          3370,
+          0,
+          0
+        ],
+        [
+          1848,
+          0,
+          0
+        ],
+        [
+          971,
+          0,
+          0
+        ]
+      ],
+      "macro_f1_mean": 0.23504733157030386,
+      "macro_f1_std": 0.0023050657764379116,
+      "balanced_accuracy_mean": 0.33333333333333326,
+      "balanced_accuracy_std": 5.745950043620392e-17
+    },
+    {
+      "task": "multiclass",
+      "model": "knn",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          2426,
+          344,
+          600
+        ],
+        [
+          318,
+          1219,
+          311
+        ],
+        [
+          326,
+          307,
+          338
+        ]
+      ],
+      "macro_f1_mean": 0.5554598432144373,
+      "macro_f1_std": 0.16801041259181854,
+      "balanced_accuracy_mean": 0.5752588843314259,
+      "balanced_accuracy_std": 0.15879635903530612
+    },
+    {
+      "task": "multiclass",
+      "model": "lr",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          2529,
+          237,
+          604
+        ],
+        [
+          275,
+          1368,
+          205
+        ],
+        [
+          445,
+          133,
+          393
+        ]
+      ],
+      "macro_f1_mean": 0.5893909849051658,
+      "macro_f1_std": 0.14841550046399016,
+      "balanced_accuracy_mean": 0.6314714102230179,
+      "balanced_accuracy_std": 0.13936735511968865
+    },
+    {
+      "task": "multiclass",
+      "model": "mlp",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          2716,
+          104,
+          550
+        ],
+        [
+          97,
+          1533,
+          218
+        ],
+        [
+          397,
+          172,
+          402
+        ]
+      ],
+      "macro_f1_mean": 0.6461550431175656,
+      "macro_f1_std": 0.11441781762873393,
+      "balanced_accuracy_mean": 0.6815159324176704,
+      "balanced_accuracy_std": 0.10502342230844758
+    },
+    {
+      "task": "multiclass",
+      "model": "rf",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          2833,
+          217,
+          320
+        ],
+        [
+          95,
+          1698,
+          55
+        ],
+        [
+          582,
+          148,
+          241
+        ]
+      ],
+      "macro_f1_mean": 0.6479554062497738,
+      "macro_f1_std": 0.12972101477439688,
+      "balanced_accuracy_mean": 0.6699982149348902,
+      "balanced_accuracy_std": 0.12039955109663825
+    },
+    {
+      "task": "multiclass",
+      "model": "svm",
+      "n_subjects": 15,
+      "n_predictions": 6189,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          2505,
+          207,
+          658
+        ],
+        [
+          54,
+          1563,
+          231
+        ],
+        [
+          398,
+          191,
+          382
+        ]
+      ],
+      "macro_f1_mean": 0.6176935226704399,
+      "macro_f1_std": 0.16466429135277033,
+      "balanced_accuracy_mean": 0.6594986756913291,
+      "balanced_accuracy_std": 0.15594941610211
+    }
+  ],
+  "source_packages": [
+    {
+      "status": "passed_standard_protocol",
+      "producer": {
+        "git_commit": "8b1e1cd029891db6015c3ae236d5eb77a59a765b",
+        "git_dirty": true,
+        "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+        "signature": "845bb75f8658b541c470e1bd97d27ed4759e8183145637c5fc9bc86f13c222a8",
+        "settings": {
+          "protocol": "g3_defaults_physiological68_v1",
+          "feature_version": "physiological_68_v1",
+          "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+          "source_paths": [
+            "src/wesad/data.py",
+            "src/wesad/evaluation.py",
+            "src/wesad/models.py",
+            "src/wesad/utils.py",
+            "src/wesad/g3.py",
+            "scripts/run_g3_baselines.py",
+            "scripts/merge_g3_predictions.py"
+          ],
+          "source_hash_normalization": "LF",
+          "expected_subjects": [
+            "S2",
+            "S3",
+            "S4",
+            "S5",
+            "S6",
+            "S7",
+            "S8",
+            "S9",
+            "S10",
+            "S11",
+            "S13",
+            "S14",
+            "S15",
+            "S16",
+            "S17"
+          ],
+          "models": [
+            "dummy",
+            "lr"
+          ],
+          "tasks": [
+            "multiclass",
+            "binary"
+          ],
+          "seed": 42,
+          "sensor_set": "combined_physiological68",
+          "normalization": "global_train",
+          "balance": false,
+          "nested": false,
+          "zero_division": 0,
+          "missing_train_class": "error",
+          "missing_test_class": "fixed_labels_for_macro_f1_observed_classes_for_balanced_accuracy",
+          "model_params": {
+            "lr": {
+              "random_state": 42
+            }
+          },
+          "run_kind": "main"
+        },
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "feature_columns": [
+          "chest_ecg_hr_mean_bpm",
+          "chest_ecg_hr_std_bpm",
+          "chest_ecg_mean_rr_ms",
+          "chest_ecg_sd_rr_ms",
+          "chest_ecg_rmssd_ms",
+          "chest_ecg_pnn50",
+          "chest_ecg_power_5_10_hz",
+          "chest_ecg_power_10_20_hz",
+          "chest_ecg_power_20_40_hz",
+          "chest_eda_tonic_mean",
+          "chest_eda_tonic_std",
+          "chest_eda_phasic_mean",
+          "chest_eda_phasic_std",
+          "chest_eda_scr_count",
+          "chest_eda_scr_rate_per_min",
+          "chest_eda_scr_amplitude_mean",
+          "chest_eda_scr_amplitude_max",
+          "chest_resp_rate_mean",
+          "chest_resp_rate_std",
+          "chest_temp_mean",
+          "chest_temp_slope_per_s",
+          "chest_acc_x_5s_mean_mean",
+          "chest_acc_x_5s_std_mean",
+          "chest_acc_x_5s_abs_integral_mean",
+          "chest_acc_y_5s_mean_mean",
+          "chest_acc_y_5s_std_mean",
+          "chest_acc_y_5s_abs_integral_mean",
+          "chest_acc_z_5s_mean_mean",
+          "chest_acc_z_5s_std_mean",
+          "chest_acc_z_5s_abs_integral_mean",
+          "chest_acc_magnitude_5s_mean_mean",
+          "chest_acc_magnitude_5s_std_mean",
+          "chest_acc_magnitude_5s_abs_integral_mean",
+          "chest_emg_5s_rms_mean",
+          "chest_emg_5s_mav_mean",
+          "chest_emg_5s_waveform_length_per_s_mean",
+          "chest_emg_5s_abs_integral_mean",
+          "wrist_bvp_pulse_rate_mean_bpm",
+          "wrist_bvp_pulse_rate_std_bpm",
+          "wrist_bvp_mean_ibi_ms",
+          "wrist_bvp_sd_ibi_ms",
+          "wrist_bvp_rmssd_ibi_ms",
+          "wrist_bvp_pnn50_ibi",
+          "wrist_bvp_power_0p5_1_hz",
+          "wrist_bvp_power_1_2_hz",
+          "wrist_bvp_power_2_5_hz",
+          "wrist_eda_tonic_mean",
+          "wrist_eda_tonic_std",
+          "wrist_eda_phasic_mean",
+          "wrist_eda_phasic_std",
+          "wrist_eda_scr_count",
+          "wrist_eda_scr_rate_per_min",
+          "wrist_eda_scr_amplitude_mean",
+          "wrist_eda_scr_amplitude_max",
+          "wrist_temp_mean",
+          "wrist_temp_slope_per_s",
+          "wrist_acc_x_5s_mean_mean",
+          "wrist_acc_x_5s_std_mean",
+          "wrist_acc_x_5s_abs_integral_mean",
+          "wrist_acc_y_5s_mean_mean",
+          "wrist_acc_y_5s_std_mean",
+          "wrist_acc_y_5s_abs_integral_mean",
+          "wrist_acc_z_5s_mean_mean",
+          "wrist_acc_z_5s_std_mean",
+          "wrist_acc_z_5s_abs_integral_mean",
+          "wrist_acc_magnitude_5s_mean_mean",
+          "wrist_acc_magnitude_5s_std_mean",
+          "wrist_acc_magnitude_5s_abs_integral_mean"
+        ],
+        "environment": {
+          "python": "3.12.14 (main, Sep 29 2026, 15:00:58) [MSC v.1944 64 bit (AMD64)]",
+          "packages": {
+            "numpy": "2.5.4",
+            "pandas": "3.1.0",
+            "PyYAML": "6.0.3",
+            "scipy": "1.18.1",
+            "scikit-learn": "1.9.1",
+            "imbalanced-learn": "0.14.2"
+          }
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "scope": "main",
+        "n_features": 68,
+        "n_subjects": 15,
+        "n_predictions": 24756,
+        "n_folds": 60,
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+        "warnings_by_fold": [],
+        "models": [
+          "dummy",
+          "lr"
+        ],
+        "tasks": [
+          "multiclass",
+          "binary"
+        ]
+      }
+    },
+    {
+      "status": "passed_standard_protocol",
+      "producer": {
+        "git_commit": "82b29517ecdba0a32d638273b03b09985db8b27f",
+        "git_dirty": false,
+        "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+        "signature": "299864b57df1af923491566a14953dd95ae86a752983b017e45ef15e7d7fff15",
+        "settings": {
+          "protocol": "g3_defaults_physiological68_v1",
+          "feature_version": "physiological_68_v1",
+          "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+          "source_paths": [
+            "src/wesad/data.py",
+            "src/wesad/evaluation.py",
+            "src/wesad/models.py",
+            "src/wesad/utils.py",
+            "src/wesad/g3.py",
+            "scripts/run_g3_baselines.py",
+            "scripts/merge_g3_predictions.py"
+          ],
+          "source_hash_normalization": "LF",
+          "expected_subjects": [
+            "S2",
+            "S3",
+            "S4",
+            "S5",
+            "S6",
+            "S7",
+            "S8",
+            "S9",
+            "S10",
+            "S11",
+            "S13",
+            "S14",
+            "S15",
+            "S16",
+            "S17"
+          ],
+          "models": [
+            "rf",
+            "mlp"
+          ],
+          "tasks": [
+            "multiclass",
+            "binary"
+          ],
+          "seed": 42,
+          "sensor_set": "combined_physiological68",
+          "normalization": "global_train",
+          "balance": false,
+          "nested": false,
+          "zero_division": 0,
+          "missing_train_class": "error",
+          "missing_test_class": "fixed_labels_for_macro_f1_observed_classes_for_balanced_accuracy",
+          "model_params": {
+            "lr": {
+              "random_state": 42
+            }
+          },
+          "run_kind": "main"
+        },
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "feature_columns": [
+          "chest_ecg_hr_mean_bpm",
+          "chest_ecg_hr_std_bpm",
+          "chest_ecg_mean_rr_ms",
+          "chest_ecg_sd_rr_ms",
+          "chest_ecg_rmssd_ms",
+          "chest_ecg_pnn50",
+          "chest_ecg_power_5_10_hz",
+          "chest_ecg_power_10_20_hz",
+          "chest_ecg_power_20_40_hz",
+          "chest_eda_tonic_mean",
+          "chest_eda_tonic_std",
+          "chest_eda_phasic_mean",
+          "chest_eda_phasic_std",
+          "chest_eda_scr_count",
+          "chest_eda_scr_rate_per_min",
+          "chest_eda_scr_amplitude_mean",
+          "chest_eda_scr_amplitude_max",
+          "chest_resp_rate_mean",
+          "chest_resp_rate_std",
+          "chest_temp_mean",
+          "chest_temp_slope_per_s",
+          "chest_acc_x_5s_mean_mean",
+          "chest_acc_x_5s_std_mean",
+          "chest_acc_x_5s_abs_integral_mean",
+          "chest_acc_y_5s_mean_mean",
+          "chest_acc_y_5s_std_mean",
+          "chest_acc_y_5s_abs_integral_mean",
+          "chest_acc_z_5s_mean_mean",
+          "chest_acc_z_5s_std_mean",
+          "chest_acc_z_5s_abs_integral_mean",
+          "chest_acc_magnitude_5s_mean_mean",
+          "chest_acc_magnitude_5s_std_mean",
+          "chest_acc_magnitude_5s_abs_integral_mean",
+          "chest_emg_5s_rms_mean",
+          "chest_emg_5s_mav_mean",
+          "chest_emg_5s_waveform_length_per_s_mean",
+          "chest_emg_5s_abs_integral_mean",
+          "wrist_bvp_pulse_rate_mean_bpm",
+          "wrist_bvp_pulse_rate_std_bpm",
+          "wrist_bvp_mean_ibi_ms",
+          "wrist_bvp_sd_ibi_ms",
+          "wrist_bvp_rmssd_ibi_ms",
+          "wrist_bvp_pnn50_ibi",
+          "wrist_bvp_power_0p5_1_hz",
+          "wrist_bvp_power_1_2_hz",
+          "wrist_bvp_power_2_5_hz",
+          "wrist_eda_tonic_mean",
+          "wrist_eda_tonic_std",
+          "wrist_eda_phasic_mean",
+          "wrist_eda_phasic_std",
+          "wrist_eda_scr_count",
+          "wrist_eda_scr_rate_per_min",
+          "wrist_eda_scr_amplitude_mean",
+          "wrist_eda_scr_amplitude_max",
+          "wrist_temp_mean",
+          "wrist_temp_slope_per_s",
+          "wrist_acc_x_5s_mean_mean",
+          "wrist_acc_x_5s_std_mean",
+          "wrist_acc_x_5s_abs_integral_mean",
+          "wrist_acc_y_5s_mean_mean",
+          "wrist_acc_y_5s_std_mean",
+          "wrist_acc_y_5s_abs_integral_mean",
+          "wrist_acc_z_5s_mean_mean",
+          "wrist_acc_z_5s_std_mean",
+          "wrist_acc_z_5s_abs_integral_mean",
+          "wrist_acc_magnitude_5s_mean_mean",
+          "wrist_acc_magnitude_5s_std_mean",
+          "wrist_acc_magnitude_5s_abs_integral_mean"
+        ],
+        "environment": {
+          "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+          "packages": {
+            "numpy": "2.5.4",
+            "pandas": "3.1.0",
+            "PyYAML": "6.0.3",
+            "scipy": "1.18.1",
+            "scikit-learn": "1.9.1",
+            "imbalanced-learn": "0.14.2"
+          }
+        }
+      },
+      "verification": {
+        "status": "passed",
+        "scope": "main",
+        "n_features": 68,
+        "n_subjects": 15,
+        "n_predictions": 24756,
+        "n_folds": 60,
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+        "warnings_by_fold": [],
+        "models": [
+          "rf",
+          "mlp"
+        ],
+        "tasks": [
+          "multiclass",
+          "binary"
+        ]
+      }
+    },
+    {
+      "status": "passed_OOF_and_reviewed_declared_protocol",
+      "source_review": {
+        "factory_sha256_LF": "2794d76159e9cd051d935b45f18c7ff7e3468ed1a1cc0a53d3ed800a354a00f1",
+        "numerical_evaluation_AST_matches": true,
+        "review_scope": "Supplied source bundle; runner differences are source-identity metadata. Factory reviewed as median imputer/keep_empty_features, StandardScaler, default KNN/SVC.",
+        "runtime_source_snapshot_bound_to_result_hash": false,
+        "limit": "Result producer is dirty and has no runtime source snapshot. Review of supplied source does not establish exact identity of all files at training time."
+      },
+      "producer": {
+        "git_commit": "ef0d8282704181e5303e00e5e14170db01dab864",
+        "git_dirty": true,
+        "code_sha256": "8ebf5a0954fcd46cd026dec082303ba5f38ef9d2d5174faec2f94794b7b8cc25",
+        "signature": "f17c2670c18c23b09d49dfc7d56935df780084eb1b7f7b8d9589ccd8009004fd",
+        "settings": {
+          "expected_subjects": [
+            "S2",
+            "S3",
+            "S4",
+            "S5",
+            "S6",
+            "S7",
+            "S8",
+            "S9",
+            "S10",
+            "S11",
+            "S13",
+            "S14",
+            "S15",
+            "S16",
+            "S17"
+          ],
+          "models": [
+            "knn",
+            "svm"
+          ],
+          "tasks": [
+            "multiclass",
+            "binary"
+          ],
+          "seed": 42,
+          "sensor_set": "combined_physiological68",
+          "normalization": "global_train",
+          "balance": false,
+          "nested": false,
+          "variance_threshold": null,
+          "model_factories": {
+            "knn": "wesad.models_neighbors_svm:build_pipeline",
+            "svm": "wesad.models_neighbors_svm:build_pipeline"
+          },
+          "model_params": {}
+        },
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "feature_columns": [
+          "chest_ecg_hr_mean_bpm",
+          "chest_ecg_hr_std_bpm",
+          "chest_ecg_mean_rr_ms",
+          "chest_ecg_sd_rr_ms",
+          "chest_ecg_rmssd_ms",
+          "chest_ecg_pnn50",
+          "chest_ecg_power_5_10_hz",
+          "chest_ecg_power_10_20_hz",
+          "chest_ecg_power_20_40_hz",
+          "chest_eda_tonic_mean",
+          "chest_eda_tonic_std",
+          "chest_eda_phasic_mean",
+          "chest_eda_phasic_std",
+          "chest_eda_scr_count",
+          "chest_eda_scr_rate_per_min",
+          "chest_eda_scr_amplitude_mean",
+          "chest_eda_scr_amplitude_max",
+          "chest_resp_rate_mean",
+          "chest_resp_rate_std",
+          "chest_temp_mean",
+          "chest_temp_slope_per_s",
+          "chest_acc_x_5s_mean_mean",
+          "chest_acc_x_5s_std_mean",
+          "chest_acc_x_5s_abs_integral_mean",
+          "chest_acc_y_5s_mean_mean",
+          "chest_acc_y_5s_std_mean",
+          "chest_acc_y_5s_abs_integral_mean",
+          "chest_acc_z_5s_mean_mean",
+          "chest_acc_z_5s_std_mean",
+          "chest_acc_z_5s_abs_integral_mean",
+          "chest_acc_magnitude_5s_mean_mean",
+          "chest_acc_magnitude_5s_std_mean",
+          "chest_acc_magnitude_5s_abs_integral_mean",
+          "chest_emg_5s_rms_mean",
+          "chest_emg_5s_mav_mean",
+          "chest_emg_5s_waveform_length_per_s_mean",
+          "chest_emg_5s_abs_integral_mean",
+          "wrist_bvp_pulse_rate_mean_bpm",
+          "wrist_bvp_pulse_rate_std_bpm",
+          "wrist_bvp_mean_ibi_ms",
+          "wrist_bvp_sd_ibi_ms",
+          "wrist_bvp_rmssd_ibi_ms",
+          "wrist_bvp_pnn50_ibi",
+          "wrist_bvp_power_0p5_1_hz",
+          "wrist_bvp_power_1_2_hz",
+          "wrist_bvp_power_2_5_hz",
+          "wrist_eda_tonic_mean",
+          "wrist_eda_tonic_std",
+          "wrist_eda_phasic_mean",
+          "wrist_eda_phasic_std",
+          "wrist_eda_scr_count",
+          "wrist_eda_scr_rate_per_min",
+          "wrist_eda_scr_amplitude_mean",
+          "wrist_eda_scr_amplitude_max",
+          "wrist_temp_mean",
+          "wrist_temp_slope_per_s",
+          "wrist_acc_x_5s_mean_mean",
+          "wrist_acc_x_5s_std_mean",
+          "wrist_acc_x_5s_abs_integral_mean",
+          "wrist_acc_y_5s_mean_mean",
+          "wrist_acc_y_5s_std_mean",
+          "wrist_acc_y_5s_abs_integral_mean",
+          "wrist_acc_z_5s_mean_mean",
+          "wrist_acc_z_5s_std_mean",
+          "wrist_acc_z_5s_abs_integral_mean",
+          "wrist_acc_magnitude_5s_mean_mean",
+          "wrist_acc_magnitude_5s_std_mean",
+          "wrist_acc_magnitude_5s_abs_integral_mean"
+        ],
+        "environment": {
+          "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+          "packages": {
+            "numpy": "2.5.4",
+            "pandas": "3.1.0",
+            "PyYAML": "6.0.3",
+            "scipy": "1.18.1",
+            "scikit-learn": "1.9.1",
+            "imbalanced-learn": "0.14.2"
+          }
+        }
+      },
+      "warnings_by_fold": []
+    }
+  ],
+  "all_producer_code_hashes_identical": false,
+  "strict_same_runtime_source_acceptance": false,
+  "limits": [
+    "KNN/SVM compatibility reviewed against supplied source; producer dirty and exact runtime source snapshot not available.",
+    "Original producer identities retained; no signature/config rewritten, no new fitting or tuning."
+  ],
+  "tests_passed": 95,
+  "Mai_G3_complete": true,
+  "prediction_coverage_complete": true
+}
