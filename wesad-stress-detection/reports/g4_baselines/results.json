@@ -1,0 +1,919 @@
+{
+  "date": "2026-11-09",
+  "scope": "Mai_G4_balanced_baseline_and_resampling_audit",
+  "status": "independent_work_complete_group_tuned_merge_pending",
+  "verification": {
+    "status": "passed",
+    "kind": "balanced",
+    "n_folds": 30,
+    "n_predictions": 12378,
+    "training_core_sha256": "ae97afb79dbbaea35a4e5d33ae3a97c633f1510d8dc716afc73ae18dec3fcfd5",
+    "producer": {
+      "git_commit": "1a7b337876f5a5657c8c89498e2a1e80b0533747",
+      "git_dirty": true,
+      "code_sha256": "078e376824389662f91226d47821fa0993ef68e1dcb434fe2425a93e4d6a8f61",
+      "signature": "90692a0ddaa0b36bd385e3a950fac999117bcb18bc3cb554e4588c72844c5eb5",
+      "settings": {
+        "protocol": "g4_balanced_lr_physiological68_v1",
+        "feature_version": "physiological_68_v1",
+        "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "reference_g3": "outputs/g3_baselines_physiological68_v1",
+        "source_paths": [
+          "src/wesad/data.py",
+          "src/wesad/evaluation.py",
+          "src/wesad/models.py",
+          "src/wesad/utils.py",
+          "src/wesad/g4.py",
+          "src/wesad/g3.py",
+          "scripts/run_g4_baselines.py",
+          "scripts/merge_g4_results.py"
+        ],
+        "source_hash_normalization": "LF",
+        "expected_subjects": [
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8",
+          "S9",
+          "S10",
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S17"
+        ],
+        "models": [
+          "lr"
+        ],
+        "tasks": [
+          "multiclass",
+          "binary"
+        ],
+        "seed": 42,
+        "sensor_set": "combined_physiological68",
+        "normalization": "global_train",
+        "balance": true,
+        "nested": false,
+        "inner_splits": 3,
+        "zero_division": 0,
+        "missing_train_class": "error",
+        "model_params": {
+          "lr": {
+            "random_state": 42
+          }
+        },
+        "run_kind": "main"
+      },
+      "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+      "feature_columns": [
+        "chest_ecg_hr_mean_bpm",
+        "chest_ecg_hr_std_bpm",
+        "chest_ecg_mean_rr_ms",
+        "chest_ecg_sd_rr_ms",
+        "chest_ecg_rmssd_ms",
+        "chest_ecg_pnn50",
+        "chest_ecg_power_5_10_hz",
+        "chest_ecg_power_10_20_hz",
+        "chest_ecg_power_20_40_hz",
+        "chest_eda_tonic_mean",
+        "chest_eda_tonic_std",
+        "chest_eda_phasic_mean",
+        "chest_eda_phasic_std",
+        "chest_eda_scr_count",
+        "chest_eda_scr_rate_per_min",
+        "chest_eda_scr_amplitude_mean",
+        "chest_eda_scr_amplitude_max",
+        "chest_resp_rate_mean",
+        "chest_resp_rate_std",
+        "chest_temp_mean",
+        "chest_temp_slope_per_s",
+        "chest_acc_x_5s_mean_mean",
+        "chest_acc_x_5s_std_mean",
+        "chest_acc_x_5s_abs_integral_mean",
+        "chest_acc_y_5s_mean_mean",
+        "chest_acc_y_5s_std_mean",
+        "chest_acc_y_5s_abs_integral_mean",
+        "chest_acc_z_5s_mean_mean",
+        "chest_acc_z_5s_std_mean",
+        "chest_acc_z_5s_abs_integral_mean",
+        "chest_acc_magnitude_5s_mean_mean",
+        "chest_acc_magnitude_5s_std_mean",
+        "chest_acc_magnitude_5s_abs_integral_mean",
+        "chest_emg_5s_rms_mean",
+        "chest_emg_5s_mav_mean",
+        "chest_emg_5s_waveform_length_per_s_mean",
+        "chest_emg_5s_abs_integral_mean",
+        "wrist_bvp_pulse_rate_mean_bpm",
+        "wrist_bvp_pulse_rate_std_bpm",
+        "wrist_bvp_mean_ibi_ms",
+        "wrist_bvp_sd_ibi_ms",
+        "wrist_bvp_rmssd_ibi_ms",
+        "wrist_bvp_pnn50_ibi",
+        "wrist_bvp_power_0p5_1_hz",
+        "wrist_bvp_power_1_2_hz",
+        "wrist_bvp_power_2_5_hz",
+        "wrist_eda_tonic_mean",
+        "wrist_eda_tonic_std",
+        "wrist_eda_phasic_mean",
+        "wrist_eda_phasic_std",
+        "wrist_eda_scr_count",
+        "wrist_eda_scr_rate_per_min",
+        "wrist_eda_scr_amplitude_mean",
+        "wrist_eda_scr_amplitude_max",
+        "wrist_temp_mean",
+        "wrist_temp_slope_per_s",
+        "wrist_acc_x_5s_mean_mean",
+        "wrist_acc_x_5s_std_mean",
+        "wrist_acc_x_5s_abs_integral_mean",
+        "wrist_acc_y_5s_mean_mean",
+        "wrist_acc_y_5s_std_mean",
+        "wrist_acc_y_5s_abs_integral_mean",
+        "wrist_acc_z_5s_mean_mean",
+        "wrist_acc_z_5s_std_mean",
+        "wrist_acc_z_5s_abs_integral_mean",
+        "wrist_acc_magnitude_5s_mean_mean",
+        "wrist_acc_magnitude_5s_std_mean",
+        "wrist_acc_magnitude_5s_abs_integral_mean"
+      ],
+      "environment": {
+        "python": "3.12.14 (main, Sep 29 2026, 15:00:58) [MSC v.1944 64 bit (AMD64)]",
+        "packages": {
+          "numpy": "2.5.4",
+          "pandas": "3.1.0",
+          "PyYAML": "6.0.3",
+          "scipy": "1.18.1",
+          "scikit-learn": "1.9.1",
+          "imbalanced-learn": "0.14.2"
+        }
+      }
+    },
+    "warnings_by_fold": []
+  },
+  "model_parameters": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 100,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": 42,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "comparison": {
+    "status": "complete",
+    "reference_G3_verification": {
+      "status": "passed",
+      "scope": "main",
+      "n_features": 68,
+      "n_subjects": 15,
+      "n_predictions": 24756,
+      "n_folds": 60,
+      "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+      "code_sha256": "744ea523aa54da3ee680f33717ee3bd24adcdd053522a35f1050b845056e25a9",
+      "warnings_by_fold": [],
+      "models": [
+        "dummy",
+        "lr"
+      ],
+      "tasks": [
+        "multiclass",
+        "binary"
+      ]
+    },
+    "results": [
+      {
+        "variant": "dummy_G3",
+        "task": "binary",
+        "n_subjects": 15,
+        "macro_f1_mean": 0.412280833506436,
+        "macro_f1_std": 0.0035257644521511874,
+        "balanced_accuracy_mean": 0.5,
+        "balanced_accuracy_std": 0.0
+      },
+      {
+        "variant": "dummy_G3",
+        "task": "multiclass",
+        "n_subjects": 15,
+        "macro_f1_mean": 0.23504733157030386,
+        "macro_f1_std": 0.0023050657764379116,
+        "balanced_accuracy_mean": 0.33333333333333326,
+        "balanced_accuracy_std": 5.745950043620392e-17
+      },
+      {
+        "variant": "lr_G3",
+        "task": "binary",
+        "n_subjects": 15,
+        "macro_f1_mean": 0.8102690822424197,
+        "macro_f1_std": 0.19375701538087678,
+        "balanced_accuracy_mean": 0.830361701020403,
+        "balanced_accuracy_std": 0.17518048524324856
+      },
+      {
+        "variant": "lr_G3",
+        "task": "multiclass",
+        "n_subjects": 15,
+        "macro_f1_mean": 0.5893909849051658,
+        "macro_f1_std": 0.14841550046399016,
+        "balanced_accuracy_mean": 0.6314714102230179,
+        "balanced_accuracy_std": 0.13936735511968865
+      },
+      {
+        "variant": "lr_class_weight_balanced",
+        "task": "binary",
+        "n_subjects": 15,
+        "macro_f1_mean": 0.8102809008544603,
+        "macro_f1_std": 0.1867826145051024,
+        "balanced_accuracy_mean": 0.831880801770687,
+        "balanced_accuracy_std": 0.16952737306389656
+      },
+      {
+        "variant": "lr_class_weight_balanced",
+        "task": "multiclass",
+        "n_subjects": 15,
+        "macro_f1_mean": 0.5852664004303594,
+        "macro_f1_std": 0.16297216687078286,
+        "balanced_accuracy_mean": 0.6303724597596851,
+        "balanced_accuracy_std": 0.14283194702203367
+      }
+    ],
+    "meaning": "Paired 15-subject comparison; no significance test or tuning performed."
+  },
+  "resampling_audit": {
+    "status": "passed",
+    "n_checks": 240,
+    "n_outer_subjects": 15,
+    "tasks": [
+      "multiclass",
+      "binary"
+    ],
+    "models": [
+      "knn",
+      "mlp"
+    ],
+    "scopes": [
+      "outer_train_refit",
+      "inner_train_0",
+      "inner_train_1",
+      "inner_train_2"
+    ],
+    "validation_test_rows_unchanged": true,
+    "class_weight_models_checked": [
+      "lr",
+      "svm",
+      "rf"
+    ],
+    "note": "Only preprocessing and ROS fitted for sampler audit; no KNN/MLP classifier training."
+  },
+  "tests": {
+    "passed": 108,
+    "new_G4_tests": 9
+  },
+  "group_tuning_merge": {
+    "status": "waiting_for_tuned_packages",
+    "n_completed_outer_folds": 0,
+    "expected_outer_folds": 120,
+    "missing_folds": [
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S10"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S11"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S13"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S14"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S15"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S16"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S17"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S2"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S3"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S4"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S5"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S6"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S7"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S8"
+      },
+      {
+        "task": "binary",
+        "model": "knn",
+        "subject_id": "S9"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S10"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S11"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S13"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S14"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S15"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S16"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S17"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S2"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S3"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S4"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S5"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S6"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S7"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S8"
+      },
+      {
+        "task": "binary",
+        "model": "mlp",
+        "subject_id": "S9"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S10"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S11"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S13"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S14"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S15"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S16"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S17"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S2"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S3"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S4"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S5"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S6"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S7"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S8"
+      },
+      {
+        "task": "binary",
+        "model": "rf",
+        "subject_id": "S9"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S10"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S11"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S13"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S14"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S15"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S16"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S17"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S2"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S3"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S4"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S5"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S6"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S7"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S8"
+      },
+      {
+        "task": "binary",
+        "model": "svm",
+        "subject_id": "S9"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S10"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S11"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S13"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S14"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S15"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S16"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S17"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S2"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S3"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S4"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S5"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S6"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S7"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S8"
+      },
+      {
+        "task": "multiclass",
+        "model": "knn",
+        "subject_id": "S9"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S10"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S11"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S13"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S14"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S15"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S16"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S17"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S2"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S3"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S4"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S5"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S6"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S7"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S8"
+      },
+      {
+        "task": "multiclass",
+        "model": "mlp",
+        "subject_id": "S9"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S10"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S11"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S13"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S14"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S15"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S16"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S17"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S2"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S3"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S4"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S5"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S6"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S7"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S8"
+      },
+      {
+        "task": "multiclass",
+        "model": "rf",
+        "subject_id": "S9"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S10"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S11"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S13"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S14"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S15"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S16"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S17"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S2"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S3"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S4"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S5"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S6"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S7"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S8"
+      },
+      {
+        "task": "multiclass",
+        "model": "svm",
+        "subject_id": "S9"
+      }
+    ],
+    "missing_models": [
+      "knn",
+      "mlp",
+      "rf",
+      "svm"
+    ],
+    "source_packages": [],
+    "results": [],
+    "note": "Balanced LR is a separate fixed baseline, never substituted for one of the four tuned main models."
+  },
+  "reported_tuning_on_git": {
+    "Nhu": {
+      "verification": {
+        "status": "passed",
+        "scope": "assigned_outer4",
+        "complete_15_subjects": false,
+        "folds": 16,
+        "predictions": 6632,
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+      },
+      "received_original_prediction_bundle": false,
+      "best_params_report_sha256": "9fd605bfe27aa8786c61b17febcd274e9de7967c8607cb92abfed8819e6aee93",
+      "note": "Reported 16 RF/MLP outer folds on S4/S9/S11/S17; not counted as independently received OOF artifacts."
+    }
+  },
+  "limits": [
+    "Own fixed balanced LR is not a tuned main model; do not substitute for KNN/SVM/RF/MLP nested results.",
+    "No claim that all group G4 experiments or feature-ablation comparisons are complete."
+  ],
+  "zip_path": "outputs/g4_balanced_lr_physiological68_v1.zip",
+  "zip_sha256": "8d089ce77723a0fc5b1fe33bc8a934ae67b44fb52f48a5bd272e2e243d3eb208",
+  "zip_bytes": 195910
+}

@@ -1,0 +1,9 @@
+{
+  "run": "outputs/g4_nhu_rf_mlp_outer4",
+  "signature": "9d2e7aa936124d5628129c67cf27912c3f02060404cd2d22c8353e07754db9fc",
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "baseline_metrics_sha256": "142ffc357304b186935ae57134bc37f5a30a90d2c81e6a0a3817046c2a9d8149",
+  "scope": "RF/MLP assigned outer S4/S9/S11/S17 only, not the full group 15-subject result",
+  "warnings_by_fold": [],
+  "interpretation": "Descriptive paired comparison, no statistical significance test; negative tuning deltas are retained."
+}

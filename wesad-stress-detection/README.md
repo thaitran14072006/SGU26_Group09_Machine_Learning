@@ -1,8 +1,14 @@
 > **G3 hiện tại dùng bộ sinh lý 68 đã nghiệm thu**, cấu hình `configs/defaults.yaml`; xem [bàn giao G3 Dummy/LR](docs/G3_BAN_GIAO.md). Hướng dẫn raw112 bên dưới được giữ để truy vết G1/G2 cũ.
 
+**G4 phần Như:** tuning RF/MLP với bốn ứng viên, outer test S4/S9/S11/S17, inner GroupKFold và theo dõi loss/hội tụ MLP; xem [hướng dẫn tuning G4](docs/G4_NHU_TUNING.md). Lượt G4 lưu riêng, không ghi đè G3. Phần được giao có 16 outer folds; chỉ công nhận khi verification đạt. Không coi lô bốn người là toàn bộ LOSO 15 người; các so sánh cảm biến/feature/cân bằng còn là phần riêng.
+
+Lô tuning Như ngày 09/11 đã đạt **16/16 fold, 6.632 dự đoán**, verification và resume đạt. [Bảng G3–G4 trên cùng bốn người](reports/g4_nhu/KET_QUA.md), [loss MLP](reports/g4_nhu/mlp_refit_loss.png); ZIP bàn giao ngoài Git: `outputs/g4_nhu_rf_mlp_outer4_handoff.zip`. Nhóm vẫn cần ghép các lô còn lại.
+
 > Nhóm chốt bộ 112 thống kê raw ngực/cổ tay. Dùng `configs/features_smoke.yaml` và `configs/experiment.yaml`; hướng dẫn đầy đủ tại [CHIA_NHO_DATA.md](docs/CHIA_NHO_DATA.md).
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
+
+G4 phần Mai: đã chạy LR cân bằng lớp đủ hai bài toán/15 người (30 fold, 12.378 dự đoán), so sánh với G3 và kiểm tra 240 lượt resampling train-only. Công cụ kiểm tra/hợp nhất best_params và dự đoán nested đã có; còn chờ gói tuning để ghép đủ 120 outer fold của nhóm. Xem [bàn giao G4](docs/G4_BAN_GIAO.md). Không trộn baseline cân bằng với G3 hoặc coi đó là mô hình đã tuning.
 
 **Lấy dữ liệu:** [tải ZIP G2 sinh lý68 trên Google Drive](https://drive.google.com/file/d/1_49kkKKLmxywYkf_SZXhIhBQ35_PxA8_/view?usp=sharing), rồi làm theo [hướng dẫn nguồn WESAD, giải nén và kiểm tra SHA-256](docs/DU_LIEU_VA_TRUY_CAP.md). Raw và bảng feature lớn không nằm trong Git.
 

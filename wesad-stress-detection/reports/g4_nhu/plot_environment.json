@@ -1,0 +1,15 @@
+{
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "matplotlib": "3.10.6",
+  "source_details_sha256": {
+    "multiclass/S4": "5e4c4cc7722f1dd23bc143fd0ce14aa50656b92bcc3fdb3d56318dea66159507",
+    "multiclass/S9": "f60e608469607475213cbaf6623a919755fac3dec2e34384dfbc1fc6d50f22f5",
+    "multiclass/S11": "fbd60a5ce0f4e59ab08c7bef6712acfa1555b5a7cb8a160315c98d5dcee9f547",
+    "multiclass/S17": "21fffa9c6f0197c42b56668803e557d7cdf553156e59d3c0db8a69cad592ad58",
+    "binary/S4": "5b424beb3e7599ebd3c24a137b9948e7e631c93478dcb481b78ea8b0d00cc016",
+    "binary/S9": "b7d99b92bb35ec4d245d5ea1d9ed36d9bf757cc2889be8a511b340e6c2b7ac7a",
+    "binary/S11": "3e3d4734c020b51441e9bfc6eda33d159e2a17f019f9161ce7a5b01e1d5eec0e",
+    "binary/S17": "6fecf7461e4bc97abac818167216c4339c5b2673a18ee4a39ac0a8bc8f0fd351"
+  },
+  "scope": "render saved loss only; no model fitting"
+}

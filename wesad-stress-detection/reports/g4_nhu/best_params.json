@@ -1,0 +1,103 @@
+{
+  "multiclass/rf/S11": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "multiclass/rf/S17": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "multiclass/rf/S4": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "multiclass/rf/S9": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "multiclass/mlp/S11": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      32
+    ],
+    "model__learning_rate_init": 0.001
+  },
+  "multiclass/mlp/S17": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "multiclass/mlp/S4": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "multiclass/mlp/S9": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      32
+    ],
+    "model__learning_rate_init": 0.001
+  },
+  "binary/rf/S11": {
+    "model__max_depth": 10,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 100
+  },
+  "binary/rf/S17": {
+    "model__max_depth": 10,
+    "model__max_features": 0.5,
+    "model__n_estimators": 200
+  },
+  "binary/rf/S4": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "binary/rf/S9": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "binary/mlp/S11": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "binary/mlp/S17": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "binary/mlp/S4": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "binary/mlp/S9": {
+    "model__alpha": 0.001,
+    "model__hidden_layer_sizes": [
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  }
+}

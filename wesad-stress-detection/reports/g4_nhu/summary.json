@@ -1,0 +1,187 @@
+{
+  "status": "partial",
+  "subjects_expected": [
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9"
+  ],
+  "standard_deviation": "sample ddof=1; null for a single subject",
+  "results": [
+    {
+      "task": "multiclass",
+      "model": "rf",
+      "complete_15_subjects": false,
+      "n_subjects": 4,
+      "missing_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "macro_f1_mean": 0.6501851396247398,
+      "macro_f1_std": 0.13900625560281607,
+      "balanced_accuracy_mean": 0.6666604008056214,
+      "balanced_accuracy_std": 0.11826723023358086,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          902,
+          0,
+          0
+        ],
+        [
+          60,
+          430,
+          7
+        ],
+        [
+          187,
+          39,
+          33
+        ]
+      ]
+    },
+    {
+      "task": "multiclass",
+      "model": "mlp",
+      "complete_15_subjects": false,
+      "n_subjects": 4,
+      "missing_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "macro_f1_mean": 0.6743757339319945,
+      "macro_f1_std": 0.15817567956865652,
+      "balanced_accuracy_mean": 0.6791411978029976,
+      "balanced_accuracy_std": 0.15034544747759312,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          858,
+          0,
+          44
+        ],
+        [
+          28,
+          407,
+          62
+        ],
+        [
+          144,
+          45,
+          70
+        ]
+      ]
+    },
+    {
+      "task": "binary",
+      "model": "rf",
+      "complete_15_subjects": false,
+      "n_subjects": 4,
+      "missing_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "macro_f1_mean": 0.9076892484391594,
+      "macro_f1_std": 0.10258362969226498,
+      "balanced_accuracy_mean": 0.8965097493751224,
+      "balanced_accuracy_std": 0.11666477015765192,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          1134,
+          27
+        ],
+        [
+          94,
+          403
+        ]
+      ]
+    },
+    {
+      "task": "binary",
+      "model": "mlp",
+      "complete_15_subjects": false,
+      "n_subjects": 4,
+      "missing_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "macro_f1_mean": 0.8594137302433678,
+      "macro_f1_std": 0.1326552369677339,
+      "balanced_accuracy_mean": 0.8571935532517704,
+      "balanced_accuracy_std": 0.14750570770270513,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          1115,
+          46
+        ],
+        [
+          122,
+          375
+        ]
+      ]
+    }
+  ]
+}

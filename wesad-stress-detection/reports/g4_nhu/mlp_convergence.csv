@@ -1,0 +1,9 @@
+task,subject_id,n_iter,max_iter,loss,reached_max_iter,warnings
+multiclass,S4,17,200,0.00010176148754689574,False,[]
+multiclass,S9,64,200,0.0015213483766469728,False,[]
+multiclass,S11,65,200,0.001623283496833368,False,[]
+multiclass,S17,17,200,9.316314046978334e-05,False,[]
+binary,S4,15,200,6.006939842821381e-05,False,[]
+binary,S9,21,200,0.00044409422057463193,False,[]
+binary,S11,15,200,5.92878649252883e-05,False,[]
+binary,S17,15,200,5.995210973574174e-05,False,[]
