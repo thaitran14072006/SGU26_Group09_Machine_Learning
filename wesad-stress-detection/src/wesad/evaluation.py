@@ -144,6 +144,17 @@ def run_experiment(config, resume=False, outer_subjects=None, allow_partial=Fals
                         "classification_report": classification_report(y.iloc[test], predicted, labels=labels,
                             output_dict=True, zero_division=0),
                         "labels": labels, "confusion_matrix": confusion_matrix(y.iloc[test], predicted, labels=labels).tolist()}
+                    if config.get("record_mlp_loss", False) and name == "mlp":
+                        fitted = estimator.best_estimator_ if hasattr(estimator, "best_estimator_") else estimator
+                        model = fitted["model"]
+                        details["mlp_optimization"] = {
+                            "scope": "best_candidate_refit_on_outer_train_only",
+                            "n_iter": int(model.n_iter_), "max_iter": int(model.max_iter),
+                            "loss": float(model.loss_),
+                            "loss_curve": [float(value) for value in model.loss_curve_],
+                            "reached_max_iter": bool(model.n_iter_ >= model.max_iter),
+                            "interpretation": "Training objective, not validation loss or proof of generalization. See captured convergence warnings too.",
+                        }
                     write_csv(folder / "predictions.csv", prediction)
                     write_json(folder / "metrics.json", metrics)
                     write_json(folder / "details.json", details)
