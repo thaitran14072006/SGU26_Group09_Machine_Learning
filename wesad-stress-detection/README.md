@@ -8,7 +8,7 @@ Lô tuning Như ngày 09/11 đã đạt **16/16 fold, 6.632 dự đoán**, verif
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
-G4 phần Mai: đã chạy LR cân bằng lớp đủ hai bài toán/15 người (30 fold, 12.378 dự đoán), so sánh với G3 và kiểm tra 240 lượt resampling train-only. Công cụ kiểm tra/hợp nhất best_params và dự đoán nested đã có; còn chờ gói tuning để ghép đủ 120 outer fold của nhóm. Xem [bàn giao G4](docs/G4_BAN_GIAO.md). Không trộn baseline cân bằng với G3 hoặc coi đó là mô hình đã tuning.
+G4 phần Mai: đã chạy LR cân bằng lớp đủ hai bài toán/15 người (30 fold, 12.378 dự đoán), so sánh G3 và kiểm tra 240 lượt resampling train-only. Đã nhận/kiểm tra/hợp nhất tuning Nam và Như: **76/120 outer fold, 31.388 dự đoán, 76 bộ best_params**; còn thiếu RF/MLP của 11 người. Xem [bàn giao baseline/audit](docs/G4_BAN_GIAO.md) và [tổng hợp tuning](docs/G4_TONG_HOP.md). Không trộn baseline cân bằng với G3 hoặc coi đó là mô hình đã tuning.
 
 **Lấy dữ liệu:** [tải ZIP G2 sinh lý68 trên Google Drive](https://drive.google.com/file/d/1_49kkKKLmxywYkf_SZXhIhBQ35_PxA8_/view?usp=sharing), rồi làm theo [hướng dẫn nguồn WESAD, giải nén và kiểm tra SHA-256](docs/DU_LIEU_VA_TRUY_CAP.md). Raw và bảng feature lớn không nằm trong Git.
 

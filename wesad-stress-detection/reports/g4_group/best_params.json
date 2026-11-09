@@ -1,0 +1,373 @@
+{
+  "multiclass/rf/S11": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "multiclass/rf/S17": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "multiclass/rf/S4": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "multiclass/rf/S9": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "multiclass/mlp/S11": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      32
+    ],
+    "model__learning_rate_init": 0.001
+  },
+  "multiclass/mlp/S17": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "multiclass/mlp/S4": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "multiclass/mlp/S9": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      32
+    ],
+    "model__learning_rate_init": 0.001
+  },
+  "binary/rf/S11": {
+    "model__max_depth": 10,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 100
+  },
+  "binary/rf/S17": {
+    "model__max_depth": 10,
+    "model__max_features": 0.5,
+    "model__n_estimators": 200
+  },
+  "binary/rf/S4": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "binary/rf/S9": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__n_estimators": 200
+  },
+  "binary/mlp/S11": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "binary/mlp/S17": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "binary/mlp/S4": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "binary/mlp/S9": {
+    "model__alpha": 0.001,
+    "model__hidden_layer_sizes": [
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "multiclass/knn/S10": {
+    "model__metric": "euclidean",
+    "model__n_neighbors": 3,
+    "model__weights": "uniform"
+  },
+  "multiclass/knn/S11": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S13": {
+    "model__metric": "euclidean",
+    "model__n_neighbors": 5,
+    "model__weights": "uniform"
+  },
+  "multiclass/knn/S14": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S15": {
+    "model__metric": "euclidean",
+    "model__n_neighbors": 9,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S16": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S17": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S2": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S3": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S4": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S5": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S6": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S7": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S8": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "multiclass/knn/S9": {
+    "model__metric": "euclidean",
+    "model__n_neighbors": 9,
+    "model__weights": "distance"
+  },
+  "multiclass/svm/S10": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S11": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S13": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S14": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S15": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S16": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S17": {
+    "model__C": 10.0,
+    "model__gamma": 0.01
+  },
+  "multiclass/svm/S2": {
+    "model__C": 10.0,
+    "model__gamma": 0.01
+  },
+  "multiclass/svm/S3": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S4": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S5": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S6": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S7": {
+    "model__C": 10.0,
+    "model__gamma": 0.01
+  },
+  "multiclass/svm/S8": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "multiclass/svm/S9": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/knn/S10": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S11": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S13": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S14": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S15": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S16": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S17": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S2": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S3": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S4": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S5": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S6": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S7": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S8": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/knn/S9": {
+    "model__metric": "manhattan",
+    "model__n_neighbors": 5,
+    "model__weights": "distance"
+  },
+  "binary/svm/S10": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S11": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S13": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S14": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S15": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S16": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S17": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S2": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S3": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S4": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S5": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S6": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S7": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S8": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  },
+  "binary/svm/S9": {
+    "model__C": 0.1,
+    "model__gamma": "scale"
+  }
+}

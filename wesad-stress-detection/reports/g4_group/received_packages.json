@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-09",
+  "status": "passed_received_packages_partial_main",
+  "packages": [
+    {
+      "archive": "g4_nhu_rf_mlp_outer4_handoff.zip",
+      "sha256": "67fd3ecfcc819be6faf877b2b6107e57c48182a8c935ba6e6edd867e6b22f570",
+      "status": "passed",
+      "models": [
+        "rf",
+        "mlp"
+      ],
+      "subjects": [
+        "S4",
+        "S9",
+        "S11",
+        "S17"
+      ],
+      "n_outer_folds": 16,
+      "n_predictions": 6632,
+      "training_core_sha256": "ae97afb79dbbaea35a4e5d33ae3a97c633f1510d8dc716afc73ae18dec3fcfd5",
+      "warnings": [],
+      "producer_git_commit": null,
+      "producer_git_dirty": null
+    },
+    {
+      "archive": "g4_nam_knn_svm_phys68_main_v1.rar",
+      "sha256": "0773ee1f1ae7b69daed7c6d61f3b5a4a256d1846bf498b5907ebad78d7598775",
+      "status": "passed",
+      "models": [
+        "knn",
+        "svm"
+      ],
+      "subjects": [
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17"
+      ],
+      "n_outer_folds": 60,
+      "n_predictions": 24756,
+      "training_core_sha256": "ae97afb79dbbaea35a4e5d33ae3a97c633f1510d8dc716afc73ae18dec3fcfd5",
+      "warnings": [],
+      "producer_git_commit": "e10a1f2445cd0253113a09671e5e372da9b651a8",
+      "producer_git_dirty": false
+    }
+  ],
+  "n_received_outer_folds": 76,
+  "n_expected_outer_folds": 120,
+  "remaining_RF_MLP_subjects": [
+    "S2",
+    "S3",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S10",
+    "S13",
+    "S14",
+    "S15",
+    "S16"
+  ],
+  "same_training_core_verified": true,
+  "new_model_training_performed": false,
+  "output_zip": "g4_group_tuning_received_20261109.zip",
+  "output_zip_sha256": "48bf1cbe785af7224f7936cfdcfc68192e318ee8c2f11b021e083364046c8c3e"
+}

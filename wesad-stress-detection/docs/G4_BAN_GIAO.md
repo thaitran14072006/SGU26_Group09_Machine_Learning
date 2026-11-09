@@ -42,7 +42,7 @@ Chọn output mới nếu code/settings thay đổi. Resume chỉ tái sử dụ
 
 ## Phần còn phụ thuộc nhóm
 
-Như đã commit báo cáo **16 fold RF/MLP trên S4/S9/S11/S17**. Đây là lô bốn outer test, không phải đủ 15 người. Máy Mai chưa nhận ZIP dự đoán/fold của lô này nên chưa đưa vào số fold được kiểm tra độc lập. Không kết luận Như chưa chạy.
+Đã nhận và kiểm tra gói Như **16 fold RF/MLP trên S4/S9/S11/S17**, cùng gói Nam **60 fold KNN/SVM đủ 15 người**. Đã hợp nhất 76/120 fold, 31.388 dự đoán và 76 bộ best_params; còn thiếu 44 fold RF/MLP của 11 người. Xem [tổng hợp G4 hiện tại](G4_TONG_HOP.md). Không phải baseline của Mai chưa chạy xong, cũng không gọi main tuning đủ 15 người khi chưa nhận các lô còn lại.
 
 Khi nhận các gói tuning, dùng `scripts/merge_g4_results.py --runs <các thư mục kết quả đã giải nén> --output <thư mục mới>`. Chạy `--help` để xem tham số. Kết quả main cần đủ bốn mô hình × hai bài toán × 15 outer fold = **120 fold**, mỗi fold có best_params riêng và bằng chứng inner CV. Các wrapper có thể khác nhau nhưng snapshot phải khớp chữ ký từng producer và cùng lõi train số học; cùng mô hình phải dùng cùng bốn ứng viên/base params trên các shard.
 
