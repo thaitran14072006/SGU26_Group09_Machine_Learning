@@ -1,6 +1,6 @@
 # Bàn giao G4 phần Mai
 
-Ngày 09/11/2026. Theo phân công, Mai phụ trách baseline cân bằng lớp, kiểm tra resampling và hợp nhất best_params/dự đoán hai bài toán. Đã hoàn thành các việc độc lập dưới đây; không thay thế phần tuning và các biến thể của chủ mô hình.
+Ngày 09/11/2026. Theo phân công, Mai phụ trách baseline cân bằng lớp, kiểm tra resampling và hợp nhất best_params/dự đoán hai bài toán. Các kết quả baseline/audit dưới đây được giữ riêng; ngày 10/11 đã hoàn thành thêm lượt chạy bổ sung và hợp nhất main tuning.
 
 ## Đã thực hiện
 
@@ -40,12 +40,10 @@ Chọn output mới nếu code/settings thay đổi. Resume chỉ tái sử dụ
 .\.venv-g1\Scripts\python.exe -X utf8 scripts/run_g4_baselines.py --output outputs/g4_balanced_main_lan2 --resume
 ```
 
-## Phần còn phụ thuộc nhóm
+## Tổng hợp main tuning
 
-Đã nhận và kiểm tra gói Như **16 fold RF/MLP trên S4/S9/S11/S17**, cùng gói Nam **60 fold KNN/SVM đủ 15 người**. Đã hợp nhất 76/120 fold, 31.388 dự đoán và 76 bộ best_params; còn thiếu 44 fold RF/MLP của 11 người. Xem [tổng hợp G4 hiện tại](G4_TONG_HOP.md). Không phải baseline của Mai chưa chạy xong, cũng không gọi main tuning đủ 15 người khi chưa nhận các lô còn lại.
+Ngày 10/11/2026: đã hoàn thành lượt chạy bổ sung 44 fold RF/MLP và hợp nhất với 76 fold đã nhận. Bảng main đủ **120/120 fold, 49.512 dự đoán, 120 bộ best_params**, bốn mô hình × hai bài toán × 15 người. Không còn chờ các fold main tuning.
 
-Khi nhận các gói tuning, dùng `scripts/merge_g4_results.py --runs <các thư mục kết quả đã giải nén> --output <thư mục mới>`. Chạy `--help` để xem tham số. Kết quả main cần đủ bốn mô hình × hai bài toán × 15 outer fold = **120 fold**, mỗi fold có best_params riêng và bằng chứng inner CV. Các wrapper có thể khác nhau nhưng snapshot phải khớp chữ ký từng producer và cùng lõi train số học; cùng mô hình phải dùng cùng bốn ứng viên/base params trên các shard.
+Đã kiểm tra source snapshot/checksum, cùng lõi train và grid giữa các shard, OOF/nhãn, inner CV, best_params và metric tính lại. So sánh mặc định–tuning trên đủ 15 người được lưu riêng. Xem [tổng hợp main G4](G4_TONG_HOP.md) và `outputs/g4_group_tuning_complete_20261110.zip`; gói này giữ cả checkpoint và bằng chứng của từng nguồn trong `source_runs`.
 
-Đã thử luồng chưa nhận gói: `outputs/g4_group_tuned_pending_20261109/summary.json` ghi `waiting_for_tuned_packages`, chưa tạo dự đoán giả hoặc gọi main hoàn tất. Baseline LR cân bằng không thay một trong bốn mô hình tuned. So sánh cân bằng lớp cho SVM/RF/KNN/MLP cần kết quả từ chủ mô hình; kiểm tra sampler sẵn sàng để họ dùng, chưa chạy thay các biến thể đó.
-
-Phạm vi lượt này là phần Mai ở mục G4 và cơ chế cân bằng liên quan. Chưa làm đóng góp/ablation nhóm feature RF ở mục so sánh phụ, chuẩn hóa theo subject, G5 hoặc phần RAM. Không gọi toàn bộ G4 của nhóm đã hoàn tất. Chưa commit/push.
+Baseline LR cân bằng và 240 lượt audit resampling ở trên vẫn là kết quả riêng. Việc đủ main tuning không đồng nghĩa đã chạy các biến thể cân bằng của bốn mô hình, so sánh nhóm cảm biến/feature, ablation hoặc chuẩn hóa theo subject. Những so sánh phụ này chưa được thực hiện trong lượt bổ sung. Chưa làm G5 hoặc phần RAM; không tự commit/push.

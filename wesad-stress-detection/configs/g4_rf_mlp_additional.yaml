@@ -1,0 +1,108 @@
+protocol: g4_rf_mlp_nested_physiological68_v1
+features: data/features/g2_physiological68_group15_20261107/all_subjects.csv
+schema: data/features/g2_physiological68_group15_20261107/feature_schema.json
+feature_version: physiological_68_v1
+feature_sha256: 2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba
+output_dir: outputs/g4_rf_mlp_additional_outer11_20261110
+expected_subjects:
+- S2
+- S3
+- S4
+- S5
+- S6
+- S7
+- S8
+- S9
+- S10
+- S11
+- S13
+- S14
+- S15
+- S16
+- S17
+models:
+- rf
+- mlp
+outer_subjects:
+- S2
+- S3
+- S5
+- S6
+- S7
+- S8
+- S10
+- S13
+- S14
+- S15
+- S16
+record_mlp_loss: true
+tasks:
+- multiclass
+- binary
+seed: 42
+sensor_set: combined_physiological68
+normalization: global_train
+balance: false
+nested: true
+inner_splits: 3
+source_paths:
+- src/wesad/data.py
+- src/wesad/evaluation.py
+- src/wesad/models.py
+- src/wesad/utils.py
+- scripts/run_experiment.py
+source_hash_normalization: LF
+search_spaces:
+  rf:
+  - model__n_estimators:
+    - 100
+    model__max_depth:
+    - 10
+    model__max_features:
+    - sqrt
+  - model__n_estimators:
+    - 200
+    model__max_depth:
+    - null
+    model__max_features:
+    - sqrt
+  - model__n_estimators:
+    - 100
+    model__max_depth:
+    - null
+    model__max_features:
+    - 0.5
+  - model__n_estimators:
+    - 200
+    model__max_depth:
+    - 10
+    model__max_features:
+    - 0.5
+  mlp:
+  - model__hidden_layer_sizes:
+    - - 32
+    model__alpha:
+    - 0.0001
+    model__learning_rate_init:
+    - 0.001
+  - model__hidden_layer_sizes:
+    - - 64
+      - 32
+    model__alpha:
+    - 0.001
+    model__learning_rate_init:
+    - 0.001
+  - model__hidden_layer_sizes:
+    - - 32
+    model__alpha:
+    - 0.001
+    model__learning_rate_init:
+    - 0.01
+  - model__hidden_layer_sizes:
+    - - 64
+      - 32
+    model__alpha:
+    - 0.0001
+    model__learning_rate_init:
+    - 0.01
+run_kind: main_shard

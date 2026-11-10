@@ -1,10 +1,9 @@
 {
-  "date": "2026-11-09",
-  "status": "passed_received_packages_partial_main",
+  "date": "2026-11-10",
+  "status": "passed_complete_main",
   "packages": [
     {
-      "archive": "g4_nhu_rf_mlp_outer4_handoff.zip",
-      "sha256": "67fd3ecfcc819be6faf877b2b6107e57c48182a8c935ba6e6edd867e6b22f570",
+      "run_path": "source_runs/run",
       "status": "passed",
       "models": [
         "rf",
@@ -21,11 +20,12 @@
       "training_core_sha256": "ae97afb79dbbaea35a4e5d33ae3a97c633f1510d8dc716afc73ae18dec3fcfd5",
       "warnings": [],
       "producer_git_commit": null,
-      "producer_git_dirty": null
+      "producer_git_dirty": null,
+      "archive": "g4_nhu_rf_mlp_outer4_handoff.zip",
+      "sha256": "67fd3ecfcc819be6faf877b2b6107e57c48182a8c935ba6e6edd867e6b22f570"
     },
     {
-      "archive": "g4_nam_knn_svm_phys68_main_v1.rar",
-      "sha256": "0773ee1f1ae7b69daed7c6d61f3b5a4a256d1846bf498b5907ebad78d7598775",
+      "run_path": "source_runs/g4_nam_knn_svm_phys68_main_v1",
       "status": "passed",
       "models": [
         "knn",
@@ -53,26 +53,48 @@
       "training_core_sha256": "ae97afb79dbbaea35a4e5d33ae3a97c633f1510d8dc716afc73ae18dec3fcfd5",
       "warnings": [],
       "producer_git_commit": "e10a1f2445cd0253113a09671e5e372da9b651a8",
-      "producer_git_dirty": false
+      "producer_git_dirty": false,
+      "archive": "g4_nam_knn_svm_phys68_main_v1.rar",
+      "sha256": "0773ee1f1ae7b69daed7c6d61f3b5a4a256d1846bf498b5907ebad78d7598775"
+    },
+    {
+      "run_path": "source_runs/g4_rf_mlp_additional_outer11_20261110",
+      "status": "passed",
+      "models": [
+        "rf",
+        "mlp"
+      ],
+      "subjects": [
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "n_outer_folds": 44,
+      "n_predictions": 18124,
+      "training_core_sha256": "ae97afb79dbbaea35a4e5d33ae3a97c633f1510d8dc716afc73ae18dec3fcfd5",
+      "warnings": [],
+      "producer_git_commit": "81237ad088a8cc519717b818c56323c7f64cbca7",
+      "producer_git_dirty": true,
+      "origin": "additional_outer_subject_run",
+      "config_sha256": "c0487d62ef52c8fec6f9d3619cdf4651e782bd2a11f749e27e98f17aff495425",
+      "signature": "8ace863f851aaa33d0ad8c95c65ae06f95a88f52d024051549f1f09d9c9951d1"
     }
   ],
   "n_received_outer_folds": 76,
+  "n_additional_outer_folds": 44,
+  "n_completed_outer_folds": 120,
   "n_expected_outer_folds": 120,
-  "remaining_RF_MLP_subjects": [
-    "S2",
-    "S3",
-    "S5",
-    "S6",
-    "S7",
-    "S8",
-    "S10",
-    "S13",
-    "S14",
-    "S15",
-    "S16"
-  ],
+  "remaining_RF_MLP_subjects": [],
   "same_training_core_verified": true,
-  "new_model_training_performed": false,
-  "output_zip": "g4_group_tuning_received_20261109.zip",
-  "output_zip_sha256": "48bf1cbe785af7224f7936cfdcfc68192e318ee8c2f11b021e083364046c8c3e"
+  "new_model_training_performed": true,
+  "output_zip": "g4_group_tuning_complete_20261110.zip",
+  "output_zip_sha256": "c28ddb2e49e711d3843e1dd0fb55a6e17f69e1d748dc86b472a9ed99d58238a8"
 }

@@ -1,233 +1,9 @@
 {
-  "status": "waiting_for_tuned_packages",
-  "n_completed_outer_folds": 76,
+  "status": "complete",
+  "n_completed_outer_folds": 120,
   "expected_outer_folds": 120,
-  "missing_folds": [
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S10"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S13"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S14"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S15"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S16"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S2"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S3"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S5"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S6"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S7"
-    },
-    {
-      "task": "binary",
-      "model": "mlp",
-      "subject_id": "S8"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S10"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S13"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S14"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S15"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S16"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S2"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S3"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S5"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S6"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S7"
-    },
-    {
-      "task": "binary",
-      "model": "rf",
-      "subject_id": "S8"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S10"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S13"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S14"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S15"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S16"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S2"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S3"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S5"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S6"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S7"
-    },
-    {
-      "task": "multiclass",
-      "model": "mlp",
-      "subject_id": "S8"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S10"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S13"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S14"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S15"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S16"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S2"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S3"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S5"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S6"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S7"
-    },
-    {
-      "task": "multiclass",
-      "model": "rf",
-      "subject_id": "S8"
-    }
-  ],
-  "missing_models": [
-    "mlp",
-    "rf"
-  ],
+  "missing_folds": [],
+  "missing_models": [],
   "source_packages": [
     {
       "status": "passed",
@@ -727,6 +503,265 @@
         }
       },
       "warnings_by_fold": []
+    },
+    {
+      "status": "passed",
+      "kind": "nested",
+      "n_folds": 44,
+      "n_predictions": 18124,
+      "training_core_sha256": "ae97afb79dbbaea35a4e5d33ae3a97c633f1510d8dc716afc73ae18dec3fcfd5",
+      "producer": {
+        "git_commit": "81237ad088a8cc519717b818c56323c7f64cbca7",
+        "git_dirty": true,
+        "code_sha256": "4aa89591757cbcb462dc0d061ff701e783a155053c280a2f73aae88c556ebb9c",
+        "signature": "8ace863f851aaa33d0ad8c95c65ae06f95a88f52d024051549f1f09d9c9951d1",
+        "settings": {
+          "protocol": "g4_rf_mlp_nested_physiological68_v1",
+          "feature_version": "physiological_68_v1",
+          "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+          "expected_subjects": [
+            "S2",
+            "S3",
+            "S4",
+            "S5",
+            "S6",
+            "S7",
+            "S8",
+            "S9",
+            "S10",
+            "S11",
+            "S13",
+            "S14",
+            "S15",
+            "S16",
+            "S17"
+          ],
+          "models": [
+            "rf",
+            "mlp"
+          ],
+          "outer_subjects": [
+            "S2",
+            "S3",
+            "S5",
+            "S6",
+            "S7",
+            "S8",
+            "S10",
+            "S13",
+            "S14",
+            "S15",
+            "S16"
+          ],
+          "record_mlp_loss": true,
+          "tasks": [
+            "multiclass",
+            "binary"
+          ],
+          "seed": 42,
+          "sensor_set": "combined_physiological68",
+          "normalization": "global_train",
+          "balance": false,
+          "nested": true,
+          "inner_splits": 3,
+          "source_paths": [
+            "src/wesad/data.py",
+            "src/wesad/evaluation.py",
+            "src/wesad/models.py",
+            "src/wesad/utils.py",
+            "scripts/run_experiment.py"
+          ],
+          "source_hash_normalization": "LF",
+          "search_spaces": {
+            "rf": [
+              {
+                "model__n_estimators": [
+                  100
+                ],
+                "model__max_depth": [
+                  10
+                ],
+                "model__max_features": [
+                  "sqrt"
+                ]
+              },
+              {
+                "model__n_estimators": [
+                  200
+                ],
+                "model__max_depth": [
+                  null
+                ],
+                "model__max_features": [
+                  "sqrt"
+                ]
+              },
+              {
+                "model__n_estimators": [
+                  100
+                ],
+                "model__max_depth": [
+                  null
+                ],
+                "model__max_features": [
+                  0.5
+                ]
+              },
+              {
+                "model__n_estimators": [
+                  200
+                ],
+                "model__max_depth": [
+                  10
+                ],
+                "model__max_features": [
+                  0.5
+                ]
+              }
+            ],
+            "mlp": [
+              {
+                "model__hidden_layer_sizes": [
+                  [
+                    32
+                  ]
+                ],
+                "model__alpha": [
+                  0.0001
+                ],
+                "model__learning_rate_init": [
+                  0.001
+                ]
+              },
+              {
+                "model__hidden_layer_sizes": [
+                  [
+                    64,
+                    32
+                  ]
+                ],
+                "model__alpha": [
+                  0.001
+                ],
+                "model__learning_rate_init": [
+                  0.001
+                ]
+              },
+              {
+                "model__hidden_layer_sizes": [
+                  [
+                    32
+                  ]
+                ],
+                "model__alpha": [
+                  0.001
+                ],
+                "model__learning_rate_init": [
+                  0.01
+                ]
+              },
+              {
+                "model__hidden_layer_sizes": [
+                  [
+                    64,
+                    32
+                  ]
+                ],
+                "model__alpha": [
+                  0.0001
+                ],
+                "model__learning_rate_init": [
+                  0.01
+                ]
+              }
+            ]
+          },
+          "run_kind": "main_shard"
+        },
+        "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+        "feature_columns": [
+          "chest_ecg_hr_mean_bpm",
+          "chest_ecg_hr_std_bpm",
+          "chest_ecg_mean_rr_ms",
+          "chest_ecg_sd_rr_ms",
+          "chest_ecg_rmssd_ms",
+          "chest_ecg_pnn50",
+          "chest_ecg_power_5_10_hz",
+          "chest_ecg_power_10_20_hz",
+          "chest_ecg_power_20_40_hz",
+          "chest_eda_tonic_mean",
+          "chest_eda_tonic_std",
+          "chest_eda_phasic_mean",
+          "chest_eda_phasic_std",
+          "chest_eda_scr_count",
+          "chest_eda_scr_rate_per_min",
+          "chest_eda_scr_amplitude_mean",
+          "chest_eda_scr_amplitude_max",
+          "chest_resp_rate_mean",
+          "chest_resp_rate_std",
+          "chest_temp_mean",
+          "chest_temp_slope_per_s",
+          "chest_acc_x_5s_mean_mean",
+          "chest_acc_x_5s_std_mean",
+          "chest_acc_x_5s_abs_integral_mean",
+          "chest_acc_y_5s_mean_mean",
+          "chest_acc_y_5s_std_mean",
+          "chest_acc_y_5s_abs_integral_mean",
+          "chest_acc_z_5s_mean_mean",
+          "chest_acc_z_5s_std_mean",
+          "chest_acc_z_5s_abs_integral_mean",
+          "chest_acc_magnitude_5s_mean_mean",
+          "chest_acc_magnitude_5s_std_mean",
+          "chest_acc_magnitude_5s_abs_integral_mean",
+          "chest_emg_5s_rms_mean",
+          "chest_emg_5s_mav_mean",
+          "chest_emg_5s_waveform_length_per_s_mean",
+          "chest_emg_5s_abs_integral_mean",
+          "wrist_bvp_pulse_rate_mean_bpm",
+          "wrist_bvp_pulse_rate_std_bpm",
+          "wrist_bvp_mean_ibi_ms",
+          "wrist_bvp_sd_ibi_ms",
+          "wrist_bvp_rmssd_ibi_ms",
+          "wrist_bvp_pnn50_ibi",
+          "wrist_bvp_power_0p5_1_hz",
+          "wrist_bvp_power_1_2_hz",
+          "wrist_bvp_power_2_5_hz",
+          "wrist_eda_tonic_mean",
+          "wrist_eda_tonic_std",
+          "wrist_eda_phasic_mean",
+          "wrist_eda_phasic_std",
+          "wrist_eda_scr_count",
+          "wrist_eda_scr_rate_per_min",
+          "wrist_eda_scr_amplitude_mean",
+          "wrist_eda_scr_amplitude_max",
+          "wrist_temp_mean",
+          "wrist_temp_slope_per_s",
+          "wrist_acc_x_5s_mean_mean",
+          "wrist_acc_x_5s_std_mean",
+          "wrist_acc_x_5s_abs_integral_mean",
+          "wrist_acc_y_5s_mean_mean",
+          "wrist_acc_y_5s_std_mean",
+          "wrist_acc_y_5s_abs_integral_mean",
+          "wrist_acc_z_5s_mean_mean",
+          "wrist_acc_z_5s_std_mean",
+          "wrist_acc_z_5s_abs_integral_mean",
+          "wrist_acc_magnitude_5s_mean_mean",
+          "wrist_acc_magnitude_5s_std_mean",
+          "wrist_acc_magnitude_5s_abs_integral_mean"
+        ],
+        "environment": {
+          "python": "3.12.14 (main, Sep 29 2026, 15:00:58) [MSC v.1944 64 bit (AMD64)]",
+          "packages": {
+            "numpy": "2.5.4",
+            "pandas": "3.1.0",
+            "PyYAML": "6.0.3",
+            "scipy": "1.18.1",
+            "scikit-learn": "1.9.1",
+            "imbalanced-learn": "0.14.2"
+          }
+        }
+      },
+      "warnings_by_fold": []
     }
   ],
   "results": [
@@ -757,50 +792,50 @@
     {
       "task": "binary",
       "model": "mlp",
-      "n_subjects": 4,
-      "complete_15_subjects": false,
+      "n_subjects": 15,
+      "complete_15_subjects": true,
       "labels": [
         0,
         1
       ],
       "confusion_matrix": [
         [
-          1115,
-          46
+          3902,
+          439
         ],
         [
-          122,
-          375
+          529,
+          1319
         ]
       ],
-      "macro_f1_mean": 0.8594137302433678,
-      "macro_f1_std": 0.1326552369677339,
-      "balanced_accuracy_mean": 0.8571935532517704,
-      "balanced_accuracy_std": 0.14750570770270513
+      "macro_f1_mean": 0.7819090825093087,
+      "macro_f1_std": 0.18687998484365706,
+      "balanced_accuracy_mean": 0.8051561857155796,
+      "balanced_accuracy_std": 0.16819728678890472
     },
     {
       "task": "binary",
       "model": "rf",
-      "n_subjects": 4,
-      "complete_15_subjects": false,
+      "n_subjects": 15,
+      "complete_15_subjects": true,
       "labels": [
         0,
         1
       ],
       "confusion_matrix": [
         [
-          1134,
-          27
+          3862,
+          479
         ],
         [
-          94,
-          403
+          252,
+          1596
         ]
       ],
-      "macro_f1_mean": 0.9076892484391594,
-      "macro_f1_std": 0.10258362969226498,
-      "balanced_accuracy_mean": 0.8965097493751224,
-      "balanced_accuracy_std": 0.11666477015765192
+      "macro_f1_mean": 0.8654784256564451,
+      "macro_f1_std": 0.1412173297183732,
+      "balanced_accuracy_mean": 0.8782219901316567,
+      "balanced_accuracy_std": 0.1141166513973061
     },
     {
       "task": "binary",
@@ -861,8 +896,8 @@
     {
       "task": "multiclass",
       "model": "mlp",
-      "n_subjects": 4,
-      "complete_15_subjects": false,
+      "n_subjects": 15,
+      "complete_15_subjects": true,
       "labels": [
         1,
         2,
@@ -870,31 +905,31 @@
       ],
       "confusion_matrix": [
         [
-          858,
-          0,
-          44
+          2533,
+          126,
+          711
         ],
         [
-          28,
-          407,
-          62
+          128,
+          1476,
+          244
         ],
         [
-          144,
-          45,
-          70
+          383,
+          169,
+          419
         ]
       ],
-      "macro_f1_mean": 0.6743757339319945,
-      "macro_f1_std": 0.15817567956865652,
-      "balanced_accuracy_mean": 0.6791411978029976,
-      "balanced_accuracy_std": 0.15034544747759312
+      "macro_f1_mean": 0.6186697657533548,
+      "macro_f1_std": 0.13381229204978334,
+      "balanced_accuracy_mean": 0.659145751221585,
+      "balanced_accuracy_std": 0.11044047871947574
     },
     {
       "task": "multiclass",
       "model": "rf",
-      "n_subjects": 4,
-      "complete_15_subjects": false,
+      "n_subjects": 15,
+      "complete_15_subjects": true,
       "labels": [
         1,
         2,
@@ -902,25 +937,25 @@
       ],
       "confusion_matrix": [
         [
-          902,
-          0,
-          0
+          2864,
+          179,
+          327
         ],
         [
-          60,
-          430,
-          7
+          113,
+          1698,
+          37
         ],
         [
-          187,
-          39,
-          33
+          592,
+          138,
+          241
         ]
       ],
-      "macro_f1_mean": 0.6501851396247398,
-      "macro_f1_std": 0.13900625560281607,
-      "balanced_accuracy_mean": 0.6666604008056214,
-      "balanced_accuracy_std": 0.11826723023358086
+      "macro_f1_mean": 0.6539648850349679,
+      "macro_f1_std": 0.13876949862556603,
+      "balanced_accuracy_mean": 0.6731417019160063,
+      "balanced_accuracy_std": 0.13482668801062364
     },
     {
       "task": "multiclass",
@@ -956,8 +991,8 @@
     }
   ],
   "note": "Balanced LR is a separate fixed baseline, never substituted for one of the four tuned main models.",
-  "n_predictions": 31388,
-  "n_best_params": 76,
+  "n_predictions": 49512,
+  "n_best_params": 120,
   "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
   "default_vs_tuned_paired": [
     {
@@ -975,26 +1010,26 @@
     {
       "task": "binary",
       "model": "mlp",
-      "n_subjects": 4,
-      "scope": "assigned_outer4",
-      "macro_f1_G3_mean": 0.8540169915685485,
-      "macro_f1_tuned_mean": 0.8594137302433678,
-      "macro_f1_mean_delta": 0.005396738674819296,
-      "balanced_accuracy_G3_mean": 0.8601777251565002,
-      "balanced_accuracy_tuned_mean": 0.8571935532517704,
-      "balanced_accuracy_mean_delta": -0.0029841719047298265
+      "n_subjects": 15,
+      "scope": "full_15",
+      "macro_f1_G3_mean": 0.7985988177486798,
+      "macro_f1_tuned_mean": 0.7819090825093087,
+      "macro_f1_mean_delta": -0.01668973523937101,
+      "balanced_accuracy_G3_mean": 0.8224763079984199,
+      "balanced_accuracy_tuned_mean": 0.8051561857155796,
+      "balanced_accuracy_mean_delta": -0.017320122282840394
     },
     {
       "task": "binary",
       "model": "rf",
-      "n_subjects": 4,
-      "scope": "assigned_outer4",
-      "macro_f1_G3_mean": 0.9382359700727751,
-      "macro_f1_tuned_mean": 0.9076892484391594,
-      "macro_f1_mean_delta": -0.030546721633615798,
-      "balanced_accuracy_G3_mean": 0.926406255514806,
-      "balanced_accuracy_tuned_mean": 0.8965097493751224,
-      "balanced_accuracy_mean_delta": -0.02989650613968381
+      "n_subjects": 15,
+      "scope": "full_15",
+      "macro_f1_G3_mean": 0.8735236066640247,
+      "macro_f1_tuned_mean": 0.8654784256564451,
+      "macro_f1_mean_delta": -0.008045181007579737,
+      "balanced_accuracy_G3_mean": 0.8864823644234859,
+      "balanced_accuracy_tuned_mean": 0.8782219901316567,
+      "balanced_accuracy_mean_delta": -0.008260374291829265
     },
     {
       "task": "binary",
@@ -1023,26 +1058,26 @@
     {
       "task": "multiclass",
       "model": "mlp",
-      "n_subjects": 4,
-      "scope": "assigned_outer4",
-      "macro_f1_G3_mean": 0.6254446624305618,
-      "macro_f1_tuned_mean": 0.6743757339319945,
-      "macro_f1_mean_delta": 0.048931071501432555,
-      "balanced_accuracy_G3_mean": 0.6451670207606682,
-      "balanced_accuracy_tuned_mean": 0.6791411978029976,
-      "balanced_accuracy_mean_delta": 0.033974177042329426
+      "n_subjects": 15,
+      "scope": "full_15",
+      "macro_f1_G3_mean": 0.6461550431175654,
+      "macro_f1_tuned_mean": 0.6186697657533548,
+      "macro_f1_mean_delta": -0.02748527736421079,
+      "balanced_accuracy_G3_mean": 0.6815159324176704,
+      "balanced_accuracy_tuned_mean": 0.659145751221585,
+      "balanced_accuracy_mean_delta": -0.022370181196085352
     },
     {
       "task": "multiclass",
       "model": "rf",
-      "n_subjects": 4,
-      "scope": "assigned_outer4",
-      "macro_f1_G3_mean": 0.6549664269613893,
-      "macro_f1_tuned_mean": 0.6501851396247398,
-      "macro_f1_mean_delta": -0.0047812873366495645,
-      "balanced_accuracy_G3_mean": 0.6674364136680313,
-      "balanced_accuracy_tuned_mean": 0.6666604008056214,
-      "balanced_accuracy_mean_delta": -0.0007760128624098861
+      "n_subjects": 15,
+      "scope": "full_15",
+      "macro_f1_G3_mean": 0.6479554062497738,
+      "macro_f1_tuned_mean": 0.6539648850349679,
+      "macro_f1_mean_delta": 0.006009478785194004,
+      "balanced_accuracy_G3_mean": 0.6699982149348902,
+      "balanced_accuracy_tuned_mean": 0.6731417019160063,
+      "balanced_accuracy_mean_delta": 0.003143486981116313
     },
     {
       "task": "multiclass",
@@ -1058,5 +1093,5 @@
     }
   ],
   "comparison_reference_metric_sha256": "142ffc357304b186935ae57134bc37f5a30a90d2c81e6a0a3817046c2a9d8149",
-  "comparison_note": "Paired by model/task/subject on matching windows; RF/MLP four-subject means must not be ranked against 15-subject KNN/SVM means."
+  "comparison_note": "Paired on identical test subjects/windows for all 15 subjects; no significance test or outer-test-driven grid changes."
 }

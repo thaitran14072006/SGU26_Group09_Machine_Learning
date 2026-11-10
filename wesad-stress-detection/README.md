@@ -2,13 +2,13 @@
 
 **G4 phần Như:** tuning RF/MLP với bốn ứng viên, outer test S4/S9/S11/S17, inner GroupKFold và theo dõi loss/hội tụ MLP; xem [hướng dẫn tuning G4](docs/G4_NHU_TUNING.md). Lượt G4 lưu riêng, không ghi đè G3. Phần được giao có 16 outer folds; chỉ công nhận khi verification đạt. Không coi lô bốn người là toàn bộ LOSO 15 người; các so sánh cảm biến/feature/cân bằng còn là phần riêng.
 
-Lô tuning Như ngày 09/11 đã đạt **16/16 fold, 6.632 dự đoán**, verification và resume đạt. [Bảng G3–G4 trên cùng bốn người](reports/g4_nhu/KET_QUA.md), [loss MLP](reports/g4_nhu/mlp_refit_loss.png); ZIP bàn giao ngoài Git: `outputs/g4_nhu_rf_mlp_outer4_handoff.zip`. Nhóm vẫn cần ghép các lô còn lại.
+Lô tuning Như ngày 09/11 đã đạt **16/16 fold, 6.632 dự đoán**, verification và resume đạt. [Bảng G3–G4 trên cùng bốn người](reports/g4_nhu/KET_QUA.md), [loss MLP](reports/g4_nhu/mlp_refit_loss.png); ZIP bàn giao ngoài Git: `outputs/g4_nhu_rf_mlp_outer4_handoff.zip`. Nhóm đã ghép đủ main tuning ngày 10/11; xem [tổng hợp G4](docs/G4_TONG_HOP.md).
 
 > Nhóm chốt bộ 112 thống kê raw ngực/cổ tay. Dùng `configs/features_smoke.yaml` và `configs/experiment.yaml`; hướng dẫn đầy đủ tại [CHIA_NHO_DATA.md](docs/CHIA_NHO_DATA.md).
 
 # chia cửa sổ và trích xuất dữ liệu WESAD
 
-G4 phần Mai: đã chạy LR cân bằng lớp đủ hai bài toán/15 người (30 fold, 12.378 dự đoán), so sánh G3 và kiểm tra 240 lượt resampling train-only. Đã nhận/kiểm tra/hợp nhất tuning Nam và Như: **76/120 outer fold, 31.388 dự đoán, 76 bộ best_params**; còn thiếu RF/MLP của 11 người. Xem [bàn giao baseline/audit](docs/G4_BAN_GIAO.md) và [tổng hợp tuning](docs/G4_TONG_HOP.md). Không trộn baseline cân bằng với G3 hoặc coi đó là mô hình đã tuning.
+G4 phần Mai: đã chạy LR cân bằng lớp đủ hai bài toán/15 người (30 fold, 12.378 dự đoán), so sánh G3 và kiểm tra 240 lượt resampling train-only. Sau lượt chạy bổ sung và kiểm tra/hợp nhất, main tuning đã đủ **120/120 outer fold, 49.512 dự đoán, 120 bộ best_params**: KNN/SVM/RF/MLP đều đủ 15 người cho hai bài toán. Xem [bàn giao baseline/audit](docs/G4_BAN_GIAO.md) và [tổng hợp main tuning](docs/G4_TONG_HOP.md). Baseline cân bằng được giữ riêng; các so sánh phụ chưa chạy được ghi rõ trong bàn giao.
 
 **Lấy dữ liệu:** [tải ZIP G2 sinh lý68 trên Google Drive](https://drive.google.com/file/d/1_49kkKKLmxywYkf_SZXhIhBQ35_PxA8_/view?usp=sharing), rồi làm theo [hướng dẫn nguồn WESAD, giải nén và kiểm tra SHA-256](docs/DU_LIEU_VA_TRUY_CAP.md). Raw và bảng feature lớn không nằm trong Git.
 
