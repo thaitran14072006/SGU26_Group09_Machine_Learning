@@ -47,4 +47,12 @@ Chạy lại lượt bổ sung với output mới (hoặc dùng `--resume` khi c
 .\.venv-g1\Scripts\python.exe -X utf8 scripts/run_experiment.py --config configs/g4_rf_mlp_additional.yaml --outer-subjects S2 S3 S5 S6 S7 S8 S10 S13 S14 S15 S16 --resume
 ```
 
-Đã đủ **main tuning 120 fold** và phần baseline/audit/hợp nhất. Các so sánh phụ về cân bằng cho mô hình tuned, nhóm cảm biến/feature, ablation và chuẩn hóa theo subject chưa được thực hiện trong lượt này; không gọi toàn bộ các thí nghiệm G4 đã hoàn thành. Chưa làm G5, không thêm phần RAM, không tự commit/push.
+## So sánh cân bằng lớp
+
+Ngày 11/11/2026 đã chạy đủ 120 fold cân bằng lớp trên cùng 15 người và hai bài toán. Mỗi fold giữ best_params đã chọn bằng inner CV ở bảng main. KNN/MLP dùng RandomOverSampler trong pipeline train, còn SVM/RF dùng `class_weight=balanced`. Đã đối chiếu khóa và nhãn thật của cả 49.512 dự đoán ngoài mẫu.
+
+KNN tăng Macro-F1 trung bình ở cả hai bài toán (+0,29 điểm phần trăm ở ba lớp và +0,87 ở nhị phân). SVM giảm ở cả hai. RF và MLP giảm ở ba lớp và thay đổi dưới 0,1 điểm phần trăm ở nhị phân. Xem [bảng theo subject](../reports/g4_balanced_tuned/comparison_by_subject.csv) và [tổng hợp hai metric](../reports/g4_balanced_tuned/summary.json).
+
+Chạy lại bằng `.\.venv-g1\Scripts\python.exe -X utf8 scripts/run_g4_balanced_tuned.py`. Script đọc bộ main đã kiểm tra trong `outputs/g4_group_tuning_complete_20261110` và ghi kết quả cân bằng vào `outputs/g4_balanced_tuned_20261111`.
+
+Các so sánh nhóm cảm biến/feature, ablation và chuẩn hóa theo subject còn lại.

@@ -46,4 +46,4 @@ Ngày 10/11/2026: đã hoàn thành lượt chạy bổ sung 44 fold RF/MLP và 
 
 Đã kiểm tra source snapshot/checksum, cùng lõi train và grid giữa các shard, OOF/nhãn, inner CV, best_params và metric tính lại. So sánh mặc định–tuning trên đủ 15 người được lưu riêng. Xem [tổng hợp main G4](G4_TONG_HOP.md) và `outputs/g4_group_tuning_complete_20261110.zip`; gói này giữ cả checkpoint và bằng chứng của từng nguồn trong `source_runs`.
 
-Baseline LR cân bằng và 240 lượt audit resampling ở trên vẫn là kết quả riêng. Việc đủ main tuning không đồng nghĩa đã chạy các biến thể cân bằng của bốn mô hình, so sánh nhóm cảm biến/feature, ablation hoặc chuẩn hóa theo subject. Những so sánh phụ này chưa được thực hiện trong lượt bổ sung. Chưa làm G5 hoặc phần RAM; không tự commit/push.
+Ngày 11/11/2026 đã hoàn thành thêm so sánh cân bằng lớp cho KNN/SVM/RF/MLP trên 120 fold, giữ best_params của từng fold main. Kết quả và cách chạy lại nằm trong [tổng hợp G4](G4_TONG_HOP.md#so-sánh-cân-bằng-lớp). Các so sánh nhóm cảm biến/feature, ablation và chuẩn hóa theo subject còn lại.

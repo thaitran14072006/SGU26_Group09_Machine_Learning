@@ -118,6 +118,11 @@ def run_experiment(config, resume=False, outer_subjects=None, allow_partial=Fals
                     with warnings.catch_warnings(record=True) as caught, threadpool_limits(limits=1):
                         warnings.simplefilter("always")
                         estimator = clone(pipeline)
+                        if "fixed_fold_params" in config:
+                            if config.get("nested", False):
+                                raise ValueError("Fixed fold parameters cannot be used with nested tuning.")
+                            params = config["fixed_fold_params"][f"{task}/{name}/{subject}"]
+                            estimator.set_params(**params)
                         if config.get("nested", False) and name not in {"dummy", "lr"}:
                             splits, inner = grouped_inner_splits(X_train, y_train, groups.iloc[train],
                                                                 int(config.get("inner_splits", 3)))
