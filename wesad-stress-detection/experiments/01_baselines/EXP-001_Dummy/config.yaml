@@ -1,0 +1,48 @@
+protocol: g3_defaults_physiological68_v1
+features: data/features/g2_physiological68_group15_20261107/all_subjects.csv
+schema: data/features/g2_physiological68_group15_20261107/feature_schema.json
+feature_version: physiological_68_v1
+feature_sha256: 2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba
+output_dir: outputs/exp001_dummy_full
+source_paths:
+- src/wesad/data.py
+- src/wesad/evaluation.py
+- src/wesad/models.py
+- src/wesad/utils.py
+- src/wesad/g3.py
+- scripts/run_g3_baselines.py
+- scripts/merge_g3_predictions.py
+source_hash_normalization: LF
+expected_subjects:
+- S2
+- S3
+- S4
+- S5
+- S6
+- S7
+- S8
+- S9
+- S10
+- S11
+- S13
+- S14
+- S15
+- S16
+- S17
+models:
+- dummy
+tasks:
+- multiclass
+- binary
+seed: 42
+sensor_set: combined_physiological68
+normalization: global_train
+balance: false
+nested: false
+zero_division: 0
+missing_train_class: error
+missing_test_class: fixed_labels_for_macro_f1_observed_classes_for_balanced_accuracy
+model_params:
+  lr:
+    random_state: 42
+run_kind: main
