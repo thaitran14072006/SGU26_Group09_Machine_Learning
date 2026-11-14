@@ -1,0 +1,9 @@
+{
+  "subject_id": "S5",
+  "task": "binary",
+  "model": "dummy",
+  "n_test": 414,
+  "macro_f1": 0.41607898448519043,
+  "balanced_accuracy": 0.5,
+  "seconds": 0.0506
+}

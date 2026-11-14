@@ -1,0 +1,9 @@
+{
+  "subject_id": "S11",
+  "task": "multiclass",
+  "model": "dummy",
+  "n_test": 417,
+  "macro_f1": 0.2349896480331263,
+  "balanced_accuracy": 0.3333333333333333,
+  "seconds": 0.0927
+}

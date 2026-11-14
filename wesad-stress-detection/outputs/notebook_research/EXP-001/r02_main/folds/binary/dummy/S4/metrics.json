@@ -1,0 +1,9 @@
+{
+  "subject_id": "S4",
+  "task": "binary",
+  "model": "dummy",
+  "n_test": 404,
+  "macro_f1": 0.4153400868306802,
+  "balanced_accuracy": 0.5,
+  "seconds": 0.0511
+}

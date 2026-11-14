@@ -1,0 +1,9 @@
+{
+  "subject_id": "S3",
+  "task": "binary",
+  "model": "dummy",
+  "n_test": 401,
+  "macro_f1": 0.4137426900584795,
+  "balanced_accuracy": 0.5,
+  "seconds": 0.0502
+}

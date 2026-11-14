@@ -1,0 +1,9 @@
+{
+  "subject_id": "S16",
+  "task": "binary",
+  "model": "dummy",
+  "n_test": 415,
+  "macro_f1": 0.41134751773049644,
+  "balanced_accuracy": 0.5,
+  "seconds": 0.1048
+}
