@@ -1,0 +1,5 @@
+member,model,selected,cv_rmse_log,cv_sd_sample,holdout_rmse_log,holdout_mae,source,notes
+như,rf,Nhu_EXP-003,0.14517989419560304,0.02113398454496373,0.13307417594501972,16825.30459995966,members/Nhu/outputs/experiments/20261115_171330_237145/holdout_report.json,đã chạy và kiểm tra model nạp lại
+Thái,elasticnet,Thai_EXP-010,0.1290032070139378,0.0314727242969791,0.11358732483971107,15071.782804603701,members/Thai/outputs/experiments/final_summary.json,"số đo nguồn; hash byte train trong nhật ký khác bản hiện tại, cần xác minh snapshot"
+Nam,svr,V3,0.12089814086517336,0.020544856026768796,0.1197911322839388,14324.027995719742,members/Nam/outputs/v5_holdout_report.json,số đo nguồn; sd chuyển ddof=0 sang ddof=1
+Mai,gradient boosting,Mai_EXP-003,0.12863228211634378,0.01668938753213648,0.1158863242227108,15235.567783061533,members/Mai/outputs/experiments/Mai_EXP-003/result.json,số đo nguồn; sd tính lại ddof=1 từ 5 fold
