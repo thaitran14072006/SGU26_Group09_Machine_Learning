@@ -1,0 +1,9 @@
+{
+  "subject_id": "S8",
+  "task": "binary",
+  "model": "dummy",
+  "n_test": 412,
+  "macro_f1": 0.4114285714285714,
+  "balanced_accuracy": 0.5,
+  "seconds": 0.0606
+}
