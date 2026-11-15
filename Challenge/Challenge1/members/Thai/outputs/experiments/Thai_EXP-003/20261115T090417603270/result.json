@@ -1,0 +1,68 @@
+{
+  "config": {
+    "exp_id": "Thai_EXP-003",
+    "date": "03/11/2026",
+    "day": "03",
+    "model": "ridge",
+    "alpha": 10.0,
+    "l1_ratio": null,
+    "mode": "basic",
+    "title": "Tăng alpha lên 10",
+    "hypothesis": "Điều chuẩn mạnh hơn có thể giảm phương sai.",
+    "notebook": "members/Thai/notebooks/03_11_2026.ipynb"
+  },
+  "executed_at": "2026-11-15T09:04:17.603223+07:00",
+  "python": "3.13.9",
+  "sklearn": "1.7.2",
+  "train_sha256": "1e18addf81e5e4d347cc17ee6075bbe4a42b7fa26b9e5b063e8f692a5f929d41",
+  "split_sha256": "d2c43ba5278241cb8c3d81b2a52c6cb4d5f81f5322805bfacf39cfde81bee3a7",
+  "source_sha256": "232fef07e93c27691d57c68b50740fbcc74004e63cbfbadc35712d3b5e0519b6",
+  "cv_rmse_log_mean": 0.1486435019145823,
+  "cv_rmse_log_std": 0.03677187206465013,
+  "cv_mae_price": 17114.158609435268,
+  "seconds": 1.0283407999959309,
+  "warnings": [],
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 934,
+      "n_valid": 234,
+      "rmse_log": 0.12998981848399083,
+      "mae_price": 16966.77303969775,
+      "train_rmse_log": 0.11162084108874623
+    },
+    {
+      "fold": 1,
+      "n_train": 934,
+      "n_valid": 234,
+      "rmse_log": 0.14334981048351367,
+      "mae_price": 14498.741752002523,
+      "train_rmse_log": 0.11219393083385461
+    },
+    {
+      "fold": 2,
+      "n_train": 934,
+      "n_valid": 234,
+      "rmse_log": 0.21205868713504256,
+      "mae_price": 21787.754375838143,
+      "train_rmse_log": 0.09853700979486336
+    },
+    {
+      "fold": 3,
+      "n_train": 935,
+      "n_valid": 233,
+      "rmse_log": 0.1396882673919818,
+      "mae_price": 15980.525325712153,
+      "train_rmse_log": 0.10956944078237314
+    },
+    {
+      "fold": 4,
+      "n_train": 935,
+      "n_valid": 233,
+      "rmse_log": 0.1181309260783826,
+      "mae_price": 16336.998553925772,
+      "train_rmse_log": 0.11538643781306544
+    }
+  ],
+  "conclusion": "CV RMSE log giảm 0.00579 so với Ridge cơ sở."
+}
