@@ -1,0 +1,8 @@
+{
+  "exp_id": "Nhu_EXP-003",
+  "mode": "engineered",
+  "max_depth": null,
+  "min_samples_leaf": 1,
+  "selection": "CV RMSE log trung bình thấp nhất",
+  "cv_rmse_mean": 0.14517989419560304
+}

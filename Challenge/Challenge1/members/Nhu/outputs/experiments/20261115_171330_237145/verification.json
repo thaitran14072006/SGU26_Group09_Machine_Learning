@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "experiments": 6,
+  "cv_folds": 30,
+  "submission_rows": 1459,
+  "model_reload_predictions_match": true
+}

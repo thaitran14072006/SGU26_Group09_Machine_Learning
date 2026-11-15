@@ -1,0 +1,35 @@
+{
+  "run_id": "Mai_EXP-002",
+  "assigned_date": "06/11/2026",
+  "date_type": "Ngày quy ước của nhật ký",
+  "verification_run": "2026-11-15T11:47:50+07:00",
+  "notebook_submission_saved_at": "2026-11-15T11:29:56+07:00",
+  "timing_source": "Thời lượng từ đầu ra notebook. Lượt 3 đo toàn bộ GridSearchCV.",
+  "source_notebook": "members/Mai/notebooks/gradient_boosting.ipynb",
+  "train_sha256": "ed142e0a97bd49fc3b46c930209c55750fc4e806f5430c7d7409cb4cf25149cb",
+  "params": {
+    "model__learning_rate": 0.1,
+    "model__max_depth": 3,
+    "model__n_estimators": 100
+  },
+  "quality_area": true,
+  "cv_fold_rmse_log": [
+    0.13486606633534773,
+    0.12068514584040345,
+    0.15346290754929104,
+    0.13284101658665887,
+    0.11149660045973596
+  ],
+  "cv_fold_mae_price": [
+    17462.494348976157,
+    15276.722645899528,
+    17037.794135903478,
+    15997.249398022714,
+    14835.797815553236
+  ],
+  "cv_mean_rmse_log": 0.1306703473542874,
+  "cv_std_rmse_log": 0.014206713076404759,
+  "cv_std_ddof": 0,
+  "cv_mean_mae_price": 16122.011668871022,
+  "notebook_elapsed_seconds": 3.97807
+}

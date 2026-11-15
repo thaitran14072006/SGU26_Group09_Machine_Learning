@@ -1,0 +1,8 @@
+{
+  "exp_id": "Nhu_EXP-003",
+  "n_holdout": 292,
+  "rmse_log": 0.13307417594501972,
+  "mae_price": 16825.30459995966,
+  "development_train_rmse_log": 0.054034478808702914,
+  "used_for_selection": false
+}
