@@ -1,0 +1,18 @@
+{
+  "selected_exp": "Thai_EXP-010",
+  "selected_config": {
+    "exp_id": "Thai_EXP-010",
+    "date": "10/11/2026",
+    "day": "10",
+    "model": "elasticnet",
+    "alpha": 0.001,
+    "l1_ratio": 0.5,
+    "mode": "engineered",
+    "title": "ElasticNet cơ sở",
+    "hypothesis": "Kết hợp L1 và L2 có thể giảm đặc trưng ít hữu ích.",
+    "notebook": "members/Thai/notebooks/10_11_2026.ipynb"
+  },
+  "selection": "Chọn bằng CV trên development trước khi đánh giá holdout",
+  "holdout_rmse_log": 0.11358732483971107,
+  "holdout_mae_price": 15071.782804603701
+}

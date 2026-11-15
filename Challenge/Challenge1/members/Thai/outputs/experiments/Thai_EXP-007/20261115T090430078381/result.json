@@ -1,0 +1,68 @@
+{
+  "config": {
+    "exp_id": "Thai_EXP-007",
+    "date": "07/11/2026",
+    "day": "07",
+    "model": "ridge",
+    "alpha": 30.0,
+    "l1_ratio": null,
+    "mode": "log",
+    "title": "Log các biến diện tích",
+    "hypothesis": "Giảm độ lệch của biến số bằng log1p.",
+    "notebook": "members/Thai/notebooks/07_11_2026.ipynb"
+  },
+  "executed_at": "2026-11-15T09:04:30.078316+07:00",
+  "python": "3.13.9",
+  "sklearn": "1.7.2",
+  "train_sha256": "1e18addf81e5e4d347cc17ee6075bbe4a42b7fa26b9e5b063e8f692a5f929d41",
+  "split_sha256": "d2c43ba5278241cb8c3d81b2a52c6cb4d5f81f5322805bfacf39cfde81bee3a7",
+  "source_sha256": "232fef07e93c27691d57c68b50740fbcc74004e63cbfbadc35712d3b5e0519b6",
+  "cv_rmse_log_mean": 0.133741769769827,
+  "cv_rmse_log_std": 0.028960201211276623,
+  "cv_mae_price": 15616.938778821841,
+  "seconds": 1.73760150000453,
+  "warnings": [],
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 934,
+      "n_valid": 234,
+      "rmse_log": 0.12080117584857186,
+      "mae_price": 15656.665116282358,
+      "train_rmse_log": 0.11165035622086866
+    },
+    {
+      "fold": 1,
+      "n_train": 934,
+      "n_valid": 234,
+      "rmse_log": 0.12569822429719318,
+      "mae_price": 14211.127174219193,
+      "train_rmse_log": 0.11128288173585707
+    },
+    {
+      "fold": 2,
+      "n_train": 934,
+      "n_valid": 234,
+      "rmse_log": 0.18412675186722502,
+      "mae_price": 18333.528196304324,
+      "train_rmse_log": 0.098470232984551
+    },
+    {
+      "fold": 3,
+      "n_train": 935,
+      "n_valid": 233,
+      "rmse_log": 0.12775238237484246,
+      "mae_price": 14811.988260933353,
+      "train_rmse_log": 0.10981112805768979
+    },
+    {
+      "fold": 4,
+      "n_train": 935,
+      "n_valid": 233,
+      "rmse_log": 0.1103303144613025,
+      "mae_price": 15071.38514636998,
+      "train_rmse_log": 0.11484548909718832
+    }
+  ],
+  "conclusion": "CV RMSE log giảm 0.02069 so với Ridge cơ sở."
+}
