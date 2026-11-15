@@ -1,0 +1,15 @@
+{
+  "selected_version": "V3",
+  "mode": "baseline",
+  "params": {
+    "svr__C": 10,
+    "svr__epsilon": 0.05,
+    "svr__gamma": 0.001
+  },
+  "development_cv_rmse": 0.12089814086517336,
+  "holdout_rmse_log": 0.1197911322839388,
+  "holdout_mae_price": 14324.027995719742,
+  "development_rows": 1168,
+  "holdout_rows": 292,
+  "random_state": 7
+}

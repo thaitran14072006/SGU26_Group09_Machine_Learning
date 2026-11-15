@@ -1,0 +1,60 @@
+{
+  "V0": {
+    "mode": "baseline",
+    "params": {},
+    "metrics": {
+      "cv_rmse_mean": 0.14399703228043767,
+      "cv_rmse_std": 0.017260488902944328,
+      "train_rmse_mean": 0.07839464001164911,
+      "seconds": 1.31
+    }
+  },
+  "V1": {
+    "mode": "baseline",
+    "params": {},
+    "metrics": {
+      "cv_rmse_mean": 0.14399703228043767,
+      "cv_rmse_std": 0.017260488902944328,
+      "train_rmse_mean": 0.07839464001164911,
+      "seconds": 1.19
+    }
+  },
+  "V2": {
+    "mode": "baseline",
+    "params": {},
+    "metrics": {
+      "cv_rmse_mean": 0.14399703228043767,
+      "cv_rmse_std": 0.017260488902944328,
+      "train_rmse_mean": 0.07839464001164911,
+      "seconds": 1.24
+    }
+  },
+  "V3": {
+    "mode": "baseline",
+    "params": {
+      "svr__C": 10,
+      "svr__epsilon": 0.05,
+      "svr__gamma": 0.001
+    },
+    "metrics": {
+      "cv_rmse_mean": 0.12089814086517336,
+      "cv_rmse_std": 0.018375877865520505,
+      "train_rmse_mean": 0.08903548871851097,
+      "seconds": 4.9
+    }
+  },
+  "V4": {
+    "mode": "baseline",
+    "params": {
+      "svr__C": 10,
+      "svr__epsilon": 0.05,
+      "svr__gamma": 0.001
+    },
+    "metrics": {
+      "cv_rmse_mean": 0.12089814086517336,
+      "cv_rmse_std": 0.018375877865520505,
+      "train_rmse_mean": 0.08903548871851097,
+      "seconds": 1.88
+    }
+  }
+}
