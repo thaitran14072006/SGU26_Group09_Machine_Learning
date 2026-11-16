@@ -1,0 +1,46 @@
+{
+  "multiclass/lr/S2": {
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S2"
+    ],
+    "inner_splits": []
+  },
+  "binary/lr/S2": {
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S2"
+    ],
+    "inner_splits": []
+  }
+}

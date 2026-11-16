@@ -1,0 +1,65 @@
+{
+  "outer_train_subjects": [
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S7",
+    "S8",
+    "S9"
+  ],
+  "outer_test_subjects": [
+    "S6"
+  ],
+  "inner_splits": [],
+  "best_params": {},
+  "warnings": [],
+  "classification_report": {
+    "0": {
+      "precision": 0.9897959183673469,
+      "recall": 1.0,
+      "f1-score": 0.9948717948717949,
+      "support": 291.0
+    },
+    "1": {
+      "precision": 1.0,
+      "recall": 0.9752066115702479,
+      "f1-score": 0.9874476987447699,
+      "support": 121.0
+    },
+    "accuracy": 0.9927184466019418,
+    "macro avg": {
+      "precision": 0.9948979591836735,
+      "recall": 0.9876033057851239,
+      "f1-score": 0.9911597468082824,
+      "support": 412.0
+    },
+    "weighted avg": {
+      "precision": 0.9927927481672281,
+      "recall": 0.9927184466019418,
+      "f1-score": 0.9926914171257512,
+      "support": 412.0
+    }
+  },
+  "labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      291,
+      0
+    ],
+    [
+      3,
+      118
+    ]
+  ]
+}
