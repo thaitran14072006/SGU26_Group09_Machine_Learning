@@ -1,0 +1,9 @@
+{
+  "subject_id": "S6",
+  "task": "multiclass",
+  "model": "lr",
+  "n_test": 412,
+  "macro_f1": 0.8125690099374309,
+  "balanced_accuracy": 0.7846153846153846,
+  "seconds": 0.1264
+}
