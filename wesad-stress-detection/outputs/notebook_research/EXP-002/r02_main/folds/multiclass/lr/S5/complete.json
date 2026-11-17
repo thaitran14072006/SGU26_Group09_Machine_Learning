@@ -1,8 +1,0 @@
-{
-  "signature": "491ae2be2bf5cdcfd1adcf3fcda464cadc19970008e394c5501d5f59835262cf",
-  "files": {
-    "predictions.csv": "482a1b22c4d163e06a935d73b172fd83f51189febb81275706ca94b97a787824",
-    "metrics.json": "db5524cf23963555ea4ff7bf442604f85a5eeef972b06bdd55c360cbe7a740da",
-    "details.json": "937fddb5aace1539fd31f4b4cf8b5338f8ea45eb737831986f450ed85dadb1ea"
-  }
-}

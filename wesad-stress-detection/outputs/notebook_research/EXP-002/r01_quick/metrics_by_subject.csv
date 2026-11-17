@@ -1,3 +1,0 @@
-subject_id,task,model,n_test,macro_f1,balanced_accuracy,seconds
-S2,multiclass,lr,395,0.46612690019828157,0.6210045662100456,0.9109
-S2,binary,lr,395,0.4148148148148148,0.49645390070921985,0.2444
