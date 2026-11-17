@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "experiment": "EXP-010",
+  "outer_folds": 30,
+  "predictions": 12378,
+  "candidates_per_outer": 4,
+  "inner_folds": 3,
+  "checks": [
+    "checkpoint hashes",
+    "subject leakage",
+    "inner winner",
+    "predictions and labels",
+    "metrics",
+    "loss traces",
+    "sample mean and sd"
+  ]
+}
