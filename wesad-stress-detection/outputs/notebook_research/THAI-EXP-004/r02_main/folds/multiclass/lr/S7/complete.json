@@ -1,0 +1,9 @@
+{
+  "signature": "3b4d1d9287ea5f0aea2d17d8932177c8901b73b095151ab85c7dcdaf69b46706",
+  "files": {
+    "predictions.csv": "78fbf309d9ba7386abca3357d4c68a0c07390b6baea779a9c9e9a77ce9535d26",
+    "inner_cv.csv": "fdc82e8735420b0883c442588efc5e06cab32420d079d2b5e7ef7cdf207fca8a",
+    "metrics.json": "5f5293324c2cf5051544f68c48d2c76f9b502223ee6afbf9b832d0970e356c70",
+    "details.json": "7909b8d14ad1b8f01dcc8e7ecea9249b9e006b3536ef980b9e3a3fb6bfb5b265"
+  }
+}

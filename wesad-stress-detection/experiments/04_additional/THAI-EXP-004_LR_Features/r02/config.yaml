@@ -1,0 +1,46 @@
+experiment_id: THAI-EXP-004
+group_experiment_id: EXP-016
+run_no: r02
+run_scope: main
+features: data/features/g2_physiological68_group15_20261107/all_subjects.csv
+schema: data/features/g2_physiological68_group15_20261107/feature_schema.json
+feature_sha256: 2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba
+feature_version: physiological_68_v1
+models:
+- lr
+tasks:
+- multiclass
+- binary
+expected_subjects:
+- S2
+- S3
+- S4
+- S5
+- S6
+- S7
+- S8
+- S9
+- S10
+- S11
+- S13
+- S14
+- S15
+- S16
+- S17
+seed: 42
+balance: false
+normalization: global_train
+model_params:
+  lr:
+    random_state: 42
+selector: SelectKBest(f_classif)
+k_candidates:
+- 16
+- 32
+- 48
+- 68
+nested: true
+inner_splits: 3
+scoring: macro_f1
+reference_run: outputs/notebook_research/THAI-EXP-002/r02_main
+output_dir: outputs/notebook_research/THAI-EXP-004/r02_main
