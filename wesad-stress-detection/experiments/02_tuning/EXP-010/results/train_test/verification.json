@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "outer_folds": 30,
+  "reference_predictions_match": true,
+  "reference_metrics_match": true,
+  "confusion_matrix_metrics_match": true,
+  "train_and_test_same_refitted_model": true,
+  "train_evaluated_before_ROS_duplication": true,
+  "test_not_used_for_model_selection": true
+}
