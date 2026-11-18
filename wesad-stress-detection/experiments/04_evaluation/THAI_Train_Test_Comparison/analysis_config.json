@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-11-18T16:24:13.213131+07:00",
+  "scope": "outer_train_resubstitution_and_outer_test_LOSO",
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "shared_code_sha256": "cecb2e0908e5c3ce9a91bced4ae3cf32fb8983db52b95f8dbb341c5f952853d6",
+  "notebook_code_sha256": "e2d2c29a5150ba8d473ae658b65c0cb0e963571d25fc5eb94158481d69126e3b",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  },
+  "git_commit": "ae1e226e04ad29cbb21cd5eb32abd01507a71e16",
+  "git_dirty": true,
+  "code_sha256": "90c7920d24f2d16776a13bb8060d100b24db6393aff99835aaa78fcbddb6e6c8",
+  "source_runs": {
+    "THAI-EXP-001": {
+      "path": "outputs/notebook_research/THAI-EXP-001/r02_main",
+      "signature": "393cd9e04baad449ea48f1eefdf379a5b1106b8530626faf643078e517bfa43b",
+      "metrics_sha256": "34153cdbe2273ff64058a96a2eb3c8670c382168862760fb77be813626773a7d",
+      "predictions_sha256": "69a6fc2aa87238f3e7030ad7b751700022c63f7e742672481e7b8ffb2a20c602"
+    },
+    "THAI-EXP-002": {
+      "path": "outputs/notebook_research/THAI-EXP-002/r02_main",
+      "signature": "fd84a3c322da776fc285183f65362f73cab990f63e66298fe2d17ae3b48e5d7a",
+      "metrics_sha256": "ca10d40909526a13d1625fd0d019131f58db27cc3f294f01bb48bfade4643d03",
+      "predictions_sha256": "3fcff0e93d34927adc745fa46c3076de57f5d123a3eb5d17396c0875de5210a7"
+    },
+    "THAI-EXP-003": {
+      "path": "outputs/notebook_research/THAI-EXP-003/r02_main",
+      "signature": "abbbcd8671ee2c145cdf278d9c4fd36fbddb77850dd6721236e20b9fe0ff495c",
+      "metrics_sha256": "6e7354255dc9a42769e7b43539bfc56bb18c8f6c4c8bd1873c8b56c9fec95a6c",
+      "predictions_sha256": "670199607fcf6b7ae8aaf7ecbfbbb1f5a6e71333682d07bda03faf564cf8e977"
+    },
+    "THAI-EXP-004": {
+      "path": "outputs/notebook_research/THAI-EXP-004/r02_main",
+      "signature": "3b4d1d9287ea5f0aea2d17d8932177c8901b73b095151ab85c7dcdaf69b46706",
+      "metrics_sha256": "2b4b3bfd337091083575c57733bde8ee49378971f61e259b471e8ff737b0e67f",
+      "predictions_sha256": "95d93d07d4a110d3f83298c27e3ca724d7a69ee3fd90068a1039c589706b60a9"
+    }
+  }
+}
