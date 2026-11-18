@@ -1,0 +1,9 @@
+{
+  "subject_id": "S15",
+  "task": "multiclass",
+  "model": "mlp",
+  "n_test": 418,
+  "macro_f1": 0.6034406693861656,
+  "balanced_accuracy": 0.6551898967551623,
+  "seconds": 1.7503
+}
