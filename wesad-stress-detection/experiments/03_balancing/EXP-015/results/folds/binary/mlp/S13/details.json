@@ -1,0 +1,96 @@
+{
+  "outer_train_subjects": [
+    "S10",
+    "S11",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9"
+  ],
+  "outer_test_subjects": [
+    "S13"
+  ],
+  "inner_splits": [],
+  "best_params": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "warnings": [],
+  "classification_report": {
+    "0": {
+      "precision": 1.0,
+      "recall": 0.22184300341296928,
+      "f1-score": 0.36312849162011174,
+      "support": 293.0
+    },
+    "1": {
+      "precision": 0.3522727272727273,
+      "recall": 1.0,
+      "f1-score": 0.5210084033613446,
+      "support": 124.0
+    },
+    "accuracy": 0.45323741007194246,
+    "macro avg": {
+      "precision": 0.6761363636363636,
+      "recall": 0.6109215017064846,
+      "f1-score": 0.44206844749072816,
+      "support": 417.0
+    },
+    "weighted avg": {
+      "precision": 0.8073904512753434,
+      "recall": 0.45323741007194246,
+      "f1-score": 0.41007599535131767,
+      "support": 417.0
+    }
+  },
+  "labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      65,
+      228
+    ],
+    [
+      0,
+      124
+    ]
+  ],
+  "mlp_optimization": {
+    "scope": "best_candidate_refit_on_outer_train_only",
+    "n_iter": 14,
+    "max_iter": 200,
+    "loss": 5.614937561047778e-05,
+    "loss_curve": [
+      0.0607711372211397,
+      0.001074083200779431,
+      0.0001884420321415278,
+      0.00013362268274177473,
+      0.00010483518263169378,
+      8.898758062337007e-05,
+      8.02447254619967e-05,
+      7.298002519255736e-05,
+      6.821729910828419e-05,
+      6.462539745661624e-05,
+      6.187282427738721e-05,
+      5.9485066751207505e-05,
+      5.764607056314133e-05,
+      5.614937561047778e-05
+    ],
+    "reached_max_iter": false,
+    "interpretation": "Training objective, not validation loss or proof of generalization. See captured convergence warnings too."
+  }
+}
