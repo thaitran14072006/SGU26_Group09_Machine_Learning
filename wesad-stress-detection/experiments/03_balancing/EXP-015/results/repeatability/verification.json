@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "exp_chung": "EXP-015",
+  "independent_training_runs": 3,
+  "total_outer_fits": 90,
+  "predictions_per_run": 12378,
+  "seed": 42,
+  "all_predictions_match": true,
+  "all_metrics_match": true,
+  "interpretation": "same-seed reproducibility; not stability across different seeds"
+}

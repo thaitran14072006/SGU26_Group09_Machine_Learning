@@ -1,0 +1,96 @@
+{
+  "outer_train_subjects": [
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9"
+  ],
+  "outer_test_subjects": [
+    "S10"
+  ],
+  "inner_splits": [],
+  "best_params": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "warnings": [],
+  "classification_report": {
+    "0": {
+      "precision": 1.0,
+      "recall": 0.9656357388316151,
+      "f1-score": 0.9825174825174825,
+      "support": 291.0
+    },
+    "1": {
+      "precision": 0.9310344827586207,
+      "recall": 1.0,
+      "f1-score": 0.9642857142857143,
+      "support": 135.0
+    },
+    "accuracy": 0.9765258215962441,
+    "macro avg": {
+      "precision": 0.9655172413793103,
+      "recall": 0.9828178694158076,
+      "f1-score": 0.9734015984015985,
+      "support": 426.0
+    },
+    "weighted avg": {
+      "precision": 0.9781447304516755,
+      "recall": 0.9765258215962441,
+      "f1-score": 0.9767398094862884,
+      "support": 426.0
+    }
+  },
+  "labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      281,
+      10
+    ],
+    [
+      0,
+      135
+    ]
+  ],
+  "mlp_optimization": {
+    "scope": "best_candidate_refit_on_outer_train_only",
+    "n_iter": 14,
+    "max_iter": 200,
+    "loss": 5.59372654322696e-05,
+    "loss_curve": [
+      0.0717681327677843,
+      0.000876699365921259,
+      0.00020270076633212953,
+      0.00013879099809713483,
+      0.00010486358639220288,
+      8.982522890516761e-05,
+      7.939012255760631e-05,
+      7.230888687877785e-05,
+      6.758886944707982e-05,
+      6.421379443369492e-05,
+      6.115732893390798e-05,
+      5.9123602364878744e-05,
+      5.7425710285469316e-05,
+      5.59372654322696e-05
+    ],
+    "reached_max_iter": false,
+    "interpretation": "Training objective, not validation loss or proof of generalization. See captured convergence warnings too."
+  }
+}

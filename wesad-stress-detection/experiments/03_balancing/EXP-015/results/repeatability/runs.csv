@@ -1,0 +1,4 @@
+exp_chung,run_id,member,date,seed,outer_folds,predictions,prediction_differences,max_metric_difference,predictions_match,metrics_match,source_run
+EXP-015,EXP-015-R01,như,16/11/2026,42,30,12378,0,0.0,True,True,experiments/03_balancing/EXP-015/results
+EXP-015,EXP-015-R02,như,18/11/2026,42,30,12378,0,0.0,True,True,outputs/exp015_mlp_balanced_20261118_210644_007310
+EXP-015,EXP-015-R03,như,18/11/2026,42,30,12378,0,0.0,True,True,outputs/exp015_mlp_balanced_20261118_210812_371888
