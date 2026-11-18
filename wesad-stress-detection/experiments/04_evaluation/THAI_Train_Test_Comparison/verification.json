@@ -1,0 +1,3126 @@
+{
+  "n_folds": 120,
+  "all_test_predictions_match": true,
+  "folds": {
+    "THAI-EXP-001/multiclass/S10": {
+      "outer_train_subjects": [
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S10"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "a680124865e19f8b00ad6b5a5198daeed6b50899c9d5209f8d370a051ab28667",
+      "original_predictions_sha256": "cb5ac6ecbfe520e123c88ed36dd0c6cc21dae343330cd63cc02520fb4ec34fb0",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S11": {
+      "outer_train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S11"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "4d8fa18c8c3f79c27a125014fe83e213a800ae5030b806e8be31cb30a207d6b8",
+      "original_predictions_sha256": "315128465df2c7b8756f54ca09f5aa10c638dd579f578c841e0dd853d70447f3",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S13": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S13"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "e605953f61b7d334c989c63a94bbabd4557894cc5ee0288e1d903f2de9138f67",
+      "original_predictions_sha256": "b6c49470f275bf1f520c617bc6a36f97a1ece72d5a41e6346388eadc9c54b2af",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S14": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S14"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "f7e096922512a1eed4c4f306428827b5b7cc2d9c575d1891c60750056b48edbe",
+      "original_predictions_sha256": "800e52cc1d05dada73f0bbe8c119cbf77c91e07b64120a64b16bea48ac6e9a8c",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S15": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S15"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "04c803577ecd1b3bb880bb41b38409737bd6456d946c0884efd59ea000ffb980",
+      "original_predictions_sha256": "b768d202e2fe78befd7fce47dff4409763b61a955d7b64dd49bca20545b41305",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S16": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S16"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "8358693decad8eb453931602d7cd232c79fbfcfd54aed2e7db5d9a5b26af7dcd",
+      "original_predictions_sha256": "4c5fd924dcc85694cdb6af0445a395c657023f47eea29be3259629dc2aa45faf",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S17": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S17"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "453c9d48bf2cc72d77a85697c69e33cc0804f76728280b868e6bbbb49189560e",
+      "original_predictions_sha256": "11d883ee774ca682eb46c3c3dd4e1bef37e9a69539faefe0a2f36a7911793639",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S2": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S2"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "0a9ba78a12e8243e5d8fce2859cd77684c96991b6d5f03647f4d8b21e91713b2",
+      "original_predictions_sha256": "ed7ec31b9a79717c648d8b1fd48263333a828a70fdbe5c0de0abead9ad065672",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S3": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S3"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "18df7f6a4d89b25978cf9941901969687bbcaa077624a0a359e7e8acfb1ea202",
+      "original_predictions_sha256": "bd283da4856e53864a97dc1403ea6f4b46d2dfdbbaa625ee36c9a69c0692cab2",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S4": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S4"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "da4edf39834765d1fb995c623e09c4daa56d26fb06446f5755a5f8b9758a7f50",
+      "original_predictions_sha256": "ffcb28e397c8cb253862d8c1e28288e5dff5ead7ef5daafaa52e2a401dc21493",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S5": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S5"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "9fd180eb72824b5501a1533dcf7d8c0e1bc152088adbe889afd54d850e4f59b5",
+      "original_predictions_sha256": "d5a6ebea48973063ce685fe573ebd0abd8732e85c0e2bd887ad6cc89d95b737e",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S6": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S6"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "492610002254473d3e22494f4b6502c566ec6395c6b2f909bd3ade2c27281b8d",
+      "original_predictions_sha256": "d4177b59f1189cec112514159fb81669ec7ef4379579146398066149babac379",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S7": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S7"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "bfb285c22a038bae4e2b3c91fbe5270d5b6463860bee2f262428b2f79ac45fdc",
+      "original_predictions_sha256": "16034d4e7cbe686218d09e1ac1d1a4173c0514dc5f6555881520c61ae8559a6d",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S8": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S8"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "fd946d4199274a9857a2880a46b409b0e340c485ea9fdeb2f0171f6b9a0ca41f",
+      "original_predictions_sha256": "1bb1b26e24f2db9cc913540db8a22902c089bb266e849603760a5a3d9d0f5492",
+      "warnings": []
+    },
+    "THAI-EXP-001/multiclass/S9": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "outer_test_subjects": [
+        "S9"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "c04b6b6b3e36663d8a1b2f832d0713f10ad48dfdf91eb74f56f76928a28b449f",
+      "original_predictions_sha256": "d43673719eac7eb0cafb834139d4b0a22ed7fafdb8cf1d1837a3374e8c027a34",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S10": {
+      "outer_train_subjects": [
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S10"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "b1ee05df017bc0dcfbcc0af23253a854d5850596079d7daf1e73679775d1a582",
+      "original_predictions_sha256": "9fa27e17d32ef3faa7b161e9f0b563d9742747b9160f8fd1998204c0c657840c",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S11": {
+      "outer_train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S11"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "c0528fd21c677be4acfedd6ef7a1cb55c9f92da7a2b32ac7254c8eb387ae19df",
+      "original_predictions_sha256": "e69ff293655b60880c8c4c2ca8c5e75c2e9e3f4b5dfeb4763560a9305888ac07",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S13": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S13"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "99bf10d103659bf63351e2c38efaa37c17bd762965aa99b2b11387ffa39543df",
+      "original_predictions_sha256": "c82cdb106ff3021d06228f72f199fbebf45c3d8ee6b252c82a60314029213aac",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S14": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S14"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "28dc4cb99c32da51a01297825ca1d6d5b283709238309986da5771d92a36f502",
+      "original_predictions_sha256": "e00dbda26f7b283d12f0e356ffb61e9fb86b0cae2cca682a63fe838cce1ade08",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S15": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S15"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "5d23a830579cb9a46abb66e46561467bf419502cf894a0f4fdb360a702f6e3eb",
+      "original_predictions_sha256": "51a940b83b0e6ced12e4f405f68426a6e1463e59ca2abc252fc1366dc1f9cf8f",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S16": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S16"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "b9f0985d0649db1790e909521d40ba716b6f49723765d8fbb30886d3bbfd17b7",
+      "original_predictions_sha256": "048c0cf7d03d5b561c5b68c747f713982056c39e6878b895e708e190f2c4fd29",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S17": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S17"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "ee72774e5f9d197b7eee6cf1b98e5066a5a09992a045ce5f9d5c99813b0412e6",
+      "original_predictions_sha256": "c327b415df111773444bfabba40a6186d29a8fa9db98c77a7c2b0648fa3cffae",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S2": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S2"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "494a0d157121b75024a78f0ecabfb885ea55c32f2983180af13e5836c39b7c0e",
+      "original_predictions_sha256": "30ddce208ab90c782eaa1f192ba08057ae2e779b2ec0eb1e9b701006e857dcc6",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S3": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S3"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "48a25fa7676b828bb7a932c3009e05175ed404f67302435e6197e4883b45f9e2",
+      "original_predictions_sha256": "7f6f153e0db915fc89caea666932f6241f7ce739281a484868d5da6f7d32d7d8",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S4": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S4"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "ee12f4696dba171378a829e1c540b5b9abeb8889489c97ba446ad40473ef953d",
+      "original_predictions_sha256": "1aa56c4d77c2f1d016fa987dee90871f4445c7869de67a3e2d65a760f0609413",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S5": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S5"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "0fa119598b763f756039452764f546900fbe7a9e6f192d5d50d7d5f80eeccd0d",
+      "original_predictions_sha256": "cc25d6f2d1cca197a3cbbf514464fc85f00652dce73a13d955cc1cb1f9413116",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S6": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S6"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "c03056984e30aef88b6cc749fc664d62f591d8f17f99b0718e81d658bcc010b1",
+      "original_predictions_sha256": "135e7873585818ae8b407d83f40c84fca1c99766829c6ee2de90fcb9907ec4ee",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S7": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S7"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "4f63e54f9262dc8f3bf4310f073da270d9b5e6c6ed4ce64c5d8e5bcc0f052852",
+      "original_predictions_sha256": "8869ab9aa07f21022ee480b037e6e9f1f63941cba8ce2baed86e40328bfa1581",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S8": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S8"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "ee50f5977a792188b2ae663ccaec16dd1289ad067af1281ccf149b733d972e81",
+      "original_predictions_sha256": "2ad2e2df56a597d8cdf13511069b4000b9e655d4cc4ca1ed02b6e27a8bea4c1c",
+      "warnings": []
+    },
+    "THAI-EXP-001/binary/S9": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "outer_test_subjects": [
+        "S9"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "bb3dc54aaba2baafbddb0b0782e68e21f598c9c302ce8e1487ad022fd432df25",
+      "original_predictions_sha256": "29899cd4a8154d4269b8f9963a57db52155df70190f545b7ea9062b2cc4dadce",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S10": {
+      "outer_train_subjects": [
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S10"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "eba57c544a1369017df1680cae6850ecfb05be9853db1a571c32c19ff084d823",
+      "original_predictions_sha256": "1d18c26beff284ae620fe11686b84680f4dba773c125472e15ac30fb0a5031e5",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S11": {
+      "outer_train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S11"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "04f209dbf97a88158ced94536be049d51433aa93b62009558870e7563b227e60",
+      "original_predictions_sha256": "bb54e834d4ee09c84e623f58997c55b571cc09b52d8f9f0a86d00fbc2188490c",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S13": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S13"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "0b71e8f1575b9fbc4807a30f039398c657d4078d6cc62e918ef181b17a916ca1",
+      "original_predictions_sha256": "1a8f88d7b2b7b1ec15a014f250f52728f8c9a6a5a121d3937c7662d2a039ec1e",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S14": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S14"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "61742bec8cc9a27a13a12fcdb3e9c03808527d1595eed091ce72bbe5638c38bb",
+      "original_predictions_sha256": "604a5e6ad7e06f2aa1ce223a267ab5adf5cd0ef01ddba55041c0dfb502300006",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S15": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S15"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "bacd13713141cf50b663ed5fdf619540ef6161a07af42162646a8fdad88a31fa",
+      "original_predictions_sha256": "3191967f619fe365b04450098416f41c1dbbbec31a9254490d70efb3bdacd64a",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S16": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S16"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "fa210e8c59c55991cb2f25b89f5b93206b81e7a2d1583ecf816a490ef3a03962",
+      "original_predictions_sha256": "ad3ec13a20494a11043d94c7cec15892b276833238fc746362183fae1f3f2795",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S17": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S17"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "5e3e81bdf723826390b66d70023c9605bd9ae05db97c61462b1172a333e8bdca",
+      "original_predictions_sha256": "d6331df2c0add04854a975fe8201f5781888e8cfc216249713f72f95bbaef211",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S2": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S2"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "6142742fb5313e92cd3b86647569a6c8d27f9025c076c86291b0d0bcf436898e",
+      "original_predictions_sha256": "1aaca6ca5103d377de951e692ca23b44c908f132cde5285424b69164bf5287c1",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S3": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S3"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "68e2693bffdcabcd5e1de1e61f539dba195c08ae1d59075bc6d03768299d4f45",
+      "original_predictions_sha256": "224dee936701a749d1aec2a7643e993d227be9944b7f49723dc2e78849be1aa0",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S4": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S4"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "6b6229efe77e26738fe0daee1fa5238c81ebfb3d9c0ea5070ab9b39294bb3915",
+      "original_predictions_sha256": "271268f5c0bc7e7d11a77e3bf8f20cbdfeaf48007f803045499119d44c5e6f12",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S5": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S5"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "b8a7b6d50a3a1afd7a4464ba35f986038e18d6052d72ddd6e12a6aad952707a9",
+      "original_predictions_sha256": "482a1b22c4d163e06a935d73b172fd83f51189febb81275706ca94b97a787824",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S6": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S6"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "3fc1b725ea4729dbab1e72e70a7e9504b6b8c6dd22e1cc7134a87384e9372012",
+      "original_predictions_sha256": "d291c9bea32693f2139e0e310cdd44c3df905bdfe9b2512c53bc18d4dbcb903b",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S7": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S7"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "55c986ea53bbd4f44856f08c18cdd772b1ece8e7a64e5febdd8ca9442e6e150e",
+      "original_predictions_sha256": "e6dc617785a1fdcec2ad6461c7d6a7dde6a0ca7923e89c1d8ccacfab51a7a5de",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S8": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S8"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "0e812b5d9a91d317980e3953eb2a6c731988ea190403a78a3c495f8c47ded3df",
+      "original_predictions_sha256": "2118c1ab584b610dba93fca12674aa33c8823fb9d2579cf58ad766dff2046314",
+      "warnings": []
+    },
+    "THAI-EXP-002/multiclass/S9": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "outer_test_subjects": [
+        "S9"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "6ae9c8a6afa14b23abd63fb962e2fe583b1e4442c5ed5750ee5a3e2c0f88af71",
+      "original_predictions_sha256": "44f8e9ee01ef8129514694264bea0438d1565c2187df35b5e205046ac54780ba",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S10": {
+      "outer_train_subjects": [
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S10"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "ce79c4068837e27e40833df8f5dd70678c55c8b0d2cfd28512b6ed880c5ccf0c",
+      "original_predictions_sha256": "e3caffcd53dced05d0dc96facd9ccf29d633569377f7cd3696b8560e3d6fe3ec",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S11": {
+      "outer_train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S11"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "9c8238fd84b0f33b721ab5617ea8f78cbc14e1616214be495df4580a64c0ee03",
+      "original_predictions_sha256": "67c30b31bbeeecb19e61652c773248948270ccb50650f85f48643de1a932bb33",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S13": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S13"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "a643ebc53b33f5450b3970041b6feeb0f3d6172d99d916ca013d1c3028a96549",
+      "original_predictions_sha256": "d7d60047da383f49beb7295ccfe9d5668802dd30d390d49f3db1b3f47e1579e3",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S14": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S14"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "f210c022444b8e48c40878a5f15bb9f33d2eb06f8ab2cb200915ccee369c4079",
+      "original_predictions_sha256": "ee18ff580eaaaaa88c47e8dfab4503d21ec35747368b1e236dfb9073df0924e9",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S15": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S15"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "7e22198d2144ab09b0d97acf99b3cab4efcd96dcdf56aeb5a8c29977ce170db8",
+      "original_predictions_sha256": "f32a863e798f51d6fa1c3e1217f862b09ec4794e84aa0e36783974525f9d7e84",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S16": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S16"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "6e2abd07ffd4e6815a867b802ad53e3978e61488937d9870f88a6027bfcc3715",
+      "original_predictions_sha256": "bb09657840a8a374cdd9be03e4b56771e84e62a236954b936954e93c8ec070ec",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S17": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S17"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "7c3d990155df578c40b60a8c407247682c336e9a8ad29c8b5ec0e02a487bd859",
+      "original_predictions_sha256": "e57ec451c005e41e9d057f221018bc5df1c6d8e2fc8ee0b0e4f405050669b693",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S2": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S2"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "173411d4ed1ab1dea36422af7094dd545cc424f2d5c66c6cf928b67a011960d5",
+      "original_predictions_sha256": "9a76c66f859d0169d3d606c86035c780652b938b097b68010829f37bbdbc4a72",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S3": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S3"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "60c94daef68c24185545fce4fd6eefceea5896decbeb76da110e5d0289918a7b",
+      "original_predictions_sha256": "82456d7fdf56a150c04d0fae5df627b64c45cf35fd05f673cb0b2ec0ccc9131e",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S4": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S4"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "5bb52ee4f33fc2dc03642aa1e3429cc00ac9c068aeb429005b61b5e8e2e8747f",
+      "original_predictions_sha256": "8113da18472e6dd8653f1a2eb7ae5f7012ff6db0a5630d1cd0db68e0bff3d922",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S5": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S5"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "bdb29f1eeb5e48e3caee1f5d57e06032d0ec833558ab97b9a1fd6150a98dd960",
+      "original_predictions_sha256": "6dc4a36569d9f0e129d0e53bebda74bc1b6ec397de8656d1a550356b32ecb9e7",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S6": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S6"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "bd99cc6d4a384ead6f6b598c2ac24a714033dca5e7eeef8574fa5030fd868e96",
+      "original_predictions_sha256": "574f6c0694b8da7362de9c2fda3b27b0f3b5e84d86c23cbfd2c21e8706322c75",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S7": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S7"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "d3e1b99ec175bade78490625edb52355c667d4dfeac26364b13bc089a4f7bcb1",
+      "original_predictions_sha256": "fe1ba1be59daace14877117b1f0046a6e1dbe1d31e3a3f72a359af00ce3d4dda",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S8": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S8"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "56d785f496450983eae3585abcc12613482e8003da1c6056b929787f876d79db",
+      "original_predictions_sha256": "058f7331abe1ed678e9b546819c33e2efaf3160f84e508f0c476ce8c12fb42df",
+      "warnings": []
+    },
+    "THAI-EXP-002/binary/S9": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "outer_test_subjects": [
+        "S9"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "9502723e2b772202f461e87915d422625cf083cb793b2dd94b08e32ed4d07ff3",
+      "original_predictions_sha256": "67658a4a52e050550d8c0ed73f21d9ab411adec0ebb68573e07b4d055f5e37d5",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S10": {
+      "outer_train_subjects": [
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S10"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "0bf81e8e897d4a58f0e5e038fcb6c54b8a7070e9bf7423a43852cf56682b4a9e",
+      "original_predictions_sha256": "335d793b58bcb113419373c7d26a8ce66b9785cf21f6feb965db6121fcc4476b",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S11": {
+      "outer_train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S11"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "4d1e1b3a556463ecc4d0388bd8184d0c85c42f32da187d4a45a10c626362dd2e",
+      "original_predictions_sha256": "afe76dfc26486dce37cbd79b4158aad48489c7577e776250d7ae1d35bef1e4ce",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S13": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S13"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "81fcaac052f76a42efb9c65b872901c98a8f2e38babeb7450d22510409b2b72d",
+      "original_predictions_sha256": "ab20105b40700be41b4a280b1dde9d987ae0b764c5b00d42e7b0240731aeb61e",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S14": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S14"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "64118edb5e1549977e886141378f7e68155dc116a14d3167d42608d5c2e0359a",
+      "original_predictions_sha256": "c3b9367398a3529f421419c481a3a82416ac329289e3264b246886ca1d88ea97",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S15": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S15"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "c2c29739b07a8c30d13c6177739b1e4e2a66c46bcc7b5b27be937d0a249e371e",
+      "original_predictions_sha256": "cca403719cc8394aea7878dee6227ecd1c63448c486b757dfbfa7cf7a7156e3d",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S16": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S16"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "eccf7de3c01b50e7d1801edf5b1243400440f06cafcd18a49bc683601b5ce554",
+      "original_predictions_sha256": "dd06288ad61699c70e01c957eb6d53920aed9f064f6de04f55618b3b8e920cf0",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S17": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S17"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "b2d0d67bcfd1e60a1897a0e797a1772a2723304e21dcef72db3ff0cc3fe696bd",
+      "original_predictions_sha256": "911c00298b779b5721c93d72f62715758e4f87fb161a3958f9870620815e859b",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S2": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S2"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "3cc10463211a836785ef1af8ce4487f3c9b1dff94fc5fc1b4ed98b5ba9343065",
+      "original_predictions_sha256": "9f3f5eabebee3426faae1cb6f25fe781f1dceed7de980b48d35813fd9431b7ab",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S3": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S3"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "d83bb5e34c38512760af7265c5756be4faeb229567be378b60fd693b1f637b9f",
+      "original_predictions_sha256": "751479c32953aecf58ae3e52c43061190d4179fdd9cb9920e98d76bd4246460b",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S4": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S4"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "81202264cbe13f05b16261fd8dae30b5dba9a147469935fc240812073e8e50e8",
+      "original_predictions_sha256": "56e1acdbd776c272f62806545db8ff9b9d36d3a4fc0926041429cd418c7390fd",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S5": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S5"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "5aa517d6331e0a921021326948febb869c533885a62ff3c72c48b68acb68b803",
+      "original_predictions_sha256": "e7c074fe48d8239667916eeda437f6e8b9063f7589ac56701daf27d2b076726f",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S6": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S6"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "7fc7ff5f4c28da4ee905380139d0ba9f22c8301e6faf8ae0a18e44f8865268fd",
+      "original_predictions_sha256": "8523c1c42ec7485dc7a226edbb92d94c23a0f884be02b636d0ea4ad02de52259",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S7": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S7"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "eded488b6216e0ded3ce43dade5c4e31dc2c15b87d8080a75325e325a115b23f",
+      "original_predictions_sha256": "f1964845c19df4b2c60b47dd374c94d3f8a72ad4f267ef5844d5611fe1946a0b",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S8": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S8"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "2741f8e8db92acb6e9f962d19f7c54eba452b1599d8c3bfc78716767c68515da",
+      "original_predictions_sha256": "6bfd658790651429be32bd3ba978239e3ee1cd3b098c40761700bc7368f87a39",
+      "warnings": []
+    },
+    "THAI-EXP-003/multiclass/S9": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "outer_test_subjects": [
+        "S9"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "19e870b17eb63843d75fad4df00b5177de81a01d9b3938cd9ce193c3d4b3837a",
+      "original_predictions_sha256": "98513bf20a49fdd132598c835ddece68d9f26b306a5f14f2590a4f11dac84ece",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S10": {
+      "outer_train_subjects": [
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S10"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "f446cb56805fc8935868bf80b88c01c75c87797d3b4459b55cc4464e9b921ad7",
+      "original_predictions_sha256": "fd8923d2d43b50359b1e37ca6284a3ef1e1c28bf17c7bb33047bd367283e833d",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S11": {
+      "outer_train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S11"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "4fe09c7fd0299578ce45872c4c0c6f098cf7b8cf9408ad1f940a061e80d666fd",
+      "original_predictions_sha256": "123d5352a2398fccede189632754683d8da0ead50ecec4cd88d5746ec7292cc7",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S13": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S13"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "d961ac7d5232225ab7c07eb27f43d00907406ce8326c9c1ccaf3453150ab18d9",
+      "original_predictions_sha256": "02ae7df812728afbee23120b660f8746d5cac9df22d3c7d60600a4ad587c6c37",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S14": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S14"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "bba49540afb90fc11b2827e7e46590d4be38a49e864da3f40c537a821df445e8",
+      "original_predictions_sha256": "ee18ff580eaaaaa88c47e8dfab4503d21ec35747368b1e236dfb9073df0924e9",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S15": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S15"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "369036ea7552693eede99bfa4d04753d69d72431e856129ce8b0f7d062a2ab48",
+      "original_predictions_sha256": "3dc501f79bcc29708342b4e460d220a64cb93e64d4a7d489e6e0982708d919ac",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S16": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S16"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "f11f6b8e45d172ac525ec73a06e74835622f67d0841a7ab4eb773a05afde4fd2",
+      "original_predictions_sha256": "bb09657840a8a374cdd9be03e4b56771e84e62a236954b936954e93c8ec070ec",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S17": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S17"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "8758e360b6e3fb16a0ff79822cfeb201cf4f7192390662e062ea7fb9833f377f",
+      "original_predictions_sha256": "c5ead60f844b877684134fd72919c7d40aac214c9bdd96ee3e2c60019b3b9967",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S2": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S2"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "1bc0a96ece8f3b77bf78b9a0f688720949d53d5ab1435f56c0e8711f71773181",
+      "original_predictions_sha256": "9a76c66f859d0169d3d606c86035c780652b938b097b68010829f37bbdbc4a72",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S3": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S3"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "19d561e2cdd7cc0f4ab1435bf0e456f4ebc6d7d9453e12d69ed6d56320e7711a",
+      "original_predictions_sha256": "82456d7fdf56a150c04d0fae5df627b64c45cf35fd05f673cb0b2ec0ccc9131e",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S4": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S4"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "44992ea3f8e6773d6d96d0eb81fdcd0a61331a11baad04025c4bf7137f16fbce",
+      "original_predictions_sha256": "8113da18472e6dd8653f1a2eb7ae5f7012ff6db0a5630d1cd0db68e0bff3d922",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S5": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S5"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "e6dc491fd542e80edb7f8d117116eb2cd2f9052019b9d7869b17e1e12fde7c0d",
+      "original_predictions_sha256": "cea817c0b88082ec7687dc6ab769e4114d9230189da73c7e110967f7ee3a71ab",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S6": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S6"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "b9a70da9d6e587d9b7c41013ba7737dd852c76176ac0aac3816028158dfcf192",
+      "original_predictions_sha256": "8f8231b9f2b37a000aee0a360aec6ef6f6424af7790d861a80673d3dd7485105",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S7": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S7"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "d65519722633a75c04336b88651aa21d0d8224a5be8684b47904e4506a06f17d",
+      "original_predictions_sha256": "32082235bab238fd0b95ebbfb7acee4371707b659018ee5d288c7b3b651048ff",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S8": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S8"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "0712f2fc4d750dc9b6a51a5a9fc7b60c7811a3ca4f884b8eca44292c94160a99",
+      "original_predictions_sha256": "67fe0440ceb15c66cd8340586801f648ba11a865bec3c6c55841019be9cd9e70",
+      "warnings": []
+    },
+    "THAI-EXP-003/binary/S9": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "outer_test_subjects": [
+        "S9"
+      ],
+      "selected_k": null,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "1902a10f00d3250babd543f7045f1d08878f337d59f55d26fcffa2f85d236ded",
+      "original_predictions_sha256": "e927f5a051e3d64fed0bc800e885b42b6e696e8b29d329fae0ef0badb3f18c5f",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S2": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S2"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "26b48130875d74ff04cb80700527947a249a846e8f224bad032bcff70951e6dd",
+      "original_predictions_sha256": "906d319888e58eb593b8edd902db1ada48e9f645e8ad302e50c5b0ba7c3e1b82",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S3": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S3"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "606b3864398ba0c99b13abd9bd56c5bf7f1bdaa3a14c3552c84f654640704e3f",
+      "original_predictions_sha256": "58d79633f93e66c8832c7f072b71b366ea853e36be9aeab573e17ee50c78cccc",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S4": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S4"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "d4c9af06f9b93d0bb7203965e5946d5a4a4e76aaae8465083993090d66916912",
+      "original_predictions_sha256": "6de2fc8dda70033e0c9cb22a435548d737f13727b196a3de630f90dabe95b336",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S5": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S5"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "43203ba60569d62fb90e6731b436d9319debe624151cc80e2acd53bceb45b569",
+      "original_predictions_sha256": "7bce3b28405cb085f57f5ea94497e56c954a0572a1deff3b58968ecd6223ee9e",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S6": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S6"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "b435f538cda9e86325daf6fe87e56b455798e0d9a1d1ef5a14538958106651cd",
+      "original_predictions_sha256": "5e78cb56df47e5c9acbd4819f2aa5676b623817940bfb1eb3bdfa669aeacb7da",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S7": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S7"
+      ],
+      "selected_k": 48,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "1820e23128243c9c30243fb9b29c0a54c9500f14cff399d93a0b367d964bad74",
+      "original_predictions_sha256": "78fbf309d9ba7386abca3357d4c68a0c07390b6baea779a9c9e9a77ce9535d26",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S8": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S8"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "16203338c7aec639b82bfbbb68cd200d08305e3303672339b2333bf662c9ee99",
+      "original_predictions_sha256": "bb6e8f88702f707ac21d1e7b151167a8095adc5242437e7dd02f1e2d7d11667b",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S9": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "outer_test_subjects": [
+        "S9"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "b7306a3c75293db8492bde7f04f9a9e18caf289b14775d2822042550291e2dd3",
+      "original_predictions_sha256": "5c86a9532e143594b9567614111a405c38ddbeda9e4195f334c60361db9c3c5e",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S10": {
+      "outer_train_subjects": [
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S10"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "96a41735b553444522c87d1d69603aaa3b5e753ad0a3dc33e0a9e5a074f92e12",
+      "original_predictions_sha256": "6fc9cfc89626f31c177fb5ea02ed7e3f1ecfaf9e1c224dc445e4010b414965fe",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S11": {
+      "outer_train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S11"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "483be15e7b7baaf27a4797e23b28f1ae3f39977931ff9c287564dfc789ddac5d",
+      "original_predictions_sha256": "3947a668494de8c85bfe4ebde1eb05751dcaf81c1ac57e9ffd0e9cd8818fe4f7",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S13": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S13"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "47360816122fe0e209bd2236d3efd4bcde78e6a397138067e0a14ee8580f5385",
+      "original_predictions_sha256": "3cec0d6309cd1f011199cc4f444024c2729ad31151c44d50e22de171af9afc7f",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S14": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S14"
+      ],
+      "selected_k": 48,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "0f8c53c02bea31d1c9f6c682ce347a8609922d7c6b2c3b735bd0477fbbfaca84",
+      "original_predictions_sha256": "79a44a59620f9dd4f20d1f1939457be6bc505241966f29e58caca371442bdf5e",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S15": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S15"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "b2e4af78bfead22710758d904c4001ed70453f1298227fa1759ee6197d206b08",
+      "original_predictions_sha256": "a97b2e7a36f51a6c6d66df2a62c1d4acaa166e71c75a2282efe9efdd1736039a",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S16": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S16"
+      ],
+      "selected_k": 48,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "1b516c177428acd708e56acf1adc32be9ed6cb9f038fd1b5e094d756d42d15eb",
+      "original_predictions_sha256": "d01a624f32152dcf2339c22f33e5b017adc5803c607d71e6fe65e878d81bbaa7",
+      "warnings": []
+    },
+    "THAI-EXP-004/multiclass/S17": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S17"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "2532b44fd348f7290890d8bcacbea3e238cd4fc4da22b584a8f84b406b09f3a6",
+      "original_predictions_sha256": "912feb6c3f2be9e5fd627c1996364690e1ac8ff17a51be29f57338b75acaefb7",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S2": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S2"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "e3280e7488af974c94271f112ad25cecc933137f281aac24618f5b04427234b6",
+      "original_predictions_sha256": "edb427cb311424996df4f99d8728aa109daedbd5d3e80e64c67cade9765ab1e2",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S3": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S3"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "816f0713bcb654674bee384c918db1e6c3253c319e8571c68cb5b942993b8078",
+      "original_predictions_sha256": "a9dcf070d80bbed37c0b24f2a01921341c84aa2d8ce10a5d22d58828c19ab33e",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S4": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S4"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "6adb2e3564e14616ad47ca975f887a2d53712af4a324cbb88d9f3b91fd2ccffa",
+      "original_predictions_sha256": "0fe76fb5257ef7b57220df1c040d3a1a7aeaef22e26c7a86883ba0c82556ef15",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S5": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S5"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "db211fec7934e56b3fb4ec178da0c95921e0660549155ecbf53c7179636c8785",
+      "original_predictions_sha256": "c5f8ba51f903bc1e6ce206df2cdec62f5af978049eae688b350857ccad269e70",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S6": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S6"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "03e58bc2a9e42243a623c09bde2bc10fe9844cf2e33f0953878715779784a6bc",
+      "original_predictions_sha256": "5dbe871ec06c4c3ce2fc6a34ae2c5f43d1de6f10136ded33f4ecf425092b9433",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S7": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S7"
+      ],
+      "selected_k": 68,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "3cb05a49199ee795bce9ed3157911223064de48383ed28c1b81709bbef9a4c3a",
+      "original_predictions_sha256": "c49931e0df5b51f89b26de46be32e24d4d8a62001713d6c3a958d94f5cbd92a3",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S8": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S8"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "9a6346ca9d671ba5e7378f66f25c9f662de192024587b18063ba417f876cabb8",
+      "original_predictions_sha256": "a1be6d6034a5b24dd2915b3a7f6ff705483e9382b762f772edbfb378b84f5d4f",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S9": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "outer_test_subjects": [
+        "S9"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "8ad05572b6720405e22b9d134a21dcf579bf4adf47a5785d8423bc82ab23ff4a",
+      "original_predictions_sha256": "ce594dced65a39b70fed63d519bb24e1748443b22739bd378c267566a75457d0",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S10": {
+      "outer_train_subjects": [
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S10"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "79aff4bb6c974cb14e4c1053429c48b5382cd2aa4dcf7898750a77af2f7b04e6",
+      "original_predictions_sha256": "f0a0759f98a76b09a16fcf513ba09091277e55d1d40afc6741e8ece2848a564b",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S11": {
+      "outer_train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S11"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "5a3a44ac0ef9a8b9c4a0551c862bd6be63b317e1581613c27154f51b9257885c",
+      "original_predictions_sha256": "5ec3f19642069c29fe359262ea7ece783c915427ae5cc7d87d464946e0ec783d",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S13": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S13"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "d5813cfc1f42fbad6c27952bfa456b6ed1bec52fb21a1fd3bde4a71f40b6303e",
+      "original_predictions_sha256": "37d4b55b4f9206324293a6f4a9bf50d199121433aee8e3b8e55fec7a0eaee074",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S14": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S15",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S14"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "f9370f5957d86d00ac16b4f006067a262e0957b8f3700a9984ca7425d219d406",
+      "original_predictions_sha256": "f75ed300048ac19df6356da2ec370a603f12f98f35378f3f6e985a5df638b84c",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S15": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S16",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S15"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "51c5f93b1577c58076a417b49c812fb9d5fe36452a6e9947b3ca302825e68737",
+      "original_predictions_sha256": "36a0616cb1536994dd77ba4330733bb72fa6224f144ff61945cf661e61266aef",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S16": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S16"
+      ],
+      "selected_k": 16,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "5805879e2ed1bd54fa70f00ba0e85fad1b9d5dc244359517176c742ac200c10f",
+      "original_predictions_sha256": "7288a9ad65997b2156921b37709d990267ab3a0a97cbb3c77cdc4d06b90561ec",
+      "warnings": []
+    },
+    "THAI-EXP-004/binary/S17": {
+      "outer_train_subjects": [
+        "S10",
+        "S11",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "outer_test_subjects": [
+        "S17"
+      ],
+      "selected_k": 32,
+      "test_predictions_verified": true,
+      "original_completion_sha256": "a433131f7670a9d98c23352c4c07196e073b00c48461902ffd2fc57d0af34ac2",
+      "original_predictions_sha256": "b015f5914117ec473ee7e76587b9d591d3d1657e029e6d8649d7c75a051460ed",
+      "warnings": []
+    }
+  }
+}
