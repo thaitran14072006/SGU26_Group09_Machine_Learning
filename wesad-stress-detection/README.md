@@ -1,3 +1,14 @@
+# WESAD Stress Detection — 20 hướng thực nghiệm
+
+Kế hoạch hiện hành: **EXP-001–EXP-020**. Xem [danh mục và quy ước](docs/EXPERIMENT_PLAN_20.md), [registry](experiments/experiment_registry.json), [nhật ký chung](experiments/experiments_logs.xlsx).
+
+G1–G4 trong các tài liệu cũ chỉ là nguồn lịch sử; không phải cấu trúc công việc hiện tại. Các cấu hình và đường dẫn dữ liệu đã nghiệm thu giữ nguyên để tái lập.
+
+Phần Dummy/LR được tổng hợp theo EXP-001, EXP-002, EXP-011 và EXP-016. [So sánh train–test theo mã chung](notebooks/04_evaluation/EXP_LR_train_test_comparison.ipynb). Mã THAI-EXP-* chỉ còn là alias nguồn; thí nghiệm LR tuning C là bổ sung ngoài danh mục, không phải EXP-005.
+
+<details>
+<summary>Hướng dẫn kỹ thuật và lịch sử triển khai trước khi thống nhất 20 hướng</summary>
+
 > **G3 hiện tại dùng bộ sinh lý 68 đã nghiệm thu**, cấu hình `configs/defaults.yaml`; xem [bàn giao G3 Dummy/LR](docs/G3_BAN_GIAO.md). Hướng dẫn raw112 bên dưới được giữ để truy vết G1/G2 cũ.
 
 **G4 phần Như:** tuning RF/MLP với bốn ứng viên, outer test S4/S9/S11/S17, inner GroupKFold và theo dõi loss/hội tụ MLP; xem [hướng dẫn tuning G4](docs/G4_NHU_TUNING.md). Lượt G4 lưu riêng, không ghi đè G3. Phần được giao có 16 outer folds; chỉ công nhận khi verification đạt. Không coi lô bốn người là toàn bộ LOSO 15 người; các so sánh cảm biến/feature/cân bằng còn là phần riêng.
@@ -337,3 +348,6 @@ Cả bốn chạy mẫu S2 theo phân công. Mai tự kiểm tra gói máy mình
 Mai đã tổng hợp [bàn giao và kết luận G1](docs/BAN_GIAO.md) dựa trên đầu ra bốn người và [biên bản đối chiếu của Như](docs/G1_DOI_CHIEU_S2_BON_THANH_VIEN.md). G1 được chốt theo tiêu chí đầu ra S2 giống nhau mà nhóm đã chấp nhận: cả bốn CSV giống từng byte, 395 cửa sổ, 112 feature + 8 metadata; sai lệch feature lớn nhất 0.
 
 Khác biệt source/môi trường vẫn được ghi rõ, kiểm tra tái lập nghiêm ngặt chưa đạt; không sửa manifest/JSON cũ để ép đạt. Lần chạy chung tiếp theo cần thống nhất source sạch và môi trường khóa. Kết luận này chỉ chốt phạm vi G1, không xác nhận đã triển khai/nghiệm thu bộ sinh lý68 của G2 hoặc đã hoàn tất các lượt review cá nhân.
+
+
+</details>

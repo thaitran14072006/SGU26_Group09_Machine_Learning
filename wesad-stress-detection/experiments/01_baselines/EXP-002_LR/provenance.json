@@ -1,0 +1,16 @@
+{
+  "experiment_id": "EXP-002",
+  "legacy_run_id": "THAI-EXP-002",
+  "source_archive": "experiments/01_baselines/THAI-EXP-002_LR/r02",
+  "source_notebook": "notebooks/experiments/Thai_EXP-002_working.ipynb",
+  "source_record_commit": "6d4f87923f0def8fc06c861f3af2ae59bea37d98",
+  "training_base_commit": "ed5e09562722434dc86276b24013a452840c85d5",
+  "source_hashes": {
+    "experiments/01_baselines/THAI-EXP-002_LR/r02/config.json": "a3c16de031427b1f578f7742773eb07e25e6efe1a26b905f56151fd88a9d423b",
+    "experiments/01_baselines/THAI-EXP-002_LR/r02/config.yaml": "39cb7143742407a1ce11ef659c7d88888421b292cd9c60eb7447d42f2f53ceeb",
+    "experiments/01_baselines/THAI-EXP-002_LR/r02/results.csv": "ca10d40909526a13d1625fd0d019131f58db27cc3f294f01bb48bfade4643d03",
+    "experiments/01_baselines/THAI-EXP-002_LR/r02/splits.json": "1df814383c0ca7a0364b5ee7c73fc301229f94c43c6ce215e597a007f8b9f3da"
+  },
+  "registration_date": "2026-11-19",
+  "registration_is_training": false
+}
