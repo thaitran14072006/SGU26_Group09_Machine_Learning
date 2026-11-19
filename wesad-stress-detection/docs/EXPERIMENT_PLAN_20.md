@@ -28,7 +28,7 @@
 ## Quy ước chung
 
 - Một EXP có nhiều run hoặc người thực hiện; run khác không tạo thêm hướng. Giữ ngày thực tế, nguồn kết quả và commit.
-- Tên THAI-EXP-* chỉ là alias của nguồn cũ. Bảng tổng hợp và notebook chốt dùng EXP chung. EXP-003 vẫn là KNN, EXP-004 là SVM, EXP-005 là RF.
+- Dùng mã EXP chung trong thư mục/notebook. Mã riêng cũ chỉ còn trong manifest nguyên bản; không cần thư mục alias trùng lặp.
 - physiological68, cùng checksum/schema/subject/nhãn; LOSO ngoài, inner GroupKFold khi chọn tham số. Mọi biến đổi fit trong train.
 - Hồ sơ chốt có experiment.ipynb, config.yaml, results.csv, figures và provenance; notebook đọc report phải ghi rõ không phải training mới.
 - EXP-001 đã có hồ sơ của thành viên khác: giữ nguyên và thêm run ngày 14/11 dưới runs/20261114; không thay thế kết quả của người khác.
@@ -41,11 +41,7 @@
 3. So sánh ứng viên, chốt cấu hình; sau đó final fit/export, metadata/schema và demo upload CSV.
 4. Không tự chạy thêm chuỗi THAI-EXP-006–010. LR tuning C đã có được giữ như phụ lục thăm dò ngoài 20 hướng.
 
-## Ánh xạ nguồn cũ
 
-| Nguồn | EXP chung |
-|---|---|
-| THAI-EXP-001 | EXP-001 |
-| THAI-EXP-002 | EXP-002 |
-| THAI-EXP-003 | EXP-011 |
-| THAI-EXP-004 | EXP-016 |
+## Lưu trữ tối thiểu
+
+Một hồ sơ chốt cho mỗi kết quả; notebook làm việc giữ mã train, notebook trong experiments là bản báo cáo. Chỉ dùng experiments/experiments_logs.xlsx; phần Dummy/LR giữ 8 dòng kết quả chính, bỏ các dòng thử S2. Checkpoint máy trong outputs không phải hồ sơ nhóm. Kết quả bổ sung duy nhất ở experiments/supplementary/LR_Regularization.

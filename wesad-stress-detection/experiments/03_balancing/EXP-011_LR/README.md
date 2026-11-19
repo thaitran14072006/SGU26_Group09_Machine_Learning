@@ -1,10 +1,10 @@
-# EXP-011 — LR cân bằng lớp
+# EXP-011
 
-Mục chính thức trong kế hoạch EXP-001–020. Đọc `notebooks/experiments/EXP-011_LR_Balanced.ipynb` hoặc `experiment.ipynb`.
+- `experiment.ipynb`: báo cáo chốt, mặc định chỉ đọc kết quả.
+- `notebooks/experiments/EXP-011_working.ipynb`: mã làm việc, RUN_TRAIN=False mặc định.
+- `results.csv`: điểm từng người, 30 fold; `predictions.csv`: dự đoán từng cửa sổ.
+- `config.yaml`: cấu hình theo mã chung; `config.json`: manifest nguyên bản của lần chạy đã lưu.
+- `splits.json`, `environment.json`, `provenance.json`: bằng chứng nguồn gốc.
+- `figures/`: một bộ ảnh dùng mã chung.
 
-- `results.csv`: 30 fold từ nguồn chạy thật, giữ nguyên số liệu.
-- `config.yaml`: cấu hình hồ sơ và cấu hình training gốc.
-- `provenance.json`: mã cũ THAI-EXP-003, đường dẫn và checksum nguồn, commit.
-- `figures/`: ảnh từ lần chạy đã lưu.
-
-Ngày đồng bộ không phải ngày train mới. Nguồn gốc vẫn ở `experiments/03_balancing/THAI-EXP-003_LR/r02`.
+Dùng nhật ký trung tâm, không tạo Excel hoặc log riêng.

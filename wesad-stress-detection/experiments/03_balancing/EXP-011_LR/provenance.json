@@ -1,16 +1,23 @@
 {
-  "experiment_id": "EXP-011",
-  "legacy_run_id": "THAI-EXP-003",
-  "source_archive": "experiments/03_balancing/THAI-EXP-003_LR/r02",
-  "source_notebook": "notebooks/experiments/Thai_EXP-003_working.ipynb",
-  "source_record_commit": "6d4f87923f0def8fc06c861f3af2ae59bea37d98",
-  "training_base_commit": "ed5e09562722434dc86276b24013a452840c85d5",
-  "source_hashes": {
-    "experiments/03_balancing/THAI-EXP-003_LR/r02/config.json": "11b67c8767d106ee01375dcf28c32386a8def0f272c969e982c93bf6092ff5af",
-    "experiments/03_balancing/THAI-EXP-003_LR/r02/config.yaml": "df4876bcf9a35df4fdfe775a8682e2d87d122a970c2bfad0c3578d242d2b6013",
-    "experiments/03_balancing/THAI-EXP-003_LR/r02/results.csv": "6e7354255dc9a42769e7b43539bfc56bb18c8f6c4c8bd1873c8b56c9fec95a6c",
-    "experiments/03_balancing/THAI-EXP-003_LR/r02/splits.json": "1df814383c0ca7a0364b5ee7c73fc301229f94c43c6ce215e597a007f8b9f3da"
-  },
-  "registration_date": "2026-11-19",
-  "registration_is_training": false
+ "experiment_id": "EXP-011",
+ "legacy_run_id": "THAI-EXP-003",
+ "source_record_commit": "6d4f87923f0def8fc06c861f3af2ae59bea37d98",
+ "training_base_commit": "ed5e09562722434dc86276b24013a452840c85d5",
+ "registration_date": "2026-11-19",
+ "registration_is_training": false,
+ "historical_source_archive": "experiments/03_balancing/THAI-EXP-003_LR/r02",
+ "historical_source_notebook": "notebooks/experiments/Thai_EXP-003_working.ipynb",
+ "historical_source_hashes": {
+  "experiments/03_balancing/THAI-EXP-003_LR/r02/config.json": "11b67c8767d106ee01375dcf28c32386a8def0f272c969e982c93bf6092ff5af",
+  "experiments/03_balancing/THAI-EXP-003_LR/r02/config.yaml": "df4876bcf9a35df4fdfe775a8682e2d87d122a970c2bfad0c3578d242d2b6013",
+  "experiments/03_balancing/THAI-EXP-003_LR/r02/results.csv": "6e7354255dc9a42769e7b43539bfc56bb18c8f6c4c8bd1873c8b56c9fec95a6c",
+  "experiments/03_balancing/THAI-EXP-003_LR/r02/splits.json": "1df814383c0ca7a0364b5ee7c73fc301229f94c43c6ce215e597a007f8b9f3da"
+ },
+ "checksums": {
+  "results.csv": "6e7354255dc9a42769e7b43539bfc56bb18c8f6c4c8bd1873c8b56c9fec95a6c",
+  "predictions.csv": "670199607fcf6b7ae8aaf7ecbfbbb1f5a6e71333682d07bda03faf564cf8e977",
+  "config.json": "11b67c8767d106ee01375dcf28c32386a8def0f272c969e982c93bf6092ff5af",
+  "splits.json": "1df814383c0ca7a0364b5ee7c73fc301229f94c43c6ce215e597a007f8b9f3da"
+ },
+ "note": "Historical paths are Git history references. Current evidence is self-contained in this folder. config.json is the immutable run manifest; config.yaml is the canonical rerun setup."
 }

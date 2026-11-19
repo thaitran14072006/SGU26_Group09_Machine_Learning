@@ -1,16 +1,23 @@
 {
-  "experiment_id": "EXP-001",
-  "legacy_run_id": "THAI-EXP-001",
-  "source_archive": "experiments/01_baselines/THAI-EXP-001_Dummy/r02",
-  "source_notebook": "notebooks/experiments/Thai_EXP-001_working_R02.ipynb",
-  "source_record_commit": "6d4f87923f0def8fc06c861f3af2ae59bea37d98",
-  "training_base_commit": "ed5e09562722434dc86276b24013a452840c85d5",
-  "source_hashes": {
-    "experiments/01_baselines/THAI-EXP-001_Dummy/r02/config.json": "b7fccb41d8fccb6d2096cfed821658dad8770394779534c33c6cbf514f5088d3",
-    "experiments/01_baselines/THAI-EXP-001_Dummy/r02/config.yaml": "21f44cc0ba54510dfdca0527ce09d8387e280218d83b00ac7e6c270853102c94",
-    "experiments/01_baselines/THAI-EXP-001_Dummy/r02/results.csv": "34153cdbe2273ff64058a96a2eb3c8670c382168862760fb77be813626773a7d",
-    "experiments/01_baselines/THAI-EXP-001_Dummy/r02/splits.json": "621b3f97911ef4461f96f00ca1ef04c3ee3746c993c66781d112848cfcf48bcc"
-  },
-  "registration_date": "2026-11-19",
-  "registration_is_training": false
+ "experiment_id": "EXP-001",
+ "legacy_run_id": "THAI-EXP-001",
+ "source_record_commit": "6d4f87923f0def8fc06c861f3af2ae59bea37d98",
+ "training_base_commit": "ed5e09562722434dc86276b24013a452840c85d5",
+ "registration_date": "2026-11-19",
+ "registration_is_training": false,
+ "historical_source_archive": "experiments/01_baselines/THAI-EXP-001_Dummy/r02",
+ "historical_source_notebook": "notebooks/experiments/Thai_EXP-001_working_R02.ipynb",
+ "historical_source_hashes": {
+  "experiments/01_baselines/THAI-EXP-001_Dummy/r02/config.json": "b7fccb41d8fccb6d2096cfed821658dad8770394779534c33c6cbf514f5088d3",
+  "experiments/01_baselines/THAI-EXP-001_Dummy/r02/config.yaml": "21f44cc0ba54510dfdca0527ce09d8387e280218d83b00ac7e6c270853102c94",
+  "experiments/01_baselines/THAI-EXP-001_Dummy/r02/results.csv": "34153cdbe2273ff64058a96a2eb3c8670c382168862760fb77be813626773a7d",
+  "experiments/01_baselines/THAI-EXP-001_Dummy/r02/splits.json": "621b3f97911ef4461f96f00ca1ef04c3ee3746c993c66781d112848cfcf48bcc"
+ },
+ "checksums": {
+  "results.csv": "34153cdbe2273ff64058a96a2eb3c8670c382168862760fb77be813626773a7d",
+  "predictions.csv": "69a6fc2aa87238f3e7030ad7b751700022c63f7e742672481e7b8ffb2a20c602",
+  "config.json": "b7fccb41d8fccb6d2096cfed821658dad8770394779534c33c6cbf514f5088d3",
+  "splits.json": "621b3f97911ef4461f96f00ca1ef04c3ee3746c993c66781d112848cfcf48bcc"
+ },
+ "note": "Historical paths are Git history references. Current evidence is self-contained in this folder. config.json is the immutable run manifest; config.yaml is the canonical rerun setup."
 }
