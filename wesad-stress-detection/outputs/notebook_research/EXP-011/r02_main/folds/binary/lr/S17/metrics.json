@@ -1,9 +1,0 @@
-{
-  "subject_id": "S17",
-  "task": "binary",
-  "model": "lr",
-  "n_test": 426,
-  "macro_f1": 0.8956100768012432,
-  "balanced_accuracy": 0.9255822833142421,
-  "seconds": 0.0731
-}

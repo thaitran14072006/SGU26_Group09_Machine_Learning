@@ -1,0 +1,79 @@
+{
+  "experiment": "EXP-006",
+  "task": "multiclass",
+  "subject_id": "S6",
+  "n_train": 5777,
+  "n_test": 412,
+  "train_macro_f1": 1.0,
+  "test_macro_f1": 0.8735042655436077,
+  "train_balanced_accuracy": 1.0,
+  "test_balanced_accuracy": 0.841025641025641,
+  "macro_f1_gap": 0.12649573445639228,
+  "balanced_accuracy_gap": 0.15897435897435896,
+  "reference_test_macro_f1": 0.8735042655436077,
+  "reference_test_balanced_accuracy": 0.841025641025641,
+  "reference_prediction_differences": 0,
+  "reference_metrics_match": true,
+  "n_iter": 48,
+  "seconds": 0.7803,
+  "labels": [
+    1,
+    2,
+    3
+  ],
+  "best_params": {},
+  "outer_train_subjects": [
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S7",
+    "S8",
+    "S9"
+  ],
+  "outer_test_subjects": [
+    "S6"
+  ],
+  "train_confusion_matrix": [
+    [
+      3144,
+      0,
+      0
+    ],
+    [
+      0,
+      1727,
+      0
+    ],
+    [
+      0,
+      0,
+      906
+    ]
+  ],
+  "test_confusion_matrix": [
+    [
+      226,
+      0,
+      0
+    ],
+    [
+      0,
+      121,
+      0
+    ],
+    [
+      30,
+      1,
+      34
+    ]
+  ],
+  "warnings": []
+}
