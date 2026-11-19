@@ -1,0 +1,173 @@
+{
+  "git_commit": null,
+  "git_dirty": null,
+  "code_sha256": "15fc6a7898083e54cd1cc40a2118ae1d780634a34b33f22d6f6a1a28791728e3",
+  "signature": "bd15a6a83a7f1c22b88890a5a0eaaaa5530762460a50e0ed65673c81592ec181",
+  "settings": {
+    "protocol": "exp020_mlp_architecture_regularization_v1",
+    "feature_version": "physiological_68_v1",
+    "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+    "expected_subjects": [
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17"
+    ],
+    "models": [
+      "mlp"
+    ],
+    "outer_subjects": [
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17"
+    ],
+    "record_mlp_loss": true,
+    "tasks": [
+      "multiclass",
+      "binary"
+    ],
+    "seed": 42,
+    "sensor_set": "combined_physiological68",
+    "normalization": "global_train",
+    "balance": false,
+    "nested": true,
+    "inner_splits": 3,
+    "source_paths": [
+      "src/wesad/data.py",
+      "src/wesad/evaluation.py",
+      "src/wesad/models.py",
+      "src/wesad/utils.py",
+      "scripts/exp020_train.py"
+    ],
+    "source_hash_normalization": "LF",
+    "search_spaces": {
+      "mlp": {
+        "model__hidden_layer_sizes": [
+          [
+            16
+          ],
+          [
+            32,
+            16
+          ]
+        ],
+        "model__alpha": [
+          0.01,
+          0.1
+        ]
+      }
+    },
+    "model_params": {
+      "mlp": {
+        "max_iter": 200,
+        "early_stopping": false,
+        "learning_rate_init": 0.001
+      }
+    }
+  },
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "feature_columns": [
+    "chest_ecg_hr_mean_bpm",
+    "chest_ecg_hr_std_bpm",
+    "chest_ecg_mean_rr_ms",
+    "chest_ecg_sd_rr_ms",
+    "chest_ecg_rmssd_ms",
+    "chest_ecg_pnn50",
+    "chest_ecg_power_5_10_hz",
+    "chest_ecg_power_10_20_hz",
+    "chest_ecg_power_20_40_hz",
+    "chest_eda_tonic_mean",
+    "chest_eda_tonic_std",
+    "chest_eda_phasic_mean",
+    "chest_eda_phasic_std",
+    "chest_eda_scr_count",
+    "chest_eda_scr_rate_per_min",
+    "chest_eda_scr_amplitude_mean",
+    "chest_eda_scr_amplitude_max",
+    "chest_resp_rate_mean",
+    "chest_resp_rate_std",
+    "chest_temp_mean",
+    "chest_temp_slope_per_s",
+    "chest_acc_x_5s_mean_mean",
+    "chest_acc_x_5s_std_mean",
+    "chest_acc_x_5s_abs_integral_mean",
+    "chest_acc_y_5s_mean_mean",
+    "chest_acc_y_5s_std_mean",
+    "chest_acc_y_5s_abs_integral_mean",
+    "chest_acc_z_5s_mean_mean",
+    "chest_acc_z_5s_std_mean",
+    "chest_acc_z_5s_abs_integral_mean",
+    "chest_acc_magnitude_5s_mean_mean",
+    "chest_acc_magnitude_5s_std_mean",
+    "chest_acc_magnitude_5s_abs_integral_mean",
+    "chest_emg_5s_rms_mean",
+    "chest_emg_5s_mav_mean",
+    "chest_emg_5s_waveform_length_per_s_mean",
+    "chest_emg_5s_abs_integral_mean",
+    "wrist_bvp_pulse_rate_mean_bpm",
+    "wrist_bvp_pulse_rate_std_bpm",
+    "wrist_bvp_mean_ibi_ms",
+    "wrist_bvp_sd_ibi_ms",
+    "wrist_bvp_rmssd_ibi_ms",
+    "wrist_bvp_pnn50_ibi",
+    "wrist_bvp_power_0p5_1_hz",
+    "wrist_bvp_power_1_2_hz",
+    "wrist_bvp_power_2_5_hz",
+    "wrist_eda_tonic_mean",
+    "wrist_eda_tonic_std",
+    "wrist_eda_phasic_mean",
+    "wrist_eda_phasic_std",
+    "wrist_eda_scr_count",
+    "wrist_eda_scr_rate_per_min",
+    "wrist_eda_scr_amplitude_mean",
+    "wrist_eda_scr_amplitude_max",
+    "wrist_temp_mean",
+    "wrist_temp_slope_per_s",
+    "wrist_acc_x_5s_mean_mean",
+    "wrist_acc_x_5s_std_mean",
+    "wrist_acc_x_5s_abs_integral_mean",
+    "wrist_acc_y_5s_mean_mean",
+    "wrist_acc_y_5s_std_mean",
+    "wrist_acc_y_5s_abs_integral_mean",
+    "wrist_acc_z_5s_mean_mean",
+    "wrist_acc_z_5s_std_mean",
+    "wrist_acc_z_5s_abs_integral_mean",
+    "wrist_acc_magnitude_5s_mean_mean",
+    "wrist_acc_magnitude_5s_std_mean",
+    "wrist_acc_magnitude_5s_abs_integral_mean"
+  ],
+  "environment": {
+    "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "independent_runs": 3,
+  "outer_fits": 90,
+  "inner_fits": 1080,
+  "all_predictions_match": true,
+  "interpretation": "same-seed reproducibility, not variability across seeds",
+  "launcher_change": "R02/R03 append UUID to avoid output folder collision; shared ML code and grid unchanged"
+}

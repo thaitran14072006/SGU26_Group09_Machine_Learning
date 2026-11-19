@@ -1,0 +1,18 @@
+{
+  "experiment": "EXP-020",
+  "member": "như",
+  "date": "18/11/2026",
+  "run_type": "new",
+  "git_commit": "5fadb6418367c67919ec70ea04fc92f4b6066ecc",
+  "git_dirty": true,
+  "source_status": "uncommitted changes captured in source_snapshot.zip",
+  "python_executable": "C:\\Users\\LEGION\\Desktop\\github\\Machine-learning\\wesad-stress-detection\\.venv-g1\\Scripts\\python.exe",
+  "command": "C:\\Users\\LEGION\\Desktop\\github\\Machine-learning\\wesad-stress-detection\\.venv-g1\\Scripts\\python.exe scripts/exp020_train.py",
+  "outer_folds": 30,
+  "inner_fits": 360,
+  "outer_refits": 30,
+  "seed": 42,
+  "reference_experiment": "EXP-010",
+  "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "interpretation": "exploratory comparison on reused LOSO benchmark; no independent final holdout"
+}
