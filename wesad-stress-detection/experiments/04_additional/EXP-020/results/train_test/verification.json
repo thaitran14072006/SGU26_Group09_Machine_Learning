@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "supplementary fixed-parameter refit",
+  "refits": 30,
+  "all_test_predictions_match": true,
+  "source_sha256": "3ad45dcc013d8fcb85efa92a558796f423454db25377b30797e75665aee4aa49",
+  "date": "18/11/2026",
+  "note": "train/test from the same refit; not scores captured during original nested run"
+}

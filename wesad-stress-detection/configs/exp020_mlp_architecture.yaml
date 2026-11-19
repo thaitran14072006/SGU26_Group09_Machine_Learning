@@ -1,0 +1,14 @@
+protocol: exp020_mlp_architecture_regularization_v1
+reference_config: experiments/02_tuning/EXP-010/results/config.yaml
+seed: 42
+model_params:
+  mlp:
+    max_iter: 200
+    early_stopping: false
+    learning_rate_init: 0.001
+search_spaces:
+  mlp:
+    model__hidden_layer_sizes: [[16], [32, 16]]
+    model__alpha: [0.01, 0.1]
+# Chốt cả bốn ứng viên trước khi chạy; không đổi grid theo outer test.
+# Giữ optimizer, learning rate, max_iter, preprocessing và không ROS như EXP-010.

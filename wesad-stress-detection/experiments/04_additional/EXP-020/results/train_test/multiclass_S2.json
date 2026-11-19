@@ -1,0 +1,58 @@
+{
+  "task": "multiclass",
+  "subject_id": "S2",
+  "n_train": 5794,
+  "n_test": 395,
+  "train_macro_f1": 1.0,
+  "test_macro_f1": 0.4084796709381427,
+  "train_balanced_accuracy": 1.0,
+  "test_balanced_accuracy": 0.5136623903747192,
+  "labels": [
+    1,
+    2,
+    3
+  ],
+  "train_confusion_matrix": [
+    [
+      3151,
+      0,
+      0
+    ],
+    [
+      0,
+      1735,
+      0
+    ],
+    [
+      0,
+      0,
+      908
+    ]
+  ],
+  "test_confusion_matrix": [
+    [
+      188,
+      2,
+      29
+    ],
+    [
+      3,
+      0,
+      110
+    ],
+    [
+      20,
+      0,
+      43
+    ]
+  ],
+  "best_params": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "warnings": [],
+  "reference_predictions_match": true
+}

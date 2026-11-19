@@ -1,0 +1,9 @@
+{
+  "subject_id": "S3",
+  "task": "multiclass",
+  "model": "mlp",
+  "n_test": 401,
+  "macro_f1": 0.6858353780013736,
+  "balanced_accuracy": 0.7670657751516093,
+  "seconds": 7.2972
+}

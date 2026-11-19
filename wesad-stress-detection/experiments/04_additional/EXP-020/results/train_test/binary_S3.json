@@ -1,0 +1,42 @@
+{
+  "task": "binary",
+  "subject_id": "S3",
+  "n_train": 5788,
+  "n_test": 401,
+  "train_macro_f1": 1.0,
+  "test_macro_f1": 0.7678395838885468,
+  "train_balanced_accuracy": 1.0,
+  "test_balanced_accuracy": 0.7330508474576272,
+  "labels": [
+    0,
+    1
+  ],
+  "train_confusion_matrix": [
+    [
+      4058,
+      0
+    ],
+    [
+      0,
+      1730
+    ]
+  ],
+  "test_confusion_matrix": [
+    [
+      283,
+      0
+    ],
+    [
+      63,
+      55
+    ]
+  ],
+  "best_params": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "warnings": [],
+  "reference_predictions_match": true
+}
