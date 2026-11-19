@@ -1,0 +1,150 @@
+{
+  "plan": "EXP-001–EXP-020",
+  "version": "2026-11-19",
+  "experiments": [
+    {
+      "experiment_id": "EXP-001",
+      "model": "Dummy",
+      "direction": "Baseline",
+      "legacy_run_id": "THAI-EXP-001",
+      "folder": "experiments/01_baselines/EXP-001_Dummy/runs/20261114",
+      "notebook": "notebooks/experiments/EXP-001_Dummy_review.ipynb",
+      "source_archive": "experiments/01_baselines/THAI-EXP-001_Dummy/r02",
+      "reference": null,
+      "status": "verified_saved_30_folds"
+    },
+    {
+      "experiment_id": "EXP-002",
+      "model": "LR",
+      "direction": "Baseline",
+      "legacy_run_id": "THAI-EXP-002",
+      "folder": "experiments/01_baselines/EXP-002_LR",
+      "notebook": "notebooks/experiments/EXP-002_LR.ipynb",
+      "source_archive": "experiments/01_baselines/THAI-EXP-002_LR/r02",
+      "reference": "EXP-001",
+      "status": "verified_saved_30_folds"
+    },
+    {
+      "experiment_id": "EXP-003",
+      "model": "KNN",
+      "direction": "Baseline",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-004",
+      "model": "SVM",
+      "direction": "Baseline",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-005",
+      "model": "RF",
+      "direction": "Baseline",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-006",
+      "model": "MLP",
+      "direction": "Baseline",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-007",
+      "model": "KNN",
+      "direction": "Tuning",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-008",
+      "model": "SVM",
+      "direction": "Tuning",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-009",
+      "model": "RF",
+      "direction": "Tuning",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-010",
+      "model": "MLP",
+      "direction": "Tuning",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-011",
+      "model": "LR",
+      "direction": "Class balancing",
+      "legacy_run_id": "THAI-EXP-003",
+      "folder": "experiments/03_balancing/EXP-011_LR",
+      "notebook": "notebooks/experiments/EXP-011_LR_Balanced.ipynb",
+      "source_archive": "experiments/03_balancing/THAI-EXP-003_LR/r02",
+      "reference": "EXP-002",
+      "status": "verified_saved_30_folds"
+    },
+    {
+      "experiment_id": "EXP-012",
+      "model": "KNN",
+      "direction": "Class balancing",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-013",
+      "model": "SVM",
+      "direction": "Class balancing",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-014",
+      "model": "RF",
+      "direction": "Class balancing",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-015",
+      "model": "MLP",
+      "direction": "Class balancing",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-016",
+      "model": "LR",
+      "direction": "Feature selection",
+      "legacy_run_id": "THAI-EXP-004",
+      "folder": "experiments/04_additional/EXP-016_LR_Features",
+      "notebook": "notebooks/experiments/EXP-016_LR_Features.ipynb",
+      "source_archive": "experiments/04_additional/THAI-EXP-004_LR_Features/r02",
+      "reference": "EXP-002",
+      "status": "verified_saved_30_folds"
+    },
+    {
+      "experiment_id": "EXP-017",
+      "model": "KNN",
+      "direction": "Feature selection",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-018",
+      "model": "SVM",
+      "direction": "Feature selection",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-019",
+      "model": "RF",
+      "direction": "Feature importance/selection",
+      "status": "not_reaudited_in_this_sync"
+    },
+    {
+      "experiment_id": "EXP-020",
+      "model": "MLP",
+      "direction": "Architecture/regularization",
+      "status": "not_reaudited_in_this_sync"
+    }
+  ],
+  "supplementary_excluded": [
+    "THAI-EXP-005"
+  ],
+  "historical_G_names": "source references only, not current milestones"
+}

@@ -1,3 +1,5 @@
+> **NGHIÊN CỨU BỔ SUNG NGOÀI DANH MỤC 20 HƯỚNG.** Không phải EXP-005 (RF baseline), không tính vào tiến độ EXP-001–020. Kết quả đã chạy được giữ để tham khảo; không tự tiếp tục chuỗi THAI-EXP-006–010.
+
 # LR regularization
 
 Mã riêng: THAI-EXP-005. Thí nghiệm mở rộng, chưa gán EXP chung.
