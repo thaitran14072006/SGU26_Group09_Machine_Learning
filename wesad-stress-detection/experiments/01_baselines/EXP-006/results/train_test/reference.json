@@ -1,0 +1,6 @@
+{
+  "path": "experiments\\01_baselines\\EXP-006\\results",
+  "run_info_sha256": "87349a73c024d3f854f6105a8921a63f234717262489b404a408aeb1a4c6f590",
+  "metrics_sha256": "22af34aef146fbf440efc374aef0a293446420d244104404beccfda1ae025392",
+  "original_pandas": "3.1.1"
+}

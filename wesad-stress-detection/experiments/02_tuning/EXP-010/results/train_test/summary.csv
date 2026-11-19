@@ -1,0 +1,3 @@
+task,n_subjects,train_macro_f1_mean,train_macro_f1_std,test_macro_f1_mean,test_macro_f1_std,macro_f1_gap_mean,train_balanced_accuracy_mean,test_balanced_accuracy_mean,balanced_accuracy_gap_mean
+binary,15,1.0,0.0,0.7819090825093087,0.18687998484365706,0.21809091749069123,1.0,0.8051561857155796,0.1948438142844205
+multiclass,15,1.0,0.0,0.6186697657533548,0.13381229204978334,0.3813302342466453,1.0,0.659145751221585,0.340854248778415

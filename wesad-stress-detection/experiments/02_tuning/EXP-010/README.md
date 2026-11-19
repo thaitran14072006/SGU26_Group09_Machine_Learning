@@ -2,7 +2,7 @@
 
 Như, chạy mới ngày 15/11/2026. Phần đồ án WESAD, không liên quan challenge.
 
-- Notebook nhật ký: `notebooks/experiments/EXP010_MLP_tuning.ipynb` ở gốc project.
+- Notebook nhật ký: `notebooks/experiments/Nhu_EXP-010_MLP_tuning.ipynb` ở gốc project.
 - Notebook trong thư mục này là bản tổng hợp đã lưu output.
 - `results/`: 30 outer folds, inner scores, best_params, dự đoán, loss và 4 hình.
 - `results/config.yaml`: cấu hình thực tế; `source_snapshot.zip`: nguồn lúc train.
@@ -39,3 +39,16 @@ chưa đo độ nhạy với khác biệt đó. Chưa thực hiện kiểm đị
 
 Best params được giữ theo từng task/subject để làm đối chứng cho exp015.
 Exp020 cần lưới khác; không sửa kết quả của exp010 để ép điểm tăng.
+
+## so sánh train và test bổ sung ngày 18/11/2026
+
+`results/train_test/train_vs_test.png` đặt điểm train và outer test trên cùng
+trục cho 15 người, cả hai bài toán và hai độ đo. Điểm được tính từ cùng mô hình
+refit, giữ cấu hình đã chốt. Dự đoán test khớp kết quả cũ. Các ô cũ trong notebook
+được giữ nguyên, phần mới nằm cuối notebook.
+Điểm train tính trên cửa sổ gốc, không trên các bản sao ROS. Đây không phải loss
+theo epoch hoặc learning curve train–validation. Xem `analysis.md` và
+`verification.json` trong thư mục đó. Không dùng test để chọn tham số mới.
+
+Chạy phần đo điểm mới bằng `scripts/nhu_train_test_diagnostics.py`; vẽ/kiểm tra
+từ dữ liệu đã đo bằng `scripts/nhu_train_test_plots.py --run outputs/<lượt đo>`.

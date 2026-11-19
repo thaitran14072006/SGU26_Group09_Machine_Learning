@@ -1,0 +1,96 @@
+{
+  "outer_train_subjects": [
+    "S10",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9"
+  ],
+  "outer_test_subjects": [
+    "S11"
+  ],
+  "inner_splits": [],
+  "best_params": {
+    "model__alpha": 0.0001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.01
+  },
+  "warnings": [],
+  "classification_report": {
+    "0": {
+      "precision": 1.0,
+      "recall": 0.865979381443299,
+      "f1-score": 0.9281767955801105,
+      "support": 291.0
+    },
+    "1": {
+      "precision": 0.7636363636363637,
+      "recall": 1.0,
+      "f1-score": 0.865979381443299,
+      "support": 126.0
+    },
+    "accuracy": 0.9064748201438849,
+    "macro avg": {
+      "precision": 0.8818181818181818,
+      "recall": 0.9329896907216495,
+      "f1-score": 0.8970780885117047,
+      "support": 417.0
+    },
+    "weighted avg": {
+      "precision": 0.9285807717462394,
+      "recall": 0.9064748201438849,
+      "f1-score": 0.9093833323157503,
+      "support": 417.0
+    }
+  },
+  "labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      252,
+      39
+    ],
+    [
+      0,
+      126
+    ]
+  ],
+  "mlp_optimization": {
+    "scope": "best_candidate_refit_on_outer_train_only",
+    "n_iter": 14,
+    "max_iter": 200,
+    "loss": 5.488561518469832e-05,
+    "loss_curve": [
+      0.06913415649412563,
+      0.0018916852539341696,
+      0.0001891896506712029,
+      0.0001133859383429843,
+      9.32177078353002e-05,
+      8.209192596318018e-05,
+      7.429559565111554e-05,
+      6.88328007313104e-05,
+      6.500975383606795e-05,
+      6.189914287563854e-05,
+      5.957816788329476e-05,
+      5.769092780663334e-05,
+      5.6128772185950316e-05,
+      5.488561518469832e-05
+    ],
+    "reached_max_iter": false,
+    "interpretation": "Training objective, not validation loss or proof of generalization. See captured convergence warnings too."
+  }
+}

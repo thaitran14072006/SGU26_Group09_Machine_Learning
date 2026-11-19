@@ -1,0 +1,6 @@
+{
+  "path": "experiments\\02_tuning\\EXP-010\\results",
+  "config_sha256": "b11bfc2e4f74dd25714d02f7fa22320a0e3a02590189d1417f94393bb166bc80",
+  "predictions_sha256": "3d7acbd397f98504aa711c873b02630b9a690746c42764b25169d7b01b2a23d1",
+  "best_params_sha256": "1235ecbc2ba7495515765d43d6fd2183103b8193e723dd8b5ef9ed778e48356a"
+}
