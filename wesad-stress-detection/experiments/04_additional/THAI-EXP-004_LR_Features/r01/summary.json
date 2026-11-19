@@ -1,0 +1,24 @@
+{
+  "status": "partial",
+  "n_completed_folds": 2,
+  "results": [
+    {
+      "task": "binary",
+      "model": "lr",
+      "n_subjects": 1,
+      "macro_f1_mean": 0.6070354679692826,
+      "macro_f1_std": null,
+      "balanced_accuracy_mean": 0.6061946902654867,
+      "balanced_accuracy_std": null
+    },
+    {
+      "task": "multiclass",
+      "model": "lr",
+      "n_subjects": 1,
+      "macro_f1_mean": 0.4919251286539666,
+      "macro_f1_std": null,
+      "balanced_accuracy_mean": 0.5931762772591964,
+      "balanced_accuracy_std": null
+    }
+  ]
+}

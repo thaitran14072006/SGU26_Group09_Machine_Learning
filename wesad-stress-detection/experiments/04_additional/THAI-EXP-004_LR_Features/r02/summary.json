@@ -1,0 +1,24 @@
+{
+  "status": "complete",
+  "n_completed_folds": 30,
+  "results": [
+    {
+      "task": "binary",
+      "model": "lr",
+      "n_subjects": 15,
+      "macro_f1_mean": 0.8789432696611108,
+      "macro_f1_std": 0.1483128778514632,
+      "balanced_accuracy_mean": 0.8884005856215331,
+      "balanced_accuracy_std": 0.1355386184026501
+    },
+    {
+      "task": "multiclass",
+      "model": "lr",
+      "n_subjects": 15,
+      "macro_f1_mean": 0.6127085201449,
+      "macro_f1_std": 0.176235538686594,
+      "balanced_accuracy_mean": 0.6589276399593679,
+      "balanced_accuracy_std": 0.14290595550874224
+    }
+  ]
+}

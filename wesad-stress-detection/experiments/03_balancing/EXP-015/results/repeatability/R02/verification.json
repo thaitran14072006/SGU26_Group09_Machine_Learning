@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "experiment": "EXP-015",
+  "outer_folds": 30,
+  "predictions": 12378,
+  "reference": "EXP-010",
+  "fixed_params_match": true,
+  "sampler_audit_rows": 30,
+  "test_rows_unchanged": true,
+  "audit_scope": "recreated_preprocessing_and_sampler_same_train_and_seed"
+}
