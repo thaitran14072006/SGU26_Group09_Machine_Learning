@@ -44,4 +44,4 @@
 
 ## Lưu trữ tối thiểu
 
-Một hồ sơ chốt cho mỗi kết quả; notebook làm việc giữ mã train, notebook trong experiments là bản báo cáo. Chỉ dùng experiments/experiments_logs.xlsx; phần Dummy/LR giữ 8 dòng kết quả chính, bỏ các dòng thử S2. Checkpoint máy trong outputs không phải hồ sơ nhóm. Kết quả bổ sung duy nhất ở experiments/supplementary/LR_Regularization.
+Một hồ sơ chốt cho mỗi kết quả; notebook làm việc giữ mã train, notebook trong experiments là bản báo cáo. Chỉ dùng experiments/experiments_logs.xlsx; mỗi run hoàn tất ghi hai dòng cho hai bài toán, không tính các dòng thử S2 là kết quả chính thức. Checkpoint máy trong outputs không phải hồ sơ nhóm. Kết quả tuning LR bổ sung nằm ở experiments/supplementary/LR_Regularization.

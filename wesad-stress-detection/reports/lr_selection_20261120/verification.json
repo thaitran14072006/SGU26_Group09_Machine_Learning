@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "verified_at": "2026-11-20T23:46:46.075872+07:00",
+  "baseline_audit": [
+    {
+      "folder": "01_baselines/EXP-001_Dummy/runs/20261114",
+      "status": "verified",
+      "results_sha256": "34153cdbe2273ff64058a96a2eb3c8670c382168862760fb77be813626773a7d"
+    },
+    {
+      "folder": "01_baselines/EXP-002_LR",
+      "status": "verified",
+      "results_sha256": "ca10d40909526a13d1625fd0d019131f58db27cc3f294f01bb48bfade4643d03"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "FS-01",
+      "status": "passed",
+      "folds": 30,
+      "oof_predictions": 12378,
+      "acceptance_sha256": "7f7ea5697a05ebcc53629d6301f21c858bfe8944e5ab3c982839fa26c9f0953b"
+    },
+    {
+      "run_id": "FS-02",
+      "status": "passed",
+      "folds": 30,
+      "oof_predictions": 12378,
+      "acceptance_sha256": "7bb617594f92f1214998865fb4589cf8156b0a56adce6af4786a9cb05c63cb53"
+    },
+    {
+      "run_id": "FS-03",
+      "status": "passed",
+      "folds": 30,
+      "oof_predictions": 12378,
+      "acceptance_sha256": "f93fc70befd86224a89134f968e69a1305cc62f5f36bc622ab56d6c98c1608ad"
+    }
+  ],
+  "gate_sha256": "4f507d13286a7877ae27c31408d9905dadbf23af791a53aaaa5e0f96a4b7aa49",
+  "source_snapshot_sha256": "702ffaeb9bb530903499b9ca08b061e4d15dc5448af5a8dc9bebd4e8dcc55027",
+  "recipes": 30,
+  "checks": [
+    "receipt hashes",
+    "data checksum",
+    "OOF keys and labels",
+    "recomputed F1/BA/confusion matrices",
+    "subject-separated splits",
+    "inner candidate winner",
+    "summary sample SD"
+  ]
+}

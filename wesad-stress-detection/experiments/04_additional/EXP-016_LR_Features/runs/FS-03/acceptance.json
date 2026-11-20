@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "folds": 30,
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "signature": "ff1ed1d97bc368fb9e8e0785f72cb378074a35d288ebd31a688a5ca298b13e34",
+  "completed_at": "2026-11-20T15:57:10.890199+00:00",
+  "files": {
+    "results.csv": "97d1860584ee7c07c78f8233d53f89312eb2f5a727d6a8d8d3b1cb026abc2784",
+    "predictions.csv": "833457df6e44182538e5a89d316088e08c3efa88d3e988fbde862a179a064c05",
+    "summary.csv": "3adae1f36bc0509e6e4d37bde6a353345feb73ffb0470064b364369c6c0b69f2",
+    "fold_details.json": "03826e2830390ff27adcf2c0487f2500250e53fd5f09b4e77601ff75dabd36c7",
+    "config.json": "8c89fd1041d2517f2cba33017aff57216839b109d1b45b3758c159a6843fbc05",
+    "experiment.ipynb": "27647a4fa69897314e9bd4dc16f33b61d5defcb58bb0a3cda9e06db253d2284b",
+    "summary_metrics.png": "4952fc5a4c3e9e35303395b50423171f0df9e1d2f41e717701a7f21881bbeebc"
+  }
+}

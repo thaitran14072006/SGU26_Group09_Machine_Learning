@@ -61,3 +61,12 @@ Các bước tiếp theo: hoàn thiện phân tích lỗi, tổng hợp 20 hư�
 
 - [Danh mục 20 hướng](docs/EXPERIMENT_PLAN_20.md), [registry](experiments/experiment_registry.json).
 - [Lịch sử kỹ thuật G1–G4](docs/LEGACY_WORKFLOW.md): chỉ để truy nguồn, không phải quy trình hiện hành.
+
+## Quy trình LR theo giai đoạn
+
+Chuỗi LR gồm chọn đặc trưng (3 run), cân bằng lớp (3 run) và tuning C (5 run). Cấu hình được chọn bằng inner CV; mỗi giai đoạn phải đạt kiểm tra trước khi chuyển tiếp. Xem [cấu hình](configs/lr_sequential_workflow.yaml) và [trạng thái](experiments/lr_workflow_state.json).
+
+```powershell
+.\.venv\Scripts\python.exe scripts/continue_lr_experiments.py --status
+.\.venv\Scripts\python.exe scripts/continue_lr_experiments.py --max-runs 1
+```
