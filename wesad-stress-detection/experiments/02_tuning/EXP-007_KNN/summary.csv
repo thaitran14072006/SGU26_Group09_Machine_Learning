@@ -1,0 +1,3 @@
+task,model,complete_15_subjects,n_subjects,missing_subjects,macro_f1_mean,macro_f1_std,balanced_accuracy_mean,balanced_accuracy_std,labels,confusion_matrix
+multiclass,knn,True,15,[],0.5500949571419436,0.1148913065946816,0.5639566965118725,0.1072713714240042,"[1, 2, 3]","[[2501, 188, 681], [279, 1253, 316], [405, 302, 264]]"
+binary,knn,True,15,[],0.7862050843783562,0.12697291287523496,0.7966162186060076,0.12598227885681273,"[0, 1]","[[3897, 444], [567, 1281]]"
