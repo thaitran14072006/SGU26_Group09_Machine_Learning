@@ -67,3 +67,9 @@ Nguồn EXP-006 có phiên bản pandas khác; EXP-010 cùng môi trường trai
 Xem `launch_history.md` về lỗi trùng tên output và cách sửa thực tế.
 
 Mã commit trong provenance là HEAD lúc train; thay đổi EXP-020 vẫn chưa commit/push.
+
+## bổ sung ngày 20/11/2026
+
+Đã chạy thêm seed 43 và 44, mỗi seed đủ 30 outer folds và 360 inner fits. Seed 42 vẫn là kết quả chính, không chọn seed có điểm cao nhất. Xem [kết quả theo seed](seed_sensitivity/20261120/README.md) và phần bổ sung trong hai notebook.
+
+Ảnh bổ sung: [so sánh seed](figures/seed_macro_f1_by_seed.png), [điểm từng người](figures/seed_subject_scores_by_seed.png).
