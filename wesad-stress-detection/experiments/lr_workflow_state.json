@@ -1,7 +1,7 @@
 {
   "protocol": "lr_sequential_v1",
   "plan_sha256": "e262d7d326b1bb3b0049bfd2d24690ec60fc7416a82f28786e076356d8907158",
-  "updated_at": "2026-11-21T16:25:24.740878+00:00",
+  "updated_at": "2026-11-21T16:26:12.272503+00:00",
   "experiments": [
     {
       "run_id": "FS-01",
@@ -70,7 +70,7 @@
       "run_id": "TUNE-04",
       "stage": "tuning",
       "experiment_id": "supplementary/LR_Regularization",
-      "status": "pending",
+      "status": "complete",
       "folder": "experiments/supplementary/LR_Regularization/runs/TUNE-04"
     },
     {
