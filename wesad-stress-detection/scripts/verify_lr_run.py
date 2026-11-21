@@ -1,5 +1,6 @@
 """Recompute LR run metrics and verify data, splits and frozen dependencies."""
 import argparse
+import ast
 import json
 from pathlib import Path
 import sys
@@ -31,6 +32,12 @@ def verify(run_id):
     pred = pd.read_csv(out / 'predictions.csv', dtype={'window_id': str})
     details = json.loads((out / 'fold_details.json').read_text(encoding='utf8'))
     summary = pd.read_csv(out / 'summary.csv').set_index('task')
+    notebook = json.loads((out / 'experiment.ipynb').read_text(encoding='utf8'))
+    assert notebook['nbformat'] == 4 and notebook['cells']
+    for cell in notebook['cells']:
+        assert cell['cell_type'] in {'markdown', 'code', 'raw'}
+        if cell['cell_type'] == 'code':
+            ast.parse(''.join(cell['source']))
     assert len(metrics) == 30 and len(pred) == 12378 and len(details) == 30
     assert set(metrics.task) == set(pred.task) == {'binary', 'multiclass'}
     assert not metrics.duplicated(['task', 'subject_id']).any()
