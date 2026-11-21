@@ -1,0 +1,4232 @@
+{
+  "multiclass/S2": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.6880861775558236,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S2"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S14",
+          "S17",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S17",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S16",
+          "S3",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_tonic_std",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.6880861775558236,
+        "std_macro_f1": 0.04671377308797255
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        78,
+        6,
+        135
+      ],
+      [
+        0,
+        50,
+        63
+      ],
+      [
+        1,
+        0,
+        62
+      ]
+    ]
+  },
+  "multiclass/S3": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 16
+    },
+    "weight_policy": "sqrt_balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.7009894906227595,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S3"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S2",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S14",
+          "S17",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S17",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S16",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.7009894906227595,
+        "std_macro_f1": 0.027336741694963182
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        218,
+        0,
+        0
+      ],
+      [
+        3,
+        114,
+        1
+      ],
+      [
+        9,
+        0,
+        56
+      ]
+    ]
+  },
+  "multiclass/S4": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 16
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.729679235476329,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S4"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S2",
+          "S3",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S14",
+          "S17",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S17",
+          "S3",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S16",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S3",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_power_10_20_hz",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.729679235476329,
+        "std_macro_f1": 0.0507444567884324
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        208,
+        0,
+        14
+      ],
+      [
+        0,
+        117,
+        0
+      ],
+      [
+        50,
+        0,
+        15
+      ]
+    ]
+  },
+  "multiclass/S5": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.7004236527703734,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S5"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_x_5s_abs_integral_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.7004236527703734,
+        "std_macro_f1": 0.0411070047395194
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        33,
+        15,
+        182
+      ],
+      [
+        0,
+        119,
+        0
+      ],
+      [
+        0,
+        25,
+        40
+      ]
+    ]
+  },
+  "multiclass/S6": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.7042602440123451,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S6"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S7"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.7042602440123451,
+        "std_macro_f1": 0.026840704414136937
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        189,
+        1,
+        36
+      ],
+      [
+        0,
+        121,
+        0
+      ],
+      [
+        30,
+        0,
+        35
+      ]
+    ]
+  },
+  "multiclass/S7": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 48
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.6598234680802185,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S7"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_mean",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_mean_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_x_5s_abs_integral_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_mean_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_z_5s_abs_integral_mean",
+      "chest_acc_magnitude_5s_mean_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "chest_acc_magnitude_5s_abs_integral_mean",
+      "chest_emg_5s_rms_mean",
+      "chest_emg_5s_mav_mean",
+      "chest_emg_5s_waveform_length_per_s_mean",
+      "chest_emg_5s_abs_integral_mean",
+      "wrist_bvp_power_0p5_1_hz",
+      "wrist_bvp_power_1_2_hz",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_tonic_std",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_mean",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.6598234680802185,
+        "std_macro_f1": 0.02103827161790776
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        84,
+        31,
+        113
+      ],
+      [
+        0,
+        118,
+        0
+      ],
+      [
+        0,
+        0,
+        65
+      ]
+    ]
+  },
+  "multiclass/S8": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 16
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.6738716350866943,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S8"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S6",
+          "S7"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S7"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.6738716350866943,
+        "std_macro_f1": 0.05250950468025734
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        224,
+        0,
+        0
+      ],
+      [
+        19,
+        98,
+        7
+      ],
+      [
+        64,
+        0,
+        0
+      ]
+    ]
+  },
+  "multiclass/S9": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.6781558575697901,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "outer_test_subjects": [
+      "S9"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S7"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "chest_acc_magnitude_5s_abs_integral_mean",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.6781558575697901,
+        "std_macro_f1": 0.06884940529364661
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        227,
+        0,
+        0
+      ],
+      [
+        0,
+        109,
+        10
+      ],
+      [
+        48,
+        0,
+        17
+      ]
+    ]
+  },
+  "multiclass/S10": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.7049589379562891,
+    "outer_train_subjects": [
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S10"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S15",
+          "S16",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S15",
+          "S16",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S6"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_mean_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_x_5s_abs_integral_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_mean_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "chest_acc_magnitude_5s_abs_integral_mean",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.7049589379562891,
+        "std_macro_f1": 0.05156198935184408
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        146,
+        66,
+        14
+      ],
+      [
+        0,
+        135,
+        0
+      ],
+      [
+        65,
+        0,
+        0
+      ]
+    ]
+  },
+  "multiclass/S11": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.702234872353881,
+    "outer_train_subjects": [
+      "S10",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S11"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S14",
+          "S16",
+          "S17",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S17",
+          "S2",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_x_5s_abs_integral_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_mean_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "chest_acc_magnitude_5s_abs_integral_mean",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.702234872353881,
+        "std_macro_f1": 0.08367491472922517
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        195,
+        0,
+        32
+      ],
+      [
+        0,
+        126,
+        0
+      ],
+      [
+        0,
+        15,
+        49
+      ]
+    ]
+  },
+  "multiclass/S13": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 16
+    },
+    "weight_policy": "balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.7065532117084238,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S13"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S15",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S14",
+          "S16",
+          "S17",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S14",
+          "S15",
+          "S16",
+          "S17",
+          "S2",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S15",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.7065532117084238,
+        "std_macro_f1": 0.08480172653128377
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        36,
+        162,
+        28
+      ],
+      [
+        0,
+        124,
+        0
+      ],
+      [
+        3,
+        56,
+        8
+      ]
+    ]
+  },
+  "multiclass/S14": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 48
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.6897136514141251,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S14"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S16",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_mean",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_mean_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_x_5s_abs_integral_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_y_5s_abs_integral_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_mean_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "chest_acc_magnitude_5s_abs_integral_mean",
+      "chest_emg_5s_rms_mean",
+      "chest_emg_5s_mav_mean",
+      "chest_emg_5s_waveform_length_per_s_mean",
+      "chest_emg_5s_abs_integral_mean",
+      "wrist_bvp_power_0p5_1_hz",
+      "wrist_bvp_power_1_2_hz",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_tonic_std",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_mean",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_y_5s_abs_integral_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.6897136514141251,
+        "std_macro_f1": 0.004976563625441847
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        177,
+        0,
+        42
+      ],
+      [
+        122,
+        4,
+        0
+      ],
+      [
+        5,
+        0,
+        60
+      ]
+    ]
+  },
+  "multiclass/S15": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.6787441893204794,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S15"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S13",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S14",
+          "S16",
+          "S17",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S16",
+          "S17",
+          "S2",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S13",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_x_5s_abs_integral_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_mean",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.6787441893204794,
+        "std_macro_f1": 0.019195358528768997
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        138,
+        0,
+        88
+      ],
+      [
+        0,
+        91,
+        37
+      ],
+      [
+        0,
+        9,
+        55
+      ]
+    ]
+  },
+  "multiclass/S16": {
+    "run_id": "TUNE-02",
+    "method": "mutual_info",
+    "selection_params": {
+      "selection__k": 48
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.6914646786039566,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S16"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S2",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_mean",
+      "chest_eda_phasic_mean",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_count",
+      "chest_eda_scr_rate_per_min",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_mean_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_x_5s_abs_integral_mean",
+      "chest_acc_y_5s_mean_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_mean_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_z_5s_abs_integral_mean",
+      "chest_acc_magnitude_5s_mean_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "chest_acc_magnitude_5s_abs_integral_mean",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_mean",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_mean_mean",
+      "wrist_acc_x_5s_abs_integral_mean",
+      "wrist_acc_y_5s_mean_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_y_5s_abs_integral_mean",
+      "wrist_acc_z_5s_mean_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_mean_mean",
+      "wrist_acc_magnitude_5s_std_mean",
+      "wrist_acc_magnitude_5s_abs_integral_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.6914646786039566,
+        "std_macro_f1": 0.03784085213216053
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        163,
+        0,
+        63
+      ],
+      [
+        0,
+        125,
+        0
+      ],
+      [
+        0,
+        64,
+        0
+      ]
+    ]
+  },
+  "multiclass/S17": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.7334516950858415,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S17"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S3",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S13",
+          "S14",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S15",
+          "S16",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S15",
+          "S16",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S6"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_tonic_std",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_y_5s_abs_integral_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.7334516950858415,
+        "std_macro_f1": 0.0325636710522889
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        210,
+        7,
+        9
+      ],
+      [
+        0,
+        129,
+        6
+      ],
+      [
+        35,
+        8,
+        22
+      ]
+    ]
+  },
+  "binary/S2": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 8
+    },
+    "weight_policy": "sqrt_balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.9195308414343852,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S2"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S14",
+          "S17",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S17",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S16",
+          "S3",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.9195308414343852,
+        "std_macro_f1": 0.06900955286607054
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        279,
+        3
+      ],
+      [
+        58,
+        55
+      ]
+    ]
+  },
+  "binary/S3": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 16
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.9132105024209095,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S3"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S2",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S14",
+          "S17",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S17",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S16",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.9132105024209095,
+        "std_macro_f1": 0.049708078263214245
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        283,
+        0
+      ],
+      [
+        5,
+        113
+      ]
+    ]
+  },
+  "binary/S4": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.9087734155337843,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S4"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S2",
+          "S3",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S14",
+          "S17",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S17",
+          "S3",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S16",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S3",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_tonic_std",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.9087734155337843,
+        "std_macro_f1": 0.027473375458255084
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        287,
+        0
+      ],
+      [
+        0,
+        117
+      ]
+    ]
+  },
+  "binary/S5": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 16
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.9318593760394297,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S5"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.9318593760394297,
+        "std_macro_f1": 0.07403652714260363
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        275,
+        20
+      ],
+      [
+        0,
+        119
+      ]
+    ]
+  },
+  "binary/S6": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.9105656995332841,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S6"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S7"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.9105656995332841,
+        "std_macro_f1": 0.026368888400845024
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        289,
+        2
+      ],
+      [
+        0,
+        121
+      ]
+    ]
+  },
+  "binary/S7": {
+    "run_id": "TUNE-02",
+    "method": "correlation",
+    "selection_params": {
+      "selection__threshold": 0.99
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.8477555225908784,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S7"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_mean",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_mean",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_count",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_temp_mean",
+      "chest_temp_slope_per_s",
+      "chest_acc_x_5s_mean_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_mean_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_y_5s_abs_integral_mean",
+      "chest_acc_z_5s_mean_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_z_5s_abs_integral_mean",
+      "chest_acc_magnitude_5s_mean_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "chest_emg_5s_rms_mean",
+      "chest_emg_5s_waveform_length_per_s_mean",
+      "wrist_bvp_pulse_rate_mean_bpm",
+      "wrist_bvp_pulse_rate_std_bpm",
+      "wrist_bvp_mean_ibi_ms",
+      "wrist_bvp_sd_ibi_ms",
+      "wrist_bvp_rmssd_ibi_ms",
+      "wrist_bvp_pnn50_ibi",
+      "wrist_bvp_power_0p5_1_hz",
+      "wrist_bvp_power_1_2_hz",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_tonic_std",
+      "wrist_eda_phasic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_mean",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_mean_mean",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_x_5s_abs_integral_mean",
+      "wrist_acc_y_5s_mean_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_y_5s_abs_integral_mean",
+      "wrist_acc_z_5s_mean_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_mean_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.8477555225908784,
+        "std_macro_f1": 0.04147523701132002
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        277,
+        16
+      ],
+      [
+        0,
+        118
+      ]
+    ]
+  },
+  "binary/S8": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 8
+    },
+    "weight_policy": "sqrt_balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.9109677646535538,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S8"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S6",
+          "S7"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S7"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.9109677646535538,
+        "std_macro_f1": 0.08791380652470193
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        288,
+        0
+      ],
+      [
+        24,
+        100
+      ]
+    ]
+  },
+  "binary/S9": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 8
+    },
+    "weight_policy": "sqrt_balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.8976685929316063,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "outer_test_subjects": [
+      "S9"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S7"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.8976685929316063,
+        "std_macro_f1": 0.07672623084879597
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        292,
+        0
+      ],
+      [
+        33,
+        86
+      ]
+    ]
+  },
+  "binary/S10": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.8763617349707981,
+    "outer_train_subjects": [
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S10"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S15",
+          "S16",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S15",
+          "S16",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S6"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_x_5s_std_mean",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_z_5s_std_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.8763617349707981,
+        "std_macro_f1": 0.037196990517505614
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        271,
+        20
+      ],
+      [
+        0,
+        135
+      ]
+    ]
+  },
+  "binary/S11": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 8
+    },
+    "weight_policy": "sqrt_balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.8916414860615607,
+    "outer_train_subjects": [
+      "S10",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S11"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S14",
+          "S16",
+          "S17",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S17",
+          "S2",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.8916414860615607,
+        "std_macro_f1": 0.08483117296091539
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        289,
+        2
+      ],
+      [
+        0,
+        126
+      ]
+    ]
+  },
+  "binary/S13": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 8
+    },
+    "weight_policy": "sqrt_balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.9331302318513224,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S14",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S13"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S15",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S14",
+          "S16",
+          "S17",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S14",
+          "S15",
+          "S16",
+          "S17",
+          "S2",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S15",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.9331302318513224,
+        "std_macro_f1": 0.036029328335961196
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        45,
+        248
+      ],
+      [
+        0,
+        124
+      ]
+    ]
+  },
+  "binary/S14": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 8
+    },
+    "weight_policy": "sqrt_balanced",
+    "C": 0.1,
+    "inner_macro_f1": 0.8995748646964147,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S15",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S14"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S2",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S16",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.8995748646964147,
+        "std_macro_f1": 0.1021576418289289
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        284,
+        0
+      ],
+      [
+        0,
+        126
+      ]
+    ]
+  },
+  "binary/S15": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 16
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.8998126119018716,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S16",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S15"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S13",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S14",
+          "S16",
+          "S17",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S16",
+          "S17",
+          "S2",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S14",
+          "S16",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S13",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_power_10_20_hz",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.8998126119018716,
+        "std_macro_f1": 0.07742034794866372
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        286,
+        4
+      ],
+      [
+        63,
+        65
+      ]
+    ]
+  },
+  "binary/S16": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 16
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.9160817027946916,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S17",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S16"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S10",
+          "S13",
+          "S14",
+          "S15",
+          "S2",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S17",
+          "S3",
+          "S4",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S15",
+          "S17",
+          "S2",
+          "S3",
+          "S4",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S14",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S14",
+          "S17",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S13",
+          "S15",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.9160817027946916,
+        "std_macro_f1": 0.07595195954788865
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        290,
+        0
+      ],
+      [
+        0,
+        125
+      ]
+    ]
+  },
+  "binary/S17": {
+    "run_id": "TUNE-02",
+    "method": "anova",
+    "selection_params": {
+      "selection__k": 32
+    },
+    "weight_policy": "none",
+    "C": 0.1,
+    "inner_macro_f1": 0.8881667770551247,
+    "outer_train_subjects": [
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "outer_test_subjects": [
+      "S17"
+    ],
+    "inner_splits": [
+      {
+        "train_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S16",
+          "S2",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation_subjects": [
+          "S10",
+          "S3",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S11",
+          "S13",
+          "S14",
+          "S3",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S15",
+          "S16",
+          "S2",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train_subjects": [
+          "S10",
+          "S15",
+          "S16",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation_subjects": [
+          "S11",
+          "S13",
+          "S14",
+          "S6"
+        ]
+      }
+    ],
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_sd_rr_ms",
+      "chest_ecg_rmssd_ms",
+      "chest_ecg_pnn50",
+      "chest_ecg_power_5_10_hz",
+      "chest_ecg_power_10_20_hz",
+      "chest_ecg_power_20_40_hz",
+      "chest_eda_tonic_std",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_eda_scr_amplitude_max",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_y_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_bvp_power_2_5_hz",
+      "wrist_eda_tonic_mean",
+      "wrist_eda_tonic_std",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_temp_slope_per_s",
+      "wrist_acc_y_5s_std_mean",
+      "wrist_acc_y_5s_abs_integral_mean",
+      "wrist_acc_z_5s_abs_integral_mean",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_candidates": [
+      {
+        "params": {},
+        "mean_macro_f1": 0.8881667770551247,
+        "std_macro_f1": 0.022628007729024683
+      }
+    ],
+    "fatal_warnings": [],
+    "warnings": [],
+    "confusion_matrix": [
+      [
+        277,
+        14
+      ],
+      [
+        8,
+        127
+      ]
+    ]
+  }
+}
