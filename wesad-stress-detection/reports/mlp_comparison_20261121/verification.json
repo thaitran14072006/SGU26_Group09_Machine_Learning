@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "experiments": [
+    "EXP-006",
+    "EXP-010",
+    "EXP-015",
+    "EXP-020"
+  ],
+  "folds_per_experiment": 30,
+  "same_window_keys_and_labels": true,
+  "metrics_recomputed_from_predictions": true,
+  "train_test_metrics_match": true,
+  "new_training_runs": 0,
+  "limitation": "EXP006 pandas version differs from EXP010/015/020"
+}

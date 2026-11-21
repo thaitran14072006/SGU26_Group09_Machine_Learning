@@ -1,0 +1,9 @@
+experiment,task,mean_epochs,max_epochs,folds_at_200,warning_count
+EXP-006,binary,41.266666666666666,43,0,0
+EXP-006,multiclass,46.666666666666664,48,0,0
+EXP-010,binary,22.4,58,0,0
+EXP-010,multiclass,46.6,67,0,0
+EXP-015,binary,20.133333333333333,48,0,0
+EXP-015,multiclass,36.53333333333333,52,0,0
+EXP-020,binary,78.0,100,0,0
+EXP-020,multiclass,63.46666666666667,119,0,0
