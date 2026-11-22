@@ -81,7 +81,10 @@
    "experiment_id": "EXP-012",
    "model": "KNN",
    "direction": "Class balancing",
-   "status": "not_reaudited_in_this_sync"
+   "status": "verified_saved_30_folds",
+   "folder": "experiments/03_balancing/EXP-012_KNN",
+   "notebook": "notebooks/experiments/Mai_EXP-012_KNN_balancing.ipynb",
+   "reference": "EXP-007"
   },
   {
    "experiment_id": "EXP-013",
