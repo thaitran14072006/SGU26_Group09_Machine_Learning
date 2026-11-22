@@ -1,0 +1,143 @@
+{
+  "status": "LR candidate, not final group winner",
+  "created_at": "2026-11-22T14:47:37.978884+00:00",
+  "training_rows": 6189,
+  "training_subjects": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17"
+  ],
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "feature_columns": [
+    "chest_ecg_hr_mean_bpm",
+    "chest_ecg_hr_std_bpm",
+    "chest_ecg_mean_rr_ms",
+    "chest_ecg_sd_rr_ms",
+    "chest_ecg_rmssd_ms",
+    "chest_ecg_pnn50",
+    "chest_ecg_power_5_10_hz",
+    "chest_ecg_power_10_20_hz",
+    "chest_ecg_power_20_40_hz",
+    "chest_eda_tonic_mean",
+    "chest_eda_tonic_std",
+    "chest_eda_phasic_mean",
+    "chest_eda_phasic_std",
+    "chest_eda_scr_count",
+    "chest_eda_scr_rate_per_min",
+    "chest_eda_scr_amplitude_mean",
+    "chest_eda_scr_amplitude_max",
+    "chest_resp_rate_mean",
+    "chest_resp_rate_std",
+    "chest_temp_mean",
+    "chest_temp_slope_per_s",
+    "chest_acc_x_5s_mean_mean",
+    "chest_acc_x_5s_std_mean",
+    "chest_acc_x_5s_abs_integral_mean",
+    "chest_acc_y_5s_mean_mean",
+    "chest_acc_y_5s_std_mean",
+    "chest_acc_y_5s_abs_integral_mean",
+    "chest_acc_z_5s_mean_mean",
+    "chest_acc_z_5s_std_mean",
+    "chest_acc_z_5s_abs_integral_mean",
+    "chest_acc_magnitude_5s_mean_mean",
+    "chest_acc_magnitude_5s_std_mean",
+    "chest_acc_magnitude_5s_abs_integral_mean",
+    "chest_emg_5s_rms_mean",
+    "chest_emg_5s_mav_mean",
+    "chest_emg_5s_waveform_length_per_s_mean",
+    "chest_emg_5s_abs_integral_mean",
+    "wrist_bvp_pulse_rate_mean_bpm",
+    "wrist_bvp_pulse_rate_std_bpm",
+    "wrist_bvp_mean_ibi_ms",
+    "wrist_bvp_sd_ibi_ms",
+    "wrist_bvp_rmssd_ibi_ms",
+    "wrist_bvp_pnn50_ibi",
+    "wrist_bvp_power_0p5_1_hz",
+    "wrist_bvp_power_1_2_hz",
+    "wrist_bvp_power_2_5_hz",
+    "wrist_eda_tonic_mean",
+    "wrist_eda_tonic_std",
+    "wrist_eda_phasic_mean",
+    "wrist_eda_phasic_std",
+    "wrist_eda_scr_count",
+    "wrist_eda_scr_rate_per_min",
+    "wrist_eda_scr_amplitude_mean",
+    "wrist_eda_scr_amplitude_max",
+    "wrist_temp_mean",
+    "wrist_temp_slope_per_s",
+    "wrist_acc_x_5s_mean_mean",
+    "wrist_acc_x_5s_std_mean",
+    "wrist_acc_x_5s_abs_integral_mean",
+    "wrist_acc_y_5s_mean_mean",
+    "wrist_acc_y_5s_std_mean",
+    "wrist_acc_y_5s_abs_integral_mean",
+    "wrist_acc_z_5s_mean_mean",
+    "wrist_acc_z_5s_std_mean",
+    "wrist_acc_z_5s_abs_integral_mean",
+    "wrist_acc_magnitude_5s_mean_mean",
+    "wrist_acc_magnitude_5s_std_mean",
+    "wrist_acc_magnitude_5s_abs_integral_mean"
+  ],
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  },
+  "selected": {
+    "multiclass": {
+      "run_id": "TUNE-03",
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "balanced",
+      "C": 1.0,
+      "inner_macro_f1": 0.73247766168108
+    },
+    "binary": {
+      "run_id": "TUNE-03",
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "sqrt_balanced",
+      "C": 1.0,
+      "inner_macro_f1": 0.9326481215927731
+    }
+  },
+  "model_sha256": {
+    "multiclass.joblib": "5cee72662e205e65399287d0423111e8bbb3eff6643f83fee4b9accd2d34c382",
+    "binary.joblib": "881c26f57dc923d077261dd2725f103b72c559093d443cdee75ae7c8d55e9f76"
+  },
+  "label_mapping": {
+    "binary": {
+      "0": "Non-stress",
+      "1": "Stress"
+    },
+    "multiclass": {
+      "1": "Baseline",
+      "2": "Stress",
+      "3": "Amusement"
+    }
+  },
+  "evaluation": "LOSO results in reports/lr_workflow_20261121; full-data inner scores are selection criteria, not test scores",
+  "limits": "Exploratory repeated WESAD benchmark; no external holdout; demo examples are training windows, not independent tests."
+}
