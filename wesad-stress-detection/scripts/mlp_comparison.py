@@ -13,7 +13,7 @@ def main():
     from sklearn.metrics import f1_score,balanced_accuracy_score
     ap=argparse.ArgumentParser();ap.add_argument('--project-root',type=Path,default=Path(__file__).resolve().parents[1]);ap.add_argument('--output-root',type=Path)
     args=ap.parse_args();root=args.project_root.resolve();dest=(args.output_root or root).resolve()
-    paths={'EXP-006':'01_baselines/EXP-006','EXP-010':'02_tuning/EXP-010','EXP-015':'03_balancing/EXP-015','EXP-020':'04_additional/EXP-020'}
+    paths={'EXP-006':'01_baselines/EXP-006_MLP','EXP-010':'02_tuning/EXP-010','EXP-015':'03_balancing/EXP-015','EXP-020':'04_additional/EXP-020'}
     out=dest/'reports/mlp_comparison_20261121';out.mkdir(parents=True,exist_ok=True)
     figs=out/'figures';figs.mkdir(exist_ok=True)
     read=lambda p:json.loads(p.read_text(encoding='utf8'))

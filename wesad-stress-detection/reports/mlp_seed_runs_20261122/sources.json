@@ -1,0 +1,146 @@
+{
+  "006/42": {
+    "metrics": "experiments/01_baselines/EXP-006_MLP/seed_runs/20261122/seed_42/verified_metrics_by_subject.csv",
+    "sha256": "9c97b88e695f16b5fce1c8820c850082c7610dc930e601fa8a146401699ece6f",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  },
+  "006/43": {
+    "metrics": "experiments/01_baselines/EXP-006_MLP/seed_runs/20261122/seed_43/verified_metrics_by_subject.csv",
+    "sha256": "e412337cacf3d646244ad5f1949491b8a3a933aaaf05224df52d364511d1fb77",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  },
+  "006/44": {
+    "metrics": "experiments/01_baselines/EXP-006_MLP/seed_runs/20261122/seed_44/verified_metrics_by_subject.csv",
+    "sha256": "07767904da7959bd28203c4a1946d6bf66c97b0af3f2aa306bafbfa580ae6b95",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  },
+  "010/42": {
+    "metrics": "experiments/02_tuning/EXP-010/results/verified_metrics_by_subject.csv",
+    "sha256": "567561fb0c7db79e5c45c52b5afc659f6c83e41eba848315956fb0494f3cca89",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  },
+  "010/43": {
+    "metrics": "experiments/02_tuning/EXP-010/seed_runs/20261122/seed_43/verified_metrics_by_subject.csv",
+    "sha256": "8448ada0557d9d7034437e2e25e013e914bb5f61ce59038112ad2b4f641da7d3",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  },
+  "010/44": {
+    "metrics": "experiments/02_tuning/EXP-010/seed_runs/20261122/seed_44/verified_metrics_by_subject.csv",
+    "sha256": "664b159ca7b3a10025c9e65ff6414b3c4d29e3a6a5fb78bac8993ed13a24ff7b",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  },
+  "015/42": {
+    "metrics": "experiments/03_balancing/EXP-015/results/verified_metrics_by_subject.csv",
+    "sha256": "b0a7c4c9e81a8bbd9d5b4c607865858d69a089f2b3dca2f7814907993de12917",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  },
+  "015/43": {
+    "metrics": "experiments/03_balancing/EXP-015/seed_runs/20261122/seed_43/verified_metrics_by_subject.csv",
+    "sha256": "4e0804c8fd85d64f8fb812f645cc10334d19daa000003ab7a7c2c0dfe2f68290",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  },
+  "015/44": {
+    "metrics": "experiments/03_balancing/EXP-015/seed_runs/20261122/seed_44/verified_metrics_by_subject.csv",
+    "sha256": "48257ce82e9c6deff9c150b66731592a091ff70a4abbe900cf6602595a271a14",
+    "environment": {
+      "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+      "packages": {
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "PyYAML": "6.0.3",
+        "scipy": "1.18.1",
+        "scikit-learn": "1.9.1",
+        "imbalanced-learn": "0.14.2"
+      }
+    },
+    "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+  }
+}

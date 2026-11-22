@@ -1,0 +1,172 @@
+experiment_id: EXP-014
+author: Mai
+run_date: '2026-11-22'
+run_kind: balanced_comparison
+protocol: exp014_rf_balanced_fixed_exp009_v1
+features: data/features/g2_physiological68_group15_20261107/all_subjects.csv
+schema: data/features/g2_physiological68_group15_20261107/feature_schema.json
+feature_version: physiological_68_v1
+feature_sha256: 2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba
+output_dir: outputs\exp014_rf_mai_20261121
+expected_subjects:
+- S2
+- S3
+- S4
+- S5
+- S6
+- S7
+- S8
+- S9
+- S10
+- S11
+- S13
+- S14
+- S15
+- S16
+- S17
+models:
+- rf
+tasks:
+- multiclass
+- binary
+seed: 42
+sensor_set: combined_physiological68
+normalization: global_train
+balance: true
+nested: false
+inner_splits: 3
+zero_division: 0
+missing_train_class: error
+missing_test_class: fixed_labels_for_macro_f1_observed_classes_for_balanced_accuracy
+model_params:
+  rf:
+    random_state: 42
+    n_jobs: 1
+source_paths:
+- src/wesad/data.py
+- src/wesad/evaluation.py
+- src/wesad/models.py
+- src/wesad/utils.py
+source_hash_normalization: LF
+fixed_fold_params:
+  multiclass/rf/S10:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S11:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S13:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S14:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  multiclass/rf/S15:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S16:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S17:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S2:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S3:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  multiclass/rf/S4:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S5:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S6:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  multiclass/rf/S7:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  multiclass/rf/S8:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  multiclass/rf/S9:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  binary/rf/S10:
+    model__max_depth: 10
+    model__max_features: 0.5
+    model__n_estimators: 200
+  binary/rf/S11:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  binary/rf/S13:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  binary/rf/S14:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  binary/rf/S15:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  binary/rf/S16:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  binary/rf/S17:
+    model__max_depth: 10
+    model__max_features: 0.5
+    model__n_estimators: 200
+  binary/rf/S2:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  binary/rf/S3:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  binary/rf/S4:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  binary/rf/S5:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  binary/rf/S6:
+    model__max_depth: 10
+    model__max_features: sqrt
+    model__n_estimators: 100
+  binary/rf/S7:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  binary/rf/S8:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+  binary/rf/S9:
+    model__max_depth: null
+    model__max_features: sqrt
+    model__n_estimators: 200
+reference_params_sha256: f8084cd2597e08b7e6bc13b32e9f911afcbc14ad167d635478bc290e242f1223

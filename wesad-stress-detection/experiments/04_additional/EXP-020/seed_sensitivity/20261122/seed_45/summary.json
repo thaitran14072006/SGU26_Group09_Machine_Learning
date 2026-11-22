@@ -1,0 +1,81 @@
+{
+  "status": "complete",
+  "subjects_expected": [
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9"
+  ],
+  "standard_deviation": "sample ddof=1; null for a single subject",
+  "results": [
+    {
+      "task": "multiclass",
+      "model": "mlp",
+      "complete_15_subjects": true,
+      "n_subjects": 15,
+      "missing_subjects": [],
+      "macro_f1_mean": 0.5994418154779549,
+      "macro_f1_std": 0.15185021624070702,
+      "balanced_accuracy_mean": 0.6244713831647613,
+      "balanced_accuracy_std": 0.13709958846835332,
+      "labels": [
+        1,
+        2,
+        3
+      ],
+      "confusion_matrix": [
+        [
+          2535,
+          133,
+          702
+        ],
+        [
+          142,
+          1477,
+          229
+        ],
+        [
+          443,
+          211,
+          317
+        ]
+      ]
+    },
+    {
+      "task": "binary",
+      "model": "mlp",
+      "complete_15_subjects": true,
+      "n_subjects": 15,
+      "missing_subjects": [],
+      "macro_f1_mean": 0.8107601542139222,
+      "macro_f1_std": 0.17866717684925068,
+      "balanced_accuracy_mean": 0.8318330241119559,
+      "balanced_accuracy_std": 0.16525815723413684,
+      "labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          3926,
+          415
+        ],
+        [
+          436,
+          1412
+        ]
+      ]
+    }
+  ]
+}

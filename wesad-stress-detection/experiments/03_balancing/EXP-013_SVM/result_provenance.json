@@ -1,0 +1,9 @@
+{
+  "experiment": "EXP-013",
+  "scope": "main",
+  "summary_status": "complete",
+  "source_output": "experiments\\03_balancing\\EXP-013_SVM\\run_outputs\\main",
+  "signature": "008a2b764fb541c39c88f2c42991eb3c9927bd0cfc9d1e7cdb4f01e7fe79278d",
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "reference": "SVM baseline EXP-004; only compare if datasets/protocols match"
+}

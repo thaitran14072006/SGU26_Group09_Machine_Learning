@@ -1,0 +1,179 @@
+{
+  "outer_train_subjects": [
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S9"
+  ],
+  "outer_test_subjects": [
+    "S8"
+  ],
+  "inner_splits": [
+    {
+      "train_subjects": [
+        "S10",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S2",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "validation_subjects": [
+        "S11",
+        "S17",
+        "S3",
+        "S4",
+        "S9"
+      ]
+    },
+    {
+      "train_subjects": [
+        "S11",
+        "S13",
+        "S15",
+        "S17",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7",
+        "S9"
+      ],
+      "validation_subjects": [
+        "S10",
+        "S14",
+        "S16",
+        "S6"
+      ]
+    },
+    {
+      "train_subjects": [
+        "S10",
+        "S11",
+        "S14",
+        "S16",
+        "S17",
+        "S3",
+        "S4",
+        "S6",
+        "S9"
+      ],
+      "validation_subjects": [
+        "S13",
+        "S15",
+        "S2",
+        "S5",
+        "S7"
+      ]
+    }
+  ],
+  "best_params": {
+    "model__alpha": 0.001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.001
+  },
+  "warnings": [],
+  "classification_report": {
+    "0": {
+      "precision": 0.9142857142857143,
+      "recall": 1.0,
+      "f1-score": 0.9552238805970149,
+      "support": 288.0
+    },
+    "1": {
+      "precision": 1.0,
+      "recall": 0.782258064516129,
+      "f1-score": 0.8778280542986425,
+      "support": 124.0
+    },
+    "accuracy": 0.9344660194174758,
+    "macro avg": {
+      "precision": 0.9571428571428571,
+      "recall": 0.8911290322580645,
+      "f1-score": 0.9165259674478288,
+      "support": 412.0
+    },
+    "weighted avg": {
+      "precision": 0.9400832177531206,
+      "recall": 0.9344660194174758,
+      "f1-score": 0.9319299911285727,
+      "support": 412.0
+    }
+  },
+  "labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      288,
+      0
+    ],
+    [
+      27,
+      97
+    ]
+  ],
+  "train_metrics": {
+    "n_train": 5777,
+    "macro_f1": 1.0,
+    "balanced_accuracy": 1.0,
+    "scope": "original outer-train windows, same fitted model as test, before ROS duplication"
+  },
+  "mlp_optimization": {
+    "scope": "best_candidate_refit_on_outer_train_only",
+    "n_iter": 30,
+    "max_iter": 200,
+    "loss": 0.0006448338480141795,
+    "loss_curve": [
+      0.3392669327390773,
+      0.10196423370266337,
+      0.04719793429482987,
+      0.027686954039668126,
+      0.018165398930567032,
+      0.012591292286458156,
+      0.008861863054903482,
+      0.006651467227203712,
+      0.005109109300291292,
+      0.004070186351428765,
+      0.003284721505411261,
+      0.002715167068348312,
+      0.0022985953822485775,
+      0.001985278522558955,
+      0.001735567417176387,
+      0.0015476360079110603,
+      0.0013901835596387485,
+      0.0012641228562173656,
+      0.0011609369184126406,
+      0.0010698424048369755,
+      0.000997081680541152,
+      0.0009347236484079853,
+      0.0008816948460872082,
+      0.0008343612477773578,
+      0.0007880913189805492,
+      0.0007512662257816624,
+      0.000719336216831229,
+      0.0006919770092278099,
+      0.0006677996376601465,
+      0.0006448338480141795
+    ],
+    "reached_max_iter": false,
+    "interpretation": "Training objective, not validation loss or proof of generalization. See captured convergence warnings too."
+  }
+}

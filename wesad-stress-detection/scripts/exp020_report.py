@@ -32,7 +32,7 @@ REFERENCE = ROOT/'experiments/02_tuning/EXP-010/results'
 def compare(run):
     current = pd.read_csv(run/'verified_metrics_by_subject.csv')
     rows = []
-    for exp,folder in [('EXP-006',ROOT/'experiments/01_baselines/EXP-006/results'),('EXP-010',REFERENCE)]:
+    for exp,folder in [('EXP-006',ROOT/'experiments/01_baselines/EXP-006_MLP/results'),('EXP-010',REFERENCE)]:
         old = pd.read_csv(folder/'metrics_by_subject.csv').rename(columns={'test_subject':'subject_id'})
         pair = current.merge(old,on=['task','subject_id'],validate='one_to_one',suffixes=('_new','_reference'))
         assert len(pair) == 30 and pair.n_test_new.eq(pair.n_test_reference).all()

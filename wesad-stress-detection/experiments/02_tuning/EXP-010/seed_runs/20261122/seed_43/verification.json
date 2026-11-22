@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "outer_folds": 30,
+  "predictions": 12378,
+  "same_model_train_test": true,
+  "inner_selection_checked": true
+}

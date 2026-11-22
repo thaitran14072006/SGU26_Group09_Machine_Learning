@@ -16,7 +16,7 @@ from wesad.g4 import inputs, verify_run
 from wesad.g3 import verify_run as verify_baseline
 from wesad.utils import read_config, read_json, write_csv, write_json, file_hash
 
-EXPERIMENT = ROOT / 'experiments/02_tuning/Mai_20-11-2026-EXP009_RF'
+EXPERIMENT = ROOT / 'experiments/02_tuning/EXP-009_RF'
 METRICS = ['macro_f1', 'balanced_accuracy']
 KEYS = ['task', 'subject_id']
 
@@ -133,7 +133,7 @@ def prepare():
                 ['S11', 'S15', 'S3', 'S6', 'S9'],
                 ['S13', 'S16', 'S17', 'S4', 'S7'],
             ],
-            'worker_command': '.venv-g1/Scripts/python.exe -X utf8 scripts/run_experiment.py --config experiments/02_tuning/Mai_20-11-2026-EXP009_RF/config.yaml --outer-subjects <partition> --resume',
+            'worker_command': '.venv-g1/Scripts/python.exe -X utf8 scripts/run_experiment.py --config experiments/02_tuning/EXP-009_RF/config.yaml --outer-subjects <partition> --resume',
             'final_command': '.venv-g1/Scripts/python.exe -X utf8 scripts/run_exp009_rf.py --resume',
         },
         'limitations': ['No statistical significance test.', 'Search/fit timings are not prediction latency.',

@@ -1,0 +1,10 @@
+{
+  "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+  "schema_sha256": "8730ca9189547bd54e0ec2cec5f574a5e2a989b64f6ea6b0a8dd4a186669f998",
+  "config_sha256": "c04634ed8fc9d38df892779fafb2d10784b44e43342db380c840893a201428a5",
+  "runner_sha256": "59fd19e4f408ee60b50220e6ffddf4ef8778de90bf829410c2e75b4e39ce5024",
+  "scope": "main",
+  "features": 68,
+  "selected_features": 30,
+  "method": "LOSO; selector fitted only to outer-training subjects; no hyperparameter tuning"
+}

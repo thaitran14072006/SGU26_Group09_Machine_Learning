@@ -1,0 +1,9 @@
+{
+  "subject_id": "S4",
+  "task": "binary",
+  "model": "mlp",
+  "n_test": 404,
+  "macro_f1": 1.0,
+  "balanced_accuracy": 1.0,
+  "seconds": 0.5224
+}

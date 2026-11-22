@@ -1,0 +1,27 @@
+{
+  "date": "22/11/2026",
+  "member": "như",
+  "experiment": "EXP-006",
+  "seed": 44,
+  "kind": "new training",
+  "baseline_environment_note": "EXP006 old pandas 3.1.1; new seeds use locked EXP010 environment",
+  "train_test": "same fitted model, train evaluated before ROS duplication",
+  "command": [
+    "scripts/mlp_other_seeds.py",
+    "--kind",
+    "baseline",
+    "--seed",
+    "44"
+  ],
+  "environment": {
+    "python": "3.12.14 | packaged by conda-forge | (main, Sep  2 2026, 23:18:20) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  }
+}
