@@ -36,7 +36,7 @@ def main():
     digest=file_hash(data)
     assert digest=='2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba'
     bases={
-        '006':ROOT/'experiments/01_baselines/EXP-006/results',
+        '006':ROOT/'experiments/01_baselines/EXP-006_MLP/results',
         '010':ROOT/'experiments/02_tuning/EXP-010/results',
         '015':ROOT/'experiments/03_balancing/EXP-015/results',
     }

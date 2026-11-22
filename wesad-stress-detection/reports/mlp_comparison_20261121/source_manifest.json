@@ -3,9 +3,11 @@
   "analysis_only": true,
   "sources": {
     "EXP-006": {
-      "metrics": "experiments/01_baselines/EXP-006/results/metrics_by_subject.csv",
+      "metrics": "experiments/01_baselines/EXP-006_MLP/results/metrics_by_subject.csv",
       "metrics_sha256": "22af34aef146fbf440efc374aef0a293446420d244104404beccfda1ae025392",
-      "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba"
+      "data_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+      "original_metrics_path": "experiments/01_baselines/EXP-006/results/metrics_by_subject.csv",
+      "path_updated_date": "22/11/2026"
     },
     "EXP-010": {
       "metrics": "experiments/02_tuning/EXP-010/results/metrics_by_subject.csv",

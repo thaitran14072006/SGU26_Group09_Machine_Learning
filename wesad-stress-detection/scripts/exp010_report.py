@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, f1_score, balanced_accuracy_score
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE=ROOT/'experiments/01_baselines/EXP-006/results'
+BASE=ROOT/'experiments/01_baselines/EXP-006_MLP/results'
 
 
 def read_json(path):

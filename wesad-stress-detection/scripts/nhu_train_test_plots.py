@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 ROOT=Path(__file__).resolve().parents[1]
 FOLDERS={
-    '006':ROOT/'experiments/01_baselines/EXP-006',
+    '006':ROOT/'experiments/01_baselines/EXP-006_MLP',
     '010':ROOT/'experiments/02_tuning/EXP-010',
     '015':ROOT/'experiments/03_balancing/EXP-015',
 }
