@@ -5,6 +5,7 @@
 WESAD.zip
 
 # Môi trường, cache và cấu hình riêng
+.vs/
 .venv/
 .venv-g1/
 venv/
