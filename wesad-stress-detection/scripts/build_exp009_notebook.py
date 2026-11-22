@@ -4,7 +4,7 @@ from pathlib import Path
 import textwrap
 
 ROOT = Path(__file__).resolve().parents[1]
-EXP = 'experiments/02_tuning/Mai_20-11-2026-EXP009_RF'
+EXP = 'experiments/02_tuning/EXP-009_RF'
 cells = []
 
 
@@ -55,7 +55,7 @@ from IPython.display import display, Markdown
 
 here = Path.cwd()
 repo = next(p for p in (here, *here.parents) if (p / 'src/wesad/evaluation.py').is_file())
-experiment = repo / 'experiments/02_tuning/Mai_20-11-2026-EXP009_RF'
+experiment = repo / 'experiments/02_tuning/EXP-009_RF'
 config = yaml.safe_load((experiment / 'config.yaml').read_text(encoding='utf-8'))
 metrics = ['macro_f1', 'balanced_accuracy']
 tasks = ['binary', 'multiclass']

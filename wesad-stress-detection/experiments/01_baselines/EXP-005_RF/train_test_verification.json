@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "n_folds": 30,
+  "matched_test_predictions": 12378,
+  "source": "outputs/exp005_rf_full",
+  "historical_signature": "8aa661a4cabbd3d9aa6aae6c3a65a9f3986a50af46b479cded1ab50d5c48ef25",
+  "method": "refit_historical_params_and_verify_test_predictions",
+  "environment": {
+    "python": "3.12.14 (main, Sep 29 2026, 15:00:58) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+,,train_macro_f1,train_macro_f1,test_macro_f1,test_macro_f1,gap_macro_f1,gap_macro_f1,train_balanced_accuracy,train_balanced_accuracy,test_balanced_accuracy,test_balanced_accuracy,gap_balanced_accuracy,gap_balanced_accuracy
+,,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std
+task,variant,,,,,,,,,,,,
+binary,baseline,1.0,0.0,0.8735236066640247,0.1439996172489123,0.12647639333597527,0.1439996172489123,1.0,0.0,0.8864823644234859,0.11428041013837434,0.11351763557651408,0.11428041013837435
+multiclass,baseline,1.0,0.0,0.6479554062497738,0.12972101477439688,0.3520445937502262,0.1297210147743969,1.0,0.0,0.6699982149348901,0.12039955109663827,0.3300017850651099,0.12039955109663825
