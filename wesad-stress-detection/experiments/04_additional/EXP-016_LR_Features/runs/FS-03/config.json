@@ -1,0 +1,141 @@
+{
+  "signature": "ff1ed1d97bc368fb9e8e0785f72cb378074a35d288ebd31a688a5ca298b13e34",
+  "protocol": {
+    "protocol": "lr_sequential_v1",
+    "order": [
+      "feature_selection",
+      "balancing",
+      "tuning"
+    ],
+    "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+    "inner_splits": 3,
+    "seed": 42,
+    "max_iter": 2000,
+    "selection_metric": "inner_macro_f1",
+    "experiments": [
+      {
+        "run_id": "FS-01",
+        "stage": "feature_selection",
+        "experiment_id": "EXP-016",
+        "method": "anova",
+        "candidates": [
+          8,
+          16,
+          32,
+          48,
+          68
+        ]
+      },
+      {
+        "run_id": "FS-02",
+        "stage": "feature_selection",
+        "experiment_id": "EXP-016",
+        "method": "mutual_info",
+        "candidates": [
+          16,
+          32,
+          48,
+          68
+        ]
+      },
+      {
+        "run_id": "FS-03",
+        "stage": "feature_selection",
+        "experiment_id": "EXP-016",
+        "method": "correlation",
+        "candidates": [
+          0.8,
+          0.9,
+          0.95,
+          0.99
+        ]
+      },
+      {
+        "run_id": "BAL-01",
+        "stage": "balancing",
+        "experiment_id": "EXP-011",
+        "weight_policy": "none"
+      },
+      {
+        "run_id": "BAL-02",
+        "stage": "balancing",
+        "experiment_id": "EXP-011",
+        "weight_policy": "balanced"
+      },
+      {
+        "run_id": "BAL-03",
+        "stage": "balancing",
+        "experiment_id": "EXP-011",
+        "weight_policy": "sqrt_balanced"
+      },
+      {
+        "run_id": "TUNE-01",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 0.01
+      },
+      {
+        "run_id": "TUNE-02",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 0.1
+      },
+      {
+        "run_id": "TUNE-03",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 1.0
+      },
+      {
+        "run_id": "TUNE-04",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 10.0
+      },
+      {
+        "run_id": "TUNE-05",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 100.0
+      }
+    ]
+  },
+  "run": {
+    "run_id": "FS-03",
+    "stage": "feature_selection",
+    "experiment_id": "EXP-016",
+    "method": "correlation",
+    "candidates": [
+      0.8,
+      0.9,
+      0.95,
+      0.99
+    ]
+  },
+  "dependency": null,
+  "source_sha256": "d87d284739f573e0a5c9098a5e3807cadc794033368681d00400ed2786ee10da",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  },
+  "baseline_audit": [
+    {
+      "folder": "01_baselines/EXP-001_Dummy/runs/20261114",
+      "status": "verified",
+      "results_sha256": "34153cdbe2273ff64058a96a2eb3c8670c382168862760fb77be813626773a7d"
+    },
+    {
+      "folder": "01_baselines/EXP-002_LR",
+      "status": "verified",
+      "results_sha256": "ca10d40909526a13d1625fd0d019131f58db27cc3f294f01bb48bfade4643d03"
+    }
+  ],
+  "started_at": "2026-11-20T15:56:12.505521+00:00"
+}

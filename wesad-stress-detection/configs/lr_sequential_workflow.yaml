@@ -1,0 +1,19 @@
+protocol: lr_sequential_v1
+order: [feature_selection, balancing, tuning]
+feature_sha256: 2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba
+inner_splits: 3
+seed: 42
+max_iter: 2000
+selection_metric: inner_macro_f1
+experiments:
+  - {run_id: FS-01, stage: feature_selection, experiment_id: EXP-016, method: anova, candidates: [8, 16, 32, 48, 68]}
+  - {run_id: FS-02, stage: feature_selection, experiment_id: EXP-016, method: mutual_info, candidates: [16, 32, 48, 68]}
+  - {run_id: FS-03, stage: feature_selection, experiment_id: EXP-016, method: correlation, candidates: [0.80, 0.90, 0.95, 0.99]}
+  - {run_id: BAL-01, stage: balancing, experiment_id: EXP-011, weight_policy: none}
+  - {run_id: BAL-02, stage: balancing, experiment_id: EXP-011, weight_policy: balanced}
+  - {run_id: BAL-03, stage: balancing, experiment_id: EXP-011, weight_policy: sqrt_balanced}
+  - {run_id: TUNE-01, stage: tuning, experiment_id: supplementary/LR_Regularization, C: 0.01}
+  - {run_id: TUNE-02, stage: tuning, experiment_id: supplementary/LR_Regularization, C: 0.1}
+  - {run_id: TUNE-03, stage: tuning, experiment_id: supplementary/LR_Regularization, C: 1.0}
+  - {run_id: TUNE-04, stage: tuning, experiment_id: supplementary/LR_Regularization, C: 10.0}
+  - {run_id: TUNE-05, stage: tuning, experiment_id: supplementary/LR_Regularization, C: 100.0}

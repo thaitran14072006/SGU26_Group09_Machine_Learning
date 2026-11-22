@@ -1,0 +1,85 @@
+{
+  "protocol": "lr_sequential_v1",
+  "plan_sha256": "e262d7d326b1bb3b0049bfd2d24690ec60fc7416a82f28786e076356d8907158",
+  "updated_at": "2026-11-21T16:27:43.317552+00:00",
+  "experiments": [
+    {
+      "run_id": "FS-01",
+      "stage": "feature_selection",
+      "experiment_id": "EXP-016",
+      "status": "complete",
+      "folder": "experiments/04_additional/EXP-016_LR_Features/runs/FS-01"
+    },
+    {
+      "run_id": "FS-02",
+      "stage": "feature_selection",
+      "experiment_id": "EXP-016",
+      "status": "complete",
+      "folder": "experiments/04_additional/EXP-016_LR_Features/runs/FS-02"
+    },
+    {
+      "run_id": "FS-03",
+      "stage": "feature_selection",
+      "experiment_id": "EXP-016",
+      "status": "complete",
+      "folder": "experiments/04_additional/EXP-016_LR_Features/runs/FS-03"
+    },
+    {
+      "run_id": "BAL-01",
+      "stage": "balancing",
+      "experiment_id": "EXP-011",
+      "status": "complete",
+      "folder": "experiments/03_balancing/EXP-011_LR/runs/BAL-01"
+    },
+    {
+      "run_id": "BAL-02",
+      "stage": "balancing",
+      "experiment_id": "EXP-011",
+      "status": "complete",
+      "folder": "experiments/03_balancing/EXP-011_LR/runs/BAL-02"
+    },
+    {
+      "run_id": "BAL-03",
+      "stage": "balancing",
+      "experiment_id": "EXP-011",
+      "status": "complete",
+      "folder": "experiments/03_balancing/EXP-011_LR/runs/BAL-03"
+    },
+    {
+      "run_id": "TUNE-01",
+      "stage": "tuning",
+      "experiment_id": "supplementary/LR_Regularization",
+      "status": "complete",
+      "folder": "experiments/supplementary/LR_Regularization/runs/TUNE-01"
+    },
+    {
+      "run_id": "TUNE-02",
+      "stage": "tuning",
+      "experiment_id": "supplementary/LR_Regularization",
+      "status": "complete",
+      "folder": "experiments/supplementary/LR_Regularization/runs/TUNE-02"
+    },
+    {
+      "run_id": "TUNE-03",
+      "stage": "tuning",
+      "experiment_id": "supplementary/LR_Regularization",
+      "status": "complete",
+      "folder": "experiments/supplementary/LR_Regularization/runs/TUNE-03"
+    },
+    {
+      "run_id": "TUNE-04",
+      "stage": "tuning",
+      "experiment_id": "supplementary/LR_Regularization",
+      "status": "complete",
+      "folder": "experiments/supplementary/LR_Regularization/runs/TUNE-04"
+    },
+    {
+      "run_id": "TUNE-05",
+      "stage": "tuning",
+      "experiment_id": "supplementary/LR_Regularization",
+      "status": "complete",
+      "folder": "experiments/supplementary/LR_Regularization/runs/TUNE-05"
+    }
+  ],
+  "complete": true
+}

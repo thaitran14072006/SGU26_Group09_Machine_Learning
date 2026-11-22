@@ -1,0 +1,228 @@
+protocol: exp015_mlp_balanced_fixed_exp010_v1
+features: data/features/g2_physiological68_group15_20261107/all_subjects.csv
+schema: data/features/g2_physiological68_group15_20261107/feature_schema.json
+feature_version: physiological_68_v1
+feature_sha256: 2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba
+output_dir: outputs/exp015_mlp_balanced_20261116_164228_806629
+expected_subjects:
+- S2
+- S3
+- S4
+- S5
+- S6
+- S7
+- S8
+- S9
+- S10
+- S11
+- S13
+- S14
+- S15
+- S16
+- S17
+models:
+- mlp
+outer_subjects:
+- S2
+- S3
+- S4
+- S5
+- S6
+- S7
+- S8
+- S9
+- S10
+- S11
+- S13
+- S14
+- S15
+- S16
+- S17
+record_mlp_loss: true
+tasks:
+- multiclass
+- binary
+seed: 42
+sensor_set: combined_physiological68
+normalization: global_train
+balance: true
+nested: false
+inner_splits: 3
+source_paths:
+- src/wesad/data.py
+- src/wesad/evaluation.py
+- src/wesad/models.py
+- src/wesad/utils.py
+- scripts/exp015_train.py
+source_hash_normalization: LF
+fixed_fold_params:
+  multiclass/mlp/S10:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  multiclass/mlp/S11:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S13:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.01
+  multiclass/mlp/S14:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S15:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S16:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.01
+  multiclass/mlp/S17:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  multiclass/mlp/S2:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S3:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S4:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  multiclass/mlp/S5:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S6:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S7:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S8:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  multiclass/mlp/S9:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  binary/mlp/S10:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S11:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S13:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S14:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.001
+  binary/mlp/S15:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.001
+  binary/mlp/S16:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.001
+  binary/mlp/S17:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S2:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.001
+  binary/mlp/S3:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.001
+  binary/mlp/S4:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S5:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S6:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S7:
+    model__alpha: 0.0001
+    model__hidden_layer_sizes:
+    - 64
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S8:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.01
+  binary/mlp/S9:
+    model__alpha: 0.001
+    model__hidden_layer_sizes:
+    - 32
+    model__learning_rate_init: 0.01
+reference_params_sha256: 1235ecbc2ba7495515765d43d6fd2183103b8193e723dd8b5ef9ed778e48356a
+reference_predictions_sha256: 3d7acbd397f98504aa711c873b02630b9a690746c42764b25169d7b01b2a23d1
+reference_run: experiments/02_tuning/EXP-010/results

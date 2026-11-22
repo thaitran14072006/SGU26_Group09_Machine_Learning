@@ -1,0 +1,9 @@
+{
+  "subject_id": "S3",
+  "task": "binary",
+  "model": "mlp",
+  "n_test": 401,
+  "macro_f1": 0.7488525570917113,
+  "balanced_accuracy": 0.7161016949152542,
+  "seconds": 6.1982
+}

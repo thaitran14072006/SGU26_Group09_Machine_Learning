@@ -1,0 +1,445 @@
+{
+  "signature": "41e78958573ac5a3f8cc5d19f27770dd3a415b247660b527d78d7dc6af191f6a",
+  "protocol": {
+    "protocol": "lr_sequential_v1",
+    "order": [
+      "feature_selection",
+      "balancing",
+      "tuning"
+    ],
+    "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+    "inner_splits": 3,
+    "seed": 42,
+    "max_iter": 2000,
+    "selection_metric": "inner_macro_f1",
+    "experiments": [
+      {
+        "run_id": "FS-01",
+        "stage": "feature_selection",
+        "experiment_id": "EXP-016",
+        "method": "anova",
+        "candidates": [
+          8,
+          16,
+          32,
+          48,
+          68
+        ]
+      },
+      {
+        "run_id": "FS-02",
+        "stage": "feature_selection",
+        "experiment_id": "EXP-016",
+        "method": "mutual_info",
+        "candidates": [
+          16,
+          32,
+          48,
+          68
+        ]
+      },
+      {
+        "run_id": "FS-03",
+        "stage": "feature_selection",
+        "experiment_id": "EXP-016",
+        "method": "correlation",
+        "candidates": [
+          0.8,
+          0.9,
+          0.95,
+          0.99
+        ]
+      },
+      {
+        "run_id": "BAL-01",
+        "stage": "balancing",
+        "experiment_id": "EXP-011",
+        "weight_policy": "none"
+      },
+      {
+        "run_id": "BAL-02",
+        "stage": "balancing",
+        "experiment_id": "EXP-011",
+        "weight_policy": "balanced"
+      },
+      {
+        "run_id": "BAL-03",
+        "stage": "balancing",
+        "experiment_id": "EXP-011",
+        "weight_policy": "sqrt_balanced"
+      },
+      {
+        "run_id": "TUNE-01",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 0.01
+      },
+      {
+        "run_id": "TUNE-02",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 0.1
+      },
+      {
+        "run_id": "TUNE-03",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 1.0
+      },
+      {
+        "run_id": "TUNE-04",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 10.0
+      },
+      {
+        "run_id": "TUNE-05",
+        "stage": "tuning",
+        "experiment_id": "supplementary/LR_Regularization",
+        "C": 100.0
+      }
+    ]
+  },
+  "run": {
+    "run_id": "TUNE-03",
+    "stage": "tuning",
+    "experiment_id": "supplementary/LR_Regularization",
+    "C": 1.0
+  },
+  "dependency": {
+    "stage": "balancing",
+    "decision_metric": "inner_macro_f1",
+    "source_receipts": {
+      "BAL-01": "96cc372ea2cc6aabb952c443968bf9f332ba1aab4b4817d122b2ad47d42cffe0",
+      "BAL-02": "5423d4e2f720f3acf4be2fa69d10fa3f398699f3bdcb517393c3179da10d7c5d",
+      "BAL-03": "a20adba68d8ea9c5729e29d2db2db52d57dda14f040a565840bfb8e86e45c3ea"
+    },
+    "recipes": {
+      "multiclass/S2": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.7096494619164623
+      },
+      "multiclass/S3": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 16
+        },
+        "weight_policy": "sqrt_balanced",
+        "C": 1.0,
+        "source_run": "BAL-03",
+        "inner_macro_f1": 0.7031414381263102
+      },
+      "multiclass/S4": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 16
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.7369210377215648
+      },
+      "multiclass/S5": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "balanced",
+        "C": 1.0,
+        "source_run": "BAL-02",
+        "inner_macro_f1": 0.689978553612615
+      },
+      "multiclass/S6": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "balanced",
+        "C": 1.0,
+        "source_run": "BAL-02",
+        "inner_macro_f1": 0.6876861199542107
+      },
+      "multiclass/S7": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 48
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.6515558917439391
+      },
+      "multiclass/S8": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 16
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.664856109032275
+      },
+      "multiclass/S9": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "balanced",
+        "C": 1.0,
+        "source_run": "BAL-02",
+        "inner_macro_f1": 0.6773043885344906
+      },
+      "multiclass/S10": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.7110129589651698
+      },
+      "multiclass/S11": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "balanced",
+        "C": 1.0,
+        "source_run": "BAL-02",
+        "inner_macro_f1": 0.7034050453705012
+      },
+      "multiclass/S13": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 16
+        },
+        "weight_policy": "balanced",
+        "C": 1.0,
+        "source_run": "BAL-02",
+        "inner_macro_f1": 0.6755169426687403
+      },
+      "multiclass/S14": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 48
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.6767768403443165
+      },
+      "multiclass/S15": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "balanced",
+        "C": 1.0,
+        "source_run": "BAL-02",
+        "inner_macro_f1": 0.6657102836712214
+      },
+      "multiclass/S16": {
+        "method": "mutual_info",
+        "selection_params": {
+          "selection__k": 48
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.6684400679971203
+      },
+      "multiclass/S17": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.710437302362212
+      },
+      "binary/S2": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 8
+        },
+        "weight_policy": "sqrt_balanced",
+        "C": 1.0,
+        "source_run": "BAL-03",
+        "inner_macro_f1": 0.9214314721515736
+      },
+      "binary/S3": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 16
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.9209944119638882
+      },
+      "binary/S4": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.9190532202770187
+      },
+      "binary/S5": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 16
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.9362646086144745
+      },
+      "binary/S6": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "balanced",
+        "C": 1.0,
+        "source_run": "BAL-02",
+        "inner_macro_f1": 0.8999212808822855
+      },
+      "binary/S7": {
+        "method": "correlation",
+        "selection_params": {
+          "selection__threshold": 0.99
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.8463984254740948
+      },
+      "binary/S8": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 8
+        },
+        "weight_policy": "sqrt_balanced",
+        "C": 1.0,
+        "source_run": "BAL-03",
+        "inner_macro_f1": 0.9111981523468571
+      },
+      "binary/S9": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 8
+        },
+        "weight_policy": "sqrt_balanced",
+        "C": 1.0,
+        "source_run": "BAL-03",
+        "inner_macro_f1": 0.8911942659871182
+      },
+      "binary/S10": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.8884746098606587
+      },
+      "binary/S11": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 8
+        },
+        "weight_policy": "sqrt_balanced",
+        "C": 1.0,
+        "source_run": "BAL-03",
+        "inner_macro_f1": 0.8867467823842808
+      },
+      "binary/S13": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 8
+        },
+        "weight_policy": "sqrt_balanced",
+        "C": 1.0,
+        "source_run": "BAL-03",
+        "inner_macro_f1": 0.9219607447521061
+      },
+      "binary/S14": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 8
+        },
+        "weight_policy": "sqrt_balanced",
+        "C": 1.0,
+        "source_run": "BAL-03",
+        "inner_macro_f1": 0.8983308274855241
+      },
+      "binary/S15": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 16
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.8884078535847793
+      },
+      "binary/S16": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 16
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.9180095970734058
+      },
+      "binary/S17": {
+        "method": "anova",
+        "selection_params": {
+          "selection__k": 32
+        },
+        "weight_policy": "none",
+        "C": 1.0,
+        "source_run": "BAL-01",
+        "inner_macro_f1": 0.8867783286624711
+      }
+    }
+  },
+  "source_sha256": "d87d284739f573e0a5c9098a5e3807cadc794033368681d00400ed2786ee10da",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  },
+  "baseline_audit": [
+    {
+      "folder": "01_baselines/EXP-001_Dummy/runs/20261114",
+      "status": "verified",
+      "results_sha256": "34153cdbe2273ff64058a96a2eb3c8670c382168862760fb77be813626773a7d"
+    },
+    {
+      "folder": "01_baselines/EXP-002_LR",
+      "status": "verified",
+      "results_sha256": "ca10d40909526a13d1625fd0d019131f58db27cc3f294f01bb48bfade4643d03"
+    }
+  ],
+  "started_at": "2026-11-21T16:24:50.153466+00:00"
+}

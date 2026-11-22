@@ -1,0 +1,311 @@
+{
+  "stage": "feature_selection",
+  "decision_metric": "inner_macro_f1",
+  "source_receipts": {
+    "FS-01": "7f7ea5697a05ebcc53629d6301f21c858bfe8944e5ab3c982839fa26c9f0953b",
+    "FS-02": "7bb617594f92f1214998865fb4589cf8156b0a56adce6af4786a9cb05c63cb53",
+    "FS-03": "f93fc70befd86224a89134f968e69a1305cc62f5f36bc622ab56d6c98c1608ad"
+  },
+  "recipes": {
+    "multiclass/S2": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.7096494619164623
+    },
+    "multiclass/S3": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.7030144700604297
+    },
+    "multiclass/S4": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.7369210377215648
+    },
+    "multiclass/S5": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.6790104152465207
+    },
+    "multiclass/S6": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.6802065439410319
+    },
+    "multiclass/S7": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 48
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.6515558917439391
+    },
+    "multiclass/S8": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.664856109032275
+    },
+    "multiclass/S9": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.6681461665946605
+    },
+    "multiclass/S10": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.7110129589651698
+    },
+    "multiclass/S11": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.6845626077561365
+    },
+    "multiclass/S13": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.6691988283867056
+    },
+    "multiclass/S14": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 48
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.6767768403443165
+    },
+    "multiclass/S15": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.6594333960789207
+    },
+    "multiclass/S16": {
+      "method": "mutual_info",
+      "selection_params": {
+        "selection__k": 48
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-02",
+      "inner_macro_f1": 0.6684400679971203
+    },
+    "multiclass/S17": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.710437302362212
+    },
+    "binary/S2": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 8
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.9211548388308195
+    },
+    "binary/S3": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.9209944119638882
+    },
+    "binary/S4": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.9190532202770187
+    },
+    "binary/S5": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.9362646086144745
+    },
+    "binary/S6": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.8928524493094055
+    },
+    "binary/S7": {
+      "method": "correlation",
+      "selection_params": {
+        "selection__threshold": 0.99
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-03",
+      "inner_macro_f1": 0.8463984254740948
+    },
+    "binary/S8": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 8
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.9086880435125956
+    },
+    "binary/S9": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 8
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.8910256229671362
+    },
+    "binary/S10": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.8884746098606587
+    },
+    "binary/S11": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 8
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.8838917373316235
+    },
+    "binary/S13": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 8
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.9201017861362041
+    },
+    "binary/S14": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 8
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.8974935810696928
+    },
+    "binary/S15": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.8884078535847793
+    },
+    "binary/S16": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 16
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.9180095970734058
+    },
+    "binary/S17": {
+      "method": "anova",
+      "selection_params": {
+        "selection__k": 32
+      },
+      "weight_policy": "none",
+      "C": 1.0,
+      "source_run": "FS-01",
+      "inner_macro_f1": 0.8867783286624711
+    }
+  }
+}
