@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "method": "refit_saved_best_params_without_repeating_inner_search",
+  "historical_run_date": "2026-11-20",
+  "historical_signature": "04243de935526cc11bbffda70a1af6ee0ba6d565c9f91b57592e10b17937d801",
+  "n_folds": 30,
+  "matched_test_predictions": 12378,
+  "environment": {
+    "python": "3.12.14 (main, Sep 29 2026, 15:00:58) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  }
+}
