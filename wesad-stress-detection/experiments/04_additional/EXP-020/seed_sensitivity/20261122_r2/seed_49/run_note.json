@@ -1,0 +1,24 @@
+{
+  "experiment": "EXP-020",
+  "member": "như",
+  "date": "22/11/2026",
+  "purpose": "kiểm tra độ nhạy theo seed",
+  "seed": 49,
+  "reference_seed": 42,
+  "comparison_seeds_declared_before_training": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50
+  ],
+  "changed_model_setting": "seed only",
+  "outer_folds": 30,
+  "inner_fits": 360,
+  "interpretation": "same 15 subjects; seeds are not independent subject samples; no best-seed selection",
+  "python_executable": "C:\\Users\\LEGION\\Desktop\\github\\Machine-learning\\wesad-stress-detection\\.venv-g1\\Scripts\\python.exe"
+}

@@ -77,3 +77,7 @@ Mã commit trong provenance là HEAD lúc train; thay đổi EXP-020 vẫn chưa
 ## bổ sung ngày 22/11/2026
 
 Đã chạy thêm seed 45 và 46, mỗi seed đủ 30 outer folds và 360 inner fits. Seed 42 vẫn là kết quả chính, không chọn seed có điểm cao nhất. Xem [kết quả theo seed](seed_sensitivity/20261122/README.md) và phần bổ sung trong hai notebook.
+
+## chạy thêm ngày 22/11/2026 — đợt 2
+
+Chạy thêm seed 47–50, mỗi seed đủ 30 fold. Có bảng so sánh, hình và nhật ký. Xem seed_sensitivity/20261122_r2/.
