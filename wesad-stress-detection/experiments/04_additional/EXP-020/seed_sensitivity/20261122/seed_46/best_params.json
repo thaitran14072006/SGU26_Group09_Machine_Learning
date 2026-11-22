@@ -1,0 +1,195 @@
+{
+  "multiclass/mlp/S10": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S11": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "multiclass/mlp/S13": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S14": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S15": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "multiclass/mlp/S16": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S17": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S2": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "multiclass/mlp/S3": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S4": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S5": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S6": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S7": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "multiclass/mlp/S8": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "multiclass/mlp/S9": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "binary/mlp/S10": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "binary/mlp/S11": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "binary/mlp/S13": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "binary/mlp/S14": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "binary/mlp/S15": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "binary/mlp/S16": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "binary/mlp/S17": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "binary/mlp/S2": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "binary/mlp/S3": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "binary/mlp/S4": {
+    "model__alpha": 0.1,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "binary/mlp/S5": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "binary/mlp/S6": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "binary/mlp/S7": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  },
+  "binary/mlp/S8": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      16
+    ]
+  },
+  "binary/mlp/S9": {
+    "model__alpha": 0.01,
+    "model__hidden_layer_sizes": [
+      32,
+      16
+    ]
+  }
+}

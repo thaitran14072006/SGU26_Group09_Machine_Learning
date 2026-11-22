@@ -1,0 +1,9 @@
+{
+  "subject_id": "S13",
+  "task": "binary",
+  "model": "mlp",
+  "n_test": 417,
+  "macro_f1": 0.5047018129356347,
+  "balanced_accuracy": 0.6501706484641638,
+  "seconds": 5.6004
+}
