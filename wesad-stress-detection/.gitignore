@@ -4,7 +4,7 @@
 /outputs/
 WESAD.zip
 /experiments/03_balancing/EXP-013_SVM/run_outputs
-/experiments/04_improvements/EXP-017_KNN_Feature_Selection/run_outputs
+/experiments/04_additional/EXP-017_KNN/run_outputs
 # Môi trường, cache và cấu hình riêng
 .vs/
 .venv/
