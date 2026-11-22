@@ -1,0 +1,8 @@
+task,run_id,subjects_selected
+binary,SVM-01,4
+binary,SVM-02,9
+binary,SVM-03,2
+multiclass,SVM-02,5
+multiclass,SVM-03,8
+multiclass,SVM-05,1
+multiclass,SVM-06,1
