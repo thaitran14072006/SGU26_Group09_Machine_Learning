@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "verified_at": "2026-11-22T15:03:44.326125+00:00",
+  "svm_runs": 6,
+  "svm_outer_folds": 180,
+  "svm_oof_predictions": 74268,
+  "svm_log_entries_verified": 12,
+  "notebook_json_and_python_syntax_verified": 6,
+  "lr_workflow_complete": true,
+  "lr_candidate_features": 68,
+  "lr_save_load_predictions_and_probabilities_equal": true,
+  "cli_matches_expected_csv_both_tasks": true,
+  "completed_unit_tests": {
+    "test_lr_workflow": 6,
+    "test_inference": 5,
+    "failures": 0
+  },
+  "http_tests": "GET demo and POST CSV for binary/multiclass, plus invalid input rejection passed",
+  "javascript_syntax": "node --check outputs/demo_script.js passed",
+  "ui_limit": "Browser clicks were not automated; backend upload and inference were integration-tested",
+  "sources": {
+    "scripts/export_lr_candidate.py": "1503fd73f2845fd7b6d4216b5fb111444195af399f26d6e7b715f33c4399f91e",
+    "src/wesad/inference.py": "a6ec6a29f50fb7659e97853c31768fae5e578f8735c6632d31b3e876b60ae043",
+    "app/server.py": "0f6be36c4a1c86c361fd70a87ed79d8b57d482c14f7cd6a09a8b59c3890e7163",
+    "app/index.html": "df9497eb91a17416f3f9c655b7736d587736e5a25dc14140e806e137d9a76be2",
+    "tests/test_inference.py": "c89c3bb38a8d61dc0e815f2effecf7386a23223c927f2d0519d676f7984556da",
+    "scripts/exp008_thai.py": "289bd783f05e0bad1a394c47e09e2ad2ed45a2971d5a54ad697a836a723b0d83",
+    "scripts/report_exp008_thai.py": "35b401aa68eef732d4c4bdfff3c475f8f6ab0666f21f8d46013616402e22b4de"
+  },
+  "model_sha256": {
+    "multiclass.joblib": "5cee72662e205e65399287d0423111e8bbb3eff6643f83fee4b9accd2d34c382",
+    "binary.joblib": "881c26f57dc923d077261dd2725f103b72c559093d443cdee75ae7c8d55e9f76"
+  },
+  "svm_report_sha256": "71d232c82519a30893321207e102bd3c8f6184b55866590f32ebe88756c2e4db"
+}

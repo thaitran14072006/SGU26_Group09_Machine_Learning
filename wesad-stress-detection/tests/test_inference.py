@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 import sys
 import threading
+import shutil
+from tempfile import TemporaryDirectory
 import unittest
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
@@ -45,6 +47,15 @@ class InferenceTests(unittest.TestCase):
         self.assertEqual(len(predict_text(f.to_csv(index=False))),len(f))
         f.loc[0,self.columns]=float('nan')
         with self.assertRaises(ValueError):read_input(f.to_csv(index=False),self.columns)
+
+    def test_model_checksum_rejects_corruption(self):
+        with TemporaryDirectory() as temporary:
+            bundle=Path(temporary)
+            for name in ['metadata.json','binary.joblib','multiclass.joblib']:
+                shutil.copyfile(DEFAULT_BUNDLE/name,bundle/name)
+            with (bundle/'binary.joblib').open('ab') as stream:stream.write(b'corrupted')
+            with self.assertRaisesRegex(ValueError,'checksum mismatch'):
+                predict_text(self.text,'binary',bundle)
 
     def test_http_upload_and_validation(self):
         server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
