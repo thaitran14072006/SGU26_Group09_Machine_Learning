@@ -1,0 +1,32 @@
+{
+  "date": "23/11/2026",
+  "status": "passed",
+  "fresh_process": true,
+  "models": [
+    {
+      "model": "rf",
+      "task": "binary",
+      "n_predictions": 9,
+      "status": "passed"
+    },
+    {
+      "model": "rf",
+      "task": "multiclass",
+      "n_predictions": 9,
+      "status": "passed"
+    },
+    {
+      "model": "mlp",
+      "task": "binary",
+      "n_predictions": 9,
+      "status": "passed"
+    },
+    {
+      "model": "mlp",
+      "task": "multiclass",
+      "n_predictions": 9,
+      "status": "passed"
+    }
+  ],
+  "checksums_verified": 33
+}

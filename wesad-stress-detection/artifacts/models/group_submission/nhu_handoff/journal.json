@@ -1,0 +1,38 @@
+[
+  {
+    "date": "23/11/2026",
+    "author": "như",
+    "model": "rf",
+    "task": "binary",
+    "action": "fit, lưu và nạp lại pipeline",
+    "warnings": [],
+    "seconds": 1.4558
+  },
+  {
+    "date": "23/11/2026",
+    "author": "như",
+    "model": "rf",
+    "task": "multiclass",
+    "action": "fit, lưu và nạp lại pipeline",
+    "warnings": [],
+    "seconds": 1.8109
+  },
+  {
+    "date": "23/11/2026",
+    "author": "như",
+    "model": "mlp",
+    "task": "binary",
+    "action": "fit, lưu và nạp lại pipeline",
+    "warnings": [],
+    "seconds": 4.6274
+  },
+  {
+    "date": "23/11/2026",
+    "author": "như",
+    "model": "mlp",
+    "task": "multiclass",
+    "action": "fit, lưu và nạp lại pipeline",
+    "warnings": [],
+    "seconds": 5.7381
+  }
+]

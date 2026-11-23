@@ -1,0 +1,15 @@
+{
+  "model": "mlp",
+  "task": "binary",
+  "seed": 43,
+  "balance": true,
+  "chosen_params": {
+    "model__alpha": 0.001,
+    "model__hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "model__learning_rate_init": 0.001
+  },
+  "reference_config": "experiments/03_balancing/EXP-015/seed_runs/20261122/seed_43/config.yaml"
+}

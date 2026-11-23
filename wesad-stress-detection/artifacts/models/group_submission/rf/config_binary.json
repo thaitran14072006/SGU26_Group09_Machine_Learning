@@ -1,0 +1,8 @@
+{
+  "model": "rf",
+  "task": "binary",
+  "seed": 42,
+  "balance": false,
+  "chosen_params": {},
+  "reference_config": "experiments/01_baselines/EXP-005_RF/config.yaml"
+}
