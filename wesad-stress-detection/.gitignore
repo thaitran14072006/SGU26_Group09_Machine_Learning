@@ -21,3 +21,8 @@ tempCodeRunnerFile.py
 *.egg-info/
 build/
 dist/
+
+
+
+# File tạm của Excel / WPS Office
+~$*
