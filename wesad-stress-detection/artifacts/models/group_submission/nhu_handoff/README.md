@@ -6,7 +6,7 @@ MLP dùng pipeline EXP015 seed43: median imputer → StandardScaler → RandomOv
 Chốt tham số MLP bằng GroupKFold 3 nhóm trên toàn bộ dữ liệu dành cho refit, dùng bốn ứng viên gốc EXP010.
 Các subject không giao nhau giữa train/validation. Không dùng một outer fold bất kỳ làm model cuối.
 
-`../model_summary_nhu.csv` chứa điểm LOSO tham chiếu. Điểm này không phải điểm test độc lập của pipeline refit.
+`../summary/model_summary_nhu.csv` chứa điểm LOSO tham chiếu. Điểm này không phải điểm test độc lập của pipeline refit.
 Việc chọn EXP/seed đã xem kết quả test có thể tạo thiên lệch chọn lựa. Không gắn điểm train hoặc CV chọn tham số thành điểm LOSO mới.
 
 Mỗi thư mục model có schema 68 cột theo đúng thứ tự, metadata từng bài toán, config, CSV mẫu và dự đoán mong đợi.

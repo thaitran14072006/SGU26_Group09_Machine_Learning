@@ -1,0 +1,356 @@
+{
+  "checked_at": "2026-11-23T15:26:45.405568+00:00",
+  "python": "3.12.14",
+  "models": [
+    {
+      "algorithm": "lr",
+      "task": "binary",
+      "model_path": "artifacts/models/lr_candidate_20261122/binary.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        },
+        {
+          "level": "ok",
+          "message": "dự đoán LR khớp file mẫu đã lưu"
+        }
+      ]
+    },
+    {
+      "algorithm": "lr",
+      "task": "multiclass",
+      "model_path": "artifacts/models/lr_candidate_20261122/multiclass.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        },
+        {
+          "level": "ok",
+          "message": "dự đoán LR khớp file mẫu đã lưu"
+        }
+      ]
+    },
+    {
+      "algorithm": "knn",
+      "task": "binary",
+      "model_path": "artifacts/models/group_submission/knn/binary.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "warning",
+          "message": "Python đang chạy 3.12.14, lúc xuất 3.13.5"
+        },
+        {
+          "level": "warning",
+          "message": "numpy đang dùng 2.5.4, lúc xuất 2.5.3"
+        },
+        {
+          "level": "warning",
+          "message": "pandas đang dùng 3.1.0, lúc xuất 2.3.3"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        }
+      ]
+    },
+    {
+      "algorithm": "knn",
+      "task": "multiclass",
+      "model_path": "artifacts/models/group_submission/knn/multiclass.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "warning",
+          "message": "Python đang chạy 3.12.14, lúc xuất 3.13.5"
+        },
+        {
+          "level": "warning",
+          "message": "numpy đang dùng 2.5.4, lúc xuất 2.5.3"
+        },
+        {
+          "level": "warning",
+          "message": "pandas đang dùng 3.1.0, lúc xuất 2.3.3"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        }
+      ]
+    },
+    {
+      "algorithm": "svm",
+      "task": "binary",
+      "model_path": "artifacts/models/group_submission/svm/binary.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "warning",
+          "message": "Python đang chạy 3.12.14, lúc xuất 3.13.5"
+        },
+        {
+          "level": "warning",
+          "message": "numpy đang dùng 2.5.4, lúc xuất 2.5.3"
+        },
+        {
+          "level": "warning",
+          "message": "pandas đang dùng 3.1.0, lúc xuất 2.3.3"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        }
+      ]
+    },
+    {
+      "algorithm": "svm",
+      "task": "multiclass",
+      "model_path": "artifacts/models/group_submission/svm/multiclass.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "warning",
+          "message": "Python đang chạy 3.12.14, lúc xuất 3.13.5"
+        },
+        {
+          "level": "warning",
+          "message": "numpy đang dùng 2.5.4, lúc xuất 2.5.3"
+        },
+        {
+          "level": "warning",
+          "message": "pandas đang dùng 3.1.0, lúc xuất 2.3.3"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        }
+      ]
+    },
+    {
+      "algorithm": "rf",
+      "task": "binary",
+      "model_path": "artifacts/models/group_submission/rf/binary.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        },
+        {
+          "level": "ok",
+          "message": "dự đoán khớp mẫu riêng của người xuất model"
+        }
+      ]
+    },
+    {
+      "algorithm": "rf",
+      "task": "multiclass",
+      "model_path": "artifacts/models/group_submission/rf/multiclass.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        },
+        {
+          "level": "ok",
+          "message": "dự đoán khớp mẫu riêng của người xuất model"
+        }
+      ]
+    },
+    {
+      "algorithm": "mlp",
+      "task": "binary",
+      "model_path": "artifacts/models/group_submission/mlp/binary.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        },
+        {
+          "level": "ok",
+          "message": "dự đoán khớp mẫu riêng của người xuất model"
+        }
+      ]
+    },
+    {
+      "algorithm": "mlp",
+      "task": "multiclass",
+      "model_path": "artifacts/models/group_submission/mlp/multiclass.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        },
+        {
+          "level": "ok",
+          "message": "dự đoán khớp mẫu riêng của người xuất model"
+        }
+      ]
+    },
+    {
+      "algorithm": "dummy",
+      "task": "binary",
+      "model_path": "artifacts/models/group_submission/dummy/binary.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        }
+      ]
+    },
+    {
+      "algorithm": "dummy",
+      "task": "multiclass",
+      "model_path": "artifacts/models/group_submission/dummy/multiclass.joblib",
+      "messages": [
+        {
+          "level": "ok",
+          "message": "metadata ghi fit đủ 15 người; đây là bản refit toàn bộ dữ liệu"
+        },
+        {
+          "level": "ok",
+          "message": "hash dữ liệu khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "hash model khớp metadata"
+        },
+        {
+          "level": "ok",
+          "message": "phiên Python mới nạp được model, predict đúng tập nhãn trên 30 dòng"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "status": "passed"
+}

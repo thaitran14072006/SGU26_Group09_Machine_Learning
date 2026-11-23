@@ -1,5 +1,4 @@
 {
-  "model_summary_nhu.csv": "f5579f1564c93d3763a25957345349f2214cb52e2d28e3425d2b3008493c7a9b",
   "mlp/binary.joblib": "11d351d94214b3b6dadccc5556fb7569520443f50b14bbadd39a3c7530057817",
   "mlp/config_binary.json": "f0f4df9ebebb30bd2f666990de40f682080868d42262d02cdc1b8e55888274cb",
   "mlp/config_multiclass.json": "c3f0c51dcef9d257dd3de2a90668cc19a987e7147aa3d52d30627bb2d8431e5e",
@@ -17,7 +16,7 @@
   "nhu_handoff/environment.json": "47524e2b6c36693bfc5481b1990cbcbe34f6474731f95ee672d3695a0809a6be",
   "nhu_handoff/journal.json": "facbfaf92326e2eb1eb256206ad5d294a3d7b3b66b34c543b4db7d142898800a",
   "nhu_handoff/mlp_refit_loss.png": "c8d32452e4ed6a158d8b906a7ef4300e17a555883a6086deb39fc02220cfb9fc",
-  "nhu_handoff/README.md": "20aca3dcb1db1c228592d1b1988a2e755c9fd85b56abf9757c147e2abc6604ee",
+  "nhu_handoff/README.md": "740613c185b2ce36fdbae58f963a03f1d3923602cec143076fe3f5bca9f4e6db",
   "nhu_handoff/requirements.txt": "e8f53dba30c19d1ab5faee26708945e4c4f58b1e46225060a340d24b599974fb",
   "nhu_handoff/source_snapshot.zip": "53937602c824232de7e75c31380b8fd99f23018ed82e3d3d53411e70171446f8",
   "rf/binary.joblib": "1e6da39356988d33311d9908357219a3cc2bd282de5bd6a92684ffa4b2a009be",
@@ -31,5 +30,6 @@
   "rf/metadata_multiclass.json": "5c820b8877efd20c2a09613a60494741f46ca0d5694413826c3c44e5ba40f4ac",
   "rf/multiclass.joblib": "622b6970b41ab0f3de85d9c97d181470214bbca1eeb1394ca2f7fe497acda777",
   "rf/reference_config.yaml": "18c233514e850ee1e26115b3baa0c6191e4142b46fd7bc5cd36f4cbb766e964e",
-  "rf/reference_loso_metrics.csv": "2b6cec7143f60b71fc1530babbd249c84e6ef326a53ef2eed26858e53e39ffe0"
+  "rf/reference_loso_metrics.csv": "2b6cec7143f60b71fc1530babbd249c84e6ef326a53ef2eed26858e53e39ffe0",
+  "summary/model_summary_nhu.csv": "f5579f1564c93d3763a25957345349f2214cb52e2d28e3425d2b3008493c7a9b"
 }

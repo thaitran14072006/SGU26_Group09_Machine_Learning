@@ -1,0 +1,29 @@
+TỔNG HỢP BÀN GIAO MODEL WESAD
+
+Danh mục có 12 file model. Số mục cần đối chiếu lại: 0.
+
+Thuật toán / bài toán / Macro-F1 / Balanced Accuracy / mã EXP
+LR / binary / 0.8767 / 0.8872 / EXP-016 + EXP-011 + LR_Regularization
+LR / multiclass / 0.6287 / 0.6801 / EXP-016 + EXP-011 + LR_Regularization
+KNN / binary / 0.9012 / 0.9062 / EXP-017
+KNN / multiclass / 0.6422 / 0.6714 / EXP-017
+SVM / binary / 0.8783 / 0.8948 / EXP-018
+SVM / multiclass / 0.6598 / 0.6924 / EXP-018
+RF / binary / 0.8735 / 0.8865 / EXP-005
+RF / multiclass / 0.6480 / 0.6700 / EXP-005
+MLP / binary / 0.8626 / 0.8692 / EXP-015
+MLP / multiclass / 0.6645 / 0.7020 / EXP-015
+DUMMY / binary / 0.4123 / 0.5000 / EXP-001
+DUMMY / multiclass / 0.2350 / 0.3333 / EXP-001
+
+Lần kiểm tra nạp model: 23/11/2026 22:26.
+Đã kiểm tra 12 model, 0 lỗi trong lần này.
+KNN/SVM có khác biệt môi trường xuất và môi trường kiểm tra. Chi tiết nằm trong submission_check.json.
+
+Dummy dùng most_frequent của EXP-001, là baseline so sánh.
+Điểm LOSO lấy theo người từ EXP gốc. CSV mẫu chỉ kiểm tra nạp và dự đoán.
+LR dùng điểm quy trình tuần tự. Các bản refit không có thêm điểm test độc lập.
+
+model_summary.csv: danh mục chi tiết và nguồn điểm.
+model_summary_nhu.csv: bảng bàn giao riêng của Như.
+score_mismatches.csv ở thư mục cha: các chỗ lệch cần hỏi lại.

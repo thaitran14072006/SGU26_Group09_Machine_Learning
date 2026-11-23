@@ -232,7 +232,8 @@ def export(force: bool, dry_run: bool) -> None:
                     raise FileExistsError(f"Thư mục đã tồn tại: {dest}; không ghi đè nếu thiếu --force")
                 shutil.rmtree(dest)
             shutil.move(str(staged_parent/algorithm), str(dest))
-        shutil.move(str(staged_parent/"nam_model_summary.csv"), str(out/"nam_model_summary.csv"))
+        (out / "summary").mkdir(parents=True, exist_ok=True)
+        shutil.move(str(staged_parent/"nam_model_summary.csv"), str(out/"summary/nam_model_summary.csv"))
         print(f"[SUCCESS] 4 models + schema + metadata + summary at {out}")
         print("[NEXT] python scripts/verify_nam_models.py")
     finally:

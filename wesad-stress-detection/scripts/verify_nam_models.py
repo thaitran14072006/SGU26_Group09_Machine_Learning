@@ -31,7 +31,7 @@ def main():
     df = pd.read_csv(DATA)
     if len(df) != 6189 or set(df.subject_id.astype(str)) != set(EXPECTED_SUBJECTS):
         raise ValueError("Incorrect G2 data")
-    summary_path = OUT / "nam_model_summary.csv"
+    summary_path = OUT / "summary/nam_model_summary.csv"
     summary = pd.read_csv(summary_path)
     if len(summary) != 4 or set(zip(summary.model,summary.task)) != {(a,t) for a in ('knn','svm') for t in ('binary','multiclass')}:
         raise ValueError("Summary missing required four rows")
