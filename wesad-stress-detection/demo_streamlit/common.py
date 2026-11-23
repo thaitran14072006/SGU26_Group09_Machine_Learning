@@ -17,7 +17,7 @@ def load_table(path):
     return pd.read_csv(path)
 
 def feature_columns(df):
-    excluded={'subject_id','window_id','label','label_binary','label_multiclass','task','variant','y_true','y_pred','timestamp','split','start_s','end_s','label_original','label_fraction'}
+    excluded={'subject_id','window_id','label','label_binary','label_multiclass','task','variant','y_true','y_pred','timestamp','split','start_s','end_s','label_original','label_fraction','quality_flag','label_purity','_source_file'}
     return [c for c in df.columns if c not in excluded and pd.api.types.is_numeric_dtype(df[c])]
 
 def get_target(df, task):
