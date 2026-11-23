@@ -1,0 +1,5 @@
+task,variant,n_subjects,n_test,macro_f1_mean,macro_f1_std,balanced_accuracy_mean,balanced_accuracy_std
+binary,svm_68,1,395,0.5543197936814959,,0.571675139647273,
+binary,svm_top30,1,395,0.9907277720831605,,0.9920291219481578,
+multiclass,svm_68,1,395,0.42413338777619564,,0.5271422991146594,
+multiclass,svm_top30,1,395,0.610310288339804,,0.738863970043507,
