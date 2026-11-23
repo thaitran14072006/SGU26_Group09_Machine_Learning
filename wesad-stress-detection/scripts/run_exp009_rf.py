@@ -11,7 +11,7 @@ from wesad.evaluation import run_experiment
 from wesad.g4 import inputs, candidates, verify_run
 from wesad.utils import read_config, resolve_path, write_csv, write_json
 
-DEFAULT = 'experiments/02_tuning/Mai_20-11-2026-EXP009_RF/config.yaml'
+DEFAULT = 'experiments/02_tuning/EXP-009_RF/config.yaml'
 
 
 def main():

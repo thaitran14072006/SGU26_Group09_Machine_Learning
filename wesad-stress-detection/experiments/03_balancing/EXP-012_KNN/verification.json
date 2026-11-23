@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "scope": "main",
+  "outer_folds": 30,
+  "paired_result_rows": 60,
+  "n_predictions": 24756,
+  "signature": "ba83e764d2a65a8a893dd09b13b2d797b84985d9977afde33fcaaa4655a6edf3",
+  "plain_prediction_changes_vs_exp007": 0,
+  "comparison_scope": "paired refits in current environment; fixed EXP-007 parameters",
+  "sampling_scope": "outer train only, after median imputation and scaling",
+  "train_metric_scope": "original outer-training rows, before duplication"
+}

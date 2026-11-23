@@ -20,7 +20,7 @@ def main():
     parser.add_argument('--preflight', action='store_true')
     args = parser.parse_args()
     os.chdir(ROOT)
-    path = ROOT / 'experiments/02_tuning/Mai_20-11-2026-EXP009_RF/experiment.ipynb'
+    path = ROOT / 'experiments/02_tuning/EXP-009_RF/experiment.ipynb'
     notebook = nbformat.read(path, as_version=4)
     shell = TerminalInteractiveShell.instance()
     shell.run_line_magic('matplotlib', 'inline')

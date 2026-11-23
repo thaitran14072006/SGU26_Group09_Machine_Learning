@@ -1,0 +1,64 @@
+{
+  "signature": "4163a892161169931417438e2900a378bd63cf5c36548b56b27211c221f59b28",
+  "plan": {
+    "protocol": "exp008_thai_rbf_six_v1",
+    "experiment_id": "EXP-008",
+    "feature_sha256": "2f2fddd678f333a800f2869d2e78b407934b2c3492190ed70e28d8a9107fd8ba",
+    "seed": 42,
+    "inner_splits": 3,
+    "kernel": "rbf",
+    "class_weight": null,
+    "selection": "none",
+    "scaling": "StandardScaler fitted inside each training fold",
+    "decision_metric": "inner_macro_f1",
+    "runs": [
+      {
+        "run_id": "SVM-01",
+        "C": 0.1,
+        "gamma": 0.001
+      },
+      {
+        "run_id": "SVM-02",
+        "C": 0.1,
+        "gamma": 0.01
+      },
+      {
+        "run_id": "SVM-03",
+        "C": 1.0,
+        "gamma": 0.001
+      },
+      {
+        "run_id": "SVM-04",
+        "C": 1.0,
+        "gamma": 0.01
+      },
+      {
+        "run_id": "SVM-05",
+        "C": 10.0,
+        "gamma": 0.001
+      },
+      {
+        "run_id": "SVM-06",
+        "C": 10.0,
+        "gamma": 0.01
+      }
+    ]
+  },
+  "run": {
+    "run_id": "SVM-03",
+    "C": 1.0,
+    "gamma": 0.001
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "PyYAML": "6.0.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "imbalanced-learn": "0.14.2"
+    }
+  },
+  "started_at": "2026-11-22T14:55:30.568633+00:00"
+}

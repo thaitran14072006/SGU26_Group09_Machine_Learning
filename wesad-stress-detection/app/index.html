@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WESAD • Demo LR</title>
+<style>
+body{font:16px system-ui;background:#f4f7fa;color:#172d3f;max-width:1050px;margin:48px auto;padding:0 24px}main{background:white;padding:32px;border-radius:16px;box-shadow:0 8px 30px #1231}h1{margin:0 0 12px}p{line-height:1.6}.note{color:#52677b}button,select,input{font:inherit;padding:12px;margin:6px 8px 6px 0}button{background:#176c75;color:white;border:0;border-radius:8px;cursor:pointer}button:disabled{opacity:.5}#status{white-space:pre-wrap}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{text-align:left;border-bottom:1px solid #e0e6eb;padding:10px}.scroll{overflow:auto;max-height:500px}.bar{background:#dceef0;margin:12px 0;border-radius:6px}.fill{background:#176c75;color:white;padding:8px;min-width:140px;box-sizing:border-box}a{color:#176c75}
+</style>
+<main><h1>WESAD · Dự đoán trạng thái</h1>
+<p>Tải CSV chứa đủ 68 đặc trưng sinh lý để dự đoán bằng mô hình Logistic Regression.</p>
+<p class="note">Đây là demo mô hình LR ứng viên. CSV mẫu lấy từ dữ liệu đã dùng huấn luyện, chỉ minh họa thao tác; kết quả không phải chẩn đoán y tế.</p>
+<p><a href="/example.csv" download="wesad_features.csv">Tải CSV mẫu</a></p>
+<label>Bài toán <select id="task"><option value="multiclass">Baseline / Stress / Amusement</option><option value="binary">Non-stress / Stress</option></select></label><br>
+<input type="file" id="file" accept=".csv,text/csv"><button id="predict">Dự đoán</button><button id="save" disabled>Tải kết quả CSV</button>
+<p id="status" role="status"></p><div id="chart"></div><div class="scroll"><table id="table"></table></div></main>
+<script>
+let results=[];
+const el=id=>document.getElementById(id);
+el('predict').onclick=async()=>{
+  const file=el('file').files[0]; if(!file){el('status').textContent='Vui lòng chọn tệp CSV.';return;}
+  results=[];el('save').disabled=true;el('table').replaceChildren();el('chart').replaceChildren();el('predict').disabled=true;el('status').textContent='Đang dự đoán…';
+  try{
+    const response=await fetch('/predict?task='+el('task').value,{method:'POST',headers:{'Content-Type':'text/csv'},body:await file.text()});
+    const data=await response.json();if(!response.ok)throw new Error(data.error);
+    results=data.rows;el('status').textContent=`Đã dự đoán ${results.length} dòng.`;
+    const keys=Object.keys(results[0]);const head=document.createElement('tr');
+    keys.forEach(k=>{const c=document.createElement('th');c.textContent=k;head.append(c)});el('table').append(head);
+    results.forEach(row=>{const tr=document.createElement('tr');keys.forEach(k=>{const c=document.createElement('td');c.textContent=row[k];tr.append(c)});el('table').append(tr)});
+    Object.entries(data.counts).forEach(([name,count])=>{const bar=document.createElement('div');bar.className='bar';const fill=document.createElement('div');fill.className='fill';fill.style.width=100*count/results.length+'%';fill.textContent=`${name}: ${count}`;bar.append(fill);el('chart').append(bar)});
+    el('save').disabled=false;
+  }catch(error){el('status').textContent=error.message;}finally{el('predict').disabled=false;}
+};
+el('save').onclick=()=>{
+  if(!results.length)return;const keys=Object.keys(results[0]);
+  const escape=value=>'"'+String(value??'').replaceAll('"','""')+'"';
+  const text=[keys.map(escape).join(','),...results.map(row=>keys.map(k=>escape(row[k])).join(','))].join('\r\n');
+  const url=URL.createObjectURL(new Blob(['\ufeff',text],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='wesad_predictions.csv';a.click();URL.revokeObjectURL(url);
+};
+</script></html>

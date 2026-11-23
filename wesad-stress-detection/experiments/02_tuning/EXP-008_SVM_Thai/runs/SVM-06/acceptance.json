@@ -1,0 +1,14 @@
+{
+  "signature": "94335207007c3c51e54d720e8bc85ce9807bf3b6c66ab590b5a59286a36a8832",
+  "status": "complete",
+  "completed_at": "2026-11-22T15:02:47.017032+00:00",
+  "files": {
+    "config.json": "2c65b9822d91e51de212d9c7b9f8b4f789e05cb80dd15b7b0d274443e60f12ab",
+    "experiment.ipynb": "e63a33264fdff5f3e287f2168db449db280626957d8be5443ca0bfe40505ae1a",
+    "fold_details.json": "018a26dfcb78d314614223bf0f9b8a5290f3f9a497b071156af034ce9c0bbbe1",
+    "predictions.csv": "49f2b1b78b988ba360efe4fb930871a3e821ca057833799aed459342afa7fef8",
+    "results.csv": "c08deaf3327de8dd206ca69510e5078cb066d11cce7627eb6f33473653c77f16",
+    "summary.csv": "4ba25f5329d57f6900ddb79e1d7c874f835d798f08a7aaa89f9921cc84fabba6",
+    "summary.png": "ba656feada84f245c06fd52e398d3484e18002b519afc714d1ee4c882ab5b978"
+  }
+}

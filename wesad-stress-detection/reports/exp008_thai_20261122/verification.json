@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "verified_at": "2026-11-22T15:03:13.576803+00:00",
+  "runs": [
+    {
+      "run_id": "SVM-01",
+      "status": "passed",
+      "folds": 30,
+      "predictions": 12378,
+      "acceptance_sha256": "64eec5c72447c08d1673d8af6f219c45ad8b8055fb7f5961c86552676d7edb44"
+    },
+    {
+      "run_id": "SVM-02",
+      "status": "passed",
+      "folds": 30,
+      "predictions": 12378,
+      "acceptance_sha256": "9f1c61879007d4aa2c24612063c12b3d11207ba1519cfcac417671cc4fd68cb9"
+    },
+    {
+      "run_id": "SVM-03",
+      "status": "passed",
+      "folds": 30,
+      "predictions": 12378,
+      "acceptance_sha256": "bde4e1a9eda264dc2c8d7de82aecde0c52f4bf1469fa083ebebd2b561f3b46bf"
+    },
+    {
+      "run_id": "SVM-04",
+      "status": "passed",
+      "folds": 30,
+      "predictions": 12378,
+      "acceptance_sha256": "b15d1163daf4b7625d2f55e08c070562dc4a8a0b060f99eec8c909e103254a0d"
+    },
+    {
+      "run_id": "SVM-05",
+      "status": "passed",
+      "folds": 30,
+      "predictions": 12378,
+      "acceptance_sha256": "d5bec65073e1aeefc625503e337050432fb70dcb18c383e1b4828f6755de54b5"
+    },
+    {
+      "run_id": "SVM-06",
+      "status": "passed",
+      "folds": 30,
+      "predictions": 12378,
+      "acceptance_sha256": "69688bb3988eb8833e083dd3f62c846a3b6c810bca0d8b4a16c8226076842b6b"
+    }
+  ],
+  "log_entries": 12,
+  "nested_folds": 30,
+  "nested_predictions": 12378,
+  "files": {
+    "comparison.csv": "cb5ce07ada118aa39c088767fb6e49701a5734f2a9efee4ecab645d10ab72359",
+    "comparison.png": "f0eca6c5bdb832afa0e7ea0651fc2033144055ab3afaec0ff0197949626b2214",
+    "confusion_binary.png": "7570248b6723780ef7d347c414fe2e50535906242a760867ae6a9e461e743c11",
+    "confusion_multiclass.png": "b95d7aaa0677c4802dc9216b379214f69532b634bbae51e54edc53b52431839c",
+    "inner_decisions.csv": "5a6ef19af2f05e9822226f19fde08649003b067fc1bbc95f7720458f9eb29ed4",
+    "nested_predictions.csv": "203ddd18cebd2bf0fb4000a4cd09910483a0867920892420442cd180275f58e7",
+    "nested_results.csv": "dec008fbbe0a8688fc2e44c7c9f10c69496e02831fee92ec331d708b296239f3",
+    "paired_lr_comparison.csv": "026af86135bc57ebd0c346559f9d4e82099a70dd3c9272792240f303225a6f04",
+    "pooled_class_metrics.csv": "923dafc3e9a6ceb8769eed4a0f534927f45a2fdb11114ae5d97014b5ff79605a",
+    "README.md": "67369790c787dcacd2776cded08f6143fc5f3f5c33c865ca1aaaed48b5169b8b",
+    "selection_counts.csv": "f43ceb919ef7f73f933616346f77b87862e984d67746ffb742fd3ab6783637b4"
+  }
+}

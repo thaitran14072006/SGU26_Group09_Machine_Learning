@@ -1,0 +1,484 @@
+{
+  "multiclass": {
+    "stages": {
+      "feature_selection": {
+        "candidates": [
+          {
+            "run_id": "FS-01",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "none",
+            "C": 1.0,
+            "inner_macro_f1": 0.7008296773587656
+          },
+          {
+            "run_id": "FS-02",
+            "method": "mutual_info",
+            "selection_params": {
+              "selection__k": 48
+            },
+            "weight_policy": "none",
+            "C": 1.0,
+            "inner_macro_f1": 0.6708009397128928
+          },
+          {
+            "run_id": "FS-03",
+            "method": "correlation",
+            "selection_params": {
+              "selection__threshold": 0.95
+            },
+            "weight_policy": "none",
+            "C": 1.0,
+            "inner_macro_f1": 0.6545532418727863
+          }
+        ],
+        "chosen": {
+          "run_id": "FS-01",
+          "method": "anova",
+          "selection_params": {
+            "selection__k": 16
+          },
+          "weight_policy": "none",
+          "C": 1.0,
+          "inner_macro_f1": 0.7008296773587656
+        }
+      },
+      "balancing": {
+        "candidates": [
+          {
+            "run_id": "BAL-01",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "none",
+            "C": 1.0,
+            "inner_macro_f1": 0.7008296773587656
+          },
+          {
+            "run_id": "BAL-02",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "balanced",
+            "C": 1.0,
+            "inner_macro_f1": 0.73247766168108
+          },
+          {
+            "run_id": "BAL-03",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "sqrt_balanced",
+            "C": 1.0,
+            "inner_macro_f1": 0.722736936937844
+          }
+        ],
+        "chosen": {
+          "run_id": "BAL-02",
+          "method": "anova",
+          "selection_params": {
+            "selection__k": 16
+          },
+          "weight_policy": "balanced",
+          "C": 1.0,
+          "inner_macro_f1": 0.73247766168108
+        }
+      },
+      "tuning": {
+        "candidates": [
+          {
+            "run_id": "TUNE-01",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "balanced",
+            "C": 0.01,
+            "inner_macro_f1": 0.6706707452252393
+          },
+          {
+            "run_id": "TUNE-02",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "balanced",
+            "C": 0.1,
+            "inner_macro_f1": 0.7076289429588254
+          },
+          {
+            "run_id": "TUNE-03",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "balanced",
+            "C": 1.0,
+            "inner_macro_f1": 0.73247766168108
+          },
+          {
+            "run_id": "TUNE-04",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "balanced",
+            "C": 10.0,
+            "inner_macro_f1": 0.726699440540917
+          },
+          {
+            "run_id": "TUNE-05",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "balanced",
+            "C": 100.0,
+            "inner_macro_f1": 0.7225757946356878
+          }
+        ],
+        "chosen": {
+          "run_id": "TUNE-03",
+          "method": "anova",
+          "selection_params": {
+            "selection__k": 16
+          },
+          "weight_policy": "balanced",
+          "C": 1.0,
+          "inner_macro_f1": 0.73247766168108
+        }
+      }
+    },
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_resp_rate_std",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_splits": [
+      {
+        "train": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation": [
+          "S11",
+          "S14",
+          "S17",
+          "S2",
+          "S6"
+        ]
+      },
+      {
+        "train": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S17",
+          "S2",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation": [
+          "S10",
+          "S16",
+          "S3",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S2",
+          "S3",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation": [
+          "S13",
+          "S15",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "save_load_predictions_equal": true,
+    "save_load_probabilities_equal": true
+  },
+  "binary": {
+    "stages": {
+      "feature_selection": {
+        "candidates": [
+          {
+            "run_id": "FS-01",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "none",
+            "C": 1.0,
+            "inner_macro_f1": 0.9322724489411313
+          },
+          {
+            "run_id": "FS-02",
+            "method": "mutual_info",
+            "selection_params": {
+              "selection__k": 32
+            },
+            "weight_policy": "none",
+            "C": 1.0,
+            "inner_macro_f1": 0.9031935493149591
+          },
+          {
+            "run_id": "FS-03",
+            "method": "correlation",
+            "selection_params": {
+              "selection__threshold": 0.9
+            },
+            "weight_policy": "none",
+            "C": 1.0,
+            "inner_macro_f1": 0.8899436364524784
+          }
+        ],
+        "chosen": {
+          "run_id": "FS-01",
+          "method": "anova",
+          "selection_params": {
+            "selection__k": 16
+          },
+          "weight_policy": "none",
+          "C": 1.0,
+          "inner_macro_f1": 0.9322724489411313
+        }
+      },
+      "balancing": {
+        "candidates": [
+          {
+            "run_id": "BAL-01",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "none",
+            "C": 1.0,
+            "inner_macro_f1": 0.9322724489411313
+          },
+          {
+            "run_id": "BAL-02",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "balanced",
+            "C": 1.0,
+            "inner_macro_f1": 0.932457936644183
+          },
+          {
+            "run_id": "BAL-03",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "sqrt_balanced",
+            "C": 1.0,
+            "inner_macro_f1": 0.9326481215927731
+          }
+        ],
+        "chosen": {
+          "run_id": "BAL-03",
+          "method": "anova",
+          "selection_params": {
+            "selection__k": 16
+          },
+          "weight_policy": "sqrt_balanced",
+          "C": 1.0,
+          "inner_macro_f1": 0.9326481215927731
+        }
+      },
+      "tuning": {
+        "candidates": [
+          {
+            "run_id": "TUNE-01",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "sqrt_balanced",
+            "C": 0.01,
+            "inner_macro_f1": 0.9047273600085646
+          },
+          {
+            "run_id": "TUNE-02",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "sqrt_balanced",
+            "C": 0.1,
+            "inner_macro_f1": 0.9164765430611803
+          },
+          {
+            "run_id": "TUNE-03",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "sqrt_balanced",
+            "C": 1.0,
+            "inner_macro_f1": 0.9326481215927731
+          },
+          {
+            "run_id": "TUNE-04",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "sqrt_balanced",
+            "C": 10.0,
+            "inner_macro_f1": 0.9285905137283644
+          },
+          {
+            "run_id": "TUNE-05",
+            "method": "anova",
+            "selection_params": {
+              "selection__k": 16
+            },
+            "weight_policy": "sqrt_balanced",
+            "C": 100.0,
+            "inner_macro_f1": 0.9268178245949313
+          }
+        ],
+        "chosen": {
+          "run_id": "TUNE-03",
+          "method": "anova",
+          "selection_params": {
+            "selection__k": 16
+          },
+          "weight_policy": "sqrt_balanced",
+          "C": 1.0,
+          "inner_macro_f1": 0.9326481215927731
+        }
+      }
+    },
+    "selected_features": [
+      "chest_ecg_hr_mean_bpm",
+      "chest_ecg_hr_std_bpm",
+      "chest_ecg_mean_rr_ms",
+      "chest_ecg_power_10_20_hz",
+      "chest_eda_phasic_std",
+      "chest_eda_scr_amplitude_mean",
+      "chest_resp_rate_mean",
+      "chest_acc_x_5s_std_mean",
+      "chest_acc_z_5s_std_mean",
+      "chest_acc_magnitude_5s_std_mean",
+      "wrist_eda_phasic_std",
+      "wrist_eda_scr_count",
+      "wrist_eda_scr_rate_per_min",
+      "wrist_eda_scr_amplitude_mean",
+      "wrist_eda_scr_amplitude_max",
+      "wrist_acc_magnitude_5s_std_mean"
+    ],
+    "inner_splits": [
+      {
+        "train": [
+          "S10",
+          "S13",
+          "S15",
+          "S16",
+          "S3",
+          "S4",
+          "S5",
+          "S7",
+          "S8",
+          "S9"
+        ],
+        "validation": [
+          "S11",
+          "S14",
+          "S17",
+          "S2",
+          "S6"
+        ]
+      },
+      {
+        "train": [
+          "S11",
+          "S13",
+          "S14",
+          "S15",
+          "S17",
+          "S2",
+          "S4",
+          "S5",
+          "S6",
+          "S9"
+        ],
+        "validation": [
+          "S10",
+          "S16",
+          "S3",
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "train": [
+          "S10",
+          "S11",
+          "S14",
+          "S16",
+          "S17",
+          "S2",
+          "S3",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "validation": [
+          "S13",
+          "S15",
+          "S4",
+          "S5",
+          "S9"
+        ]
+      }
+    ],
+    "save_load_predictions_equal": true,
+    "save_load_probabilities_equal": true
+  }
+}

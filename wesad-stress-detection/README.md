@@ -70,3 +70,19 @@ Chuỗi LR gồm chọn đặc trưng (3 run), cân bằng lớp (3 run) và tun
 .\.venv\Scripts\python.exe scripts/continue_lr_experiments.py --status
 .\.venv\Scripts\python.exe scripts/continue_lr_experiments.py --max-runs 1
 ```
+
+## Demo CSV và bàn giao phần Thái ngày 22/11
+
+Chạy `.\.venv\Scripts\python.exe app/server.py`, mở `http://127.0.0.1:8080`,
+tải CSV mẫu và chọn binary/multiclass để dự đoán. Bundle LR ứng viên đã lưu
+ở `artifacts/models/lr_candidate_20261122/`; demo không cần train lại hoặc
+đọc raw WESAD. Dữ liệu mẫu chỉ minh họa suy luận, không phải test độc lập.
+
+- [Hướng dẫn chạy, nguồn minh chứng và câu hỏi vấn đáp](reports/thai_handoff_20261122/README.md).
+- [Sáu cấu hình SVM bổ sung thuộc EXP-008](reports/exp008_thai_20261122/README.md).
+- [Kết quả chuỗi LR đã nghiệm thu](reports/lr_workflow_20261121/README.md).
+
+EXP-008 bổ sung có C = 0.1/1/10 và gamma = 0.001/0.01, kernel RBF,
+68 đặc trưng, hai bài toán, đủ 15 outer LOSO fold mỗi task và inner GroupKFold(3).
+Các run SVM-01…06 là sáu cấu hình của cùng hướng EXP-008; không đổi mã của
+20 hướng hoặc ghi đè kết quả lịch sử của thành viên khác.

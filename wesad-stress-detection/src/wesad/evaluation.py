@@ -130,6 +130,7 @@ def run_experiment(config, resume=False, outer_subjects=None, allow_partial=Fals
                                 scoring=make_scorer(f1_score, average="macro", labels=labels, zero_division=0),
                                 n_jobs=1, refit=True, error_score="raise", return_train_score=False)
                         estimator.fit(X_train, y_train)
+                        train_predicted = estimator.predict(X_train) if config.get("record_train_metrics", False) else None
                         predicted = estimator.predict(X.iloc[test])
                         if hasattr(estimator, "best_params_"):
                             params = estimator.best_params_
@@ -149,6 +150,13 @@ def run_experiment(config, resume=False, outer_subjects=None, allow_partial=Fals
                         "classification_report": classification_report(y.iloc[test], predicted, labels=labels,
                             output_dict=True, zero_division=0),
                         "labels": labels, "confusion_matrix": confusion_matrix(y.iloc[test], predicted, labels=labels).tolist()}
+                    if train_predicted is not None:
+                        details["train_metrics"] = {
+                            "n_train": len(train),
+                            "macro_f1": float(f1_score(y_train, train_predicted, labels=labels, average="macro", zero_division=0)),
+                            "balanced_accuracy": float(balanced_accuracy_score(y_train, train_predicted)),
+                            "scope": "original outer-train windows, same fitted model as test, before ROS duplication",
+                        }
                     if config.get("record_mlp_loss", False) and name == "mlp":
                         fitted = estimator.best_estimator_ if hasattr(estimator, "best_estimator_") else estimator
                         model = fitted["model"]

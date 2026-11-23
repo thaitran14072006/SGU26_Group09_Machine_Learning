@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "new_runs": 7,
+  "new_outer_folds": 210,
+  "new_inner_fits": 720,
+  "new_train_test_same_fitted_model": true,
+  "baseline_42_rerun_same_environment": true
+}
